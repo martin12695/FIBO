@@ -137,9 +137,6 @@
 
                 </div><!--container close-->
             </div><!--tab-pane close-->
-
-
-
             <div class="tab-pane fade" id="change">
     <div class="container fom-main">
     <div class="row">

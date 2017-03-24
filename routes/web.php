@@ -14,8 +14,17 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/a', function () {
+Route::get('/index', function () {
+    return view('index');
+});
+Route::get('/edit-profile', function () {
     return view('edit_profile');
+});
+Route::get('/welcome', function () {
+    return view('welcome');
+});
+Route::get('/user-profile', function () {
+    return view('user_profile');
 });
 
 Route::post('/signin', 'HomeController@signin');
