@@ -14,6 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/a', function () {
+    return view('index');
+});
+
+
+
+
 
 
 Route::get('/gettest', 'HomeController@testdb');
