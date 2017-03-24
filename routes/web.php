@@ -18,9 +18,4 @@ Route::get('/a', function () {
     return view('index');
 });
 
-
-
-
-
-
-Route::get('/gettest', 'HomeController@testdb');
+Route::post('/signin', 'HomeController@signin');

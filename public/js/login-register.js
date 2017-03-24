@@ -6,6 +6,36 @@
  * Web script: http://creative-tim.com
  * 
  */
+var sign_form = angular.module('sign_form', [], function($interpolateProvider) {
+    $interpolateProvider.startSymbol('<%');
+    $interpolateProvider.endSymbol('%>');
+});
+sign_form.controller('sign_form_ctrl', function($scope) {
+    $scope.sign_in = function() {
+        if ( $scope.email =='' || $scope.pass =='' ){
+            shakeModal();
+        } else {
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                data: {
+                    email: $scope.email,
+                    pass: $scope.pass
+                },
+                url: '/signin',
+                success: function (data) {
+                    if ( data == 1) {
+                        shakeModal_after();
+                    }
+                },
+
+            });
+        }
+    }
+});
+
 function showRegisterForm(){
     $('.loginBox').fadeOut('fast',function(){
         $('.registerBox').fadeIn('fast');
@@ -44,28 +74,22 @@ function openRegisterModal(){
     
 }
 
-function loginAjax(){
-    /*   Remove this comments when moving to server
-    $.post( "/login", function( data ) {
-            if(data == 1){
-                window.location.replace("/home");            
-            } else {
-                 shakeModal(); 
-            }
-        });
-    */
-
-/*   Simulate error message from the server   */
-     shakeModal();
-}
-
 function shakeModal(){
     $('#loginModal .modal-dialog').addClass('shake');
-             $('.error').addClass('alert alert-danger').html("Invalid email/password combination");
+             $('.error').addClass('alert alert-danger').html("Email/ Mật khẩu không được để trống");
              $('input[type="password"]').val('');
              setTimeout( function(){ 
                 $('#loginModal .modal-dialog').removeClass('shake'); 
     }, 1000 ); 
+}
+
+function shakeModal_after(){
+    $('#loginModal .modal-dialog').addClass('shake');
+    $('.error').addClass('alert alert-danger').html("Email hoặc mật khẩu không đúng!");
+    $('input[type="password"]').val('');
+    setTimeout( function(){
+        $('#loginModal .modal-dialog').removeClass('shake');
+    }, 1000 );
 }
 
    

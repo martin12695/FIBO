@@ -1,4 +1,13 @@
-<div class="modal fade login" id="loginModal">
+<script>
+
+</script>
+<script>
+
+
+
+</script>
+
+<div class="modal fade login" id="loginModal" ng-app="sign_form" ng-controller="sign_form_ctrl">
     <div class="modal-dialog login animated">
         <div class="modal-content">
            <div class="modal-header">
@@ -27,9 +36,9 @@
                       <div class="error"></div>
                       <div class="form loginBox">
                           <form method="post" action="/login" accept-charset="UTF-8">
-                          <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                          <input id="password" class="form-control" type="password" placeholder="Password" name="password">
-                          <input class="btn btn-default btn-login" type="button" value="Login" onclick="loginAjax()">
+                          <input id="email" class="form-control" type="text" placeholder="Email"  ng-model="email">
+                          <input id="password" class="form-control" type="password" placeholder="Password" ng-model="pass" >
+                          <input class="btn btn-default btn-login" type="button" value="Login" ng-click="sign_in()">
                           </form>
                       </div>
                    </div>
@@ -38,7 +47,7 @@
                   <div class="content registerBox" style="display:none;">
                    <div class="form">
                       <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
-                      <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                      <input id="email" class="form-control" type="text" placeholder="Email" name="email" value="sadadsad">
                       <input id="password" class="form-control" type="password" placeholder="Password" name="password">
                       <input id="password_confirmation" class="form-control" type="password" placeholder="Repeat Password" name="password_confirmation">
                       <input class="btn btn-default btn-register" type="submit" value="Create account" name="commit">
@@ -61,3 +70,4 @@
         </div>
     </div>
 </div>
+
