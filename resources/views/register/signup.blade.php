@@ -1,4 +1,4 @@
-<div class="modal fade login" id="loginModal">
+<div class="modal fade login" id="loginModal" ng-app="sign_form" ng-controller="sign_form_ctrl">
     <div class="modal-dialog login animated">
         <div class="modal-content">
            <div class="modal-header">

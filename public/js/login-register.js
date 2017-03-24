@@ -11,8 +11,11 @@ var sign_form = angular.module('sign_form', [], function($interpolateProvider) {
     $interpolateProvider.endSymbol('%>');
 });
 sign_form.controller('sign_form_ctrl', function($scope) {
+    console.log($scope.pass);
+    $scope.pass ='';
+    $scope.email =''
     $scope.sign_in = function() {
-        if ( $scope.email =='' || $scope.pass =='' ){
+        if ( $scope.email =='' || $scope.pass ==''){
             shakeModal();
         } else {
             $.ajax({
