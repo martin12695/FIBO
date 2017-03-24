@@ -15,6 +15,7 @@
         <link href="css/main.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
         <link href="css/login-register.css" rel="stylesheet" />
+        <link href="css/bootstrap-select.css" rel="stylesheet" />
         @yield('custom-css')
         <!--[if lt IE 9]>
         <script src="js/html5shiv.js"></script>
@@ -29,14 +30,14 @@
         <script src="js/jquery-3.2.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
         <script src="js/angular.min.js"></script>
-        <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/login-register.js" type="text/javascript"></script>
         <script src="js/user-profile.js" type="text/javascript"></script>
+        <script src="js/bootstrap-select.js" type="text/javascript"></script>
 
     </head><!--/head-->
     <body>
-        <header id="header"><!--header-->
+    <header id="header"><!--header-->
         <div class="header_top"><!--header_top-->
             <div class="container">
                 <div class="row">
