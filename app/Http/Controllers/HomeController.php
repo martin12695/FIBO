@@ -21,12 +21,16 @@ use Auth;
 class HomeController
 {
 
-    public function testdb() {
-        $shopType = DB::select('select * from user');
-        return view('test', [
-            'shopType' => $shopType,
-        ]);
+    public function signin(Request $request) {
+        $info = $request->input();
+        $passMd5 = md5($info['pass']);;
+        $login = DB::select('select * from user where email = ? and password = ? limit 1', [$info['email'], $passMd5]);
+        if (!empty($login)) {
+            return \Response::json(0);
 
+        }
+        else {
+            return \Response::json(1);
+        }
     }
-
 }
