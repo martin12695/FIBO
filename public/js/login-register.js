@@ -42,7 +42,7 @@ function showRegisterForm(){
         $('.login-footer').fadeOut('fast',function(){
             $('.register-footer').fadeIn('fast');
         });
-        $('.modal-title').html('Register with');
+        $('.modal-title').html('Đăng ký với');
     }); 
     $('.error').removeClass('alert alert-danger').html('');
        
@@ -54,7 +54,7 @@ function showLoginForm(){
             $('.login-footer').fadeIn('fast');    
         });
         
-        $('.modal-title').html('Login with');
+        $('.modal-title').html('Đăng nhập với');
     });       
      $('.error').removeClass('alert alert-danger').html(''); 
 }
