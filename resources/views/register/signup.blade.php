@@ -28,7 +28,7 @@
                       <div class="form loginBox">
                           <form method="post" action="/login" accept-charset="UTF-8">
                           <input id="email" class="form-control" type="text" placeholder="Email"  ng-model="email">
-                          <input id="password" class="form-control" type="password" placeholder="Password" ng-model="pass" >
+                          <input id="password" class="form-control" type="password" placeholder="Mật khẩu" ng-model="pass" >
                           <input class="btn btn-default btn-login" type="button" value="Login" ng-click="sign_in()">
                           </form>
                       </div>
