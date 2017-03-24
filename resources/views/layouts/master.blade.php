@@ -15,6 +15,7 @@
         <link href="css/main.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
         <link href="css/login-register.css" rel="stylesheet" />
+        @yield('custom-css')
         <!--[if lt IE 9]>
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
@@ -31,6 +32,8 @@
         <script src="js/jquery-1.10.2.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/login-register.js" type="text/javascript"></script>
+        <script src="js/user-profile.js" type="text/javascript"></script>
+
     </head><!--/head-->
     <body>
         <header id="header"><!--header-->
