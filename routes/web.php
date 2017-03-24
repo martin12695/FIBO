@@ -21,3 +21,6 @@ Route::get('/a', function () {
 
 
 
+
+
+Route::get('/gettest', 'HomeController@testdb');
