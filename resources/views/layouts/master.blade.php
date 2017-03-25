@@ -16,6 +16,7 @@
         <link href="css/responsive.css" rel="stylesheet">
         <link href="css/login-register.css" rel="stylesheet" />
         <link href="css/bootstrap-select.css" rel="stylesheet" />
+        <link href="css/lib/sweetalert.css" rel="stylesheet" />
         @yield('custom-css')
         <!--[if lt IE 9]>
         <script src="js/html5shiv.js"></script>
@@ -31,9 +32,12 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/angular.min.js"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/lib/sweetalert.min.js" type="text/javascript"></script>
         <script src="js/login-register.js" type="text/javascript"></script>
         <script src="js/user-profile.js" type="text/javascript"></script>
         <script src="js/bootstrap-select.js" type="text/javascript"></script>
+        @yield('custom-js')
+
 
     </head><!--/head-->
     <body>
@@ -71,8 +75,12 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href=""><i class="fa fa-user"></i> Chi Tiết Tài khoản</a></li>
+                                @if(session()->has('userId'))
+                                <li><a href="/user-profile"><i class="fa fa-user"></i> Chi Tiết Tài khoản</a></li>
+                                <li><button type="button" class="btn btn-warning" onclick="window.location.href='/signout'">Đăng xuất</button></li>
+                                @else
                                 <li><a class="btn big-login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng nhập</a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>

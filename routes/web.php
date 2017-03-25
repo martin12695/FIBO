@@ -20,8 +20,7 @@ Route::get('/index', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 });
-Route::get('/user-profile', function () {
-    return view('user_profile');
-});
-
+Route::get('/user-profile', 'UserController@initPage');
 Route::post('/signin', 'HomeController@signin');
+Route::post('/signup', 'HomeController@signup');
+Route::get('/signout', 'HomeController@signout');

@@ -23,7 +23,7 @@
                       </div>
                       <div class="error"></div>
                       <div class="form loginBox">
-                          <form method="post" action="/login" accept-charset="UTF-8">
+                          <form method="post" accept-charset="UTF-8">
                           <input id="email" class="form-control" type="text" placeholder="Email"  ng-model="email">
                           <input id="password" class="form-control" type="password" placeholder="Mật khẩu" ng-model="pass" >
                           <input class="btn btn-default btn-login" type="button" value="Đăng Nhập" ng-click="sign_in()">
@@ -34,11 +34,13 @@
               <div class="box">
                   <div class="content registerBox" style="display:none;">
                    <div class="form">
-                      <form method="post" html="{:multipart=>true}" data-remote="true" action="/register" accept-charset="UTF-8">
-                        <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                        <input id="password" class="form-control" type="password" placeholder="Mật Khẩu" name="password">
-                        <input id="password_confirmation" class="form-control" type="password" placeholder="Lặp Lại Mật Khẩu" name="password_confirmation">
-                        <input class="btn btn-default btn-register" type="submit" value="Tạo tài khoản" name="commit">
+                      <form method="post" html="{:multipart=>true}" data-remote="true" accept-charset="UTF-8">
+                        <input class="form-control" type="text" placeholder="Email" ng-model="email_reg">
+                        <input class="form-control" type="password" placeholder="Mật Khẩu" ng-model="pass_reg">
+                        <input class="form-control" type="password" placeholder="Lặp Lại Mật Khẩu" ng-model="repass_reg">
+                        <input class="form-control" type="text" placeholder="Họ, tên" ng-model="name_reg">
+                        <input class="form-control" type="text" placeholder="Điện thoại" ng-model="phone_reg">
+                        <input class="btn btn-default btn-register" type="button" value="Tạo tài khoản" ng-click="sign_up()">
                       </form>
                       </div>
                   </div>

@@ -185,14 +185,12 @@
                     </div>
                     <div class="col-sm-7">
                         <div class="product-information">
-                            <h2>Nguyyễn Hữu Trung</h2>
-                            <p>Web ID: 1089772</p>
-                            <span>
-                                <span>Giới Tính: Nam</span>
-                            </span>
-                            <p><b>Email:</b> huutrung.mmt@gmail.com</p>
-                            <p><b>Số Điện Thoại:</b> 0986xxxxxx</p>
-                            <p><b>Địa Chỉ:</b> Việt Nam</p>
+                            @if(!empty($info_basic))
+                            <h2>{{$info_basic->name}}</h2>
+                            <p>Web ID: {{$info_basic->id}}</p>
+                            <p><b>Email:</b> {{$info_basic->email}}</p>
+                            <p><b>Số Điện Thoại:</b> {{$info_basic->phone}}</p>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -213,30 +211,34 @@
                                         <tbody>
                                         <tr>
                                             <td>Chiều cao</td>
-                                            <td><input type="text" class="form-control" id="height"></td>
+                                            <td><input type="text" class="form-control" id="height" value="{{$infoDes->height}}"></td>
                                             <td> cm</td>
                                         </tr>
                                         <tr>
                                             <td>Cân nặng</td>
-                                            <td><input type="text" class="form-control" id="weight"></td>
+                                            <td><input type="text" class="form-control" id="weight" value="{{$infoDes->weight}}"></td>
                                             <td> kg</td>
                                         </tr>
                                         <tr>
                                             <td>Thân hình</td>
                                             <td>
                                                 <div class="form-group">
-                                                    <select class="form-control" id="body">
-                                                        <option>1</option>
+                                                    <select class="form-control" >
+                                                        @foreach($body as $itemBody)
+                                                            <option value="{{$itemBody->id}}" {{$itemBody->id == '2' ?  'selected="selected"' : ''}}>{{$itemBody->value}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>Tình hình tài chính</td>
-                                            <td>
+                                            <td >
                                                 <div class="form-group">
-                                                    <select class="form-control" id="financy">
-                                                        <option>1</option>
+                                                    <select class="form-control" >
+                                                        @foreach($finace as $itemFinace)
+                                                            <option value="{{$itemFinace->id}}" {{$itemFinace->id == '2' ?  'selected="selected"' : ''}}>{{$itemFinace->value}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </td>
@@ -252,18 +254,20 @@
                                         <tbody>
                                         <tr>
                                             <td>Tóc</td>
-                                            <td><input type="text" class="form-control" id="hair"></td>
+                                            <td><input type="text" class="form-control" id="hair" value="{{$infoDes->hair}}"></td>
                                         </tr>
                                         <tr>
                                             <td>Ưu tiên trong cuộc sống</td>
-                                            <td><input type="text" class="form-control" id="priority_life"></td>
+                                            <td><input type="text" class="form-control" id="priority_life" value="{{$infoDes->priority_in_life}}"></td>
                                         </tr>
                                         <tr>
                                             <td>Đối tượng tìm kiếm</td>
                                             <td>
                                                 <div class="form-group">
-                                                    <select class="form-control" id="subject_find">
-                                                        <option>1</option>
+                                                    <select class="form-control">
+                                                        @foreach($findSub as $itemSub)
+                                                        <option value="{{$itemSub->id}}" {{$itemSub->id == '2' ?  'selected="selected"' : ''}} >{{$itemSub->value}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </td>
@@ -272,8 +276,10 @@
                                             <td>Độ tuổi</td>
                                             <td>
                                                 <div class="form-group">
-                                                    <select class="form-control" id="eag">
-                                                        <option>1</option>
+                                                    <select class="form-control">
+                                                        @foreach($findAge as $itemAge)
+                                                            <option value="{{$itemAge->id}}" {{$itemAge->id == '2' ?  'selected="selected"' : ''}} >{{$itemAge->value}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </td>
@@ -315,11 +321,11 @@
                         <div class="tab-pane fade active in" id="reviews" >
                             <div class="col-sm-12">
                                 <form action="#">
-                                    <input type="text" class="form-control" placeholder="Họ Tên Của Bạn" name="name"/>
+                                    <input type="text" class="form-control" placeholder="Họ Tên Của Bạn" value="{{$info_basic->name}}"/>
                                     <br>
-                                    <input type="email" class="form-control" placeholder="Email" name="email"/>
+                                    <input type="email" class="form-control" placeholder="Email" value="{{$info_basic->email}}" readonly>
                                     <br>
-                                    <input type="text" class="form-control" placeholder="Số Điện Thoại" name="phone"/>
+                                    <input type="text" class="form-control" placeholder="Số Điện Thoại" value="{{$info_basic->phone}}"/>
                                     <br>
                                     <input type="text" class="form-control" placeholder="Địa Chỉ" name="address"/>
                                     <br>
