@@ -17,9 +17,6 @@ Route::get('/', function () {
 Route::get('/index', function () {
     return view('index');
 });
-Route::get('/edit-profile', function () {
-    return view('edit_profile');
-});
 Route::get('/welcome', function () {
     return view('welcome');
 });
