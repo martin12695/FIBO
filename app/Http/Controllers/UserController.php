@@ -29,7 +29,6 @@ class UserController
             $finace = DB::table('option_finace')->get();
             $body = DB::table('option_body')->get();
             $infoDes =  DB::table('user_description')->where('user_id', session('userId'))->first();
-            var_dump($infoDes);
             return view('user_profile',[
                 'info_basic' => $info,
                 'infoDes'    => $infoDes,
