@@ -138,7 +138,7 @@
                     </div><!--/price-range-->
 
                     <div class="shipping text-center"><!--shipping-->
-                        <img src="images/home/shipping.jpg" alt="" />
+                        <img src="/images/home/shipping.jpg" alt="" />
                     </div><!--/shipping-->
 
                 </div>
@@ -148,7 +148,7 @@
                 <div class="product-details"><!--product-details-->
                     <div class="col-sm-5">
                         <div class="view-product">
-                            <img src="images/product-details/1.jpg" alt="" />
+                            <img src="{{ URL::asset('images/product-details/1.jpg') }}" alt="" />
                             <h3>Upload ảnh</h3>
                         </div>
                         <div id="similar-product" class="carousel slide" data-ride="carousel">
@@ -156,20 +156,14 @@
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-                                    <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-                                    <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+                                    <a href=""> <img src="{{ URL::asset('images/home/recommend2.jpg') }}" alt="" /></a>
+                                    <a href=""> <img src="{{ URL::asset('images/home/recommend2.jpg') }}" alt="" /></a>
+                                    <a href=""> <img src="{{ URL::asset('images/home/recommend2.jpg') }}" alt="" /></a>
                                 </div>
                                 <div class="item">
-                                    <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-                                    <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-                                    <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+                                    <a href=""> <img src="{{ URL::asset('images/home/recommend2.jpg') }}" alt="" /></a>
                                 </div>
-                                <div class="item">
-                                    <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-                                    <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-                                    <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
-                                </div>
+
 
                             </div>
 
@@ -203,151 +197,150 @@
                             <li class="active"><a href="#reviews" data-toggle="tab">Thông Tin Cá Nhân</a></li>
                         </ul>
                     </div>
-                    <div class="tab-content">
-                        <div class="tab-pane fade" id="details" >
-                            <div class="col-md-6">
-                                <div class="table-responsive responsiv-table">
-                                    <table class="table bio-table">
-                                        <tbody>
-                                        <tr>
-                                            <td>Chiều cao</td>
-                                            <td><input type="text" class="form-control" id="height" value="{{$infoDes->height}}"></td>
-                                            <td> cm</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Cân nặng</td>
-                                            <td><input type="text" class="form-control" id="weight" value="{{$infoDes->weight}}"></td>
-                                            <td> kg</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Thân hình</td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <select class="form-control" >
-                                                        @foreach($body as $itemBody)
-                                                            <option value="{{$itemBody->id}}" {{$itemBody->id == '2' ?  'selected="selected"' : ''}}>{{$itemBody->value}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Tình hình tài chính</td>
-                                            <td >
-                                                <div class="form-group">
-                                                    <select class="form-control" >
-                                                        @foreach($finace as $itemFinace)
-                                                            <option value="{{$itemFinace->id}}" {{$itemFinace->id == '2' ?  'selected="selected"' : ''}}>{{$itemFinace->value}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
+                    <form action="updateInfo" method="post">
+                        <div class="tab-content">
 
-                                <div class="table-responsive responsiv-table">
-                                    <table class="table bio-table">
-                                        <tbody>
-                                        <tr>
-                                            <td>Tóc</td>
-                                            <td><input type="text" class="form-control" id="hair" value="{{$infoDes->hair}}"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ưu tiên trong cuộc sống</td>
-                                            <td><input type="text" class="form-control" id="priority_life" value="{{$infoDes->priority_in_life}}"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Đối tượng tìm kiếm</td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <select class="form-control">
-                                                        @foreach($findSub as $itemSub)
-                                                        <option value="{{$itemSub->id}}" {{$itemSub->id == '2' ?  'selected="selected"' : ''}} >{{$itemSub->value}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Độ tuổi</td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <select class="form-control">
-                                                        @foreach($findAge as $itemAge)
-                                                            <option value="{{$itemAge->id}}" {{$itemAge->id == '2' ?  'selected="selected"' : ''}} >{{$itemAge->value}}</option>
-                                                        @endforeach
-                                                    </select>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="companyprofile" >
-                            <div class="col-md-6">
-
-                                <div class="table-responsive responsiv-table">
-                                    <table class="table bio-table">
-                                        <tbody>
-                                        <tr>
-                                            <td>Âm nhạc</td>
-                                            <td><input type="text" class="form-control" id="music"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Phim</td>
-                                            <td><input type="text" class="form-control" id="movie"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Thể thao</td>
-                                            <td><input type="text" class="form-control" id="sport"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Sở Thích</td>
-                                            <td><input type="text" class="form-control" id="hobby"></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="tab-pane fade active in" id="reviews" >
-                            <div class="col-sm-12">
-                                <form action="#">
-                                    <input type="text" class="form-control" placeholder="Họ Tên Của Bạn" value="{{$info_basic->name}}"/>
-                                    <br>
-                                    <input type="email" class="form-control" placeholder="Email" value="{{$info_basic->email}}" readonly>
-                                    <br>
-                                    <input type="text" class="form-control" placeholder="Số Điện Thoại" value="{{$info_basic->phone}}"/>
-                                    <br>
-                                    <input type="text" class="form-control" placeholder="Địa Chỉ" name="address"/>
-                                    <br>
-                                    <div class="form-group">
-                                        <select class="form-control">
-                                            <option>Nam</option>
-                                            <option>Nữ</option>
-                                        </select>
+                                <div class="tab-pane fade" id="details" >
+                                    <div class="col-md-6">
+                                        <div class="table-responsive responsiv-table">
+                                            <table class="table bio-table">
+                                                <tbody>
+                                                <tr>
+                                                    <td>Chiều cao</td>
+                                                    <td><input type="text" class="form-control" name="height" value="{{$infoDes->height}}"></td>
+                                                    <td> cm</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cân nặng</td>
+                                                    <td><input type="text" class="form-control" name="weight" value="{{$infoDes->weight}}"></td>
+                                                    <td> kg</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Thân hình</td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <select class="form-control" >
+                                                                @foreach($body as $itemBody)
+                                                                    <option value="{{$itemBody->id}}" {{$itemBody->id == $infoDes->body ?  'selected="selected"' : ''}}>{{$itemBody->value}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Tình hình tài chính</td>
+                                                    <td >
+                                                        <div class="form-group">
+                                                            <select class="form-control" name="finance">
+                                                                @foreach($finace as $itemFinance)
+                                                                    <option value="{{$itemFinance->id}}" {{$itemFinance->id == $infoDes->finance ?  'selected="selected"' : ''}}>{{$itemFinance->value}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
-                                    <input type="password" class="form-control" placeholder="Mật Khẩu Cũ" name="old_password"/>
-                                    <br>
-                                    <input type="password" class="form-control" placeholder="Mật Khẩu Mới" name="new_password"/>
-                                    <br>
+                                    <div class="col-md-6">
 
-                                    <button type="button" class="btn btn-default pull-right">
-                                        Lưu Thay Đổi
-                                    </button>
-                                </form>
-                            </div>
+                                        <div class="table-responsive responsiv-table">
+                                            <table class="table bio-table">
+                                                <tbody>
+                                                <tr>
+                                                    <td>Tóc</td>
+                                                    <td><input type="text" class="form-control" name="hair" value="{{$infoDes->hair}}"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ưu tiên trong cuộc sống</td>
+                                                    <td><input type="text" class="form-control" name="priority_life" value="{{$infoDes->priority_in_life}}"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Đối tượng tìm kiếm</td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <select class="form-control" name="findSub">
+                                                                @foreach($findSub as $itemSub)
+                                                                <option value="{{$itemSub->id}}" {{$itemSub->id == $infoDes->subject_find ?  'selected="selected"' : ''}} >{{$itemSub->value}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Độ tuổi</td>
+                                                    <td>
+                                                        <div class="form-group">
+                                                            <select class="form-control" name="findAge">
+                                                                @foreach($findAge as $itemAge)
+                                                                    <option value="{{$itemAge->id}}" {{$itemAge->id == $infoDes->subject_eag ?  'selected="selected"' : ''}} >{{$itemAge->value}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="companyprofile" >
+                                    <div class="col-md-6">
+                                        <div class="table-responsive responsiv-table">
+                                            <table class="table bio-table">
+                                                <tbody>
+                                                <tr>
+                                                    <td>Âm nhạc</td>
+                                                    <td><input type="text" class="form-control" name="music" value="{{$infoHobby->music}}"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Phim</td>
+                                                    <td><input type="text" class="form-control" name="movie" value="{{$infoHobby->movie}}"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Thể thao</td>
+                                                    <td><input type="text" class="form-control" name="sport" value="{{$infoHobby->sport}}"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sở Thích</td>
+                                                    <td><input type="text" class="form-control" name="hobby" value="{{$infoHobby->hobby}}"></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade active in" id="reviews" >
+                                    <div class="col-sm-12">
+                                            <input type="text" class="form-control" placeholder="Họ Tên Của Bạn" value="{{$info_basic->name}}"/>
+                                            <br>
+                                            <input type="email" class="form-control" placeholder="Email" value="{{$info_basic->email}}" readonly>
+                                            <br>
+                                            <input type="text" class="form-control" placeholder="Số Điện Thoại" value="{{$info_basic->phone}}"/>
+                                            <br>
+                                            <input type="text" class="form-control" placeholder="Địa Chỉ" name="address"/>
+                                            <br>
+                                            <div class="form-group">
+                                                <select class="form-control">
+                                                    <option>Nam</option>
+                                                    <option>Nữ</option>
+                                                </select>
+                                            </div>
+                                            <input type="password" class="form-control" placeholder="Mật Khẩu Cũ" name="old_password"/>
+                                            <br>
+                                            <input type="password" class="form-control" placeholder="Mật Khẩu Mới" name="new_password"/>
+                                            <br>
+                                    </div>
+                                </div>
                         </div>
-
-                    </div>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <div class="form-actions">
+                            <button type="submit" class="btn">CẬP NHẬT</button>
+                        </div>
+                    </form>
                 </div><!--/category-tab-->
 
                 <div class="recommended_items"><!--recommended_items-->
@@ -360,7 +353,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" alt="" />
+                                                <img src="{{ URL::asset('images/home/recommend2.jpg') }}" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -372,7 +365,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" alt="" />
+                                                <img src="{{ URL::asset('images/home/recommend2.jpg') }}" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -384,7 +377,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" alt="" />
+                                                <img src="{{ URL::asset('images/home/recommend2.jpg') }}" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -398,7 +391,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend1.jpg" alt="" />
+                                                <img src="{{ URL::asset('images/home/recommend2.jpg') }}" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -410,7 +403,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend2.jpg" alt="" />
+                                                <img src="{{ URL::asset('images/home/recommend2.jpg') }}" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
@@ -422,7 +415,7 @@
                                     <div class="product-image-wrapper">
                                         <div class="single-products">
                                             <div class="productinfo text-center">
-                                                <img src="images/home/recommend3.jpg" alt="" />
+                                                <img src="{{ URL::asset('images/home/recommend2.jpg') }}" alt="" />
                                                 <h2>$56</h2>
                                                 <p>Easy Polo Black Edition</p>
                                                 <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>

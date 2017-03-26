@@ -20,7 +20,12 @@ Route::get('/index', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 });
-Route::get('/user-profile', 'UserController@initPage');
+Route::group(['prefix' => 'user'], function () {
+    Route::get('profile', 'UserController@initPage');
+    Route::post('updateInfo', 'UserController@updateInfo');
+});
+
+Route::get('/signout', 'HomeController@signout');
 Route::post('/signin', 'HomeController@signin');
 Route::post('/signup', 'HomeController@signup');
 Route::get('/signout', 'HomeController@signout');

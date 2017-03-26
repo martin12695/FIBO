@@ -29,14 +29,48 @@ class UserController
             $finace = DB::table('option_finace')->get();
             $body = DB::table('option_body')->get();
             $infoDes =  DB::table('user_description')->where('user_id', session('userId'))->first();
+            if (empty($infoDes)) {
+                $infoDes = new \stdClass();
+                $infoDes->height = '';
+                $infoDes->weight = '';
+                $infoDes->body = 1;
+                $infoDes->finance = 1;
+                $infoDes->hair = '';
+                $infoDes->priority_in_life = '';
+                $infoDes->subject_find = 1;
+                $infoDes->subject_eag = 1;
+            }
+            $infoHobby =  DB::table('user_hobby')->where('user_id', session('userId'))->first();
+            if (empty($infoHobby)) {
+                $infoHobby = new \stdClass();
+                $infoHobby->music = '';
+                $infoHobby->movie = '';
+                $infoHobby->sport = '';
+                $infoHobby->hobby = '';
+            }
+
             return view('user_profile',[
                 'info_basic' => $info,
                 'infoDes'    => $infoDes,
+                'infoHobby'  => $infoHobby,
                 'findAge'    => $findAge,
                 'findSub'    => $findSub,
                 'finace'     => $finace,
                 'body'       => $body
             ]);
         }
+    }
+
+    public function updateInfo(Request $request) {
+        $info = $request->input();
+        DB::insert('INSERT INTO user_hobby (user_id, music, movie, sport, hobby) VALUES(?, ?, ?, ?, ?) 
+                   ON DUPLICATE KEY UPDATE music= ?, movie= ?, sport= ?, hobby= ?',
+                    [session('userId'),$info['music'],
+                    $info['movie'], $info['sport'],
+                    $info['hobby'], $info['music'],
+                    $info['movie'], $info['sport'],
+                    $info['hobby'],
+                    ]);
+        return redirect('/user/profile');
     }
 }
