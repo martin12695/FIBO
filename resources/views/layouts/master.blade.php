@@ -16,6 +16,7 @@
         <link href="css/responsive.css" rel="stylesheet">
         <link href="css/login-register.css" rel="stylesheet" />
         <link href="css/bootstrap-select.css" rel="stylesheet" />
+        <link href="css/thumbnail-gallery.css" rel="stylesheet" />
         <link href="css/lib/sweetalert.css" rel="stylesheet" />
         @yield('custom-css')
         <!--[if lt IE 9]>

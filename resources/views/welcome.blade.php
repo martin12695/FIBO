@@ -2,35 +2,37 @@
 @section('title', 'Chào Mừng Bạn Đến Với FiBo')
 @section('content')
     <section id="form"><!--form-->
-        <div class="container">
+        <div class="tz-gallery">
             <div class="row">
-                <div class="col-sm-4 col-sm-offset-1">
-                    <div class="login-form"><!--login form-->
-                        <h2>Đăng Nhập</h2>
-                        <form action="#">
-                            <input type="email" placeholder="Email" />
-                            <input type="password" placeholder="Mật Khẩu" />
-                            <span>
-								<input type="checkbox" class="checkbox">
-								Ghi nhớ tài khoản
-							</span>
-                            <button type="submit" class="btn btn-default">Đăng Nhập</button>
-                        </form>
-                    </div><!--/login form-->
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="">
+                            <img src="images/park.jpg" alt="Park">
+                        </a>
+                        <div class="caption">
+                            <h3>Trang Chủ</h3>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-1">
-                    <h2 class="or">Hoặc</h2>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="">
+                            <img src="images/bridge.jpg" alt="Bridge">
+                        </a>
+                        <div class="caption">
+                            <h3>Confession</h3>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-4">
-                    <div class="signup-form"><!--sign up form-->
-                        <h2>Tạo Tài Khoản Mới</h2>
-                        <form action="#">
-                            <input type="email" placeholder="Email"/>
-                            <input type="password" placeholder="Mật Khẩu"/>
-                            <input type="password" placeholder="Nhập Lại Mật Khẩu"/>
-                            <button type="submit" class="btn btn-default">Đăng Ký</button>
-                        </form>
-                    </div><!--/sign up form-->
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <a class="lightbox" href="">
+                            <img src="images/tunnel.jpg" alt="Tunnel">
+                        </a>
+                        <div class="caption">
+                            <h3>Tìm Kiếm</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
