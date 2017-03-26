@@ -36,10 +36,10 @@
                    <div class="form">
                       <form method="post" html="{:multipart=>true}" data-remote="true" accept-charset="UTF-8">
                         <input class="form-control" type="text" placeholder="Email" ng-model="email_reg">
+                          <input class="form-control" type="text" placeholder="Họ & Tên" ng-model="name_reg">
+                          <input class="form-control" type="text" placeholder="Điện thoại" ng-model="phone_reg">
                         <input class="form-control" type="password" placeholder="Mật Khẩu" ng-model="pass_reg">
                         <input class="form-control" type="password" placeholder="Lặp Lại Mật Khẩu" ng-model="repass_reg">
-                        <input class="form-control" type="text" placeholder="Họ, tên" ng-model="name_reg">
-                        <input class="form-control" type="text" placeholder="Điện thoại" ng-model="phone_reg">
                         <input class="btn btn-default btn-register" type="button" value="Tạo tài khoản" ng-click="sign_up()">
                       </form>
                       </div>

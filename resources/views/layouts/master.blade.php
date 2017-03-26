@@ -17,10 +17,12 @@
         <link href="/css/login-register.css" rel="stylesheet" />
         <link href="/css/bootstrap-select.css" rel="stylesheet" />
         <link href="/css/lib/sweetalert.css" rel="stylesheet" />
+        <link href="/css/thumbnail-gallery.css" rel="stylesheet" />
+        <link href="/css/lib/sweetalert.css" rel="stylesheet" />
         @yield('custom-css')
         <!--[if lt IE 9]>
-        <script src="/js/html5shiv.js"></script>
-        <script src="/js/respond.min.js"></script>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
         <![endif]-->
         <link rel="shortcut icon" href="images/ico/favicon.ico">
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
@@ -106,6 +108,12 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </button>
+                        </div>
+                        <div class="mainmenu pull-left">
+                            <ul class="nav navbar-nav collapse navbar-collapse">
+                                <li><a href="index.html">Trang Chủ</a></li>
+                                <li><a href="contact-us.html">Liên Hệ</a></li>
+                            </ul>
                         </div>
                     </div>
                     <div class="col-sm-3">
