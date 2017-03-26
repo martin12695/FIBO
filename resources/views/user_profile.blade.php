@@ -203,149 +203,141 @@
                             <li class="active"><a href="#reviews" data-toggle="tab">Thông Tin Cá Nhân</a></li>
                         </ul>
                     </div>
-                    <form>
+                <form action="updateInfo" method="post">
                     <div class="tab-content">
                         <div class="tab-pane fade" id="details" >
                             <div class="replay-box">
                                 <div class="row">
-                                    <div class="col-sm-4">
-                                            <div class="blank-arrow">
-                                                <label>Chiều cao</label>
-                                            </div>
-                                            <span>*</span>
-                                            <input type="text" placeholder="Chiều cao của bạn (Đơn vị cm)..."  value="{{$infoDes->height}}">
-                                            <div class="blank-arrow">
-                                                <label>Cân nặng</label>
-                                            </div>
-                                            <span>*</span>
-                                            <input type="text" placeholder="Cân nặng của bạn (Đơn vị kg)..." value="{{$infoDes->weight}}">
-                                            <div class="blank-arrow">
-                                                <label>Thân hình</label>
-                                            </div>
-                                            <span>*</span>
-                                            <select>
-                                                @foreach($body as $itemBody)
-                                                    <option value="{{$itemBody->id}}" {{$itemBody->id == '2' ?  'selected="selected"' : ''}}>{{$itemBody->value}}</option>
-                                                @endforeach
-                                            </select>
-                                            <div class="blank-arrow">
-                                                <br>
-                                                <label>Tài chính</label>
-                                            </div>
-                                            <span>*</span>
-                                            <select>
-                                                @foreach($finace as $itemFinace)
-                                                    <option value="{{$itemFinace->id}}" {{$itemFinace->id == '2' ?  'selected="selected"' : ''}}>{{$itemFinace->value}}</option>
-                                                @endforeach
-                                            </select>
-                                        </form>
+                                    <div class="col-sm-4 col-md-offset-1">
+                                        <div class="blank-arrow">
+                                            <label>Chiều cao(cm)</label>
+                                        </div>
+                                        <span>*</span>
+                                        <input type="text" placeholder="Chiều cao của bạn (Đơn vị cm)..."  value="{{$infoDes->height}}">
+                                        <div class="blank-arrow">
+                                        <label>Cân nặng(kg)</label>
+                                        </div>
+                                        <span>*</span>
+                                        <input type="text" placeholder="Cân nặng của bạn (Đơn vị kg)..." value="{{$infoDes->weight}}">
+                                        <div class="blank-arrow">
+                                            <label>Thân hình</label>
+                                        </div>
+                                        <span>*</span>
+                                        <select>
+                                            @foreach($body as $itemBody)
+                                                <option value="{{$itemBody->id}}" {{$itemBody->id == '2' ?  'selected="selected"' : ''}}>{{$itemBody->value}}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="blank-arrow">
+                                            <br>
+                                            <label>Tài chính</label>
+                                        </div>
+                                        <span>*</span>
+                                        <select>
+                                            @foreach($finace as $itemFinace)
+                                                <option value="{{$itemFinace->id}}" {{$itemFinace->id == '2' ?  'selected="selected"' : ''}}>{{$itemFinace->value}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-4 col-md-offset-2">
+                                        <div class="blank-arrow">
+                                            <label>Tóc</label>
+                                        </div>
+                                        <span>*</span>
+                                        <input type="text" placeholder="Màu tóc của bạn..."  value="{{$infoDes->hair}}" name="hair">
+                                        <div class="blank-arrow">
+                                            <label>Ưu tiên trong cuộc sống</label>
+                                        </div>
+                                        <span>*</span>
+                                        <input type="text" placeholder="Ưu tiên trong cuộc sống của bạn..." value="{{$infoDes->priority_in_life}}" name="priority">
 
-                                            <div class="blank-arrow">
-                                                <label>Tóc</label>
-                                            </div>
-                                            <span>*</span>
-                                            <input type="text" placeholder="Màu tóc của bạn..."  value="{{$infoDes->hair}}">
-                                            <div class="blank-arrow">
-                                                <label>Ưu tiên trong cuộc sống</label>
-                                            </div>
-                                            <span>*</span>
-                                            <input type="text" placeholder="Ưu tiên trong cuộc sống của bạn..." value="{{$infoDes->priority_in_life}}">
-                                            <div class="blank-arrow">
-                                                <label>Đối tượng tìm kiếm</label>
-                                            </div>
-                                            <span>*</span>
-                                            <select>
-                                                @foreach($findSub as $itemSub)
-                                                    <option value="{{$itemSub->id}}" {{$itemSub->id == '2' ?  'selected="selected"' : ''}} >{{$itemSub->value}}</option>
-                                                @endforeach
-                                            </select>
-                                            <div class="blank-arrow">
-                                                <br>
-                                                <label>Độ tuổi</label>
-                                            </div>
-                                            <span>*</span>
-                                            <select>
-                                                @foreach($findAge as $itemAge)
-                                                    <option value="{{$itemAge->id}}" {{$itemAge->id == '2' ?  'selected="selected"' : ''}} >{{$itemAge->value}}</option>
-                                                @endforeach
-                                            </select>
-
+                                        <div class="blank-arrow">
+                                            <label>Đối tượng tìm kiếm</label>
+                                        </div>
+                                        <span>*</span>
+                                        <select name="sub" >
+                                            @foreach($findSub as $itemSub)
+                                                <option value="{{$itemSub->id}}" {{$itemSub->id == '2' ?  'selected="selected"' : ''}} >{{$itemSub->value}}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="blank-arrow">
+                                            <br>
+                                            <label>Độ tuổi</label>
+                                        </div>
+                                        <span>*</span>
+                                        <select name="age">
+                                            @foreach($findAge as $itemAge)
+                                                <option value="{{$itemAge->id}}" {{$itemAge->id == '2' ?  'selected="selected"' : ''}} >{{$itemAge->value}}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
-
                         <div class="tab-pane fade" id="companyprofile" >
                             <div class="replay-box">
                                 <div class="row">
-                                    <div class="col-sm-4">
-                                        <form>
-                                            <div class="blank-arrow">
-                                                <label>Âm nhạc</label>
-                                            </div>
-                                            <span>*</span>
-                                            <input type="text" placeholder="Thể loại âm nhạc bạn thích..." value="{{$infoHobby->music}}" name="music">
-                                            <div class="blank-arrow">
-                                                <label>Phim</label>
-                                            </div>
-                                            <span>*</span>
-                                            <input type="text" placeholder="Thể loại phim bạn thích..." value="{{$infoHobby->movie}}" name="movie">
-                                        </form>
+                                    <div class="col-sm-6">
+                                        <div class="blank-arrow">
+                                            <label>Âm nhạc</label>
+                                        </div>
+                                        <span>*</span>
+                                        <input type="text" placeholder="Thể loại âm nhạc bạn thích..." value="{{$infoHobby->music}}" name="music">
+                                        <div class="blank-arrow">
+                                            <label>Phim</label>
+                                        </div>
+                                        <span>*</span>
+                                        <input type="text" placeholder="Thể loại phim bạn thích..." value="{{$infoHobby->movie}}" name="movie">
+
                                     </div>
-                                    <div class="col-sm-8">
-                                        <form>
-                                            <div class="blank-arrow">
-                                                <label>Thể thao</label>
-                                            </div>
-                                            <input type="text" placeholder="Môn thể thao bạn thích..." value="{{$infoHobby->sport}}" name="sport">
-                                            <div class="blank-arrow">
-                                                <label>Sở thích</label>
-                                            </div>
-                                            <input type="text" placeholder="Sở thích cá nhân của bạn..." value="{{$infoHobby->hobby}}" name="hobby">
-                                        </form>
+                                    <div class="col-sm-6">
+                                        <div class="blank-arrow">
+                                            <label>Thể thao</label>
+                                        </div>
+                                        <input type="text" placeholder="Môn thể thao bạn thích..." value="{{$infoHobby->sport}}" name="sport">
+                                        <div class="blank-arrow">
+                                            <label>Sở thích</label>
+                                        </div>
+                                        <input type="text" placeholder="Sở thích cá nhân của bạn..." value="{{$infoHobby->hobby}}" name="hobby">
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-
                         <div class="tab-pane fade active in" id="reviews" >
                             <div class="replay-box">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <form>
-                                            <div class="blank-arrow">
-                                                <label>Họ Tên</label>
-                                            </div>
-                                            <span>*</span>
-                                            <input type="text" placeholder="Điền Họ Tên Của Bạn..." value="{{$info_basic->name}}">
-                                            <div class="blank-arrow">
-                                                <label>Email</label>
-                                            </div>
-                                            <span>*</span>
-                                            <input type="email" placeholder="Email Của Bạn..." value="{{$info_basic->email}}">
-                                            <div class="blank-arrow">
-                                                <label>Số Điện Thoại</label>
-                                            </div>
-                                            <input type="text" placeholder="Số Điện Thoại..." value="{{$info_basic->phone}}">
-                                            <div class="blank-arrow">
-                                                <label>Giới Tính</label>
-                                            </div>
-                                            <span>*</span>
-                                            <select>
-                                                <option>Nam</option>
-                                                <option>Nữ</option>
-                                            </select>
+                                        <div class="blank-arrow">
+                                            <label>Họ Tên</label>
+                                        </div>
+                                        <span>*</span>
+                                        <input type="text" placeholder="Điền Họ Tên Của Bạn..." value="{{$info_basic->name}}" name="name">
+                                        <div class="blank-arrow">
+                                            <label>Email</label>
+                                        </div>
+                                        <span>*</span>
+                                        <input type="email" placeholder="Email Của Bạn..." value="{{$info_basic->email}}" readonly>
+                                        <div class="blank-arrow">
+                                            <label>Số Điện Thoại</label>
+                                        </div>
+                                        <input type="text" placeholder="Số Điện Thoại..." value="{{$info_basic->phone}}" name="phone">
+                                        <div class="blank-arrow">
+                                            <label>Giới Tính</label>
+                                        </div>
+                                        <span>*</span>
+                                        <select>
+                                            <option>Nam</option>
+                                            <option>Nữ</option>
+                                        </select>
 
-                                            <div class="blank-arrow">
-                                                <br>
-                                                <label>Mật Khẩu Mới</label>
-                                            </div>
-                                            <span>*</span>
-                                            <input type="password" placeholder="Mật Khẩu Mới...">
-                                        </form>
+                                        <div class="blank-arrow">
+                                            <br>
+                                            <label>Mật Khẩu Mới</label>
+                                        </div>
+                                        <span>*</span>
+                                        <input type="password" placeholder="Mật Khẩu Mới...">
+
                                     </div>
                                     <div class="col-sm-8">
                                         <div class="text-area">
@@ -359,13 +351,12 @@
                                 </div>
                             </div><!--/Repaly Box-->
                         </div>
-
-                    </form>
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="form-actions">
-                        <button type="button" class="btn btn-default">Cập Nhật</button>
-                    </div>
-                </div><!--/category-tab-->
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-default">Cập Nhật</button>
+                        </div>
+                    </div><!--/category-tab-->
+                </form>
                 <div class="recommended_items"><!--recommended_items-->
                     <h2 class="title text-center">Danh sách những người phù hợp với bạn</h2>
 
@@ -455,8 +446,7 @@
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </div>
-                </div><!--/recommended_items-->
-
+                </div><!--/recommended_items--></div>
             </div>
         </div>
     </div>

@@ -109,12 +109,6 @@
                                 <span class="icon-bar"></span>
                             </button>
                         </div>
-                        <div class="mainmenu pull-left">
-                            <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="index.html">Trang Chủ</a></li>
-                                <li><a href="contact-us.html">Liên Hệ</a></li>
-                            </ul>
-                        </div>
                     </div>
                     <div class="col-sm-3">
                         <div class="search_box pull-right">

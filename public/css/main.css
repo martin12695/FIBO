@@ -924,7 +924,7 @@ h2.title {
   transition: height 500ms ease 0s;
   width: 100%;
   display: block;
-  opacity:;
+
 }
 
 .single-products:hover .product-overlay {
@@ -2168,7 +2168,6 @@ h2.title {
 
 .rating-area {
   border: 1px solid #F7F7F0;
-  direction: block;
   overflow: hidden;
 }
 
@@ -2395,9 +2394,9 @@ h2.title {
   margin-top: 21px;
 }
 
-.replay-box form input {
+.replay-box  input {
   border: 1px solid #F7F7F0;
-  color: #ADB2B2;
+  color: #363432;
   font-size: 12px;
   margin-bottom: 22px;
   padding: 8px;
