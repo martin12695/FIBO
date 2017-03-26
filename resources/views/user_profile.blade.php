@@ -359,13 +359,13 @@
                                 </div>
                             </div><!--/Repaly Box-->
                         </div>
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-default">Cập Nhật</button>
-                        </div>
-                    </form>
-                </div><!--/category-tab-->
 
+                    </form>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-default">Cập Nhật</button>
+                    </div>
+                </div><!--/category-tab-->
                 <div class="recommended_items"><!--recommended_items-->
                     <h2 class="title text-center">Danh sách những người phù hợp với bạn</h2>
 

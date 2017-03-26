@@ -37,9 +37,10 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto', sans-serif;
 }
 .form-actions .btn{
-  margin-bottom: 50px;
-  margin-top: -50px;
-  margin-left: 722px;
+  float:right;
+  position: relative;
+  bottom: 80px;
+  right: 27px;
   background-color: #FE980F;
   color: #FFFFFF;
   border: 0 solid;
