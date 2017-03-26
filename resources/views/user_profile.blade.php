@@ -354,19 +354,18 @@
                                             </div>
                                             <span>*</span>
                                             <textarea name="address" rows="11" placeholder="Địa Chỉ"></textarea>
-                                            <button type="button" class="btn btn-default">Lưu Thay Đổi</button>
                                         </div>
                                     </div>
                                 </div>
                             </div><!--/Repaly Box-->
                         </div>
-                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        <div class="form-actions">
-                            <button type="submit" class="btn">CẬP NHẬT</button>
-                        </div>
-                    </form>
-                </div><!--/category-tab-->
 
+                    </form>
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-default">Cập Nhật</button>
+                    </div>
+                </div><!--/category-tab-->
                 <div class="recommended_items"><!--recommended_items-->
                     <h2 class="title text-center">Danh sách những người phù hợp với bạn</h2>
 
