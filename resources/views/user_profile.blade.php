@@ -287,12 +287,12 @@
                                                 <label>Âm nhạc</label>
                                             </div>
                                             <span>*</span>
-                                            <input type="text" placeholder="Thể loại âm nhạc bạn thích...">
+                                            <input type="text" placeholder="Thể loại âm nhạc bạn thích..." value="{{$infoHobby->music}}" name="music">
                                             <div class="blank-arrow">
                                                 <label>Phim</label>
                                             </div>
                                             <span>*</span>
-                                            <input type="text" placeholder="Thể loại phim bạn thích...">
+                                            <input type="text" placeholder="Thể loại phim bạn thích..." value="{{$infoHobby->movie}}" name="movie">
                                         </form>
                                     </div>
                                     <div class="col-sm-8">
@@ -300,11 +300,11 @@
                                             <div class="blank-arrow">
                                                 <label>Thể thao</label>
                                             </div>
-                                            <input type="text" placeholder="Môn thể thao bạn thích...">
+                                            <input type="text" placeholder="Môn thể thao bạn thích..." value="{{$infoHobby->sport}}" name="sport">
                                             <div class="blank-arrow">
                                                 <label>Sở thích</label>
                                             </div>
-                                            <input type="text" placeholder="Sở thích cá nhân của bạn...">
+                                            <input type="text" placeholder="Sở thích cá nhân của bạn..." value="{{$infoHobby->hobby}}" name="hobby">
                                         </form>
                                     </div>
                                 </div>
