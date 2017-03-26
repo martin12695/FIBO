@@ -203,12 +203,12 @@
                             <li class="active"><a href="#reviews" data-toggle="tab">Thông Tin Cá Nhân</a></li>
                         </ul>
                     </div>
+                    <form>
                     <div class="tab-content">
                         <div class="tab-pane fade" id="details" >
                             <div class="replay-box">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <form>
                                             <div class="blank-arrow">
                                                 <label>Chiều cao</label>
                                             </div>
@@ -241,7 +241,7 @@
                                         </form>
                                     </div>
                                     <div class="col-sm-8">
-                                        <form>
+
                                             <div class="blank-arrow">
                                                 <label>Tóc</label>
                                             </div>
@@ -271,7 +271,7 @@
                                                     <option value="{{$itemAge->id}}" {{$itemAge->id == '2' ?  'selected="selected"' : ''}} >{{$itemAge->value}}</option>
                                                 @endforeach
                                             </select>
-                                        </form>
+
                                     </div>
                                 </div>
                             </div>
