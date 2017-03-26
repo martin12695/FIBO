@@ -354,7 +354,6 @@
                                             </div>
                                             <span>*</span>
                                             <textarea name="address" rows="11" placeholder="Địa Chỉ"></textarea>
-                                            <button type="button" class="btn btn-default">Lưu Thay Đổi</button>
                                         </div>
                                     </div>
                                 </div>
@@ -362,7 +361,7 @@
                         </div>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                         <div class="form-actions">
-                            <button type="submit" class="btn">CẬP NHẬT</button>
+                            <button type="button" class="btn btn-default">Cập Nhật</button>
                         </div>
                     </form>
                 </div><!--/category-tab-->
