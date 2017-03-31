@@ -27,6 +27,7 @@ class UserController
             $findAge = DB::table('option_subject_eag')->get();
             $findSub = DB::table('option_subject_find')->get();
             $finace = DB::table('option_finace')->get();
+            $province =  DB::table('province')->get();
             $body = DB::table('option_body')->get();
             $infoDes =  DB::table('user_description')->where('user_id', session('userId'))->first();
             if (empty($infoDes)) {
@@ -56,7 +57,8 @@ class UserController
                 'findAge'    => $findAge,
                 'findSub'    => $findSub,
                 'finace'     => $finace,
-                'body'       => $body
+                'body'       => $body,
+                'province'   => $province
             ]);
         }
     }
@@ -71,6 +73,19 @@ class UserController
                     $info['movie'], $info['sport'],
                     $info['hobby'],
                     ]);
+
+        DB::insert('INSERT INTO user_description (user_id, height, weight, body, finance, hair, priority_in_life, subject_find, subject_eag ) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?) 
+                   ON DUPLICATE KEY UPDATE height= ?, weight= ?, body = ?, finance= ?, hair = ?, priority_in_life = ?, subject_find = ?, subject_eag = ?',
+                [session('userId'),$info['height'],
+                $info['weight'], $info['body'],
+                $info['finance'], $info['hair'],
+                $info['priority_in_life'], $info['sub'],
+                $info['sub_age'],$info['height'],
+                $info['weight'], $info['body'],
+                $info['finance'], $info['hair'],
+                $info['priority_in_life'], $info['sub'],
+                $info['sub_age'],
+                ]);
         return redirect('/user/profile');
     }
 }

@@ -142,17 +142,17 @@
                                             <label>Chiều cao(cm)</label>
                                         </div>
                                         <span>*</span>
-                                        <input type="text" placeholder="Chiều cao của bạn (Đơn vị cm)..."  value="{{$infoDes->height}}">
+                                        <input type="text" placeholder="Chiều cao của bạn (Đơn vị cm)..."  value="{{$infoDes->height}}" name="height">
                                         <div class="blank-arrow">
                                         <label>Cân nặng(kg)</label>
                                         </div>
                                         <span>*</span>
-                                        <input type="text" placeholder="Cân nặng của bạn (Đơn vị kg)..." value="{{$infoDes->weight}}">
+                                        <input type="text" placeholder="Cân nặng của bạn (Đơn vị kg)..." value="{{$infoDes->weight}}" name="weight">
                                         <div class="blank-arrow">
                                             <label>Thân hình</label>
                                         </div>
                                         <span>*</span>
-                                        <select>
+                                        <select name="body">
                                             @foreach($body as $itemBody)
                                                 <option value="{{$itemBody->id}}" {{$itemBody->id == '2' ?  'selected="selected"' : ''}}>{{$itemBody->value}}</option>
                                             @endforeach
@@ -162,9 +162,9 @@
                                             <label>Tài chính</label>
                                         </div>
                                         <span>*</span>
-                                        <select>
+                                        <select name="finance">
                                             @foreach($finace as $itemFinace)
-                                                <option value="{{$itemFinace->id}}" {{$itemFinace->id == '2' ?  'selected="selected"' : ''}}>{{$itemFinace->value}}</option>
+                                                <option value="{{$itemFinace->id}}" {{$itemFinace->id == $infoDes->finance ?  'selected="selected"' : ''}}>{{$itemFinace->value}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -178,7 +178,7 @@
                                             <label>Ưu tiên trong cuộc sống</label>
                                         </div>
                                         <span>*</span>
-                                        <input type="text" placeholder="Ưu tiên trong cuộc sống của bạn..." value="{{$infoDes->priority_in_life}}" name="priority">
+                                        <input type="text" placeholder="Ưu tiên trong cuộc sống của bạn..." value="{{$infoDes->priority_in_life}}" name="priority_in_life">
 
                                         <div class="blank-arrow">
                                             <label>Đối tượng tìm kiếm</label>
@@ -186,7 +186,7 @@
                                         <span>*</span>
                                         <select name="sub" >
                                             @foreach($findSub as $itemSub)
-                                                <option value="{{$itemSub->id}}" {{$itemSub->id == '2' ?  'selected="selected"' : ''}} >{{$itemSub->value}}</option>
+                                                <option value="{{$itemSub->id}}" {{$infoDes->subject_find == $itemSub->id ?  'selected="selected"' : ''}} >{{$itemSub->value}}</option>
                                             @endforeach
                                         </select>
                                         <div class="blank-arrow">
@@ -194,9 +194,9 @@
                                             <label>Độ tuổi</label>
                                         </div>
                                         <span>*</span>
-                                        <select name="age">
+                                        <select name="sub_age">
                                             @foreach($findAge as $itemAge)
-                                                <option value="{{$itemAge->id}}" {{$itemAge->id == '2' ?  'selected="selected"' : ''}} >{{$itemAge->value}}</option>
+                                                <option value="{{$itemAge->id}}" {{$infoDes->subject_eag == $itemAge->id ?  'selected="selected"' : ''}} >{{$itemAge->value}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -268,13 +268,18 @@
                                         <input type="password" placeholder="Mật Khẩu Mới...">
 
                                     </div>
-                                    <div class="col-sm-8">
+                                    <div class="col-sm-4 col-md-offset-2">
                                         <div class="text-area">
                                             <div class="blank-arrow">
-                                                <label>Địa Chỉ</label>
+                                                <label>Đến từ</label>
                                             </div>
                                             <span>*</span>
-                                            <textarea name="address" rows="11" placeholder="Địa Chỉ"></textarea>
+                                            <select name="province" >
+                                                @foreach($province as $itemPro)
+                                                    <option value="{{$itemPro->id}}" {{'2' == $itemPro->id ?  'selected="selected"' : ''}} >{{$itemPro->name}}</option>
+                                                @endforeach
+                                            </select>
+
                                         </div>
                                     </div>
                                 </div>
