@@ -20,6 +20,12 @@ Route::get('/index', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 });
+Route::get('/term-index', function () {
+    return view('term_index');
+});
+Route::get('/term-signup', function () {
+    return view('term_signup');
+});
 Route::group(['prefix' => 'user'], function () {
     Route::get('profile', 'UserController@initPage');
     Route::post('updateInfo', 'UserController@updateInfo');
