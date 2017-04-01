@@ -241,7 +241,12 @@
                                             <label>Họ Tên</label>
                                         </div>
                                         <span>*</span>
-                                        <input type="text" placeholder="Điền Họ Tên Của Bạn..." value="{{$info_basic->name}}" name="name">
+                                        <input type="text" placeholder="Điền Họ Tên Của Bạn..." value="{{$info_basic->name}}" name="birthday">
+                                        <div class="blank-arrow">
+                                            <label>Ngày sinh</label>
+                                        </div>
+                                        <span>*</span>
+                                        <input id="datepicker" type="datetime" placeholder="Email Của Bạn..." value="{{$info_basic->email}}">
                                         <div class="blank-arrow">
                                             <label>Email</label>
                                         </div>
@@ -385,4 +390,5 @@
         </div>
     </div>
 </section>
+<script src="/js/user-profile.js" type="text/javascript"></script>
 @endsection

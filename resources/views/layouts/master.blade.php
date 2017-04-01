@@ -9,6 +9,7 @@
         <title>FIBO - @yield('title')</title>
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/css/font-awesome.min.css" rel="stylesheet">
+        <link href="/css/lib/jquery-ui.css" rel="stylesheet">
         <link href="/css/prettyPhoto.css" rel="stylesheet">
         <link href="/css/price-range.css" rel="stylesheet">
         <link href="/css/animate.css" rel="stylesheet">
@@ -31,16 +32,13 @@
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
         <script src="/js/jquery-3.2.0.min.js"></script>
+        <script src="/js/lib/jquery-ui.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
         <script src="/js/angular.min.js"></script>
         <script src="/js/bootstrap.min.js" type="text/javascript"></script>
         <script src="/js/lib/sweetalert.min.js" type="text/javascript"></script>
         <script src="/js/login-register.js" type="text/javascript"></script>
-        <script src="/js/user-profile.js" type="text/javascript"></script>
         <script src="/js/bootstrap-select.js" type="text/javascript"></script>
-        @yield('custom-js')
-
-
     </head><!--/head-->
     <body>
     <header id="header"><!--header-->
@@ -212,6 +210,7 @@
         </footer><!--/Footer-->
         @include('register.signup')
     </body>
+    @yield('custom-js')
 </html>
 
 
