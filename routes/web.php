@@ -20,8 +20,8 @@ Route::get('/index', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 });
-Route::get('/term-index', function () {
-    return view('term_index');
+Route::get('/term-signin', function () {
+    return view('term_signin');
 });
 Route::get('/term-signup', function () {
     return view('term_signup');

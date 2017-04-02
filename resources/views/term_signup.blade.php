@@ -16,7 +16,7 @@
     </div>
     <div class="homepageLinks homepageLinks--top">
         <div class="homepageLinks--top__right">
-            <a href="{{ url('/term-index') }}" class="button button--white button--large">Đăng Nhập</a>
+            <a href="{{ url('/term-signin') }}" class="button button--white button--large">Đăng Nhập</a>
         </div>
     </div>
     <div class="homepageContainer clearfix jsHomepageContainer">
