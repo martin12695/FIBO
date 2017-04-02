@@ -89,7 +89,7 @@
                                     </dt>
                                     <dd class="birthdate">
                                         <div class="inputHolder" style="width: 100%">
-                                            <input type="text" ng-model="birthday" class="inputLarge text"  value="" id="birthday" placeholder="nn/tt/nnnn" required>
+                                            <input type="text" ng-model="birthday" class="inputLarge text"  value="" id="birthday" placeholder="dd/mm/yyyy" required>
                                             <span class="error--label">Chúng tôi cần biết ngày sinh của bạn</span>
                                         </div>
                                     </dd>
@@ -99,7 +99,7 @@
                                         </label>
                                     </dt>
                                     <dd>
-                                        <div class="inputHolder " style="width: 100%">
+                                        <div class="inputHolder" style="width: 100%">
                                             <select name="province" class="customDropdown" ng-model="from" >
                                                 @foreach($province as $itemPro)
                                                     <option value="{{$itemPro->id}}" {{'2' == $itemPro->id ?  'selected="selected"' : ''}} >{{$itemPro->name}}</option>
@@ -107,7 +107,7 @@
                                             </select>
                                         </div>
                                     </dd>
-                                    <dt class="jsLabelEmail ">
+                                    <dt class="jsLabelEmail">
                                         <label>
                                             <span class="formLarge__item__label">Địa chỉ email</span>
                                         </label>
@@ -115,7 +115,6 @@
                                     <dd>
                                         <div class="inputHolder jsLabelEmail" style="width: 100%">
                                             <input type="email" name="email" class="text" tabindex="7" ng-model="email_reg" required>
-                                            <span ng-show="exist_email" style="background:red">Email này đã được đăng ký!</span>
                                         </div>
                                     </dd>
                                     <dt>
@@ -128,22 +127,22 @@
                                             <input type="number" name="email" class="text" tabindex="7" ng-model="phone_reg" required>
                                         </div>
                                     </dd>
-                                    <dt class="jsLabelPassword ">
+                                    <dt class="jsLabelPassword">
                                         <label>
                                             <span class="formLarge__item__label">Mật khẩu</span>
                                         </label>
                                     </dt>
-                                    <dd class="jsLabelPassword ">
+                                    <dd class="jsLabelPassword">
                                         <div class="inputHolder" style="width: 100%">
                                             <input type="password" name="password" class="text" tabindex="8" ng-model="pass_reg" >
                                         </div>
                                     </dd>
-                                    <dt class="jsLabelPassword ">
+                                    <dt class="jsLabelPassword">
                                         <label>
                                             <span class="formLarge__item__label">Nhập lại Mật khẩu</span>
                                         </label>
                                     </dt>
-                                    <dd class="jsLabelPassword ">
+                                    <dd class="jsLabelPassword">
                                         <div class="inputHolder" style="width: 100%">
                                             <input type="password" name="password" class="text" tabindex="8" ng-model="repass_reg" >
                                         </div>
@@ -158,7 +157,7 @@
                                         &nbsp;
                                     </dt>
                                     <dd class="form__extraOptions">
-                                        <small>Bằng cách nhấn <strong>Đăng ký</strong>, bạn chấp nhận <a href="" target="_blank">Điều khoản &amp; Điều kiện</a> và <a href="" target="_blank">Chính sách Riêng tư</a> của Twoo, bao gồm cả việc sử dụng Cookie của chúng tôi và việc bạn đồng ý nhận email thông báo về tài khoản của bạn, bạn có thể ngưng đăng ký nhận thông báo bất kỳ lúc nào.</small>
+                                        <small>Bằng cách nhấn <strong>Đăng ký</strong>, bạn chấp nhận <a href="" target="_blank">Điều khoản &amp; Điều kiện</a> và <a href="" target="_blank">Chính sách Riêng tư</a> của FiBo, bao gồm cả việc sử dụng Cookie của chúng tôi và việc bạn đồng ý nhận email thông báo về tài khoản của bạn, bạn có thể ngưng đăng ký nhận thông báo bất kỳ lúc nào.</small>
                                     </dd>
                                 </dl>
                             </form>
@@ -177,13 +176,13 @@
         <div class="homepageLinks--bottom__links">
             <ul>
                 <li>
-                    <a href="/about">Về chúng tôi</a>
+                    <a href="{{ url('/about') }}">Về chúng tôi</a>
                 </li>
             </ul>
         </div>
         <div class="homepageLinks--bottom__counter">
             <h1 class="jsUserCounter newFontSize" data-counter="182053133.11083" data-step="1">182.053.135</h1>
-            <p>triệu người đang kết bạn trên Twoo</p>
+            <p>triệu người đang kết bạn trên FiBo</p>
         </div>
     </div>
 </div>
