@@ -39,6 +39,7 @@ class HomeController
 
     public function signup(Request $request) {
         $info = $request->input();
+        var_dump($info);
         if ( $info['pass'] != ($info['repass']) ) {
             return \Response::json(1);
         }
