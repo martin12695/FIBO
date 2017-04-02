@@ -3,85 +3,75 @@ var sign_form = angular.module('sign_form', [], function($interpolateProvider) {
     $interpolateProvider.endSymbol('%>');
 
 });
-sign_form.controller('sign_form_ctrl', function($scope) {
+sign_form.controller('sign_form_ctrl', function($scope, $http) {
+    $( "#birthday" ).datepicker({ dateFormat: 'dd/mm/yy' });
+    $scope.button_info = 'show';
+    $scope.loading = 'hide';
+    $scope.message = 'hide';
+    $scope.check_field = 'hide';
     $scope.pass ='';
     $scope.email ='';
     $scope.email_reg = $scope.pass_reg =  $scope.repass_reg = $scope.name_reg = $scope.phone_reg = '';
     $scope.sign_in = function() {
         if ( $scope.email =='' || $scope.pass ==''){
-            shakeModal(1);
+            $scope.check_field = 'show';
         } else {
-            $.ajax({
+            $scope.button_info = 'hide';
+            $scope.loading = 'show';
+            $http({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                type: "POST",
+                url: '/signin',
+                method: "POST",
                 data: {
                     email: $scope.email,
                     pass: $scope.pass
                 },
-                url: '/signin',
-                success: function (data) {
-                    if ( data == 1) {
-                        shakeModal(2);
-                    }else {
-                        swal({
-                                title: "Đăng nhập thành công",
-                                text: "Quay về trang chủ!",
-                                type: "success",
-                                confirmButtonText: "OK",
-                                closeOnConfirm: false
-                            },
-                            function(){
-                                window.location.replace('/');
-                            });
-                    }
-
-                },
+            }).then(function (data){
+                if (data.data == 1) {
+                    $scope.message = 'show';
+                    $scope.button_info = 'show';
+                    $scope.loading = 'hide';
+                } else {
+                    window.location.replace('/');
+                }
+            },function (error){
 
             });
         }
     };
     $scope.sign_up = function() {
+        alert("OK");
         if ( $scope.email_reg =='' || $scope.pass_reg =='' || $scope.phone_reg =='' || $scope.name_reg =='' ){
-            shakeModal(1);
         }
         if ( $scope.pass_reg !=  $scope.repass_reg ) {
-            shakeModal(3);
-            return;
+            alert("ok");
         }
         else {
-            $.ajax({
+            $http({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 },
-                type: "POST",
+                url: '/signup',
+                method: "POST",
                 data: {
                     email: $scope.email_reg,
                     pass: $scope.pass_reg,
                     repass: $scope.repass_reg,
                     name: $scope.name_reg,
                     phone: $scope.phone_reg,
+                    birthday : $scope.birthday,
                 },
-                url: '/signup',
-                success: function (data) {
-                    if ( data == 1) {
-                        shakeModal(2);
-                    }
-                    if ( data == 0) {
-                        swal({
-                                title: "Đăng ký thành công",
-                                text: "Quay về trang chủ!",
-                                type: "success",
-                                confirmButtonText: "OK",
-                                closeOnConfirm: false
-                            },
-                            function(){
-                                window.location.replace('/');
-                            });
-                    }
-
-                },
+            }).then(function (data){
+                if (data.data == 1) {
+                    $scope.message = 'show';
+                    $scope.button_info = 'show';
+                    $scope.loading = 'hide';
+                } else if (data.data == 0) {
+                    window.location.replace('/');
+                }
+            },function (error){
 
             });
         }
