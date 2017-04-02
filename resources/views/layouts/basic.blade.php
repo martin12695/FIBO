@@ -1,4 +1,3 @@
-<link href="/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/lib/jquery-ui.css" rel="stylesheet">
 <script src="/js/jquery-3.2.0.min.js"></script>
