@@ -29,6 +29,9 @@ Route::get('/term-signup', function () {
 Route::get('/about', function () {
     return view('about');
 });
+Route::get('/about/team', function () {
+    return view('team');
+});
 Route::get('/game', function () {
     return view('game');
 });

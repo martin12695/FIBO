@@ -30,34 +30,34 @@
 <div class="tw3-wrapper">
     <div class="tw3-content">
         <div class="tw3-container">
-            <div class="tw3-box tw3-box--padding--off">
-                <div class="banner__holder mb--loose" style="background-image: url('https://twoo-a.akamaihd.net/static/7065488740230118990/images/v3/footer-pages/banner-about-page.jpg');">
-                </div>
-                <div class="tw3-col-12 tw3-bp3-col-10 tw3-bp3-offset-left-1">
-                    <h3 class="tw3-h3 mb--loose text--brandColor text--italic">FiBo là cách vui nhất để gặp bạn bè gần nơi ở.</h3>
-                    <h5 class="tw3-h5 text--bold">Hàng triệu người</h5>
-                    <p class="text--subtle mb--loose">
-                        Với 13 triệu thành viên tích cực mỗi tháng*, Twoo là cộng đồng kết bạn lớn nhất. FiBo đã được sử dụng tại hơn 200 quốc gia với 38 ngôn ngữ.
-                    </p>
-                    <h5 class="tw3-h5 text--bold">Người thật, tài khoản thật</h5>
-                    <p class="text--subtle mb--loose">
-                        Mỗi ngày, hơn một triệu lượt truy cập của các thành viên FiBo. Nếu bạn thích chat, tìm kiếm, chia sẻ hình hoặc chơi game làm quen, FiBo có nhiều người thú vị để bạn gặp và kết bạn.
-                    </p>
-                    <hr class="tw3-h3 mb--compact">
-                    <p class="text--subtle mb--loose">
-                    </p><div class="tw3-row">
-                        <div class="tw3-col-4 tw3-bp3-col-4">
-                            <a href="mailto:info-vi@fibo.com">info-vi@fibo.com</a><br>
-                            Trường Đại học Công Nghệ Thông Tin
-                            <br>
-                            Khu phố 6, P.Linh Trung, Q.Thủ Đức
-                            <br>
-                            TP.Hồ Chí Minh
-                            <br>
-                            Việt Nam
+            <div class="tw3-row">
+                <div class="tw3-box" style="top: 60px;">
+                    <div class="tw3-col-12 tw3-bp3-col-10 tw3-bp3-offset-left-1">
+                        <h3 class="tw3-h3">Gặp gỡ nhóm FiBo!</h3>
+                        <p class="mb--loose">Đây là những người cố gắng làm cho trải nghiệm tại FiBo của bạn thật khó quên!</p>
+                        <div class="tw3-row">
+                            <div class="tw3-thumbsHolder">
+                                <div class="tw3-thumb">
+                                    <a href="" class="tw3-thumb__link">
+                                        <img src="https://scontent.fsgn3-1.fna.fbcdn.net/v/t1.0-1/p160x160/14702258_1267633996620048_4190397239096569260_n.jpg?oh=8aa33cb753d6fc64549476015459d351&oe=59908C28" class="tw3-thumb__link__image">
+                                        <span class="tw3-thumb__link__name">Nguyễn Hữu Trung</span>
+                                    </a>
+                                </div>
+                                <div class="tw3-thumb">
+                                    <a href="" class="tw3-thumb__link">
+                                        <img src="https://scontent.fsgn3-1.fna.fbcdn.net/v/t1.0-1/p160x160/17553839_915249868577690_4233443976625338375_n.jpg?oh=1d14d99a4d101fe27df0111dd1e2eb78&oe=5966EE56" class="tw3-thumb__link__image">
+                                        <span class="tw3-thumb__link__name">Dư Cao Tiến</span>
+                                    </a>
+                                </div>
+                                <div class="tw3-thumb">
+                                    <a href="" class="tw3-thumb__link">
+                                        <img src="https://scontent.fsgn3-1.fna.fbcdn.net/v/t1.0-1/p160x160/16195925_1856269837921895_8638790052198443501_n.jpg?oh=7c56f97117a1a3351bec68b14b0b9e3f&oe=5962B1A3" class="tw3-thumb__link__image">
+                                        <span class="tw3-thumb__link__name">Hoàng Minh Tuấn</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <p></p>
                 </div>
             </div>
         </div>
