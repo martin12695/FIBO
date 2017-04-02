@@ -1,6 +1,6 @@
 <html dir="ltr" class="flexbox css3 notouch"><head>
 
-    <title>Khám phá | FiBo</title><meta charset="utf-8">
+    <title>Trang chủ | FiBo</title><meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/839517239821694064891/css/sass/ltr/twoo.invite.css">
@@ -20,8 +20,8 @@
             <ul class="tw3-headerV2__navigation clearfix left">
                 <li class="menuItem tw3-headerV2__navigation__item">
                     <a href="">
-                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                        <span class="tw3-headerV2__navigation__item__label">Khám phá</span>
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <span class="tw3-headerV2__navigation__item__label">Trang chủ</span>
                     </a>
                 </li>
                 <li class="menuItem tw3-headerV2__navigation__item">
@@ -62,8 +62,6 @@
                         <div class="jsDiscover discover promoPosunder">
                             <div class="jsPhotoCoverContainer photoCoverHolder ">
                                 <div class="photoCover jsPhotoCover">
-
-
                                 </div>
                                 <div class="jsPhotoCoverContainerActions photoCoverHolder__actions">
                                 </div>
