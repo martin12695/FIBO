@@ -42,11 +42,10 @@ sign_form.controller('sign_form_ctrl', function($scope, $http) {
         }
     };
     $scope.sign_up = function() {
-        alert("OK");
         if ( $scope.email_reg =='' || $scope.pass_reg =='' || $scope.phone_reg =='' || $scope.name_reg =='' ){
         }
         if ( $scope.pass_reg !=  $scope.repass_reg ) {
-            alert("ok");
+
         }
         else {
             $http({
@@ -62,6 +61,7 @@ sign_form.controller('sign_form_ctrl', function($scope, $http) {
                     name: $scope.name_reg,
                     phone: $scope.phone_reg,
                     birthday : $scope.birthday,
+                    from :  $scope.from,
                 },
             }).then(function (data){
                 if (data.data == 1) {
@@ -69,7 +69,9 @@ sign_form.controller('sign_form_ctrl', function($scope, $http) {
                     $scope.button_info = 'show';
                     $scope.loading = 'hide';
                 } else if (data.data == 0) {
-                    window.location.replace('/');
+                    window.location.replace('/term-signin');
+                }else {
+                    $scope.exist_email = true;
                 }
             },function (error){
 

@@ -23,9 +23,7 @@ Route::get('/welcome', function () {
 Route::get('/term-signin', function () {
     return view('term_signin');
 });
-Route::get('/term-signup', function () {
-    return view('term_signup');
-});
+Route::get('/term-signup', 'HomeController@init_signup');
 Route::get('/about', function () {
     return view('about');
 });
