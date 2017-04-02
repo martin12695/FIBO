@@ -1,6 +1,7 @@
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/lib/jquery-ui.css" rel="stylesheet">
+<link href="/css/lib/sweetalert.css" rel="stylesheet" />
 <script src="/js/jquery-3.2.0.min.js"></script>
 <script src="/js/lib/jquery-ui.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>

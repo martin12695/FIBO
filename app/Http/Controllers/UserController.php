@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
-
+use DateTime;
 
 class UserController
 {
@@ -49,7 +49,8 @@ class UserController
                 $infoHobby->sport = '';
                 $infoHobby->hobby = '';
             }
-
+            $date = new DateTime($info->birthday);
+            $info->birthday = $date->format('d/m/Y');
             return view('user_profile',[
                 'info_basic' => $info,
                 'infoDes'    => $infoDes,
@@ -86,6 +87,7 @@ class UserController
                 $info['priority_in_life'], $info['sub'],
                 $info['sub_age'],
                 ]);
-        return redirect('/user/profile');
+        return back()->with('success','Cập nhật thành công!');
+
     }
 }

@@ -65,7 +65,7 @@
                             <div class="divider--vertical hide"><span><i></i></span></div>
                         </div>
                         <div class="col--right">
-                            <form ng-app="sign_form" ng-controller="sign_form_ctrl">
+                            <form ng-app="sign_form" ng-controller="sign_form_ctrl" name="sign_in_form">
                                 <dl class="form formLarge formStacked tal formError">
                                     <dt class="jsLabelEmail">
                                         <label>
@@ -93,7 +93,7 @@
                                         </span>
                                     </dt>
                                     <dd>
-                                        <button type="submit" tabindex="3" class="button button--green button--full button--xlarge" ng-click="form.$valid && sign_in()"><span ng-class="button_info">Đăng nhâp</span><img src="/images/icon/facebook.gif" height="20" ng-class="loading"></button>
+                                        <button type="submit" tabindex="3" class="button button--green button--full button--xlarge" ng-click="sign_in_form.$valid && sign_in()"><span ng-class="button_info">Đăng nhâp</span><img src="/images/icon/facebook.gif" height="20" ng-class="loading"></button>
                                     </dd>
                                     <dt>&nbsp;</dt>
                                     <dd class="form__extraOptions">
