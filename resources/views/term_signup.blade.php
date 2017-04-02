@@ -9,10 +9,7 @@
         .fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v3/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style>
     @include('layouts.basic')
     <script src="/js/login-register.js" type="text/javascript"></script>
-    <script src="/js/cities.js" type="text/javascript"></script>
-
 </head>
-
 <body id="default" class="ltr vi default unconfirmed chrome windows">
 <div id="wrapper" data-step="login" class="homepageLogin ">
     <div class="bgImage">
@@ -30,6 +27,7 @@
                 <div class="homepageContainer__content__logo__image">
                     <img src="https://twoo-a.akamaihd.net/static/262779852444274585/images/logos/logo-twoo-flat-white@2x.png">
                 </div>
+
             </div>
             <div class="homepageContainer__content__form homepageContainer__content__form--intro loginContainer" id="loginContainer">
                 <div class="homepageContainer__content__slogan homepageContainer__content__slogan--bigHeader">
@@ -77,10 +75,9 @@
                                     <dd>
                                         <div class="inputHolder jsLabelGender" style="vertical-align: top;">
                                             <div class="jsSelectDropdownGender">
-                                                <select style="width: 80%;" class="jsCustomDropdown customDropdown jsInputGender" name="gender" ng-model="sex" tabindex="2">
-                                                    <option value="">Bạn là...</option>
-                                                    <option value="1">Nam</option>
-                                                    <option value="2">Nữ</option>
+                                                <select class="jsCustomDropdown customDropdown jsInputGender" name="gender" ng-model="sex" tabindex="2"><option value="">Bạn là...</option>
+                                                    <option value="1">Nữ</option>
+                                                    <option value="2">Nam</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -102,11 +99,18 @@
                                         </label>
                                     </dt>
                                     <dd>
-                                        <div class="inputHolder" style="vertical-align: top;">
-                                            <div class="jsSelectDropdownGender">
-                                                <select style="width: 205%;" class="jsCustomDropdown customDropdown" name="city" id="city">
-                                                </select>
-                                            </div>
+                                        <div class="inputHolder " style="width: 100%">
+                                            <input type="text" class="inputLarge text"  value="">
+                                        </div>
+                                    </dd>
+                                    <dt class="jsLabelEmail ">
+                                        <label>
+                                            <span class="formLarge__item__label">Địa chỉ email</span>
+                                        </label>
+                                    </dt>
+                                    <dd>
+                                        <div class="inputHolder jsLabelEmail" style="width: 100%">
+                                            <input type="email" name="email" class="text" tabindex="7" ng-model="email_reg" required>
                                         </div>
                                     </dd>
                                     <dt>
@@ -119,34 +123,34 @@
                                             <input type="number" name="email" class="text" tabindex="7" ng-model="phone_reg" required>
                                         </div>
                                     </dd>
-                                    <dt class="jsLabelEmail">
-                                        <label>
-                                            <span class="formLarge__item__label">Địa chỉ email</span>
-                                        </label>
-                                    </dt>
-                                    <dd>
-                                        <div class="inputHolder jsLabelEmail" style="width: 100%">
-                                            <input type="email" name="email" class="text" tabindex="7" ng-model="email_reg" required>
-                                        </div>
-                                    </dd>
-                                    <dt class="jsLabelPassword">
+                                    <dt class="jsLabelPassword ">
                                         <label>
                                             <span class="formLarge__item__label">Mật khẩu</span>
                                         </label>
                                     </dt>
-                                    <dd class="jsLabelPassword">
+                                    <dd class="jsLabelPassword ">
                                         <div class="inputHolder" style="width: 100%">
                                             <input type="password" name="password" class="text" tabindex="8" ng-model="pass_reg" >
                                         </div>
                                     </dd>
+                                    <dt class="jsLabelPassword ">
+                                        <label>
+                                            <span class="formLarge__item__label">Nhập lại Mật khẩu</span>
+                                        </label>
+                                    </dt>
+                                    <dd class="jsLabelPassword ">
+                                        <div class="inputHolder" style="width: 100%">
+                                            <input type="password" name="password" class="text" tabindex="8" ng-model="repass_reg" >
+                                        </div>
+                                    </dd>
                                     <dt>
-                                        &nbsp
+                                        &nbsp;
                                     </dt>
                                     <dd>
                                         <button type="submit" tabindex="3" class="button button--green button--full button--xlarge" ng-click="myform.$valid && sign_up()"><span ng-class="button_info">Đăng ký</span><img src="/images/icon/facebook.gif" height="20" ng-class="loading"></button>
                                     </dd>
                                     <dt>
-                                        &nbsp
+                                        &nbsp;
                                     </dt>
                                     <dd class="form__extraOptions">
                                         <small>Bằng cách nhấn <strong>Đăng ký</strong>, bạn chấp nhận <a href="" target="_blank">Điều khoản &amp; Điều kiện</a> và <a href="" target="_blank">Chính sách Riêng tư</a> của Twoo, bao gồm cả việc sử dụng Cookie của chúng tôi và việc bạn đồng ý nhận email thông báo về tài khoản của bạn, bạn có thể ngưng đăng ký nhận thông báo bất kỳ lúc nào.</small>

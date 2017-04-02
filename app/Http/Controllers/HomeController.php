@@ -37,9 +37,17 @@ class HomeController
         }
     }
 
+    public function init_signup() {
+        $province =  DB::table('province')->get();
+        return view('term_signup',[
+            'province'   => $province
+        ]);
+
+    }
+
     public function signup(Request $request) {
+
         $info = $request->input();
-        var_dump($info);
         if ( $info['pass'] != ($info['repass']) ) {
             return \Response::json(1);
         }
@@ -48,9 +56,13 @@ class HomeController
             return \Response::json(2);
         }else {
             $passMd5 = md5($info['pass']);
+            $date = date_create_from_format('d/m/Y', $info['birthday']);
+            $date = $date->format('Y-m-d');
+
             try {
                 DB::table('user')->insert(
-                    ['email' => $info['email'], 'password' => $passMd5, 'name' => $info['name'], 'phone' => $info['phone']]
+                    ['email' => $info['email'], 'password' => $passMd5, 'name' => $info['name'],
+                    'phone' => $info['phone'],'come_from' => $info['from'], 'birthday' => $date]
                 );
                 return \Response::json(0);
             }
