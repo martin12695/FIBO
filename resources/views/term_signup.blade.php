@@ -274,8 +274,15 @@ Chúng tôi cần biết tên bạn
         </div>
     </div>
     <div class="homepageLinks homepageLinks--bottom jsHomepageFooterLinks">
+        <div class="homepageLinks--bottom__links">
+            <ul>
+                <li>
+                    <a href="/about">Về chúng tôi</a>
+                </li>
+            </ul>
+        </div>
         <div class="homepageLinks--bottom__counter">
-            <h1 class="jsUserCounter newFontSize" data-counter="182052658.4073" data-step="0">182.052.658</h1>
+            <h1 class="jsUserCounter newFontSize" data-counter="182053133.11083" data-step="1">182.053.135</h1>
             <p>triệu người đang kết bạn trên Twoo</p>
         </div>
     </div>

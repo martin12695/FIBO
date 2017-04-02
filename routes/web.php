@@ -26,6 +26,9 @@ Route::get('/term-index', function () {
 Route::get('/term-signup', function () {
     return view('term_signup');
 });
+Route::get('/about', function () {
+    return view('about');
+});
 Route::group(['prefix' => 'user'], function () {
     Route::get('profile', 'UserController@initPage');
     Route::post('updateInfo', 'UserController@updateInfo');
