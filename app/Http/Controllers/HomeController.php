@@ -62,7 +62,7 @@ class HomeController
             try {
                 DB::table('user')->insert(
                     ['email' => $info['email'], 'password' => $passMd5, 'name' => $info['name'],
-                    'phone' => $info['phone'],'come_from' => $info['from'], 'birthday' => $date]
+                        'phone' => $info['phone'],'come_from' => $info['from'], 'birthday' => $date]
                 );
                 return \Response::json(0);
             }
