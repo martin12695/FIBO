@@ -20,11 +20,20 @@ Route::get('/index', function () {
 Route::get('/welcome', function () {
     return view('welcome');
 });
-Route::get('/term-index', function () {
-    return view('term_index');
+Route::get('/term-signin', function () {
+    return view('term_signin');
 });
 Route::get('/term-signup', function () {
     return view('term_signup');
+});
+Route::get('/about', function () {
+    return view('about');
+});
+Route::get('/about/team', function () {
+    return view('team');
+});
+Route::get('/game', function () {
+    return view('game');
 });
 Route::group(['prefix' => 'user'], function () {
     Route::get('profile', 'UserController@initPage');
