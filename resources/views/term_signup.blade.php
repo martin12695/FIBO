@@ -58,7 +58,7 @@
                                     </div>
                                     </dt>
                                     <dd>
-                                        <div class="inputHolder jsLabelFirstName" style="width: 100%">
+                                        <div class="inputHolder" style="width: 100%">
                                             <input type="text" name="fulltName"  class="text jsInputFirstName" tabindex="1" ng-model="name_reg" required>
                                             <span class="error--label jsErrorLabel" data-error-required="Chúng tôi cần biết tên đầy dủ bạn">
                                                 Chúng tôi cần biết tên bạn
@@ -73,9 +73,9 @@
                                     </div>
                                     </dt>
                                     <dd>
-                                        <div class="inputHolder jsLabelGender" style="vertical-align: top;">
-                                            <div class="jsSelectDropdownGender">
-                                                <select class="jsCustomDropdown customDropdown jsInputGender" name="gender" ng-model="sex" tabindex="2"><option value="">Bạn là...</option>
+                                        <div class="inputHolder" style="vertical-align: top;">
+                                            <div>
+                                                <select class="customDropdown jsInputGender" name="gender" ng-model="sex" tabindex="2"><option value="">Bạn là...</option>
                                                     <option value="1">Nữ</option>
                                                     <option value="2">Nam</option>
                                                 </select>
@@ -89,18 +89,22 @@
                                     </dt>
                                     <dd class="birthdate">
                                         <div class="inputHolder" style="width: 100%">
-                                            <input type="text" ng-model="birthday" class="inputLarge text"  value="" id="birthday" placeholder="dd/mm/yyyy" required>
+                                            <input type="text" ng-model="birthday" class="inputLarge text"  value="" id="birthday" placeholder="nn/tt/nnnn" required>
                                             <span class="error--label">Chúng tôi cần biết ngày sinh của bạn</span>
                                         </div>
                                     </dd>
                                     <dt class="jsLabelLocation">
                                         <label>
-                                            <span class="formLarge__item__label">Thành phố</span>
+                                            <span class="formLarge__item__label">Bạn đến từ</span>
                                         </label>
                                     </dt>
                                     <dd>
                                         <div class="inputHolder " style="width: 100%">
-                                            <input type="text" class="inputLarge text"  value="">
+                                            <select name="province" class="customDropdown" ng-model="from" >
+                                                @foreach($province as $itemPro)
+                                                    <option value="{{$itemPro->id}}" {{'2' == $itemPro->id ?  'selected="selected"' : ''}} >{{$itemPro->name}}</option>
+                                                @endforeach
+                                            </select>
                                         </div>
                                     </dd>
                                     <dt class="jsLabelEmail ">
@@ -111,6 +115,7 @@
                                     <dd>
                                         <div class="inputHolder jsLabelEmail" style="width: 100%">
                                             <input type="email" name="email" class="text" tabindex="7" ng-model="email_reg" required>
+                                            <span ng-show="exist_email" style="background:red">Email này đã được đăng ký!</span>
                                         </div>
                                     </dd>
                                     <dt>
