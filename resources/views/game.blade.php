@@ -20,7 +20,7 @@
             <ul class="tw3-headerV2__navigation clearfix left">
                 <li class="menuItem tw3-headerV2__navigation__item">
                     <a href="">
-                        <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        <i class="fa fa-home" aria-hidden="true"></i>
                         <span class="tw3-headerV2__navigation__item__label">Trang chủ</span>
                     </a>
                 </li>
@@ -62,8 +62,6 @@
                         <div class="jsDiscover discover promoPosunder">
                             <div class="jsPhotoCoverContainer photoCoverHolder ">
                                 <div class="photoCover jsPhotoCover">
-
-
                                 </div>
                                 <div class="jsPhotoCoverContainerActions photoCoverHolder__actions">
                                 </div>
