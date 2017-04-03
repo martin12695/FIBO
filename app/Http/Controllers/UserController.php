@@ -68,16 +68,16 @@ class UserController
         $info = $request->input();
         DB::insert('INSERT INTO user_hobby (user_id, music, movie, sport, hobby) VALUES(?, ?, ?, ?, ?) 
                    ON DUPLICATE KEY UPDATE music= ?, movie= ?, sport= ?, hobby= ?',
-                    [session('userId'),$info['music'],
-                    $info['movie'], $info['sport'],
-                    $info['hobby'], $info['music'],
-                    $info['movie'], $info['sport'],
-                    $info['hobby'],
-                    ]);
+            [session('userId'),$info['music'],
+                $info['movie'], $info['sport'],
+                $info['hobby'], $info['music'],
+                $info['movie'], $info['sport'],
+                $info['hobby'],
+            ]);
 
         DB::insert('INSERT INTO user_description (user_id, height, weight, body, finance, hair, priority_in_life, subject_find, subject_eag ) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?) 
                    ON DUPLICATE KEY UPDATE height= ?, weight= ?, body = ?, finance= ?, hair = ?, priority_in_life = ?, subject_find = ?, subject_eag = ?',
-                [session('userId'),$info['height'],
+            [session('userId'),$info['height'],
                 $info['weight'], $info['body'],
                 $info['finance'], $info['hair'],
                 $info['priority_in_life'], $info['sub'],
@@ -86,7 +86,7 @@ class UserController
                 $info['finance'], $info['hair'],
                 $info['priority_in_life'], $info['sub'],
                 $info['sub_age'],
-                ]);
+            ]);
         return back()->with('success','Cập nhật thành công!');
 
     }

@@ -33,9 +33,6 @@ Route::get('/about/team', function () {
 Route::get('/game', function () {
     return view('game');
 });
-Route::get('/game/profile', function () {
-    return view('term_profile');
-});
 Route::group(['prefix' => 'user'], function () {
     Route::get('profile', 'UserController@initPage');
     Route::post('updateInfo', 'UserController@updateInfo');
