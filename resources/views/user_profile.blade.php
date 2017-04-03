@@ -2,7 +2,7 @@
 @section('title', '')
 @section('content')
 <section>
-    <div class="container">
+    <div class="container" style="margin-top:90px">
         <div class="row">
             <div class="col-sm-3">
                 <div class="left-sidebar">
@@ -246,7 +246,7 @@
                                             <label>Ngày sinh</label>
                                         </div>
                                         <span>*</span>
-                                        <input id="datepicker" type="datetime" placeholder="Email Của Bạn..." value="{{$info_basic->email}}">
+                                        <input id="datepicker" type="datetime" placeholder="Email Của Bạn..." value="{{$info_basic->birthday}}">
                                         <div class="blank-arrow">
                                             <label>Email</label>
                                         </div>
@@ -291,6 +291,12 @@
                             </div><!--/Repaly Box-->
                         </div>
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        @if ($message = Session::get('success'))
+                            <div class="alert alert-success alert-block">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                <strong>{{ $message }}</strong>
+                            </div>
+                        @endif
                         <div class="form-actions">
                             <button type="submit" class="btn btn-default">Cập Nhật</button>
                         </div>

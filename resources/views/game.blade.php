@@ -52,7 +52,6 @@
     </div>
 </div>
 <div class="tw3-wrapper">
-
     <div class="tw3-content" id="gameContainerV3">
         <div class="tw3-container jsGameContainer">
             <div class="tw3-row">

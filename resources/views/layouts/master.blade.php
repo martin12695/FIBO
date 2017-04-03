@@ -7,208 +7,98 @@
         <meta name="author" content="">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>FIBO - @yield('title')</title>
-        <link href="/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/css/font-awesome.min.css" rel="stylesheet">
-        <link href="/css/lib/jquery-ui.css" rel="stylesheet">
-        <link href="/css/prettyPhoto.css" rel="stylesheet">
-        <link href="/css/price-range.css" rel="stylesheet">
-        <link href="/css/animate.css" rel="stylesheet">
         <link href="/css/main.css" rel="stylesheet">
-        <link href="/css/responsive.css" rel="stylesheet">
-        <link href="/css/login-register.css" rel="stylesheet" />
-        <link href="/css/bootstrap-select.css" rel="stylesheet" />
-        <link href="/css/lib/sweetalert.css" rel="stylesheet" />
-        <link href="/css/thumbnail-gallery.css" rel="stylesheet" />
-        <link href="/css/lib/sweetalert.css" rel="stylesheet" />
         @yield('custom-css')
         <!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
         <![endif]-->
-        <link rel="shortcut icon" href="images/ico/favicon.ico">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-        <link rel="apple-touch-icon-precomposed" href="/images/ico/apple-touch-icon-57-precomposed.png">
-        <script src="/js/jquery-3.2.0.min.js"></script>
-        <script src="/js/lib/jquery-ui.min.js"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/angular.min.js"></script>
-        <script src="/js/bootstrap.min.js" type="text/javascript"></script>
-        <script src="/js/lib/sweetalert.min.js" type="text/javascript"></script>
-        <script src="/js/login-register.js" type="text/javascript"></script>
-        <script src="/js/bootstrap-select.js" type="text/javascript"></script>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/839517239821694064891/css/sass/ltr/twoo.invite.css">
+        <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/456398502947355001/css/sass/ltr/ui.css">
+        <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/15642180402667165/css/sass/ltr/group-more.p1.css">
+        <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/6188132174502284106364/css/sass/ltr/group-more.p2.css">
+        <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/37339762993591368798/css/sass/ltr/group-more.p3.css">
+        <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/020154603095955706158/css/sass/ltr/twoo.messages.v3.css">
+        @include('layouts.basic')
     </head><!--/head-->
     <body>
-    <header id="header"><!--header-->
-        <div class="header_top"><!--header_top-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 ">
-                        <div class="contactinfo">
-                            <ul class="nav nav-pills">
-                                <li><a href=""><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                                <li><a href=""><i class="fa fa-envelope"></i> info@domain.com</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="social-icons pull-right">
-                            <ul class="nav navbar-nav">
-                                <li><a href=""><i class="fa fa-facebook"></i></a></li>
-                                <li><a href=""><i class="fa fa-google-plus"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/header_top-->
-            <div class="header-middle"><!--header-middle-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="logo pull-left">
-                            <a href="index.html"><img src="/images/home/logo.png" alt="" height="90" width="90"/></a>
-                        </div>
-                        <div class="mainmenu pull-left col-md-offset-3">
-                            <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="/">Trang Chủ</a></li>
-                                <li><a href="contact-us.html">Liên Hệ</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="shop-menu pull-right">
-                            <ul class="nav navbar-nav">
-
-                                @if(session()->has('userId'))
-                                <li><a href="/user/profile"><i class="fa fa-user"></i> Chi Tiết Tài khoản</a></li>
-                                <li><button type="button" class="btn btn-warning" onclick="window.location.href='/signout'">Đăng xuất</button></li>
-                                @else
-                                <li><a class="btn big-login" data-toggle="modal" href="javascript:void(0)" onclick="openLoginModal();"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng nhập</a></li>
-                                @endif
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!--/header-middle-->
-
-        <div class="header-bottom"><!--header-bottom-->
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-9">
-                        <div class="navbar-header">
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="sr-only">Toggle navigation</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-sm-3">
-                        <div class="search_box pull-right">
-                            <input type="text" placeholder="Tìm Kiếm Bạn Bè"/>
-                        </div>
-                    </div>
-                </div>
+    <div class="tw3-header tw3-header--guest">
+        <div class="tw3-headerV2--desktop jsHeaderDesktop">
+            <div class="tw3-container">
+                <ul class="tw3-headerV2__navigation clearfix left">
+                    <li class="menuItem tw3-headerV2__navigation__item">
+                        <a href="">
+                            <i class="fa fa-home" aria-hidden="true"></i>
+                            <span class="tw3-headerV2__navigation__item__label">Trang chủ</span>
+                        </a>
+                    </li>
+                    <li class="menuItem tw3-headerV2__navigation__item">
+                        <a href="">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                            <span class="tw3-headerV2__navigation__item__label">Tìm kiếm</span>
+                        </a>
+                    </li>
+                    <li class="menuItem tw3-headerV2__navigation__item">
+                        <a href="">
+                            <i class="fa fa-commenting" aria-hidden="true"></i>
+                            <span class="tw3-headerV2__navigation__item__label">Chat</span>
+                        </a>
+                    </li>
+                    <li class="menuItem tw3-headerV2__navigation__item">
+                        <a href="">
+                            <i class="fa fa-users" aria-hidden="true"></i>
+                            <span class="tw3-headerV2__navigation__item__label">Bạn bè</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="tw3-headerV2__actions clearfix right">
+                    <li class="menuItem tw3-header__actions__item">
+                        <a href="{{ url('/signout') }}" class="tw3-button tw3-button--blue tw3-button--small tw3-button--rounded">Đăng xuất</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </header>
+    </div>
         @yield('content')
-        <footer id="footer"><!--Footer-->
-            <div class="footer-top">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-2">
-                            <div class="companyinfo">
-                                <h2><span>F</span>IBO</h2>
-                                <p>FIND THE BEST ONE</p>
-                            </div>
-                        </div>
-                        <div class="col-sm-7">
-                            <div class="col-sm-3">
-                                <div class="video-gallery text-center">
-                                    <a href="#">
-                                        <div class="iframe-img">
-                                            <img src="/images/home/iframe1.png" alt="" />
-                                        </div>
-                                        <div class="overlay-icon">
-                                            <i class="fa fa-play-circle-o"></i>
-                                        </div>
-                                    </a>
-                                    <p>Circle of Hands</p>
-                                    <h2>24 DEC 2014</h2>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <div class="video-gallery text-center">
-                                    <a href="#">
-                                        <div class="iframe-img">
-                                            <img src="/images/home/iframe2.png" alt="" />
-                                        </div>
-                                        <div class="overlay-icon">
-                                            <i class="fa fa-play-circle-o"></i>
-                                        </div>
-                                    </a>
-                                    <p>Circle of Hands</p>
-                                    <h2>24 DEC 2014</h2>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <div class="video-gallery text-center">
-                                    <a href="#">
-                                        <div class="iframe-img">
-                                            <img src="/images/home/iframe3.png" alt="" />
-                                        </div>
-                                        <div class="overlay-icon">
-                                            <i class="fa fa-play-circle-o"></i>
-                                        </div>
-                                    </a>
-                                    <p>Circle of Hands</p>
-                                    <h2>24 DEC 2014</h2>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-3">
-                                <div class="video-gallery text-center">
-                                    <a href="#">
-                                        <div class="iframe-img">
-                                            <img src="/images/home/iframe4.png" alt="" />
-                                        </div>
-                                        <div class="overlay-icon">
-                                            <i class="fa fa-play-circle-o"></i>
-                                        </div>
-                                    </a>
-                                    <p>Circle of Hands</p>
-                                    <h2>24 DEC 2014</h2>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <div class="address">
-                                <img src="/images/home/map.png" alt="" />
-                                <p>505 S Atlantic Ave Virginia Beach, VA(Virginia)</p>
-                            </div>
-                        </div>
-                    </div>
+    <div class="tw3-footerContainer">
+        <div class="jsFooterContainer tw3-footerContainer">
+            <div class="tw3-container tw3-footer">
+                <div class="socialButtons">
+                    <a href="https://itunes.apple.com/app/twoo/id486773266?mt=8" class="noline" target="_blank">
+                        <img height="32" src="https://twoo-a.akamaihd.net/static/4967311808377140445/images/homepage/appstore/vi/appstore.svg" class="mr--compact" alt="">
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.twoo&amp;referrer=eyJmaXJzdG5hbWUiOiJOZ3V5XHUxZWM1biIsImF2YXRhciI6Imh0dHBzOlwvXC90d29vMDEtYS5ha2FtYWloZC5uZXRcL2NcL2VkMjViYjU5MDg4ODJmYjBjODJmZmZmYmU3NWZkOWU2XzFfNV8wXzk1OV85NjBfNDAwXzM3MF8wMDAyMjYwNDQ3LmpwZyIsImxrIjoidzk3OXV1XzU3YjZiNTA2ODciLCJyayI6ImFwcHNzbzU4ZTA4YTc3ZDk2YjUwLjgyNjY3ODU5OTIxNmMxNzgyZTA4NzY4YmJlOWRkOGE4OTcyZjQ2ZTUiLCJpbnN0YW50IjpmYWxzZX0" class="noline" target="_blank">
+                        <img height="32" alt="Get it on Google Play" src="https://twoo-a.akamaihd.net/static/007872031331757802/images/homepage/playstore/vi/playstore.svg" class="ffImageScalingHack  mr--compact">
+                    </a>
                 </div>
+                <ul class="tw3-footer--mainMenu">
+                    <li>
+                        <a href="{{ url('/about') }}">Thông tin</a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/about/team') }}">Chúng tôi</a>
+                    </li>
+                </ul>
+                <ul class="tw3-footer--subMenu">
+                    <li>
+                        <a href="" target="_blank">Facebook</a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">Twitter</a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">Google+</a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">Youtube</a>
+                    </li>
+                    <li>
+                        © 2017 FiBo</li>
+                </ul>
             </div>
+        </div>
 
-            <div class="footer-bottom">
-                <div class="container">
-                    <div class="row">
-                        <p class="pull-left">Copyright © 2017 FIBO Inc. All rights reserved.</p>
-                        <p class="pull-right">Designed by <span><a target="_blank" href="http://www.themeum.com">FIBO</a></span></p>
-                    </div>
-                </div>
-            </div>
-        </footer><!--/Footer-->
-        @include('register.signup')
+    </div>
     </body>
     @yield('custom-js')
 </html>
