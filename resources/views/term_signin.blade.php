@@ -83,6 +83,7 @@
                                     <dd>
                                         <input type="password" tabindex="2" name="password" class="text" ng-model="pass" required>
                                     </dd>
+
                                     <dt>
                                        <span ng-class="message" style="background: red">
                                         Email hoặc mật khẩu chưa đúng!
