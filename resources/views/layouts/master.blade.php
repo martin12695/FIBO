@@ -94,6 +94,9 @@
                 <li>
                     <a href="{{ url('/about/team') }}">Chúng tôi</a>
                 </li>
+                <li>
+                    <a href="{{ url('/game/contact') }}">Liên hệ</a>
+                </li>
             </ul>
             <ul class="tw3-footer--subMenu">
                 <li>
