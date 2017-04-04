@@ -10,10 +10,10 @@
                 <div class="tw3-profile tw3-box--padding--off jsProfile tw3-profile--your">
                     <div class="tw3-container">
                         <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
-                            <a href="" style="width: 25%; border-color: rgba(0,123,230,0.5); color: #007be6;" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap add-friends">Kết bạn</a>
+                            <a href="" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Kết bạn</a>
                         </div>
                         <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
-                            <a href="" style="width: 45%; left: -230px; border-color: rgba(0,123,230,0.5); color: #007be6;" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap upload-image">Upload ảnh đại diện</a>
+                            <a href="" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-upload-image">Upload ảnh đại diện</a>
                         </div>
                         <div class="tw3-row tab-wrapper">
                             <div class="tw3-profile__infoTop">
@@ -64,9 +64,6 @@
                                                                         <div class="tw3-col-12 tw3-bp3-col-8">
                                                                             <h5 class="jsEditableBlockTitle mb--default text--bold">HOÀN TẤT SƠ YẾU CỦA BẠN</h5>
                                                                             <p class="text--subtle">Điền thêm thông tin để gặp thêm bạn mới</p>
-                                                                        </div>
-                                                                        <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
-                                                                            <a class="tw3-button tw3-button--subtle tw3-button--blue tw3-button--rounded tw3-button--small jsCompleteProfileDetails" href="">Cập nhật chi tiết</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -1550,22 +1547,22 @@
                                             </div>
                                             <div class="tw3-thumb jsPhotoThumb">
                                                 <a class="tw3-thumb__link" href="">
-                                                    <img style="background-image: url(https://twoo01-a.akamaihd.net/c/ed25bb5908882fb0c82ffffbe75fd9e6_3_5_0_959_960_600_720_0000748495.jpg)" class="jsTriggerPhotoBox tw3-thumb__link__image" data-photo-id="652228559" data-user-id="1950373542" alt="" src="https://twoo-a.akamaihd.net/static/864505989717655270395861131/shared/i/blank.gif">
+                                                    <img class="jsTriggerPhotoBox tw3-thumb__link__image" alt="" src="https://twoo01-a.akamaihd.net/c/ed25bb5908882fb0c82ffffbe75fd9e6_3_5_0_959_960_600_720_0000748495.jpg">
                                                 </a>
                                             </div>
                                             <div class="tw3-thumb jsPhotoThumb">
                                                 <a class="tw3-thumb__link" href="">
-                                                    <img style="background-image: url(https://twoo04-a.akamaihd.net/c/54f38d121906bffca3430d4baca22df0_3_5_0_576_576_600_720_0014554081.jpg)" class="jsTriggerPhotoBox tw3-thumb__link__image" data-photo-id="652228570" data-user-id="1950373542" alt="" src="https://twoo-a.akamaihd.net/static/864505989717655270395861131/shared/i/blank.gif">
+                                                    <img class="jsTriggerPhotoBox tw3-thumb__link__image" alt="" src="https://twoo04-a.akamaihd.net/c/54f38d121906bffca3430d4baca22df0_3_5_0_576_576_600_720_0014554081.jpg">
                                                 </a>
                                             </div>
                                             <div class="tw3-thumb jsPhotoThumb">
                                                 <a class="tw3-thumb__link" href="">
-                                                    <img style="background-image: url(https://twoo01-a.akamaihd.net/c/fbcacf57cabab00145cfe64793a9dc92_3_5_0_959_960_600_720_0012050110.jpg)" class="jsTriggerPhotoBox tw3-thumb__link__image" data-photo-id="652228587" data-user-id="1950373542" alt="" src="https://twoo-a.akamaihd.net/static/864505989717655270395861131/shared/i/blank.gif">
+                                                    <img class="jsTriggerPhotoBox tw3-thumb__link__image" alt="" src="https://twoo01-a.akamaihd.net/c/fbcacf57cabab00145cfe64793a9dc92_3_5_0_959_960_600_720_0012050110.jpg">
                                                 </a>
                                             </div>
                                             <div class="tw3-thumb jsPhotoThumb">
                                                 <a class="tw3-thumb__link" href="">
-                                                    <img style="background-image: url(https://twoo01-a.akamaihd.net/c/8e1963b416e44a357c1012f659083847_3_5_0_960_960_600_720_0006110854.jpg)" class="jsTriggerPhotoBox tw3-thumb__link__image" data-photo-id="652228594" data-user-id="1950373542" alt="" src="https://twoo-a.akamaihd.net/static/864505989717655270395861131/shared/i/blank.gif">
+                                                    <img class="jsTriggerPhotoBox tw3-thumb__link__image" alt="" src="https://twoo01-a.akamaihd.net/c/8e1963b416e44a357c1012f659083847_3_5_0_960_960_600_720_0006110854.jpg">
                                                 </a>
                                             </div>
                                         </div>

@@ -19,6 +19,7 @@
     <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/37339762993591368798/css/sass/ltr/group-more.p3.css">
     <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/020154603095955706158/css/sass/ltr/twoo.messages.v3.css">
     <link rel="stylesheet" href="/css/dropdown.css">
+    <link rel="stylesheet" href="/css/btn.css">
     @include('layouts.basic')
 
     <style type="text/css">

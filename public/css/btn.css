@@ -1,0 +1,11 @@
+.btn-add-friends {
+    width: 25%;
+    border-color: rgba(0,123,230,0.5);
+    color: #007be6;
+}
+.btn-upload-image {
+    width: 45%;
+    left: -230px;
+    border-color: rgba(0,123,230,0.5);
+    color: #007be6;
+}
