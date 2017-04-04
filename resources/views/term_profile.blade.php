@@ -153,8 +153,7 @@
                                                                                             SỐNG TẠI
                                                                                         </label>
                                                                                     </div>
-                                                                                    <input type="text" name="q" value="" class="jsAutoCompleter autoCompleter tw3-text tw3-searchfield">
-                                                                                    <input type="hidden" name="locationID" id="locationID" value="">
+                                                                                    <input type="text" id="autocomplete" name="city" value="" class="tw3-text tw3-searchfield">
                                                                                 </div>
                                                                             </div>
                                                                             <div class="tw3-buttonGroup">
