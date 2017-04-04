@@ -7,7 +7,6 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>FIBO - @yield('title')</title>
-    <link href="/css/main.css" rel="stylesheet">
     @yield('custom-css')
         <!--[if lt IE 9]>
     <![endif]-->
@@ -19,7 +18,23 @@
     <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/6188132174502284106364/css/sass/ltr/group-more.p2.css">
     <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/37339762993591368798/css/sass/ltr/group-more.p3.css">
     <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/020154603095955706158/css/sass/ltr/twoo.messages.v3.css">
+    <link rel="stylesheet" href="/css/dropdown.css">
     @include('layouts.basic')
+
+    <style type="text/css">
+        .padding-info .tw3-row{
+            padding-bottom: 10px;
+        }
+        .tw3-tab.selected {
+            color: #007be6;
+            position: relative;
+        }
+        .tw3-tab.selected:after {
+            background: #007be6;
+            left: 0;
+            right: 0;
+        }
+    </style>
 </head><!--/head-->
 <body>
 <div class="tw3-header tw3-header--guest">
@@ -53,15 +68,15 @@
             </ul>
             <ul class="tw3-headerV2__actions clearfix right">
                 <li class="menuItem tw3-header__actions__item">
-                    <a href="{{ url('/signout') }}" class="tw3-button tw3-button--blue tw3-button--small tw3-button--rounded">Đăng xuất</a>
+                    <a style="margin-top: 20px;" href="{{ url('/signout') }}" class="tw3-button tw3-button--blue tw3-button--small tw3-button--rounded">Đăng xuất</a>
                 </li>
             </ul>
         </div>
     </div>
 </div>
 @yield('content')
-<div class="tw3-footerContainer">
-    <div class="jsFooterContainer tw3-footerContainer">
+<div class="tw3-footerContainer" style="border-bottom: 3px solid #007be6">
+    <div class="jsFooterContainer tw3-footerContainer" style="border-bottom: 3px solid #007be6">
         <div class="tw3-container tw3-footer">
             <div class="socialButtons">
                 <a href="https://itunes.apple.com/app/twoo/id486773266?mt=8" class="noline" target="_blank">
