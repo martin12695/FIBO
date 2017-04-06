@@ -76,15 +76,13 @@
                                                                     Giới thiệu về bạn.
                                                                 </p>
                                                                 <div>
-                                                                    <form class="editForm" action="" method="post" style="display: none">
-                                                                        <input type="hidden" value="saveBlock" name="action">
-                                                                        <input type="hidden" value="about" name="block">
+                                                                    <div class="editForm" style="display: none">
                                                                         <textarea placeholder="Giới thiệu về bạn." maxlength="550" data-maxcharsbadge=".jsIntroMessageCharactersLeft" class="tw3-textarea jsAutoExpandTextarea jsMaxCharsTextarea mb--tight" name="intromessage"></textarea>
                                                                         <span class="jsIntroMessageCharactersLeft badge">Tối đa 550 ký tự</span>
                                                                         <div class="tw3-buttonGroup" style="margin-top: 10px">
                                                                             <input type="submit" value="Lưu" class="tw3-button tw3-button--blue tw3-button--rounded"><a href="" class="jsEditableCancel tw3-button tw3-button--subtle tw3-button--rounded">Hủy</a>
                                                                         </div>
-                                                                    </form>
+                                                                    </div>
                                                                 </div>
 
                                                             </div>
@@ -107,9 +105,8 @@
                                                                     </ul>
                                                                 </div>
                                                                 <div>
-                                                                    <form class="editForm" action="" method="post" style="display: none">
-                                                                        <input type="hidden" value="saveBlock" name="action">
-                                                                        <input type="hidden" value="lookingfor" name="block">
+                                                                    <div class="editForm" style="display: none">
+
                                                                         <div class="tw3-row clearfix">
                                                                             <div class="tw3-col-12 mb--compact">
                                                                                 <div class="tw3-form__row__label">
@@ -150,7 +147,7 @@
                                                                             </div>
                                                                         </div>
 
-                                                                    </form>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -193,189 +190,73 @@
                                 </div>
                             </div>
                             <div data-tab="details" style="display:none" id="details" class="tw3-panel tab-item tw3-editable__block" >
-                                <div class="">
-                                    <h5 class="jsEditableBlockTitle mb--default text--bold">THÔNG TIN CƠ BẢN</h5>
-                                    <div class="tw3-field__editIcon">
-                                        <a href="#" class="edit-link"><i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 25px"></i></a>
-                                        <a href="#" style="display: none;" class="cancel"><i class="fa fa-ban" aria-hidden="true" style="font-size: 25px"></i></a>
-                                    </div>
-                                    <div class="tw3-field">
-                                        <div class="tw3-field__view clearfix">
-                                            <div class="tw3-row">
-                                                <div class="tw3-col-12 tw3-bp4-col-6">
-                                                    <div class="tw3-row">
-                                                        <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1 padding-info">
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Tên</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value" >{{$info_basic->name}}</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Giới tính</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">Nam</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Ngày sinh</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">
-                                                                        {{$info_basic->birthday}}</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Thành phố</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">Thành phố Hồ Chí Minh</p>
-                                                                </div>
-                                                            </div>
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="tw3-col-12 tw3-bp4-col-6">
-                                                    <div class="tw3-row">
-                                                        <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1 padding-info">
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Công việc &amp; trình độ</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Số điện thoại</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value"></p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr class="tw3-hr mb--default">
+                                <form action="/ss" method="post">
+                                    <div class="">
+                                        <h5 class="jsEditableBlockTitle mb--default text--bold">THÔNG TIN CƠ BẢN</h5>
+                                        <div class="tw3-field__editIcon">
+                                            <a href="#" class="edit-link"><i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 25px"></i></a>
+                                            <a href="#" style="display: none;" class="cancel"><i class="fa fa-ban" aria-hidden="true" style="font-size: 25px"></i></a>
                                         </div>
-                                        <div>
-                                            <form class="editForm" style="display: none" action="" method="post">
-                                                <input type="hidden" value="saveBlock" name="action">
-                                                <input type="hidden" value="basic" name="block">
+                                        <div class="tw3-field">
+                                            <div class="tw3-field__view clearfix">
                                                 <div class="tw3-row">
-                                                    <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
+                                                    <div class="tw3-col-12 tw3-bp4-col-6">
                                                         <div class="tw3-row">
-                                                            <div class="col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1">
+                                                            <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1 padding-info">
                                                                 <div class="tw3-row">
-                                                                    <div class="tw3-col-12 mb--default">
-                                                                        <div class="tw3-form__row__label">
-                                                                            <label for="firstname">
-                                                                                TÊN
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="tw3-form__row__input">
-                                                                            <input type="text" ng-init="info.name='{{$info_basic->name}}'" name="firstname" id="firstname" class="tw3-text" >
-                                                                        </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Tên</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value" >{{$info_basic->name}}</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">
-                                                                    <div class="tw3-col-12 mb--default">
-                                                                        <div class="tw3-form__row__label">
-                                                                            <label for="gender">
-                                                                                GIỚI TÍNH
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="tw3-dropdownHolder">
-                                                                            <select tabindex="1" name="gender" class="dropdown">
-                                                                                <option value="1" selected>Nam</option>
-                                                                                <option value="2">Nữ</option>
-                                                                            </select>
-                                                                            <small class="text--subtle">Bạn chỉ được thay đổi một lần</small>
-                                                                        </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Giới tính</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">Nam</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Ngày sinh</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">
+                                                                            {{$info_basic->birthday}}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Thành phố</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">Thành phố Hồ Chí Minh</p>
+                                                                    </div>
+                                                                </div>
 
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-12 mb--default">
-
-                                                                        <div class="tw3-form__row__label">
-                                                                            <label for="birthday">
-                                                                                NGÀY SINH
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="tw3-form__row__input">
-                                                                            <div class="tw3-row">
-                                                                                <input class="tw3-text" id="datepicker" type="datetime" placeholder="Ngày sinh Của Bạn..." value="{{$info_basic->birthday}}" >
-                                                                            </div>
-                                                                            <small class="text--subtle">Bạn chỉ được thay đổi một lần</small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-12 mb--default">
-                                                                        <div class="tw3-form__row__label">
-                                                                            <label for="city">
-                                                                                THÀNH PHỐ
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="tw3-dropdownHolder">
-                                                                            <select name="province" class="dropdown">
-                                                                                @foreach($province as $itemPro)
-                                                                                    <option value="{{$itemPro->id}}" {{'2' == $itemPro->id ?  'selected="selected"' : ''}} >{{$itemPro->name}}</option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
+                                                    <div class="tw3-col-12 tw3-bp4-col-6">
                                                         <div class="tw3-row">
-                                                            <div class="col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1">
+                                                            <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1 padding-info">
                                                                 <div class="tw3-row">
-                                                                    <div class="tw3-col-12 mb--default">
-                                                                        <div class="tw3-form__row__label">
-                                                                            <label for="gender">
-                                                                                Địa chỉ Email
-                                                                            </label>
-                                                                        </div>
-                                                                        <input type="text" value="" name="email" class="tw3-text">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Công việc &amp; trình độ</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">
-                                                                    <div class="tw3-col-12 mb--default">
-                                                                        <div class="tw3-form__row__label">
-                                                                            <label for="">
-                                                                                Điện thoại
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="tw3-form__row__input">
-                                                                            <input type="text" value="" name="phone" class="tw3-text">
-                                                                        </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Số điện thoại</p>
                                                                     </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-12 mb--default">
-                                                                        <div class="tw3-form__row__label">
-                                                                            <label for="">
-                                                                                Sinh viên trường
-                                                                            </label>
-                                                                        </div>
-                                                                        <div class="tw3-form__row__input">
-                                                                            <select class="dropdown">
-                                                                                <option>Trường Công Nghệ Thông tin</option>
-                                                                            </select>
-                                                                        </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value"></p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -383,168 +264,72 @@
                                                     </div>
                                                 </div>
                                                 <hr class="tw3-hr mb--default">
-
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" jsLooksProfileBlock jsEditableBlock">
-                                    <h5 class="jsEditableBlockTitle mb--default text--bold">Thông tin chi tiết</h5>
-                                    <div class="tw3-field">
-                                        <div class="tw3-field__view clearfix">
-                                            <div class="tw3-row">
-                                                <div class="tw3-col-12 tw3-bp4-col-6">
-                                                    <div class="tw3-row">
-                                                        <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1 padding-info">
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Dân tộc</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Hình dáng</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Chiều cao</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">
-                                                                        ...
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Màu tóc</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Màu mắt</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="tw3-col-12 tw3-bp4-col-6">
-                                                    <div class="tw3-row">
-                                                        <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1 padding-info">
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Tôi đeo</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">
-                                                                        ...
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Tôi có</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">
-                                                                        ...
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Phong cách ăn mặc</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">
-                                                                        ...
-                                                                    </p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Điểm đẹp nhất của tôi</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Diện mạo chung</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
-                                            <hr class="tw3-hr mb--default">
-                                        </div>
-                                        <div>
-                                            <form class="editForm" style="display: none" action="" method="post">
-                                                <input type="hidden" value="saveBlock" name="action">
-                                                <input type="hidden" value="looks" name="block">
-                                                <input type="hidden" value="cm" id="jsUnit" name="unit">
-                                                <input type="hidden" value="1" name="clearOnEmpty">
-
-
-                                                <div class="tw3-profileDetailsForms mb--default">
+                                            <div>
+                                                <div class="editForm" style="display: none">
                                                     <div class="tw3-row">
                                                         <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
                                                             <div class="tw3-row">
                                                                 <div class="col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1">
-                                                                    <div class="tw3-row tw3-form__row">
-                                                                        <div class="tw3-col-12">
+                                                                    <div class="tw3-row">
+                                                                        <div class="tw3-col-12 mb--default">
                                                                             <div class="tw3-form__row__label">
-                                                                                <label for="silhouette">
-                                                                                    THÂN HÌNH
+                                                                                <label for="firstname">
+                                                                                    TÊN
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="tw3-form__row__input">
+                                                                                <input type="text" ng-init="info.name='{{$info_basic->name}}'" name="firstname" id="firstname" class="tw3-text" >
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tw3-row">
+                                                                        <div class="tw3-col-12 mb--default">
+                                                                            <div class="tw3-form__row__label">
+                                                                                <label for="gender">
+                                                                                    GIỚI TÍNH
                                                                                 </label>
                                                                             </div>
                                                                             <div class="tw3-dropdownHolder">
-                                                                                <select name="body" class="dropdown">
-                                                                                    @foreach($body as $itemBody)
-                                                                                        <option value="{{$itemBody->id}}" {{$itemBody->id == '2' ?  'selected="selected"' : ''}}>{{$itemBody->value}}</option>
+                                                                                <select tabindex="1" name="gender" class="dropdown">
+                                                                                    <option value="1" selected>Nam</option>
+                                                                                    <option value="2">Nữ</option>
+                                                                                </select>
+                                                                                <small class="text--subtle">Bạn chỉ được thay đổi một lần</small>
+                                                                            </div>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tw3-row">
+                                                                        <div class="tw3-col-12 mb--default">
+
+                                                                            <div class="tw3-form__row__label">
+                                                                                <label for="birthday">
+                                                                                    NGÀY SINH
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="tw3-form__row__input">
+                                                                                <div class="tw3-row">
+                                                                                    <input class="tw3-text" id="datepicker" type="datetime" placeholder="Ngày sinh Của Bạn..." value="{{$info_basic->birthday}}" >
+                                                                                </div>
+                                                                                <small class="text--subtle">Bạn chỉ được thay đổi một lần</small>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tw3-row">
+                                                                        <div class="tw3-col-12 mb--default">
+                                                                            <div class="tw3-form__row__label">
+                                                                                <label for="city">
+                                                                                    THÀNH PHỐ
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="tw3-dropdownHolder">
+                                                                                <select name="province" class="dropdown">
+                                                                                    @foreach($province as $itemPro)
+                                                                                        <option value="{{$itemPro->id}}" {{'2' == $itemPro->id ?  'selected="selected"' : ''}} >{{$itemPro->name}}</option>
                                                                                     @endforeach
                                                                                 </select>
                                                                             </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="tw3-row tw3-form__row">
-                                                                        <div class="tw3-col-12">
-                                                                            <div class="tw3-form__row__label">
-                                                                                <label for="length">
-                                                                                    CHIỀU CAO (cm)
-                                                                                </label>
-                                                                            </div>
-                                                                            <div >
-                                                                                <input class="tw3-text" type="text" placeholder="Chiều cao của bạn (Đơn vị cm)..."  value="{{$infoDes->height}}" name="height">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="tw3-row tw3-form__row">
-                                                                        <div class="tw3-col-12">
-                                                                            <div class="tw3-form__row__label">
-                                                                                <label for="hairColor">
-                                                                                    MÀU TÓC
-                                                                                </label>
-                                                                            </div>
-                                                                            <input type="text" class="tw3-text" placeholder="Màu tóc của bạn..."  value="{{$infoDes->hair}}" name="hair">
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -553,47 +338,152 @@
                                                         <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
                                                             <div class="tw3-row">
                                                                 <div class="col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1">
-                                                                    <div class="tw3-row tw3-form__row">
-                                                                        <div class="tw3-col-12">
+                                                                    <div class="tw3-row">
+                                                                        <div class="tw3-col-12 mb--default">
                                                                             <div class="tw3-form__row__label">
-                                                                                <label>
-                                                                                    ƯU TIÊN CUỘC SỐNG
+                                                                                <label for="gender">
+                                                                                    Địa chỉ Email
                                                                                 </label>
                                                                             </div>
-                                                                            <input class="tw3-text" type="text" placeholder="Ưu tiên trong cuộc sống của bạn..." value="{{$infoDes->priority_in_life}}" name="priority_in_life">
+                                                                            <input type="text" value="" name="email" class="tw3-text">
                                                                         </div>
                                                                     </div>
-                                                                    <div class="tw3-row tw3-form__row">
-                                                                        <div class="tw3-col-12">
+                                                                    <div class="tw3-row">
+                                                                        <div class="tw3-col-12 mb--default">
                                                                             <div class="tw3-form__row__label">
-                                                                                <label for="iHave">
-                                                                                    ĐỐI TƯỢNG TÌM KIẾM
+                                                                                <label for="">
+                                                                                    Điện thoại
                                                                                 </label>
                                                                             </div>
-                                                                            <div class="tw3-dropdownHolder">
-                                                                                <select name="sub" class="dropdown">
-                                                                                    @foreach($findSub as $itemSub)
-                                                                                        <option value="{{$itemSub->id}}" {{$infoDes->subject_find == $itemSub->id ?  'selected="selected"' : ''}} >{{$itemSub->value}}</option>
-                                                                                    @endforeach
+                                                                            <div class="tw3-form__row__input">
+                                                                                <input type="text" value="" name="phone" class="tw3-text">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tw3-row">
+                                                                        <div class="tw3-col-12 mb--default">
+                                                                            <div class="tw3-form__row__label">
+                                                                                <label for="">
+                                                                                    Sinh viên trường
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="tw3-form__row__input">
+                                                                                <select class="dropdown">
+                                                                                    <option>Trường Công Nghệ Thông tin</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <div class="tw3-row tw3-form__row">
-                                                                        <div class="tw3-col-12">
-                                                                            <div class="tw3-form__row__label">
-                                                                                <label for="clothingStyle">
-                                                                                    ĐỘ TUỔI
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="tw3-dropdownHolder">
-                                                                                <select name="sub_age" class="dropdown">
-                                                                                    @foreach($findAge as $itemAge)
-                                                                                        <option value="{{$itemAge->id}}" {{$infoDes->subject_eag == $itemAge->id ?  'selected="selected"' : ''}} >{{$itemAge->value}}</option>
-                                                                                    @endforeach
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="tw3-hr mb--default">
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class=" jsLooksProfileBlock jsEditableBlock">
+                                        <h5 class="jsEditableBlockTitle mb--default text--bold">Thông tin chi tiết</h5>
+                                        <div class="tw3-field">
+                                            <div class="tw3-field__view clearfix">
+                                                <div class="tw3-row">
+                                                    <div class="tw3-col-12 tw3-bp4-col-6">
+                                                        <div class="tw3-row">
+                                                            <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1 padding-info">
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Dân tộc</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Hình dáng</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Chiều cao</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">
+                                                                            ...
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Màu tóc</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Màu mắt</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tw3-col-12 tw3-bp4-col-6">
+                                                        <div class="tw3-row">
+                                                            <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1 padding-info">
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Tôi đeo</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">
+                                                                            ...
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Tôi có</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">
+                                                                            ...
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Phong cách ăn mặc</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">
+                                                                            ...
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Điểm đẹp nhất của tôi</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Diện mạo chung</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -601,182 +491,284 @@
                                                     </div>
                                                 </div>
                                                 <hr class="tw3-hr mb--default">
-                                            </form>
+                                            </div>
+                                            <div>
+                                                <div class="editForm" style="display: none">
+                                                    <input type="hidden" value="saveBlock" name="action">
+                                                    <input type="hidden" value="looks" name="block">
+                                                    <input type="hidden" value="cm" id="jsUnit" name="unit">
+                                                    <input type="hidden" value="1" name="clearOnEmpty">
+
+
+                                                    <div class="tw3-profileDetailsForms mb--default">
+                                                        <div class="tw3-row">
+                                                            <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
+                                                                <div class="tw3-row">
+                                                                    <div class="col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1">
+                                                                        <div class="tw3-row tw3-form__row">
+                                                                            <div class="tw3-col-12">
+                                                                                <div class="tw3-form__row__label">
+                                                                                    <label for="silhouette">
+                                                                                        THÂN HÌNH
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="tw3-dropdownHolder">
+                                                                                    <select name="body" class="dropdown">
+                                                                                        @foreach($body as $itemBody)
+                                                                                            <option value="{{$itemBody->id}}" {{$itemBody->id == '2' ?  'selected="selected"' : ''}}>{{$itemBody->value}}</option>
+                                                                                        @endforeach
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tw3-row tw3-form__row">
+                                                                            <div class="tw3-col-12">
+                                                                                <div class="tw3-form__row__label">
+                                                                                    <label for="length">
+                                                                                        CHIỀU CAO (cm)
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div >
+                                                                                    <input class="tw3-text" type="text" placeholder="Chiều cao của bạn (Đơn vị cm)..."  value="{{$infoDes->height}}" name="height">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tw3-row tw3-form__row">
+                                                                            <div class="tw3-col-12">
+                                                                                <div class="tw3-form__row__label">
+                                                                                    <label for="hairColor">
+                                                                                        MÀU TÓC
+                                                                                    </label>
+                                                                                </div>
+                                                                                <input type="text" class="tw3-text" placeholder="Màu tóc của bạn..."  value="{{$infoDes->hair}}" name="hair">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
+                                                                <div class="tw3-row">
+                                                                    <div class="col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1">
+                                                                        <div class="tw3-row tw3-form__row">
+                                                                            <div class="tw3-col-12">
+                                                                                <div class="tw3-form__row__label">
+                                                                                    <label>
+                                                                                        ƯU TIÊN CUỘC SỐNG
+                                                                                    </label>
+                                                                                </div>
+                                                                                <input class="tw3-text" type="text" placeholder="Ưu tiên trong cuộc sống của bạn..." value="{{$infoDes->priority_in_life}}" name="priority_in_life">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tw3-row tw3-form__row">
+                                                                            <div class="tw3-col-12">
+                                                                                <div class="tw3-form__row__label">
+                                                                                    <label for="iHave">
+                                                                                        ĐỐI TƯỢNG TÌM KIẾM
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="tw3-dropdownHolder">
+                                                                                    <select name="sub" class="dropdown">
+                                                                                        @foreach($findSub as $itemSub)
+                                                                                            <option value="{{$itemSub->id}}" {{$infoDes->subject_find == $itemSub->id ?  'selected="selected"' : ''}} >{{$itemSub->value}}</option>
+                                                                                        @endforeach
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tw3-row tw3-form__row">
+                                                                            <div class="tw3-col-12">
+                                                                                <div class="tw3-form__row__label">
+                                                                                    <label for="clothingStyle">
+                                                                                        ĐỘ TUỔI
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="tw3-dropdownHolder">
+                                                                                    <select name="sub_age" class="dropdown">
+                                                                                        @foreach($findAge as $itemAge)
+                                                                                            <option value="{{$itemAge->id}}" {{$infoDes->subject_eag == $itemAge->id ?  'selected="selected"' : ''}} >{{$itemAge->value}}</option>
+                                                                                        @endforeach
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="tw3-hr mb--default">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div data-edit-feedback="Thông tin về tính cách của bạn đã được lưu." class="jsPersonalityProfileBlock  jsEditableBlock">
-                                    <h5 class="jsEditableBlockTitle mb--default text--bold">TÍNH CÁCH</h5>
-                                    <div class="tw3-field">
-                                        <div class="tw3-field__view clearfix">
-                                            <div class="tw3-row">
-                                                <div class="tw3-col-12 tw3-bp4-col-6">
-                                                    <div class="tw3-row">
-                                                        <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1 padding-info">
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Tính cách</p>
+                                    <div data-edit-feedback="Thông tin về tính cách của bạn đã được lưu." class="jsPersonalityProfileBlock  jsEditableBlock">
+                                        <h5 class="jsEditableBlockTitle mb--default text--bold">TÍNH CÁCH</h5>
+                                        <div class="tw3-field">
+                                            <div class="tw3-field__view clearfix">
+                                                <div class="tw3-row">
+                                                    <div class="tw3-col-12 tw3-bp4-col-6">
+                                                        <div class="tw3-row">
+                                                            <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1 padding-info">
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Tính cách</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">
+                                                                            ...
+                                                                        </p>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">
-                                                                        ...
-                                                                    </p>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Cung hoàng đạo</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">Cự giải
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Lãng mạn</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Lần hẹn hò đầu tiên mong muốn</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Tôi chia sẻ với bạn đời</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Cung hoàng đạo</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="tw3-col-12 tw3-bp4-col-6">
+                                                        <div class="tw3-row">
+                                                            <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1 padding-info">
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Hôn nhân là</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">Cự giải
-                                                                    </p>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Tôi ghen tỵ</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Lãng mạn</p>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Con cái</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Bạn bè</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Lần hẹn hò đầu tiên mong muốn</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Tôi chia sẻ với bạn đời</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Vật nuôi</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="tw3-col-12 tw3-bp4-col-6">
-                                                    <div class="tw3-row">
-                                                        <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1 padding-info">
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Hôn nhân là</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Tôi ghen tỵ</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Con cái</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Bạn bè</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
+                                                <hr class="tw3-hr mb--default">
+                                            </div>
+                                            <div>
+                                                <div class="editForm" style="display: none" action="/profile" method="post">
+                                                    <div class="tw3-profileDetailsForms mb--default">
+                                                        <div class="tw3-row">
+                                                            <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
+                                                                <div class="tw3-row">
+                                                                    <div class="col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1">
+                                                                        <div class="tw3-row tw3-form__row">
+                                                                            <div class="tw3-col-12">
+                                                                                <div class="tw3-form__row__label">
+                                                                                    <label for="music">
+                                                                                        Âm Nhạc
+                                                                                    </label>
+                                                                                </div>
+                                                                                <input class="tw3-text" type="text" placeholder="Thể loại âm nhạc bạn thích..." value="{{$infoHobby->music}}" name="music">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tw3-row tw3-form__row">
+                                                                            <div class="tw3-col-12">
+                                                                                <div class="tw3-form__row__label">
+                                                                                    <label for="Phim">
+                                                                                        Phim
+                                                                                    </label>
+                                                                                </div>
+                                                                                <input class="tw3-text" type="text" placeholder="Thể loại phim bạn thích..." value="{{$infoHobby->movie}}" name="movie">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                            <div class="tw3-row">
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-title">Vật nuôi</p>
-                                                                </div>
-                                                                <div class="tw3-col-6">
-                                                                    <p class="tw3-field-value">...</p>
+                                                            <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
+                                                                <div class="tw3-row">
+                                                                    <div class="col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1">
+                                                                        <div class="tw3-row tw3-form__row">
+                                                                            <div class="tw3-col-12">
+                                                                                <div class="tw3-form__row__label">
+                                                                                    <label for="iShareWithMyPartner">
+                                                                                        Thể Thao
+                                                                                    </label>
+                                                                                </div>
+                                                                                <input class="tw3-text" type="text" placeholder="Môn thể thao bạn thích..." value="{{$infoHobby->sport}}" name="sport">
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tw3-row tw3-form__row">
+                                                                            <div class="tw3-col-12">
+                                                                                <div class="tw3-form__row__label">
+                                                                                    <label for="hobby">Sở thích</label>
+                                                                                </div>
+                                                                                <input class="tw3-text" type="text" placeholder="Sở thích cá nhân của bạn..." value="{{$infoHobby->hobby}}" name="hobby">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                    </div>
+                                                    <hr class="tw3-hr mb--default">
+                                                    <div class="tw3-buttonGroup text--center" style="margin-bottom: 20px;">
+                                                        <input type="submit" value="Lưu" class="tw3-button tw3-button--blue tw3-button--rounded"><a href="" class="jsEditableCancel tw3-button tw3-button--subtle tw3-button--rounded">Hủy</a>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <hr class="tw3-hr mb--default">
-                                        </div>
-                                        <div>
-                                            <form class="editForm" style="display: none" action="/profile" method="post">
-                                                <input type="hidden" value="saveBlock" name="action">
-                                                <input type="hidden" value="personality" name="block">
-                                                <input type="hidden" value="1" name="clearOnEmpty">
-
-
-                                                <div class="tw3-profileDetailsForms mb--default">
-                                                    <div class="tw3-row">
-                                                        <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
-                                                            <div class="tw3-row">
-                                                                <div class="col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1">
-                                                                    <div class="tw3-row tw3-form__row">
-                                                                        <div class="tw3-col-12">
-                                                                            <div class="tw3-form__row__label">
-                                                                                <label for="music">
-                                                                                    Âm Nhạc
-                                                                                </label>
-                                                                            </div>
-                                                                            <input class="tw3-text" type="text" placeholder="Thể loại âm nhạc bạn thích..." value="{{$infoHobby->music}}" name="music">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="tw3-row tw3-form__row">
-                                                                        <div class="tw3-col-12">
-                                                                            <div class="tw3-form__row__label">
-                                                                                <label for="Phim">
-                                                                                    Phim
-                                                                                </label>
-                                                                            </div>
-                                                                            <input class="tw3-text" type="text" placeholder="Thể loại phim bạn thích..." value="{{$infoHobby->movie}}" name="movie">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
-                                                            <div class="tw3-row">
-                                                                <div class="col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1">
-                                                                    <div class="tw3-row tw3-form__row">
-                                                                        <div class="tw3-col-12">
-                                                                            <div class="tw3-form__row__label">
-                                                                                <label for="iShareWithMyPartner">
-                                                                                    Thể Thao
-                                                                                </label>
-                                                                            </div>
-                                                                            <input class="tw3-text" type="text" placeholder="Môn thể thao bạn thích..." value="{{$infoHobby->sport}}" name="sport">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="tw3-row tw3-form__row">
-                                                                        <div class="tw3-col-12">
-                                                                            <div class="tw3-form__row__label">
-                                                                                <label for="hobby">Sở thích</label>
-                                                                            </div>
-                                                                            <input class="tw3-text" type="text" placeholder="Sở thích cá nhân của bạn..." value="{{$infoHobby->hobby}}" name="hobby">
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <hr class="tw3-hr mb--default">
-                                                <div class="tw3-buttonGroup text--center" style="margin-bottom: 20px;">
-                                                    <input type="submit" value="Lưu" class="tw3-button tw3-button--blue tw3-button--rounded"><a href="" class="jsEditableCancel tw3-button tw3-button--subtle tw3-button--rounded">Hủy</a>
-                                                </div>
-                                            </form>
                                         </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                             <div data-tab="photos" style="display:none" id="photos" class="tw3-panel tab-item" >
                                 <div class="tw3-thumbsHolder">

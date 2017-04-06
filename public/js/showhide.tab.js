@@ -20,7 +20,7 @@ $(document).ready(function(){
         e.preventDefault();
         var $parent = $(this).closest('.tw3-editable__block');
         $parent.find('.tw3-field p.message').hide();
-        $parent.find('.tw3-field form.editForm').show();
+        $parent.find('.tw3-field .editForm').show();
         $parent.find('a.cancel').show();
         $('.tw3-field__view').hide();
         $('.tw3-field__editIcon a.edit-link').hide();
@@ -30,7 +30,7 @@ $(document).ready(function(){
         e.preventDefault();
         var $parent = $(this).closest('.tw3-editable__block');
         $parent.find('.tw3-field p.message').show();
-        $parent.find('.tw3-field form.editForm').hide();
+        $parent.find('.tw3-field .editForm').hide();
         $parent.find('a.edit-link').show();
         $('.tw3-field__view').show();
         $('.tw3-field__editIcon a.edit-link').show();
