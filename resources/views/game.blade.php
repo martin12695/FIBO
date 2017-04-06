@@ -14,6 +14,37 @@
                             <div class="jsDiscover discover promoPosunder">
                                 <div class="jsPhotoCoverContainer photoCoverHolder ">
                                     <div class="photoCover jsPhotoCover">
+                                        <aside class="profile-card">
+                                            <header>
+                                                <a>
+                                                    <img height="200" width="200" src="./images/sky.jpg">
+                                                </a>
+                                                <h1>Dư Cao Tiến</h1>
+                                                <h2>- Trai Bao Cao Cấp -</h2>
+                                            </header>
+                                            <div class="profile-bio">
+                                                <p>Chào mừng các bạn</p>
+                                                <p>Tôi hoạt động chủ yếu ở cầu Thị Nghè, thích thì làm quen nha.
+                                                    <br />Cần tiền nên có tiền sẽ nhiệt tình phục vụ</p>
+                                            </div>
+                                            <ul class="profile-social-links">
+                                                <li>
+                                                    <a href="http://twitter.com/">
+                                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/social-twitter.svg">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="http://facebook.com">
+                                                        <img src="http://www.laivanduc.com/wp-content/uploads/2015/07/facebook.png">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="https://plus.google.com/u/0/118260931574775251745/posts">
+                                                        <img src="http://www.laivanduc.com/wp-content/uploads/2015/07/Google-.png">
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </aside>
                                     </div>
                                     <div class="jsPhotoCoverContainerActions photoCoverHolder__actions">
                                     </div>
