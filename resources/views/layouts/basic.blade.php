@@ -8,7 +8,6 @@
 <script src="/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/js/lib/sweetalert.min.js" type="text/javascript"></script>
 <script src="/js/bootstrap-select.js" type="text/javascript"></script>
-<script src="/js/showhide.edit.js" type="text/javascript"></script>
 <script src="/js/showhide.tab.js" type="text/javascript"></script>
 <script src="/js/jquery-autocomplete-city.js" type="text/javascript"></script>
-<script src="/js/jquery-autocomplete.min.js" type="text/javascript"></script>
+<script src="/js/jquery.autocomplete.min.js" type="text/javascript"></script>

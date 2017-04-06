@@ -171,7 +171,7 @@
                                             <div class="col-sm-4 col-md-offset-2">
                                                 <div class="blank-arrow">
                                                     <label>Tóc</label>
-                                                </div>
+                                                </div>chiề
                                                 <span>*</span>
                                                 <input type="text" placeholder="Màu tóc của bạn..."  value="{{$infoDes->hair}}" name="hair">
                                                 <div class="blank-arrow">

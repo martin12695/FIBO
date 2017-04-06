@@ -51,7 +51,7 @@ class UserController
             }
             $date = new DateTime($info->birthday);
             $info->birthday = $date->format('d/m/Y');
-            return view('user_profile',[
+            return view('term_profile',[
                 'info_basic' => $info,
                 'infoDes'    => $infoDes,
                 'infoHobby'  => $infoHobby,
