@@ -86,10 +86,7 @@
                                                                         </div>
                                                                     </form>
                                                                 </div>
-                                                                <div class="tw3-field__editIcon">
-                                                                    <a href="#" class="edit-link"><i class="fa fa-pencil-square-o" aria-hidden="true"  style="font-size: 25px"></i></a>
-                                                                    <a href="#" style="display: none;" class="cancel"><i class="fa fa-ban" aria-hidden="true" style="font-size: 25px"></i></a>
-                                                                </div>
+
                                                             </div>
                                                         </div>
                                                         <hr class="tw3-hr mtb--default">
@@ -155,10 +152,6 @@
 
                                                                     </form>
                                                                 </div>
-                                                                <div class="tw3-field__editIcon">
-                                                                    <a href="#" class="edit-link"><i class="fa fa-pencil-square-o" aria-hidden="true"  style="font-size: 25px"></i></a>
-                                                                    <a href="#" style="display: none;" class="cancel"><i class="fa fa-ban" aria-hidden="true" style="font-size: 25px"></i></a>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                         <hr class="tw3-hr mtb--default">
@@ -199,9 +192,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div data-tab="details" style="display:none" id="details" class="tw3-panel tab-item" >
-                                <div class="tw3-editable__block">
+                            <div data-tab="details" style="display:none" id="details" class="tw3-panel tab-item tw3-editable__block" >
+                                <div class="">
                                     <h5 class="jsEditableBlockTitle mb--default text--bold">THÔNG TIN CƠ BẢN</h5>
+                                    <div class="tw3-field__editIcon">
+                                        <a href="#" class="edit-link"><i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 25px"></i></a>
+                                        <a href="#" style="display: none;" class="cancel"><i class="fa fa-ban" aria-hidden="true" style="font-size: 25px"></i></a>
+                                    </div>
                                     <div class="tw3-field">
                                         <div class="tw3-field__view clearfix">
                                             <div class="tw3-row">
@@ -390,13 +387,9 @@
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="tw3-field__editIcon">
-                                        <a href="#" class="edit-link"><i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 25px"></i></a>
-                                        <a href="#" style="display: none;" class="cancel"><i class="fa fa-ban" aria-hidden="true" style="font-size: 25px"></i></a>
-                                    </div>
                                 </div>
-                                <div class="tw3-editable__block jsLooksProfileBlock jsEditableBlock">
-                                    <h5 class="jsEditableBlockTitle mb--default text--bold">Dáng vẻ</h5>
+                                <div class=" jsLooksProfileBlock jsEditableBlock">
+                                    <h5 class="jsEditableBlockTitle mb--default text--bold">Thông tin chi tiết</h5>
                                     <div class="tw3-field">
                                         <div class="tw3-field__view clearfix">
                                             <div class="tw3-row">
@@ -519,35 +512,12 @@
                                                                     <div class="tw3-row tw3-form__row">
                                                                         <div class="tw3-col-12">
                                                                             <div class="tw3-form__row__label">
-                                                                                <label for="ethnicity">
-                                                                                    DÂN TỘC
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="tw3-dropdownHolder">
-                                                                                <select tabindex="1" name="ethnicity" class="dropdown">
-                                                                                    <option value="">&nbsp;</option>
-
-                                                                                    <option value="1">Người da trắng</option>
-                                                                                    <option value="2">Người da đen</option>
-                                                                                    <option value="3">Trung Đông</option>
-                                                                                    <option value="4">Bắc Phi</option>
-                                                                                    <option value="5">Châu Mỹ Latin</option>
-                                                                                    <option value="7">Lai</option>
-                                                                                    <option value="8">Người châu Á</option>
-                                                                                    <option value="10">Khác</option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="tw3-row tw3-form__row">
-                                                                        <div class="tw3-col-12">
-                                                                            <div class="tw3-form__row__label">
                                                                                 <label for="silhouette">
                                                                                     THÂN HÌNH
                                                                                 </label>
                                                                             </div>
                                                                             <div class="tw3-dropdownHolder">
-                                                                                <select name="body">
+                                                                                <select name="body" class="dropdown">
                                                                                     @foreach($body as $itemBody)
                                                                                         <option value="{{$itemBody->id}}" {{$itemBody->id == '2' ?  'selected="selected"' : ''}}>{{$itemBody->value}}</option>
                                                                                     @endforeach
@@ -631,18 +601,11 @@
                                                     </div>
                                                 </div>
                                                 <hr class="tw3-hr mb--default">
-                                                <div class="tw3-buttonGroup text--center">
-                                                    <input type="submit" value="Lưu" class="tw3-button tw3-button--blue tw3-button--rounded"><a href="" class="jsEditableCancel tw3-button tw3-button--subtle tw3-button--rounded">Hủy</a>
-                                                </div>
                                             </form>
                                         </div>
                                     </div>
-                                    <div class="tw3-field__editIcon">
-                                        <a href="#" class="edit-link"><i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 25px"></i></a>
-                                        <a href="#" style="display: none;" class="cancel"><i class="fa fa-ban" aria-hidden="true" style="font-size: 25px"></i></a>
-                                    </div>
                                 </div>
-                                <div data-edit-feedback="Thông tin về tính cách của bạn đã được lưu." class="tw3-editable__block jsPersonalityProfileBlock  jsEditableBlock">
+                                <div data-edit-feedback="Thông tin về tính cách của bạn đã được lưu." class="jsPersonalityProfileBlock  jsEditableBlock">
                                     <h5 class="jsEditableBlockTitle mb--default text--bold">TÍNH CÁCH</h5>
                                     <div class="tw3-field">
                                         <div class="tw3-field__view clearfix">
@@ -810,13 +773,8 @@
                                                 <div class="tw3-buttonGroup text--center" style="margin-bottom: 20px;">
                                                     <input type="submit" value="Lưu" class="tw3-button tw3-button--blue tw3-button--rounded"><a href="" class="jsEditableCancel tw3-button tw3-button--subtle tw3-button--rounded">Hủy</a>
                                                 </div>
-
                                             </form>
                                         </div>
-                                    </div>
-                                    <div class="tw3-field__editIcon">
-                                        <a href="#" class="edit-link"><i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 25px"></i></a>
-                                        <a href="#" style="display: none;" class="cancel"><i class="fa fa-ban" aria-hidden="true" style="font-size: 25px"></i></a>
                                     </div>
                                 </div>
                             </div>
