@@ -66,6 +66,12 @@
                         <span class="tw3-headerV2__navigation__item__label">Bạn bè</span>
                     </a>
                 </li>
+                <li class="menuItem tw3-headerV2__navigation__item">
+                    <a href="/about">
+                        <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                        <span class="tw3-headerV2__navigation__item__label">Về Fibo</span>
+                    </a>
+                </li>
             </ul>
             <ul class="tw3-headerV2__actions clearfix right">
                 <li class="menuItem tw3-header__actions__item">

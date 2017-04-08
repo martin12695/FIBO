@@ -11,5 +11,7 @@ namespace App\Http\Controllers;
 
 class FriendController
 {
-
+    public function RequestFriend($request, $userId) {
+        dd($request);
+    }
 }

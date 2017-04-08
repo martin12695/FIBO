@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 Route::get('/index', function () {
     return view('index');
@@ -31,7 +31,7 @@ Route::get('/about/team', function () {
     return view('team');
 });
 Route::get('/game', function () {
-    return view('game');
+    return view('index');
 });
 Route::get('/game/profile', function () {
     return view('term_profile');
@@ -39,6 +39,10 @@ Route::get('/game/profile', function () {
 Route::group(['prefix' => 'user'], function () {
     Route::get('profile', 'UserController@initPage');
     Route::post('updateInfo', 'UserController@updateInfo');
+});
+
+Route::group(['prefix' => 'friend'], function () {
+    Route::get('{request}/{userId}', 'FriendController@RequestFriend');
 });
 
 Route::get('/signout', 'HomeController@signout');

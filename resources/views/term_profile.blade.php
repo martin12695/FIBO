@@ -394,18 +394,10 @@
                                                             <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1 padding-info">
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Dân tộc</p>
+                                                                        <p class="tw3-field-title">Thân hình</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Hình dáng</p>
-                                                                    </div>
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
+                                                                        <p class="tw3-field-value">{{$infoDes->hair}}</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">
@@ -413,9 +405,7 @@
                                                                         <p class="tw3-field-title">Chiều cao</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">
-                                                                            ...
-                                                                        </p>
+                                                                        <p class="tw3-field-value">{{$infoDes->height}} cm</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">
@@ -423,15 +413,9 @@
                                                                         <p class="tw3-field-title">Màu tóc</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Màu mắt</p>
-                                                                    </div>
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
+                                                                        <p class="tw3-field-value">
+                                                                            {{$infoDes->hair}}
+                                                                        </p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -442,11 +426,11 @@
                                                             <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1 padding-info">
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Tôi đeo</p>
+                                                                        <p class="tw3-field-title">Ưu tiên cuộc sống</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
                                                                         <p class="tw3-field-value">
-                                                                            ...
+                                                                            {{$infoDes->priority_in_life}}
                                                                         </p>
                                                                     </div>
                                                                 </div>
@@ -470,22 +454,6 @@
                                                                         </p>
                                                                     </div>
                                                                 </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Điểm đẹp nhất của tôi</p>
-                                                                    </div>
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Diện mạo chung</p>
-                                                                    </div>
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
-                                                                    </div>
-                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -494,12 +462,6 @@
                                             </div>
                                             <div>
                                                 <div class="editForm" style="display: none">
-                                                    <input type="hidden" value="saveBlock" name="action">
-                                                    <input type="hidden" value="looks" name="block">
-                                                    <input type="hidden" value="cm" id="jsUnit" name="unit">
-                                                    <input type="hidden" value="1" name="clearOnEmpty">
-
-
                                                     <div class="tw3-profileDetailsForms mb--default">
                                                         <div class="tw3-row">
                                                             <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
@@ -602,7 +564,7 @@
                                         </div>
                                     </div>
                                     <div data-edit-feedback="Thông tin về tính cách của bạn đã được lưu." class="jsPersonalityProfileBlock  jsEditableBlock">
-                                        <h5 class="jsEditableBlockTitle mb--default text--bold">TÍNH CÁCH</h5>
+                                        <h5 class="jsEditableBlockTitle mb--default text--bold">Sở thích</h5>
                                         <div class="tw3-field">
                                             <div class="tw3-field__view clearfix">
                                                 <div class="tw3-row">
@@ -611,45 +573,21 @@
                                                             <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1 padding-info">
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Tính cách</p>
+                                                                        <p class="tw3-field-title">Âm nhạc</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
                                                                         <p class="tw3-field-value">
-                                                                            ...
+                                                                            {{$infoHobby->music}}
                                                                         </p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Cung hoàng đạo</p>
+                                                                        <p class="tw3-field-title">Phim</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">Cự giải
+                                                                        <p class="tw3-field-value">{{$infoHobby->movie}}
                                                                         </p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Lãng mạn</p>
-                                                                    </div>
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Lần hẹn hò đầu tiên mong muốn</p>
-                                                                    </div>
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Tôi chia sẻ với bạn đời</p>
-                                                                    </div>
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -669,22 +607,6 @@
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-6">
                                                                         <p class="tw3-field-title">Tôi ghen tỵ</p>
-                                                                    </div>
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Con cái</p>
-                                                                    </div>
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Bạn bè</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
                                                                         <p class="tw3-field-value">...</p>
