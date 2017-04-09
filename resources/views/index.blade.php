@@ -2,7 +2,7 @@
 @section('title', 'Chào Mừng Bạn Đến Với FiBo')
 @section('content')
 <div id="fb-root"></div>
-<div class="tw3-wrapper" style="margin-top: 160px">
+<div class="tw3-wrapper" style="margin-top: 160px" ng-app ="home" ng-controller="home_ctrl">
     <div class="tw3-content" id="gameContainerV3">
         <div class="tw3-container jsGameContainer">
             <div class="tw3-row">
@@ -78,7 +78,7 @@
                                                 </li>
                                             </ul>
                                         </aside>
-                                        <div style="text-align: center"><a class="tw3-button tw3-button--blue tw3-button--small tw3-button--rounded" href="./friend/addfriend/5">Kết bạn</a></div>
+                                        <div style="text-align: center"><a class="tw3-button tw3-button--blue tw3-button--small tw3-button--rounded" ng-click="add_friend(5)"><% button_info %></a></div>
 
                                     </div>
                                     <div>
