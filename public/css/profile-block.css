@@ -18,7 +18,7 @@ aside {
     display: block;
     height: 250px;
     width: 250px;
-    background: url("../images/park.jpg");
+    background: #007be6;
     background-size: cover;
     overflow: hidden;
     box-shadow: 0 0 100px 10px #fff;
@@ -26,8 +26,8 @@ aside {
 }
 
 aside:hover {
-    border-top: 4px solid #26A69A;
-    border-bottom: 4px solid #00695C;
+    border-top: 2px solid #007be6;
+    border-bottom: 2px solid #007be6;
     border-radius: 5px;
     height: 480px;
     width: 350px;
