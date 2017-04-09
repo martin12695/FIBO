@@ -52,6 +52,7 @@ Route::get('/signout', 'HomeController@signout');
 Route::post('/signin', 'HomeController@signin');
 Route::post('/signup', 'HomeController@signup');
 Route::get('/signout', 'HomeController@signout');
+Route::get('/test', 'HomeController@initHome');
 
 Route::get('image-upload','ImageController@imageUpload');
 Route::post('image-upload','ImageController@imageUploadPost');

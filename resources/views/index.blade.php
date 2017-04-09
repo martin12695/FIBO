@@ -1,5 +1,8 @@
 @extends('layouts.master')
 @section('title', 'Chào Mừng Bạn Đến Với FiBo')
+@section('custom-css')
+    <link rel="stylesheet" href="./css/home.css">
+@endsection
 @section('content')
 <div id="fb-root"></div>
 <div class="tw3-wrapper" style="margin-top: 160px" ng-app ="home" ng-controller="home_ctrl">
@@ -12,55 +15,27 @@
                     <div id="gameColLeft" class="gameV3 jsGameV3">
                         <div class="jsDiscover discover promoPosunder">
                             <div class="jsPhotoCoverContainer photoCoverHolder ">
-                                <div class="photoCover jsPhotoCover block_carousel">
-                                    <div>
-                                        <aside class="profile-card">
-                                        <header>
-                                            <a>
-                                                <img height="200" width="200" src="https://twoo00-a.akamaihd.net/t/cfc3981f88f7f58c3474169c9d95799b_1_6_0_959_960_180_180_0015436499.jpg">
-                                            </a>
-                                            <h1>Nguyễn Hữu Trung</h1>
-                                            <h2>- Chung Vô Diệm -</h2>
-                                        </header>
-                                        <div class="profile-bio">
-                                            <p>Chào mừng các bạn</p>
-                                            <p>Tôi hoạt động chủ yếu ở cầu Thị Nghè, thích thì làm quen nha.
-                                                <br />Cần tiền nên có tiền sẽ nhiệt tình phục vụ</p>
+                                <div class="photoCover block_carousel">
+                                    @foreach($listPeople as $people)
+                                        <div class="info_basic" ng-init="button_info[{{$people->id}}] = 'Kết bạn'">
+                                            <aside class="profile-card">
+                                                <header>
+                                                    <a>
+                                                        <img height="200" width="200" src="https://twoo00-a.akamaihd.net/t/cfc3981f88f7f58c3474169c9d95799b_1_6_0_959_960_180_180_0015436499.jpg">
+                                                    </a>
+                                                    <h1>{{$people->name}}</h1>
+                                                    <h2>{{$people->email}}</h2>
+                                                </header>
+                                                <div class="profile-bio">
+                                                    <p>Chào mừng các bạn</p>
+                                                    <p>{{$people->intro}}</p>
+                                                </div>
+                                            </aside>
+                                            <div class="button"><a  class="tw3-button tw3-button--blue tw3-button--small tw3-button--rounded" ng-click="addFriend({{$people->id}})"><% button_info[{{$people->id}}] %></a></div>
                                         </div>
-                                    </aside>
-                                    </div>
-                                    <div>
-                                        <aside class="profile-card">
-                                            <header>
-                                                <a>
-                                                    <img height="200" width="200" src="https://scontent.fsgn3-1.fna.fbcdn.net/v/t1.0-1/p160x160/16195925_1856269837921895_8638790052198443501_n.jpg?oh=7c56f97117a1a3351bec68b14b0b9e3f&oe=5962B1A3">
-                                                </a>
-                                                <h1>Hoàng Minh Tuấn</h1>
-                                                <h2>- Soái ca mạnh mẽ -</h2>
-                                            </header>
-                                            <div class="profile-bio">
-                                                <p>Chào mừng các bạn</p>
-                                                <p>Rất hân hạnh được làm quen với các bạn
-                                                    <br />Cần tiền nên có tiền sẽ nhiệt tình phục vụ</p>
-                                            </div>
-                                        </aside>
-                                    </div>
-                                    <div>
-                                        <aside class="profile-card">
-                                            <header>
-                                                <a>
-                                                    <img height="200" width="200" src="./images/sky.jpg">
-                                                </a>
-                                                <h1>Dư Cao Tiến</h1>
-                                                <h2>- Trai Bao Cao Cấp -</h2>
-                                            </header>
-                                            <div class="profile-bio">
-                                                <p>Chào mừng các bạn</p>
-                                                <p>Tôi hoạt động chủ yếu ở cầu Thị Nghè, thích thì làm quen nha.
-                                                    <br />Cần tiền nên có tiền sẽ nhiệt tình phục vụ</p>
-                                            </div>
-                                        </aside>
-                                    </div>
+                                    @endforeach
+
+
                                 </div>
                             </div>
                             <div class="jsPromotionBlock" data-promocode="MTk1MDM3MzU0MjoyODpnZW5lcmljOjI6MDoxNDkxMTExNjM5OjplCMXFoTA4we96GS5ALlMY">
@@ -168,6 +143,7 @@
     </div>
 </div>
 <!--mfe-->
+
 @endsection
 @section('custom-js')
     <script src="/js/home.js" type="text/javascript"></script>

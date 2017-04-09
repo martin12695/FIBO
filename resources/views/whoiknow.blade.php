@@ -1,7 +1,6 @@
 @extends('layouts.master')
 @section('title', '')
 @section('content')
-    <body class="activity activity--whoiknow ltr vi windows firefox">
     <div class="tw3-wrapper">
         <div class="tw3-content" style="margin-top: 80px;">
             <div class="tw3-container" >
@@ -250,5 +249,4 @@
             </div>
         </div>
     </div>
-    <!--mfe-->
 @endsection

@@ -13,14 +13,14 @@ var home = angular.module('home', [], function($interpolateProvider) {
 
 });
 home.controller('home_ctrl', function($scope, $http) {
-    $scope.button_info = 'Kết bạn';
-    $scope.add_friend = function(userId) {
+    $scope.button_info = [];
+    $scope.addFriend = function(userId) {
             $http({
                 url: './friend/addfriend/' + userId ,
                 method: "GET",
             }).then(function (data){
                 if (data.data == 0) {
-                    $scope.button_info = 'Đã gửi yêu cầu kết bạn';
+                    $scope.button_info[userId] = 'Đã gửi yêu cầu kết bạn';
                 } else {
                 }
             },function (error){
