@@ -2,7 +2,7 @@
 @section('title', 'Chào Mừng Bạn Đến Với FiBo')
 @section('content')
 <div id="fb-root"></div>
-<div class="tw3-wrapper" style="margin-top: 160px">
+<div class="tw3-wrapper" style="margin-top: 160px" ng-app ="home" ng-controller="home_ctrl">
     <div class="tw3-content" id="gameContainerV3">
         <div class="tw3-container jsGameContainer">
             <div class="tw3-row">
@@ -48,7 +48,9 @@
                                     <div>
                                         <aside class="profile-card">
                                             <header>
-                                                <a><img height="200" width="200" src="./images/sky.jpg"></a>
+                                                <a>
+                                                    <img height="200" width="200" src="./images/sky.jpg">
+                                                </a>
                                                 <h1>Dư Cao Tiến</h1>
                                                 <h2>- Trai Bao Cao Cấp -</h2>
                                             </header>
