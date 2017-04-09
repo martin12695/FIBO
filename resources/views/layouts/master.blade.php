@@ -61,7 +61,7 @@
                     </a>
                 </li>
                 <li class="menuItem tw3-headerV2__navigation__item">
-                    <a href="">
+                    <a href="{{ url('/whoiknow') }}">
                         <i class="fa fa-users" aria-hidden="true"></i>
                         <span class="tw3-headerV2__navigation__item__label">Bạn bè</span>
                     </a>

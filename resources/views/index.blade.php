@@ -27,23 +27,6 @@
                                             <p>Tôi hoạt động chủ yếu ở cầu Thị Nghè, thích thì làm quen nha.
                                                 <br />Cần tiền nên có tiền sẽ nhiệt tình phục vụ</p>
                                         </div>
-                                        <ul class="profile-social-links">
-                                            <li>
-                                                <a href="http://twitter.com/">
-                                                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/social-twitter.svg">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="http://facebook.com">
-                                                    <img src="http://www.laivanduc.com/wp-content/uploads/2015/07/facebook.png">
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="https://plus.google.com/u/0/118260931574775251745/posts">
-                                                    <img src="http://www.laivanduc.com/wp-content/uploads/2015/07/Google-.png">
-                                                </a>
-                                            </li>
-                                        </ul>
                                     </aside>
                                     </div>
                                     <div>
@@ -60,26 +43,7 @@
                                                 <p>Rất hân hạnh được làm quen với các bạn
                                                     <br />Cần tiền nên có tiền sẽ nhiệt tình phục vụ</p>
                                             </div>
-                                            <ul class="profile-social-links">
-                                                <li>
-                                                    <a href="http://twitter.com/">
-                                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/social-twitter.svg">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="http://facebook.com">
-                                                        <img src="http://www.laivanduc.com/wp-content/uploads/2015/07/facebook.png">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://plus.google.com/u/0/118260931574775251745/posts">
-                                                        <img src="http://www.laivanduc.com/wp-content/uploads/2015/07/Google-.png">
-                                                    </a>
-                                                </li>
-                                            </ul>
                                         </aside>
-                                        <div style="text-align: center"><a class="tw3-button tw3-button--blue tw3-button--small tw3-button--rounded" ng-click="add_friend(5)"><% button_info %></a></div>
-
                                     </div>
                                     <div>
                                         <aside class="profile-card">
@@ -95,23 +59,6 @@
                                                 <p>Tôi hoạt động chủ yếu ở cầu Thị Nghè, thích thì làm quen nha.
                                                     <br />Cần tiền nên có tiền sẽ nhiệt tình phục vụ</p>
                                             </div>
-                                            <ul class="profile-social-links">
-                                                <li>
-                                                    <a href="http://twitter.com/">
-                                                        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/210284/social-twitter.svg">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="http://facebook.com">
-                                                        <img src="http://www.laivanduc.com/wp-content/uploads/2015/07/facebook.png">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="https://plus.google.com/u/0/118260931574775251745/posts">
-                                                        <img src="http://www.laivanduc.com/wp-content/uploads/2015/07/Google-.png">
-                                                    </a>
-                                                </li>
-                                            </ul>
                                         </aside>
                                     </div>
                                 </div>
