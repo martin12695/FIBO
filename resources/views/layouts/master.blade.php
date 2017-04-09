@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/839517239821694064891/css/sass/ltr/twoo.invite.css">
     <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/456398502947355001/css/sass/ltr/ui.css">
-    <link rel="stylesheet" media="screen" href="./css/group-more.p1.css">
+    <link rel="stylesheet" media="screen" href="{{ asset('css/group-more.p1.css') }}">
     <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/6188132174502284106364/css/sass/ltr/group-more.p2.css">
     <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/37339762993591368798/css/sass/ltr/group-more.p3.css">
     <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/020154603095955706158/css/sass/ltr/twoo.messages.v3.css">
