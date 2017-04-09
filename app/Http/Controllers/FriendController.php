@@ -13,6 +13,9 @@ use Illuminate\Database\QueryException;
 
 class FriendController
 {
+   /* 1 : pending
+      2 : friend
+      3 :Declined*/
     public function RequestFriend($request, $userId) {
         if ($request == 'addfriend') {
             if (session('userId') < $userId) {
@@ -37,14 +40,39 @@ class FriendController
                 }
             }
         }
+        if ($request == 'accept') {
+            if (session('userId') < $userId) {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',session('userId') )
+                        ->where('user_two',$userId )
+                        ->update(['status' => 2]);
+                    return back();
+                } catch (QueryException $e) {
+                    return \Response::json(1);
+                }
+            } else {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',$userId )
+                        ->where('user_two',session('userId') )
+                        ->update(['status' => 2]);
+                    return back();
+                } catch (QueryException $e) {
+                    return \Response::json(1);
+                }
+            }
+        }
     }
 
     public function whoIKnow() {
         //Danh sách yêu cầu kết bạn
         $pendingList = array();
         $list_pending = DB::table('relationship')
-            ->where('user_one', session('userId'))
-            ->orwhere('user_two', session('userId'))
+            ->where(function ($query) {
+                $query->where('user_one', session('userId'))
+                    ->orwhere('user_two', session('userId'));
+            })
             ->where('status', 1)
             ->where('action_user','!=', session('userId'))
             ->get();
@@ -67,11 +95,12 @@ class FriendController
         //Danh sách bạn bè
         $friendList = array();
         $list_friend = DB::table('relationship')
-            ->where('user_one', session('userId'))
-            ->orwhere('user_two', session('userId'))
+            ->where(function ($query) {
+                $query->where('user_one', session('userId'))
+                    ->orwhere('user_two', session('userId'));
+            })
             ->where('status', 2)
             ->get();
-
         foreach ($list_friend as $request) {
             if ($request->user_one != session('userId') ) {
                 $userTemp = $request->user_one;

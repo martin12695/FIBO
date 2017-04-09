@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', '')
 @section('content')
-    <div class="tw3-wrapper">
+    <div class="tw3-wrapper" >
         <div class="tw3-content" style="margin-top: 80px;">
             <div class="tw3-container" >
                 <div class="tw3-row">
@@ -52,7 +52,7 @@
                                                 Thành phố Hồ Chí Minh</div>
                                         </div>
                                         <div class="tw3-mediav2__actions">
-                                            <a href="#" class="jsChatButton tw3-button tw3-button-blue tw3-button--small tw3-button--subtle tw3-button--agree">Đồng ý</a>
+                                            <a href="friend/accept/{{$people->id}}" class="jsChatButton tw3-button tw3-button-blue tw3-button--small tw3-button--subtle tw3-button--agree">Đồng ý</a>
                                         </div>
                                         <div class="tw3-mediav2__actions">
                                             <a href="#" class="jsChatButton tw3-button tw3-button tw3-button--small tw3-button--subtle tw3-button--dismiss">Từ chối</a>
