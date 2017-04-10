@@ -40,6 +40,7 @@ class FriendController
                 }
             }
         }
+
         if ($request == 'accept') {
             if (session('userId') < $userId) {
                 try {

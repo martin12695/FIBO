@@ -31,7 +31,7 @@
         <div class="homepageContainer__content">
             <div class="homepageContainer__content__logo">
                 <div class="homepageContainer__content__logo__image">
-                    <img src="https://twoo-a.akamaihd.net/static/262779852444274585/images/logos/logo-twoo-flat-white@2x.png">
+                    <img src="/images/logo.gif">
                 </div>
             </div>
             <div class="homepageContainer__content__form registerContainer" id="registerContainer">
