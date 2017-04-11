@@ -44,7 +44,7 @@
         <div class="tw3-container">
             <ul class="tw3-headerV2__navigation clearfix left">
                 <li class="menuItem tw3-headerV2__navigation__item">
-                    <a href="">
+                    <a href="{{url("/")}}">
                         <i class="fa fa-home" aria-hidden="true"></i>
                         <span class="tw3-headerV2__navigation__item__label">Trang chủ</span>
                     </a>

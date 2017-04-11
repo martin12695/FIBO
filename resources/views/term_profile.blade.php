@@ -177,7 +177,6 @@
                                                                         <h4 class="tw3-h4">Gây Chú ý sơ yếu của bạn trong 15 phút!</h4>
                                                                         <div class="tw3-button tw3-button--boost tw3-button--rounded">
                                                                             <i class="fa fa-star-o" aria-hidden="true"></i> Gây Chú ý</div>
-                                                                        <p class="m0"><small class="text--white">Chi phí: 100 Tín dụng </small></p>
                                                                     </div>
                                                                 </div>
                                                             </div>
