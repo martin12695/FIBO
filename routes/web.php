@@ -22,7 +22,6 @@ Route::get('/term-signin', function () {
     return view('term_signin');
 });
 Route::get('/term-signup', 'HomeController@init_signup');
-Route::get('/chat/server', 'ChatController@init');
 Route::get('/about', function () {
     return view('about');
 });
@@ -33,7 +32,6 @@ Route::get('/about/team', function () {
 Route::get('/chat', function () {
     return view('chat');
 });
-
 
 Route::get('/game', function () {
     return view('index');
@@ -62,3 +60,13 @@ Route::get('/test', 'HomeController@initHome');
 
 Route::get('image-upload','ImageController@imageUpload');
 Route::post('image-upload','ImageController@imageUploadPost');
+
+Route::post('sendMessage', array('uses' => 'ChatController@sendMessage'));
+Route::post('isTyping', array('uses' => 'ChatController@isTyping'));
+Route::post('notTyping', array('uses' => 'ChatController@notTyping'));
+Route::post('retrieveChatMessages', array('uses' => 'ChatController@retrieveChatMessages'));
+Route::post('retrieveTypingStatus', array('uses' => 'ChatController@retrieveTypingStatus'));
+Route::get('chat/{username}', function($username)
+{
+    return View::make('chat')->with('username',$username);
+});
