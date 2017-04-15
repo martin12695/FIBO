@@ -41,7 +41,6 @@
 </head><!--/head-->
 <body>
 <div class="tw3-header tw3-header--guest">
-    <div id="auto_load_div"></div>
     <div class="tw3-headerV2--desktop jsHeaderDesktop">
         <div class="tw3-container">
             <ul class="tw3-headerV2__navigation clearfix left">

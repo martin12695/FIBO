@@ -9,7 +9,7 @@ $(document).ready(function(){
             url: getCurrentPageURL(),
             cache: false,
             success: function(data){
-                $("#auto_load_div").html(data);
+                $("body").html(data);
             }
         });
     }
