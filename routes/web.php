@@ -22,12 +22,19 @@ Route::get('/term-signin', function () {
     return view('term_signin');
 });
 Route::get('/term-signup', 'HomeController@init_signup');
+Route::get('/chat/server', 'ChatController@init');
 Route::get('/about', function () {
     return view('about');
 });
 Route::get('/about/team', function () {
     return view('team');
 });
+
+Route::get('/chat', function () {
+    return view('chat');
+});
+
+
 Route::get('/game', function () {
     return view('index');
 });
@@ -44,6 +51,8 @@ Route::group(['prefix' => 'user'], function () {
 Route::group(['prefix' => 'friend'], function () {
     Route::get('{request}/{userId}', 'FriendController@RequestFriend');
 });
+
+
 
 Route::get('/signout', 'HomeController@signout');
 Route::post('/signin', 'HomeController@signin');
