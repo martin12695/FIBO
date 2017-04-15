@@ -21,6 +21,7 @@
     <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css">
     <link rel="stylesheet" href="/css/dropdown.css">
     <link rel="stylesheet" href="/css/btn.css">
+    <link rel="stylesheet" href="/css/lib/notification.css">
     @include('layouts.basic')
 
     <style type="text/css">
@@ -76,7 +77,114 @@
             </ul>
             <ul class="tw3-headerV2__actions clearfix right">
                 <li class="menuItem tw3-header__actions__item">
-                    <a style="margin-top: 20px;" href="{{ url('/signout') }}" class="tw3-button tw3-button--blue tw3-button--small tw3-button--rounded">Đăng xuất</a>
+                    <a style="margin-top: 10px;" href="{{ url('/signout') }}" class="tw3-button tw3-button--blue tw3-button--small tw3-button--rounded">Đăng xuất</a>
+                </li>
+                <li class="menuItem tw3-headerV2__actions__item">
+                    <a href="" class="noline tw3-pointerMenuToggle jsHeaderPointerMenuNotificationsToggle active">
+                        <i class="fa fa-bell" aria-hidden="true"></i>
+                    </a>
+                    <div class="tw3-pointerMenu tw3-notifications jsNotificationsPopdown active" style="display: none;">
+                        <div class="tw3-tabsHolder">
+                            <a href="" class="tw3-tab jsNotificationTab selected" data-type="REQUEST">Yêu cầu <span class="jsUnreadActivityCount" style="display: none;"></span></a>
+                        </div>
+                        <div class="jsMenuNotificationContent tab-item selected" data-type="ACTIVITY">
+                            <div class="tw3-notifications__container jsNotificationsContainer" data-type="ACTIVITY" style="height: 388px;">
+                                <ul class="plr--default jsActivityContainer" data-hasmore="1" data-ismenu="1" style="display: block;">
+                                    <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
+                                        <div class="tw3-mediav2__figure">
+                                            <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
+                                                <img src="https://twoo04-a.akamaihd.net/t/7260457e07442f59b7a29f4626c9a46c_1_6_0_679_631_180_180_0011541383.jpg" width="40" height="40" class="tw3-avatar--circle">
+                                            </a>
+                                        </div>
+                                        <div class="tw3-mediav2__body text--left jsNotificationBody">
+                                            <a href="/330559124">
+                                                <div class="mb--tight">
+                                                    <span class="text--bold">Tuấn</span> đã gửi yêu cầu kết bạn.
+                                                </div>
+                                                <div class="text--subtle text--small">hơn một tuần trước</div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
+                                        <div class="tw3-mediav2__figure">
+                                            <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
+                                                <img src="https://twoo04-a.akamaihd.net/t/7260457e07442f59b7a29f4626c9a46c_1_6_0_679_631_180_180_0011541383.jpg" width="40" height="40" class="tw3-avatar--circle">
+                                            </a>
+                                        </div>
+                                        <div class="tw3-mediav2__body text--left jsNotificationBody">
+                                            <a href="/330559124">
+                                                <div class="mb--tight">
+                                                    <span class="text--bold">Tuấn</span> đã ghé thăm trang cá nhân của bạn.
+                                                </div>
+                                                <div class="text--subtle text--small">hơn một tuần trước</div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
+                                        <div class="tw3-mediav2__figure">
+                                            <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
+                                                <img src="https://twoo04-a.akamaihd.net/t/7260457e07442f59b7a29f4626c9a46c_1_6_0_679_631_180_180_0011541383.jpg" width="40" height="40" class="tw3-avatar--circle">
+                                            </a>
+                                        </div>
+                                        <div class="tw3-mediav2__body text--left jsNotificationBody">
+                                            <a href="/330559124">
+                                                <div class="mb--tight">
+                                                    <span class="text--bold">Tuấn</span> đã gửi yêu cầu kết bạn.
+                                                </div>
+                                                <div class="text--subtle text--small">hơn một tuần trước</div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
+                                        <div class="tw3-mediav2__figure">
+                                            <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
+                                                <img src="https://twoo04-a.akamaihd.net/t/7260457e07442f59b7a29f4626c9a46c_1_6_0_679_631_180_180_0011541383.jpg" width="40" height="40" class="tw3-avatar--circle">
+                                            </a>
+                                        </div>
+                                        <div class="tw3-mediav2__body text--left jsNotificationBody">
+                                            <a href="/330559124">
+                                                <div class="mb--tight">
+                                                    <span class="text--bold">Tuấn</span> đã ghé thăm trang cá nhân của bạn.
+                                                </div>
+                                                <div class="text--subtle text--small">hơn một tuần trước</div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
+                                        <div class="tw3-mediav2__figure">
+                                            <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
+                                                <img src="https://twoo04-a.akamaihd.net/t/7260457e07442f59b7a29f4626c9a46c_1_6_0_679_631_180_180_0011541383.jpg" width="40" height="40" class="tw3-avatar--circle">
+                                            </a>
+                                        </div>
+                                        <div class="tw3-mediav2__body text--left jsNotificationBody">
+                                            <a href="/330559124">
+                                                <div class="mb--tight">
+                                                    <span class="text--bold">Tuấn</span> đã gửi yêu cầu kết bạn.
+                                                </div>
+                                                <div class="text--subtle text--small">hơn một tuần trước</div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                    <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
+                                        <div class="tw3-mediav2__figure">
+                                            <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
+                                                <img src="https://twoo04-a.akamaihd.net/t/7260457e07442f59b7a29f4626c9a46c_1_6_0_679_631_180_180_0011541383.jpg" width="40" height="40" class="tw3-avatar--circle">
+                                            </a>
+                                        </div>
+                                        <div class="tw3-mediav2__body text--left jsNotificationBody">
+                                            <a href="/330559124">
+                                                <div class="mb--tight">
+                                                    <span class="text--bold">Tuấn</span> đã ghé thăm trang cá nhân của bạn.
+                                                </div>
+                                                <div class="text--subtle text--small">hơn một tuần trước</div>
+                                            </a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <a href="/notifications" class="tw3-pointerMenu--footer jsNotificationSeeMore" style="display: block;">Xem thêm</a>
+                    </div>
                 </li>
             </ul>
         </div>
