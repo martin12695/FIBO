@@ -16,6 +16,15 @@ $(document).ready(function(){
         $("#"+tab_id).show();
     })
 
+    $('.inboxContainer div ul li').click(function(){
+        var tab_id = $(this).attr('data-id');
+        var $parent = $(this).closest('.jsMessagesContainer');
+        $('li').removeClass('selected');
+        $('li[data-id='+tab_id+']').addClass('selected');
+        $parent.find('.conversationsContainer').show();
+
+    })
+
     $('a.edit-link').on('click', function(e){
         e.preventDefault();
         var $parent = $(this).closest('.tw3-editable__block');

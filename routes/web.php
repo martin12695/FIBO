@@ -39,6 +39,9 @@ Route::get('/game', function () {
 Route::get('/game/profile', function () {
     return view('term_profile');
 });
+Route::get('/game/chat', function () {
+    return view('term_chat');
+});
 Route::get('/whoiknow','FriendController@whoIKnow' );
 
 Route::group(['prefix' => 'user'], function () {
