@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
-
+use Illuminate\Support\Facades\Hash;
 
 
 class HomeController
@@ -23,18 +23,24 @@ class HomeController
 
     public function signin(Request $request) {
         $info = $request->input();
-        $passMd5 = md5($info['pass']);;
-        $login = DB::select('select * from user where email = ? and password = ? limit 1', [$info['email'], $passMd5]);
-        if (!empty($login)) {
-            session(['userId' => $login[0]->id,
-                'fullname' => $login[0]->name
+        if (Auth::attempt(['email' => $info['email'], 'password' => $info['pass']])) {
+            session(['userId' => Auth::id(),
             ]);
             return \Response::json(0);
 
         }
+
+        /*$login = DB::select('select * from users where email = ? and password = ? limit 1', [$info['email'], $passMd5]);
+        if (!empty($login)) {
+            session(['userId' => $login[0]->id,
+                'fullname' => $login[0]->name
+            ]);
+            return \Response::json(1);
+
+        }
         else {
             return \Response::json(1);
-        }
+        }*/
     }
 
     public function init_signup() {
@@ -46,7 +52,7 @@ class HomeController
     }
 
     public function initHome() {
-        $recommen = DB::select('SELECT * FROM user
+        $recommen = DB::select('SELECT * FROM users
                             where id != ? and id NOT IN(
                                 SELECT user_one
                                 FROM relationship )
@@ -86,16 +92,16 @@ class HomeController
         if ( $info['pass'] != ($info['repass']) ) {
             return \Response::json(1);
         }
-        $check_email = DB::table('user')->where('email', $info['email'])->first();
+        $check_email = DB::table('users')->where('email', $info['email'])->first();
         if ( !empty($check_email) ) {
             return \Response::json(2);
         }else {
-            $passMd5 = md5($info['pass']);
+            $passMd5 = Hash::make($info['pass']);
             $date = date_create_from_format('d/m/Y', $info['birthday']);
             $date = $date->format('Y-m-d');
 
             try {
-                DB::table('user')->insert(
+                DB::table('users')->insert(
                     ['email' => $info['email'], 'password' => $passMd5, 'name' => $info['name'],
                         'phone' => $info['phone'],'come_from' => $info['from'], 'birthday' => $date]
                 );

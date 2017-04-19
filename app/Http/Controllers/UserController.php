@@ -23,7 +23,7 @@ class UserController
         if(!session()->has('userId')){
             return redirect('/');
         }else {
-            $info = DB::table('user')->where('id', session('userId'))->first();
+            $info = DB::table('users')->where('id', session('userId'))->first();
             $findAge = DB::table('option_subject_eag')->get();
             $findSub = DB::table('option_subject_find')->get();
             $finace = DB::table('option_finace')->get();

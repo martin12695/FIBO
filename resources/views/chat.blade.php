@@ -10,7 +10,7 @@
         }
 
         #greeting
-        {
+        {php artisan notifications:table
             text-align: center;
         }
 
