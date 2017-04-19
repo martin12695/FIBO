@@ -55,7 +55,7 @@ class ChatController extends BaseController
     {
         $username = Input::get('username');
 
-        $message = ChatMessage::where('sender_username', '=', 4)->where('to_user', '=', 3)->where('read', '=', false)->first();
+        $message = ChatMessage::where('sender_username', '!=', $username)->where('read', '=', false)->first();
 
         if (count($message) > 0)
         {

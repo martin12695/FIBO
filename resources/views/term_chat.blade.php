@@ -1,8 +1,9 @@
 @extends('layouts.master')
-@section('title', 'Chào Mừng Bạn Đến Với FiBo')
+@section('title', 'FIBO Chat')
 @section('custom-css')
 @endsection
 @section('content')
+    <span id="username">{{Auth::id()}}</span>
     <div class="tw3-wrapper" style="position: relative; margin-bottom: 208px">
         <div class="tw3-container">
             <div class="tw3-row">
@@ -112,25 +113,17 @@
                             </div>
                         </div>
                         <div class="conversationsContainer jsConversationsContainer helper--takeHeightOfContainer  conversationsContainer--visible conversationsContainer--senderBar--normal" style="display: none">
-                            <div class="helper--takeHeightOfContainer jsThreadsContainer" style="height: 72%; margin-top:62px; overflow-y:scroll; overflow-x:hidden">
-                                <p>alo alo alo</p>
-                                <p>alo alo alo</p>
-                                <p>alo alo alo</p> <p>alo alo alo</p>
-                                <p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p><p>alo alo alo</p>
-
-
+                            <div id="chat-window" class="helper--takeHeightOfContainer jsThreadsContainer" style="height: 72%; margin-top:62px; overflow-y:scroll; overflow-x:hidden">
                             </div>
                             <div class="conversationsContainer__item__bottomBar jsMessageSenderBar">
                                 <div class="conversationsContainer__item__bottomBar__container conversationsContainer__item__bottomBar__container--normal">
-                                    <form id="jsSendMessageForm" class="clearfix sendMessageForm helper--takeHeightOfContainer" method="post" action="/messages/" data-completeprofile="0">
-
-                                        <div id="jsSendMessageFormSend" class="container--normal">
-                                            <div class="bottomBar__textarea"><textarea class="jsChatInput tw3-textarea" data-tip-id="#jsMessageToShort" data-message-to-short="Tin nhắn của bạn quá ngắn. Hãy sáng tạo :)" name="message" placeholder="Viết tin nhắn..." style="height: 58px;"></textarea></div>
-                                            <div class="bottomBar__actions clearfix">
-                                                <a href="" class="disabled fw500 jsSubmitButton bottomBar__actions__submit">GỬI</a>
-                                            </div>
+                                    <div id="jsSendMessageFormSend" class="container--normal">
+                                        <div class="bottomBar__textarea"><textarea id="text" autofocus="" onblur="notTyping()" class="jsChatInput tw3-textarea" data-tip-id="#jsMessageToShort" data-message-to-short="Tin nhắn của bạn quá ngắn. Hãy sáng tạo :)" name="message" placeholder="Viết tin nhắn..." style="height: 58px;"></textarea></div>
+                                        <div class="bottomBar__actions clearfix">
+                                            <button onclick="sendMessage()" class="disabled fw500 jsSubmitButton bottomBar__actions__submit">GỬI</button>
                                         </div>
-                                    </form>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -143,5 +136,5 @@
     </div>
 @endsection
 @section('custom-js')
-    <script src="/js/home.js" type="text/javascript"></script>
+    <script src="/js/chat.js" type="text/javascript"></script>
 @endsection
