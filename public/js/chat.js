@@ -80,7 +80,7 @@ function sendMessage()
                 username: username,
                 to_user : 3,
             } ,
-            url: 'http://localhost/sendMessage',
+            url: '/sendMessage',
             success: function() {
                 $('#chat-window').append('<br><div style="text-align: right">'+text+'</div><br>');
                 $('#text').val('');
@@ -102,7 +102,7 @@ function isTyping()
         data : {
             username: username
         } ,
-        url: 'http://localhost/isTyping',
+        url: '/isTyping',
 
 
     });
@@ -118,7 +118,7 @@ function notTyping()
         data : {
             username: username
         } ,
-        url: 'http://localhost/notTyping',
+        url: '/notTyping',
 
 
     });

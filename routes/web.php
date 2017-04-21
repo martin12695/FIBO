@@ -11,24 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/', 'HomeController@initHome');
+Route::get('/', 'HomeController@index');
 Route::get('/welcome', function () {
     return view('welcome');
 });
-Route::get('/term-signin', function () {
+Route::get('/signin', function () {
     return view('term_signin');
 });
-Route::get('/term-signup', 'HomeController@init_signup');
+Route::get('/signup', 'HomeController@init_signup');
 Route::get('/about', function () {
     return view('about');
 });
 Route::get('/about/team', function () {
     return view('team');
 });
-
+Route::get('/intro', function () {
+    return view('intro');
+});
 Route::get('/chat', function () {
     return view('chat');
 });

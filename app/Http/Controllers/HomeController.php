@@ -20,7 +20,49 @@ use Illuminate\Support\Facades\Hash;
 
 class HomeController
 {
+    public function initHome() {
+        $recommen = DB::select('SELECT * FROM users
+                            where id != ? and id NOT IN(
+                                SELECT user_one
+                                FROM relationship )
+   	                        and id NOT IN(
+                              SELECT user_two	
+                              FROM relationship )
+                            ',
+            [session('userId')]);
+        $friend_list = array();
+        //$list_user =  DB::table('user')->get();
 
+        /*$list_request = DB::table('relationship')
+            ->where('user_one', session('userId'))
+            ->orwhere('user_two', session('userId'))
+            ->where('status', 1)
+            ->get();*/
+        /*foreach ($list_request as $request) {
+            if ($request->user_one != session('userId') ) {
+                $userTemp = $request->user_one;
+            }else {
+                $userTemp = $request->user_two;
+            }
+            $friend_temp = DB::table('user')
+                ->where('id', $userTemp)
+                ->first();
+            array_push($friend_list,$friend_temp);
+        }*/
+
+        return view('index',[
+            'listPeople'   => $recommen
+        ]);
+
+    }
+    public function index (){
+        if (Auth::check()) {
+            return $this->initHome();
+        }
+        else {
+            return view('intro');
+        }
+    }
     public function signin(Request $request) {
         $info = $request->input();
         if (Auth::attempt(['email' => $info['email'], 'password' => $info['pass']])) {
@@ -51,41 +93,7 @@ class HomeController
 
     }
 
-    public function initHome() {
-        $recommen = DB::select('SELECT * FROM users
-                            where id != ? and id NOT IN(
-                                SELECT user_one
-                                FROM relationship )
-   	                        and id NOT IN(
-                              SELECT user_two	
-                              FROM relationship )
-                            ',
-                    [session('userId')]);
-        $friend_list = array();
-        //$list_user =  DB::table('user')->get();
 
-        /*$list_request = DB::table('relationship')
-            ->where('user_one', session('userId'))
-            ->orwhere('user_two', session('userId'))
-            ->where('status', 1)
-            ->get();*/
-        /*foreach ($list_request as $request) {
-            if ($request->user_one != session('userId') ) {
-                $userTemp = $request->user_one;
-            }else {
-                $userTemp = $request->user_two;
-            }
-            $friend_temp = DB::table('user')
-                ->where('id', $userTemp)
-                ->first();
-            array_push($friend_list,$friend_temp);
-        }*/
-
-        return view('index',[
-            'listPeople'   => $recommen
-        ]);
-
-    }
     public function signup(Request $request) {
 
         $info = $request->input();
@@ -115,6 +123,7 @@ class HomeController
 
     public function signout() {
         session()->flush();
+        Auth::logout();
         return Redirect::to('/');
     }
 }
