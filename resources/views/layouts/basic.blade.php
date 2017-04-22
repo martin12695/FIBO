@@ -1,3 +1,4 @@
+<link href="/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/font-awesome.min.css" rel="stylesheet">
 <link href="/css/lib/jquery-ui.css" rel="stylesheet">
 <link href="/css/lib/sweetalert.css" rel="stylesheet" />

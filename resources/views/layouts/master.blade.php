@@ -57,7 +57,7 @@
                     </a>
                 </li>
                 <li class="menuItem tw3-headerV2__navigation__item">
-                    <a href="">
+                    <a href="/chat">
                         <i class="fa fa-commenting" aria-hidden="true"></i>
                         <span class="tw3-headerV2__navigation__item__label">Chat</span>
                     </a>

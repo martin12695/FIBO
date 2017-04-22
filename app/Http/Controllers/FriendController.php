@@ -84,7 +84,7 @@ class FriendController
             }else {
                 $userTemp = $request->user_two;
             }
-            $pending_temp = DB::table('user')
+            $pending_temp = DB::table('users')
                 ->where('id', $userTemp)
                 ->first();
             $from = new DateTime($pending_temp->birthday);
@@ -108,7 +108,7 @@ class FriendController
             }else {
                 $userTemp = $request->user_two;
             }
-            $friend_temp = DB::table('user')
+            $friend_temp = DB::table('users')
                 ->where('id', $userTemp)
                 ->first();
             $from = new DateTime($friend_temp->birthday);

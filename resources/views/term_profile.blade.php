@@ -1,5 +1,8 @@
 @extends('layouts.master')
 @section('title', 'Trang cá nhân')
+@section('custom-css')
+    <link rel="stylesheet" href="/css/lib/editor-image.css">
+@endsection
 @section('content')
     <div class="tw3-wrapper" style="margin-top:80px" ng-app="profile" ng-controller="profile_ctrl">
     <div class="tw3-content tw3-content--fabActive">
@@ -12,7 +15,7 @@
                         <a href="" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Kết bạn</a>
                     </div>
                     <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
-                        <a href="" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-upload-image">Upload ảnh đại diện</a>
+                        <a class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-upload-image" data-toggle="modal" data-target="#myModal">Upload ảnh đại diện</a>
                     </div>
                     <div class="tw3-row tab-wrapper">
                         <div class="tw3-profile__infoTop">
@@ -25,7 +28,7 @@
                                                     <div class="tw3-media__figure">
                                                         <div class="tw3-avatarContainer tw3-avatarContainer--progress">
                                                             <div class="tw3-avatarContainer__circle"></div>
-                                                            <img width="26" height="26" alt="275135195" src="https://twoo04-a.akamaihd.net/t/cfc3981f88f7f58c3474169c9d95799b_1_5_0_959_960_75_75_0000073181.jpg" class="tw3-avatar">
+                                                            <img width="100" height="100" alt="275135195" src="/{{$info_basic->avatar}}" class="tw3-avatar">
                                                         </div>
                                                     </div>
                                                     <div class="tw3-media__body">
@@ -736,7 +739,72 @@
         </div>
     </div>
 </div>
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="wrapper" style="height:600px;">
+                    <!-- Open Modal Button -->
+                    <div class="change-icon"><a href="#" data-toggle='modal' data-target='#image-editor'><span class="change-icon-text">Tải hình lên</span><span class="icon-container"><i class="fa fa-picture-o"></i><i class="fa fa-crop"></i><i class="fa fa-download"></i></span></a></div>
+                    <!--    Editor Modal-->
+                    <div id="image-editor" class="modal fade editor-modal" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h2 class="modal-title">Tùy chỉnh hình ảnh của bạn</h2>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="editor-wrapper">
+                                        <div class="editor-container">
+                                            <div class="editor">
+                                                <div class="resize-container">
+                                                    <span class="resize-handle resize-handle-nw"></span>
+                                                    <span class="resize-handle resize-handle-ne"></span>
+                                                    <img class="resize-image" src="" alt="">
+                                                    <span class="resize-handle resize-handle-se"></span>
+                                                    <span class="resize-handle resize-handle-sw"></span>
+                                                </div>
+                                                <div class="overlay">
+                                                    <div class="overlay-inner"></div>
+                                                </div>
+                                                <div class="overlay overlay-preview">
+                                                    <div class="overlay-inner"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="upload">
+                                        <form action="{{ url('image-upload') }}" enctype="multipart/form-data" method="POST">
+                                            {{ csrf_field() }}
+                                            <input type="file" acccept="images/" class="form-control" id="uploaded-img" placeholder="Input field" accept="image/*">
+                                            <div class="upload-button">
+                                                <label for="uploaded-img">
+                                                    <span class="label-text">Chọn hình để tải lên</span><span class="upload-icon"><i class="fa fa-upload"></i></span>
+                                                </label>
+                                            </div>
+                                            <div class="edit-button">
+                                                <button class="btn form-control preview-crop">Xem trước</button>
+                                                <button type="submit" class="js-crop btn form-control" data-dismiss="modal">Upload</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 @endsection
 @section('custom-js')
     <script src="/js/user-profile.js" type="text/javascript"></script>
+    <script src="/js/lib/editor-image.js"></script>
 @endsection

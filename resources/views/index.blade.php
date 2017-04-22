@@ -21,7 +21,7 @@
                                             <aside class="profile-card">
                                                 <header>
                                                     <a>
-                                                        <img height="200" width="200" src="https://twoo00-a.akamaihd.net/t/cfc3981f88f7f58c3474169c9d95799b_1_6_0_959_960_180_180_0015436499.jpg">
+                                                        <img height="200" width="200" src="/{{$people->avatar}}">
                                                     </a>
                                                     <h1>{{$people->name}}</h1>
                                                     <h2>{{$people->email}}</h2>
@@ -70,7 +70,7 @@
                                     <div class="tw3-completeContainer tw3-row">
                                         <div class="jsBoostMenu jsUserComplete clearfix">
                                             <div class="tw3-col-4">
-                                                <a href="/profile" class=""><img src="https://twoo00-a.akamaihd.net/t/cfc3981f88f7f58c3474169c9d95799b_1_6_0_959_960_180_180_0015436499.jpg" class="tw3-avatar tw3-avatar--circle tw3-avatar--fluid"></a>
+                                                <a href="/profile" class=""><img src="/{{$user->avatar}}" class="tw3-avatar tw3-avatar--circle tw3-avatar--fluid"></a>
                                             </div>
                                             <div class="tw3-col-8 ">
                                                 <p class="text--small text--subtle mb--tight">Lượng thông tin đã điền</p>

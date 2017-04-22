@@ -201,7 +201,22 @@ $('document').ready(function () {
             crop_canvas.height = height;
             crop_canvas.getContext('2d').drawImage(image_target, left, top, width, height, 0, 0, width, height);
             $('.editor-modal').removeClass('editing-Image');
-            window.open(crop_canvas.toDataURL("image/png"));
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type: "POST",
+                data : {
+                    image: crop_canvas.toDataURL("image/png"),
+                } ,
+                url: '/image-upload',
+                success: function(data) {
+                    if (data == 0) {
+                        location.reload();
+                    }
+                },
+
+            });
             // postImage();
         };
 

@@ -38,7 +38,7 @@ Route::get('/game', function () {
 Route::get('/game/profile', function () {
     return view('term_profile');
 });
-Route::get('/game/chat', function () {
+Route::get('/chat', function () {
     return view('term_chat');
 });
 Route::get('/whoiknow','FriendController@whoIKnow' );
@@ -68,7 +68,4 @@ Route::post('isTyping', array('uses' => 'ChatController@isTyping'));
 Route::post('notTyping', array('uses' => 'ChatController@notTyping'));
 Route::post('retrieveChatMessages', array('uses' => 'ChatController@retrieveChatMessages'));
 Route::post('retrieveTypingStatus', array('uses' => 'ChatController@retrieveTypingStatus'));
-Route::get('chat/{username}', function($username)
-{
-    return View::make('chat')->with('username',$username);
-});
+

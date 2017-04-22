@@ -30,6 +30,7 @@ class HomeController
                               FROM relationship )
                             ',
             [session('userId')]);
+        $user = DB::table('users')->where('id', Auth::id())->first();
         $friend_list = array();
         //$list_user =  DB::table('user')->get();
 
@@ -51,7 +52,8 @@ class HomeController
         }*/
 
         return view('index',[
-            'listPeople'   => $recommen
+            'listPeople'   => $recommen,
+            'user'         =>$user
         ]);
 
     }

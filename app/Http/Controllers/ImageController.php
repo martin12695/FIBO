@@ -9,7 +9,9 @@
 namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
-
+use Imagine;
+use DB;
+use Auth;
 class ImageController extends Controller
 {
     public function imageUpload()
@@ -24,15 +26,15 @@ class ImageController extends Controller
      */
     public function imageUploadPost(Request $request)
     {
-        $this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
-        $imageName = time().'.'.$request->image->getClientOriginalExtension();
-        $request->image->move(public_path('images/user'), $imageName);
-
-        return back()
-            ->with('success','Image Uploaded successfully.')
-            ->with('path',$imageName);
+        $info = $request->input();
+        $imageData = explode(',', $info['image']);
+        $imageData = base64_decode($imageData[1]);
+        $png_url = "avatar-".time().".jpg";
+        $path = public_path('images/user/' . $png_url);
+        file_put_contents($path, $imageData);
+        DB::table('users')
+            ->where('id', Auth::id())
+            ->update(['avatar' => 'images/user/' .$png_url]);
+        return \Response::json(0);
     }
 }
