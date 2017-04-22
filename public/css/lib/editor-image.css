@@ -1,0 +1,299 @@
+html .wrapper, body .wrapper, .upload form {
+    justify-content: center;
+    align-items: center;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+html .wrapper, body .wrapper {
+    display: flex;
+    height: 100%;
+}
+
+.editor-wrapper {
+    display: flex;
+    justify-content: center;
+}
+.editor-wrapper .editor-container {
+    display: flex;
+    flex-direction: column;
+}
+.editor-wrapper .editor-container .editor {
+    text-align: center;
+    display: block;
+    width: 500px;
+    height: 500px;
+    line-height: 500px;
+    position: relative;
+}
+.editor-wrapper .editor-container .editor .resize-container {
+    position: relative;
+    display: inline-flex;
+    cursor: move;
+    margin: 0 auto;
+    line-height: normal;
+    vertical-align: middle;
+}
+.editor-wrapper .editor-container .editor .resize-container img {
+    display: block;
+}
+.editor-wrapper .editor-container .editor .resize-container:hover img, .editor-wrapper .editor-container .editor .resize-container:active img {
+    outline: 2px dashed #f44336;
+}
+
+.upload {
+    display: flex;
+    background-color: #f44336;
+    color: white;
+    padding: 20px;
+}
+.upload form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.upload form input {
+    display: none;
+}
+.upload form .edit-button {
+    display: none;
+}
+.upload form button {
+    border: 0;
+    padding: 10px 15px;
+    box-sizing: content-box;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    color: #f44336;
+    font-weight: bold;
+}
+.upload form .upload-button label {
+    cursor: pointer;
+}
+.upload form .upload-button .upload-icon {
+    display: inline-block;
+    background-color: #f44336;
+    color: white;
+    border: 2px solid white;
+    padding: 8px 12px;
+}
+.upload form .upload-button .label-text {
+    display: inline-block;
+    color: #f44336;
+    background-color: white;
+    padding: 10px 15px;
+    margin: 0;
+}
+.upload form .upload-button .label-text:hover {
+    color: #333;
+}
+
+.resize-handle-nw, .resize-handle-sw, .resize-handle-ne, .resize-handle-se {
+    position: absolute;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background: #f44336;
+    z-index: 999;
+}
+
+.resize-handle-nw {
+    top: -5px;
+    left: -5px;
+    cursor: nw-resize;
+}
+
+.resize-handle-sw {
+    bottom: -5px;
+    left: -5px;
+    cursor: sw-resize;
+}
+
+.resize-handle-ne {
+    top: -5px;
+    right: -5px;
+    cursor: ne-resize;
+}
+
+.resize-handle-se {
+    bottom: -5px;
+    right: -5px;
+    cursor: se-resize;
+}
+
+.overlay {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 999;
+    width: 350px;
+    height: 350px;
+    border: solid 2px rgba(222, 60, 80, 0.9);
+    box-sizing: content-box;
+    pointer-events: none;
+    vertical-align: middle;
+    display: inline-block;
+}
+.overlay:after, .overlay:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 354px;
+    height: 70px;
+    border-left: dashed 2px rgba(222, 60, 80, 0.9);
+    border-right: dashed 2px rgba(222, 60, 80, 0.9);
+    box-sizing: border-box;
+}
+.overlay:before {
+    top: 0;
+    margin-left: -2px;
+    margin-top: -40px;
+}
+.overlay:after {
+    bottom: 0;
+    margin-left: -2px;
+    margin-bottom: -40px;
+}
+
+.overlay-inner:after, .overlay-inner:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 87.5px;
+    height: 354px;
+    border-top: dashed 2px rgba(222, 60, 80, 0.9);
+    border-bottom: dashed 2px rgba(222, 60, 80, 0.9);
+    box-sizing: border-box;
+}
+.overlay-inner:before {
+    left: 0;
+    margin-left: -40px;
+    margin-top: -2px;
+}
+.overlay-inner:after {
+    right: 0;
+    margin-right: -40px;
+    margin-top: -2px;
+}
+
+.overlay-preview {
+    display: none;
+    border: 0;
+}
+.overlay-preview:before, .overlay-preview:after {
+    height: 90px;
+    background-color: white;
+    border: 0;
+    left: -150px;
+    width: 650px;
+    z-index: 9999;
+}
+.overlay-preview:before {
+    margin-top: -90px;
+}
+.overlay-preview:after {
+    margin-bottom: -90px;
+}
+.overlay-preview .overlay-inner:before, .overlay-preview .overlay-inner:after {
+    background-color: white;
+    border: 0;
+    width: 150px;
+    z-index: 9999;
+}
+.overlay-preview .overlay-inner:before {
+    margin-left: -150px;
+}
+.overlay-preview .overlay-inner:after {
+    margin-right: -150px;
+}
+
+.editor-modal .modal-header {
+    display: none;
+    text-align: center;
+    background-color: #f44336;
+    color: white;
+    border-bottom: 0;
+}
+.editor-modal .modal-header .close {
+    color: white;
+    opacity: 0.8;
+}
+.editor-modal .modal-header .close:focus,
+.editor-modal .modal-header .close:hover {
+    color: white;
+    opacity: 1;
+}
+.editor-modal .modal-body {
+    display: none;
+    border: 2px solid #f44336;
+    border-top: 0;
+    border-bottom: 0;
+    overflow: hidden;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFAAAACgAgMAAADm7QMnAAAADFBMVEWIiIixsbGxsbGxsbF0SLUbAAAABHRSTlP/bytS3QghxwAAAEVJREFUeAFjYA3FAA4Mq17tWrcalVhBtOBK7IL/McFf4rUPZYtGLRq1aNSiUYtGLSJcoYzWR4PBolGLRi0atWjUotH6CAA67a9q5+gpSAAAAABJRU5ErkJggg==");
+}
+.editor-modal .modal-footer {
+    padding: 0;
+    border: 0;
+}
+
+.editing-Image.editor-modal .modal-header {
+    display: block;
+}
+.editing-Image.editor-modal .modal-body {
+    display: block;
+}
+.editing-Image .upload form .edit-button {
+    display: block;
+}
+
+.btn.active.focus,
+.btn.focus,
+.btn:active.focus,
+.btn:focus,
+.btn:active:focus {
+    outline: transparent;
+}
+
+.btn.active.focus,
+.btn.focus,
+.btn:active.focus,
+.btn:focus,
+.btn:active:focus {
+    outline: transparent;
+    background-color: whitesmoke;
+}
+
+.change-icon a {
+    display: flex;
+    flex-direction: column-reverse;
+    text-decoration: none;
+    border-radius: 5px;
+}
+.change-icon a:hover {
+    opacity: 0.90;
+}
+.change-icon a .change-icon-text {
+    padding: 17px 30px;
+    background-color: #f44336;
+    color: white;
+    border-radius: 0 0 10px 10px;
+}
+.change-icon a .icon-container {
+    display: flex;
+    justify-content: space-around;
+    border: 3px solid #f44336;
+    padding: 20px 20px;
+    color: #f44336;
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.reference {
+    right: 10px;
+    bottom: 10px;
+    position: absolute;
+}
