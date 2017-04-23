@@ -192,7 +192,7 @@
                             </div>
                             <div data-tab="details" style="display:none" id="details" class="tw3-panel tab-item tw3-editable__block" >
                                 <form action="/ss" method="post">
-                                    <div class="tw3-editable__block  jsEditableBlock">
+                                    <div class="">
                                         <h5 class="jsEditableBlockTitle mb--default text--bold">THÔNG TIN CƠ BẢN</h5>
                                         <div class="tw3-field__editIcon" style="margin-right: 10px">
                                             <a href="#" class="edit-link">
