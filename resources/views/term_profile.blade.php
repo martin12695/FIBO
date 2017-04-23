@@ -83,7 +83,8 @@
                                                                         <textarea placeholder="Giới thiệu về bạn." maxlength="550" data-maxcharsbadge=".jsIntroMessageCharactersLeft" class="tw3-textarea jsAutoExpandTextarea jsMaxCharsTextarea mb--tight" name="intromessage"></textarea>
                                                                         <span class="jsIntroMessageCharactersLeft badge">Tối đa 550 ký tự</span>
                                                                         <div class="tw3-buttonGroup" style="margin-top: 10px">
-                                                                            <input type="submit" value="Lưu" class="tw3-button tw3-button--blue tw3-button--rounded"><a href="" class="jsEditableCancel tw3-button tw3-button--subtle tw3-button--rounded">Hủy</a>
+                                                                            <input type="submit" value="Lưu" class="tw3-button tw3-button--blue tw3-button--rounded">
+                                                                            <a href="" class="jsEditableCancel tw3-button tw3-button--subtle tw3-button--rounded">Hủy</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
