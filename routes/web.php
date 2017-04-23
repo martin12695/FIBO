@@ -41,9 +41,7 @@ Route::get('/game/profile', function () {
 Route::get('/forget-password', function () {
     return view('forget-password');
 });
-Route::get('/change-password', function () {
-    return view('change-password');
-});
+
 Route::get('/chat', 'ChatController@initChat');
 Route::get('/whoiknow','FriendController@whoIKnow' );
 
@@ -63,6 +61,9 @@ Route::get('/signout', 'HomeController@signout');
 Route::post('/signin', 'HomeController@signin');
 Route::post('/signup', 'HomeController@signup');
 Route::get('/test', 'HomeController@initHome');
+
+Route::get('/change-password', 'HomeController@changePassword');
+Route::post('/change-password', 'HomeController@changePasswordPost');
 
 Route::get('image-upload','ImageController@imageUpload');
 Route::post('image-upload','ImageController@imageUploadPost');

@@ -12,8 +12,8 @@
                         <div class="tw3-col-12 tw3-bp3-col-6 tw3-bp3-offset-right-6">
                             <h1 class="mv10">Bạn muốn đổi mật khẩu? </h1>
                             <p>Nhập mật khẩu hiện tại cùng với mật khẩu mới của bạn bên dưới, sau đó chúng tôi sẽ đổi mật khẩu giúp bạn.<br> Hãy đảm bảo rằng mật khẩu của bạn liên quan đến tài khoản hiện tại của bạn</p>
-                            <form class="formLarge pt--compact" method="post" action="">
-                                <input type="hidden" name="action" value="">
+                            <form class="formLarge pt--compact" method="post" action="{{url('change-password')}}">
+                                {{ csrf_field() }}
                                 <div class="tw3-row mb--default">
                                     <div class="tw3-col-12">
                                         <div class="tw3-form__row">

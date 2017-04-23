@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
+use App\User;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -115,5 +116,28 @@ class HomeController
         session()->flush();
         Auth::logout();
         return Redirect::to('/');
+    }
+
+    public function changePassword()
+    {
+        return view('change-password');
+    }
+
+    public function changePasswordPost(Request $request)
+    {
+        if (Auth::check()) {
+            $info = $request->input();
+            if(Hash::check($info['old_password'], Auth::user()->password)){
+                $passHash = Hash::make($info['new_password']);
+                DB::table('users')
+                    ->where('id', Auth::id())
+                    ->update(['password' => $passHash]);
+                return Redirect::to('/');
+            }else{
+
+            }
+        } else {
+            return View::make('/signin');
+        }
     }
 }
