@@ -17,8 +17,8 @@
                                 </a>
                             </p>
 
-                            <h1 class="mv10">Bạn muốn đổi mật khẩu? </h1>
-                            <p>Nhập địa chỉ email của bạn bên dưới, cùng với mật khẩu hiện tại và mật khẩu mới thì sau đó chúng tôi sẽ thay đổi mật khẩu giúp bạn.<br> Hãy đảm bảo rằng bạn nhập địa chỉ mật khẩu liên quan đến địa chỉ email của bạn</p>
+                            <h1 class="mv10">Bạn đã quên mật khẩu? </h1>
+                            <p>Nhập địa chỉ email của bạn bên dưới, sau đó chúng tôi sẽ phục hồi mật khẩu giúp bạn.<br> Hãy đảm bảo rằng bạn nhập địa chỉ email liên quan đến tài khoản của bạn của bạn</p>
 
                             <form class="formLarge pt--compact" method="post" action="">
 
@@ -28,35 +28,11 @@
                                         <div class="tw3-form__row">
                                             <div class="tw3-form__row__label">
                                                 <label for="emailText">
-                                                    Địa chỉ email
+                                                    Địa chỉ email hiên tại
                                                 </label>
                                             </div>
                                             <div class="tw3-form__row__input">
                                                 <input class="tw3-text" type="email" maxlength="80" value="" id="emailText" name="email" autofocus="autofocus" novalidate="">
-                                                <div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tw3-form__row">
-                                            <div class="tw3-form__row__label">
-                                                <label for="passwordText">
-                                                    Mật khẩu hiện tại
-                                                </label>
-                                            </div>
-                                            <div class="tw3-form__row__input">
-                                                <input class="tw3-text" type="password" maxlength="80" value="" id="passwordText" name="old_password" autofocus="autofocus" novalidate="">
-                                                <div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="tw3-form__row">
-                                            <div class="tw3-form__row__label">
-                                                <label for="passwordText">
-                                                    Mật khẩu mới
-                                                </label>
-                                            </div>
-                                            <div class="tw3-form__row__input">
-                                                <input class="tw3-text" type="password" maxlength="80" value="" id="passwordText" name="new_password" autofocus="autofocus" novalidate="">
                                                 <div>
                                                 </div>
                                             </div>
@@ -66,7 +42,7 @@
                                 <div class="tw3-row">
                                     <div class="tw3-col-12">
                                         <div class="tw3-form__row__input">
-                                            <input type="submit" class="tw3-button tw3-button--green" value="Đổi mật khẩu">
+                                            <input type="submit" class="tw3-button tw3-button--green" value="Nhận mật khẩu mới">
                                         </div>
                                     </div>
                                 </div>
