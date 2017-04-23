@@ -267,14 +267,6 @@
                                                                 </div>
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Mật khẩu</p>
-                                                                    </div>
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-6">
                                                                         <p class="tw3-field-title">Sinh viên trường</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
@@ -379,18 +371,6 @@
                                                                             </div>
                                                                             <div class="tw3-form__row__input">
                                                                                 <input type="text" value="" name="phone" class="tw3-text">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="tw3-row">
-                                                                        <div class="tw3-col-12 mb--default">
-                                                                            <div class="tw3-form__row__label">
-                                                                                <label for="">
-                                                                                    Mật khẩu
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="tw3-form__row__input">
-                                                                                <input type="password" value="" name="phone" class="tw3-text">
                                                                             </div>
                                                                         </div>
                                                                     </div>

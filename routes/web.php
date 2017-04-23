@@ -41,6 +41,9 @@ Route::get('/game/profile', function () {
 Route::get('/forget-password', function () {
     return view('forget-password');
 });
+Route::get('/change-password', function () {
+    return view('change-password');
+});
 Route::get('/chat', 'ChatController@initChat');
 Route::get('/whoiknow','FriendController@whoIKnow' );
 
