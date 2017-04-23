@@ -48,9 +48,9 @@
                         </div>
 
                         <div class="tw3-tabsHolder tw3-profileTabsHolder tab">
-                            <a class="tw3-tab selected" href="#panel=about" data-tab="about">Thông tin</a>
-                            <a class="tw3-tab" href="#panel=details" data-tab="details">Chi tiết</a>
-                            <a class="tw3-tab" href="#panel=photos" data-tab="photos">Hình</a>
+                            <a class="tw3-tab selected" href="#panel=about" data-tab="about" style="text-decoration: none">Thông tin</a>
+                            <a class="tw3-tab" href="#panel=details" data-tab="details" style="text-decoration: none">Chi tiết</a>
+                            <a class="tw3-tab" href="#panel=photos" data-tab="photos" style="text-decoration: none">Hình</a>
                         </div>
                         <div class="jsPanels tw3-col--flex tab-content" style="margin-top:25px">
                             <div data-tab="about" id="about" class="tw3-panel tab-item selected" style="display: block;">
@@ -412,6 +412,7 @@
                                                         </div>
                                                     </div>
                                                     <hr class="tw3-hr mb--default">
+
 
                                                 </div>
                                             </div>
