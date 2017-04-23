@@ -250,18 +250,10 @@
                                                             <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1 padding-info">
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Công việc &amp; trình độ</p>
-                                                                    </div>
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-6">
                                                                         <p class="tw3-field-title">Số điện thoại</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value"></p>
+                                                                        <p class="tw3-field-value">{{$info_basic->phone}}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
