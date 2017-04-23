@@ -4,6 +4,7 @@ use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Input;
 use DB;
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Middleware\FriendService;
 class ChatMessage extends Model
 {
     protected $table='chat_messages';
@@ -15,6 +16,13 @@ class Chat extends Model
 class ChatController extends BaseController
 
 {
+    public function initChat () {
+        $friendList = FriendService::friendList ();
+        return view('term_chat',[
+            'listFriend'   => $friendList,
+        ]);
+    }
+
     public function sendMessage()
     {
         $username = Input::get('username');
