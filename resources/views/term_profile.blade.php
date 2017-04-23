@@ -192,11 +192,15 @@
                             </div>
                             <div data-tab="details" style="display:none" id="details" class="tw3-panel tab-item tw3-editable__block" >
                                 <form action="/ss" method="post">
-                                    <div class="">
+                                    <div class="tw3-editable__block  jsEditableBlock">
                                         <h5 class="jsEditableBlockTitle mb--default text--bold">THÔNG TIN CƠ BẢN</h5>
                                         <div class="tw3-field__editIcon" style="margin-right: 10px">
-                                            <a href="#" class="edit-link"><i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 25px"></i></a>
-                                            <a href="#" style="display: none;" class="cancel"><i class="fa fa-ban" aria-hidden="true" style="font-size: 25px"></i></a>
+                                            <a href="#" class="edit-link">
+                                                <i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 25px"></i>
+                                            </a>
+                                            <a href="#" style="display: none;" class="cancel">
+                                                <i class="fa fa-ban" aria-hidden="true" style="font-size: 25px"></i>
+                                            </a>
                                         </div>
                                         <div class="tw3-field">
                                             <div class="tw3-field__view clearfix">
@@ -385,7 +389,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class=" jsLooksProfileBlock jsEditableBlock">
+                                    <div class="jsLooksProfileBlock jsEditableBlock">
                                         <h5 class="jsEditableBlockTitle mb--default text--bold">Thông tin chi tiết</h5>
                                         <div class="tw3-field">
                                             <div class="tw3-field__view clearfix">
@@ -746,7 +750,16 @@
             <div class="modal-content">
                 <div class="wrapper" style="height:600px;">
                     <!-- Open Modal Button -->
-                    <div class="change-icon"><a href="#" data-toggle='modal' data-target='#image-editor'><span class="change-icon-text">Tải hình lên</span><span class="icon-container"><i class="fa fa-picture-o"></i><i class="fa fa-crop"></i><i class="fa fa-download"></i></span></a></div>
+                    <div class="change-icon">
+                        <a href="#" data-toggle='modal' data-target='#image-editor' style="text-decoration: none;">
+                            <span class="change-icon-text">Tải hình lên</span>
+                            <span class="icon-container">
+                                <i class="fa fa-picture-o"></i>
+                                <i class="fa fa-crop"></i>
+                                <i class="fa fa-download"></i>
+                            </span>
+                        </a>
+                    </div>
                     <!--    Editor Modal-->
                     <div id="image-editor" class="modal fade editor-modal" role="dialog">
                         <div class="modal-dialog">
