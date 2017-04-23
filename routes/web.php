@@ -38,8 +38,12 @@ Route::get('/game', function () {
 Route::get('/game/profile', function () {
     return view('term_profile');
 });
+Route::get('/forget-password', function () {
+    return view('forget-password');
+});
 Route::get('/chat', 'ChatController@initChat');
 Route::get('/whoiknow','FriendController@whoIKnow' );
+
 
 Route::group(['prefix' => 'user'], function () {
     Route::get('profile', 'UserController@initPage');
