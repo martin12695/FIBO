@@ -171,15 +171,14 @@
                                             </div>
                                             <div class="tw3-col-12 tw3-bp4-col-4">
                                                 <div class="tw3-box--padding--off mb--compact">
-                                                    <a href="" class="noline inhouseAds inhouseAds--boost2 jsBuyProduct">
+                                                    <a href="" class="noline inhouseAds inhouseAds--boost2 jsBuyProduct" style="background: url(https://www.twoo.com/static/7493194841967495115302/images/v3/ads-inhouse/boost1.png) no-repeat;background-size: 100%;">
                                                         <div class="centerBlock">
                                                             <div class="centerBlock__item">
-                                                                <img src="https://twoo04-a.akamaihd.net/t/cfc3981f88f7f58c3474169c9d95799b_1_5_0_959_960_75_75_0000073181.jpg" width="42" height="42" class="tw3-avatar tw3-avatar--circle">
+                                                                <img src="/{{$info_basic->avatar}}" width="42" height="42" class="tw3-avatar tw3-avatar--circle" style="top:42px; right: 42px;">
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-7 tw3-offset-right-4 tw3-offset-left-1 text--left">
                                                                         <h4 class="tw3-h4">Gây Chú ý sơ yếu của bạn trong 15 phút!</h4>
-                                                                        <div class="tw3-button tw3-button--boost tw3-button--rounded">
-                                                                            <i class="fa fa-star-o" aria-hidden="true"></i> Gây Chú ý</div>
+                                                                        <div class="tw3-button tw3-button--boost tw3-button--rounded"><i class="fa fa-star-o" aria-hidden="true"></i> Gây Chú ý</div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -195,7 +194,7 @@
                                 <form action="/ss" method="post">
                                     <div class="">
                                         <h5 class="jsEditableBlockTitle mb--default text--bold">THÔNG TIN CƠ BẢN</h5>
-                                        <div class="tw3-field__editIcon">
+                                        <div class="tw3-field__editIcon" style="margin-right: 10px">
                                             <a href="#" class="edit-link"><i class="fa fa-pencil-square-o" aria-hidden="true" style="font-size: 25px"></i></a>
                                             <a href="#" style="display: none;" class="cancel"><i class="fa fa-ban" aria-hidden="true" style="font-size: 25px"></i></a>
                                         </div>
