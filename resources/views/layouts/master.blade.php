@@ -80,7 +80,7 @@
                     <a style="margin-top: 10px;" href="{{ url('/signout') }}" class="tw3-button tw3-button--blue tw3-button--small tw3-button--rounded">Đăng xuất</a>
                 </li>
                 <li class="menuItem tw3-headerV2__actions__item">
-                    <a href="" class="noline tw3-pointerMenuToggle jsHeaderPointerMenuNotificationsToggle active">
+                    <a class="noline tw3-pointerMenuToggle jsHeaderPointerMenuNotificationsToggle active">
                         <i class="fa fa-bell" aria-hidden="true"></i>
                     </a>
                     <div class="tw3-pointerMenu tw3-notifications jsNotificationsPopdown active" style="display: none;">

@@ -73,18 +73,6 @@ class HomeController
             return \Response::json(0);
 
         }
-
-        /*$login = DB::select('select * from users where email = ? and password = ? limit 1', [$info['email'], $passMd5]);
-        if (!empty($login)) {
-            session(['userId' => $login[0]->id,
-                'fullname' => $login[0]->name
-            ]);
-            return \Response::json(1);
-
-        }
-        else {
-            return \Response::json(1);
-        }*/
     }
 
     public function init_signup() {

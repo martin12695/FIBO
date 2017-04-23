@@ -139,7 +139,7 @@ Licence URI: http://www.os-templates.com/template-terms
                 </figure>
             </li>
             <li>
-                <figure><a class="overlay" href="#"><img src="images/intro/6.PNG" alt=""></a>
+                <figure><a class="overlay" href="#"><img src="images/intro/6.png" alt=""></a>
                     <figcaption class="inspace-30 center">
                         <p class="bold uppercase">Miễn phí, và sẽ mãi như thế!</p>
 
