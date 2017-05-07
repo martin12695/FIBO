@@ -24,7 +24,7 @@
     </div>
     <div class="homepageLinks homepageLinks--top">
         <div class="homepageLinks--top__right">
-            <a href="{{ url('/term-signup') }}" class="button button--white button--large">Đăng ký</a>
+            <a href="{{ url('/signup') }}" class="button button--white button--large">Đăng ký</a>
         </div>
     </div>
     <div class="homepageContainer clearfix jsHomepageContainer">
@@ -117,6 +117,7 @@
             </div>
         </div>
     </div>
+    <div class="homepageLinks homepageLinks--bottom jsHomepageFooterLinks">
     <div class="homepageLinks homepageLinks--bottom jsHomepageFooterLinks">
         <div class="homepageLinks--bottom__links">
             <ul>

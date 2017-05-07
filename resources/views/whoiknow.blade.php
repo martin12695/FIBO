@@ -17,7 +17,7 @@
                                                 @foreach($listFriend as $friend)
                                                 <li class="tw3-thumb jsContactImporterContactNonSensitive" data-name="hr" >
                                                     <a href="" class="tw3-thumb__link">
-                                                        <img src="https://twoo01-a.akamaihd.net/static/1636596845823273814/images/generic/avatar-male.jpg" class="tw3-thumb__link__image">
+                                                        <img src="/{{$friend->avatar}}" class="tw3-thumb__link__image">
                                                         <span class="tw3-thumb__link__name">{{$friend->name}}</span>
                                                     </a>
                                                 </li>

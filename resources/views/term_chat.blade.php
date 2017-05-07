@@ -30,7 +30,7 @@
                                         <a href="#" class="noline">
                                             <div class="tw3-person__image tw3-avatarContainer">
                                                 <div class="tw3-avatarContainer">
-                                                    <img src="https://twoo01-a.akamaihd.net/t/796d96c522e9b3d170df05f4873bfee3_1_6_0_960_1280_180_180_0002574208.jpg" data-src-small="https://twoo00-a.akamaihd.net/t/796d96c522e9b3d170df05f4873bfee3_1_5_0_960_1280_75_75_0011425603.jpg" data-src-medium="https://twoo01-a.akamaihd.net/t/796d96c522e9b3d170df05f4873bfee3_1_6_0_960_1280_180_180_0002574208.jpg" data-src-large="https://twoo04-a.akamaihd.net/c/02949757b7a1b831b6c49937bb955e3e_1_5_0_960_1280_215_215_0013627751.jpg" alt="Cao" class="tw3-avatar--circle tw3-avatar--fluid userGrid__avatar jsAvatar">
+                                                    <img src="/{{$friend->avatar}}" data-src-small="https://twoo00-a.akamaihd.net/t/796d96c522e9b3d170df05f4873bfee3_1_5_0_960_1280_75_75_0011425603.jpg" data-src-medium="https://twoo01-a.akamaihd.net/t/796d96c522e9b3d170df05f4873bfee3_1_6_0_960_1280_180_180_0002574208.jpg" data-src-large="https://twoo04-a.akamaihd.net/c/02949757b7a1b831b6c49937bb955e3e_1_5_0_960_1280_215_215_0013627751.jpg" alt="Cao" class="tw3-avatar--circle tw3-avatar--fluid userGrid__avatar jsAvatar">
                                                 </div>
                                             </div>
                                             <div class="tw3-person__info">

@@ -69,7 +69,7 @@ sign_form.controller('sign_form_ctrl', function($scope, $http) {
                     $scope.button_info = 'show';
                     $scope.loading = 'hide';
                 } else if (data.data == 0) {
-                    window.location.replace('/term-signin');
+                    window.location.replace('/signin');
                 }else {
                     $scope.exist_email = true;
                 }

@@ -24,13 +24,16 @@ class HomeController
     public function initHome() {
         $recommen = DB::select('SELECT * FROM users
                             where id != ? and id NOT IN(
-                                SELECT user_one
-                                FROM relationship )
+                                SELECT user_one 
+                                FROM relationship
+                                 where user_two = ?)
    	                        and id NOT IN(
                               SELECT user_two	
-                              FROM relationship )
+                              FROM relationship 
+                              where user_one = ?        
+                            )
                             ',
-            [session('userId')]);
+            [session('userId'),Auth::id(),Auth::id()]);
         $user = DB::table('users')->where('id', Auth::id())->first();
         $friend_list = array();
         //$list_user =  DB::table('user')->get();
