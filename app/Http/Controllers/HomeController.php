@@ -135,12 +135,12 @@ class HomeController
                 DB::table('users')
                     ->where('id', Auth::id())
                     ->update(['password' => $passHash]);
-                return Redirect::to('/');
+                return \Response::json(1);
             }else{
-
+                return \Response::json(2);
             }
         } else {
-            return View::make('/signin');
+            return \Response::json(3);
         }
     }
 }
