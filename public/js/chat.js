@@ -1,27 +1,31 @@
 var username;
-
+var to_user;
 $(document).ready(function()
 {
     username = $('#username').html();
 
-    pullData();
+   // pullData();
 
     $(document).keyup(function(e) {
         if (e.keyCode == 13)
             sendMessage();
-        else
-            isTyping();
     });
 });
 
-function pullData()
+function pullData(id)
 {
-    retrieveChatMessages();
-    retrieveTypingStatus();
-    setTimeout(pullData,3000);
+    retrieveChatMessages(id);
+    //retrieveTypingStatus(id);
+    setTimeout(pullData,3000,id);
 }
 
-function retrieveChatMessages()
+function makeChat(id)
+{
+    to_user = id;
+    pullData(id);
+}
+
+function retrieveChatMessages(id)
 {
     $.ajax({
         headers: {
@@ -29,7 +33,7 @@ function retrieveChatMessages()
         },
         type: "POST",
         data : {
-            username: username,
+            id: id,
         } ,
         url: '/retrieveChatMessages',
         success: function(data) {
@@ -42,7 +46,7 @@ function retrieveChatMessages()
 
 }
 
-function retrieveTypingStatus()
+function retrieveTypingStatus(id)
 {
     $.ajax({
         headers: {
@@ -50,7 +54,7 @@ function retrieveTypingStatus()
         },
         type: "POST",
         data : {
-            username: username,
+            id: id,
         } ,
         url: '/retrieveTypingStatus',
         success: function(username) {
@@ -67,7 +71,6 @@ function retrieveTypingStatus()
 function sendMessage()
 {
     var text = $('#text').val();
-
     if (text.length > 0)
     {
         $.ajax({
@@ -77,14 +80,12 @@ function sendMessage()
             type: "POST",
             data : {
                 text: text,
-                username: username,
-                to_user : 3,
+                id : to_user
             } ,
             url: '/sendMessage',
             success: function() {
                 $('#chat-window').append('<br><div style="text-align: right">'+text+'</div><br>');
                 $('#text').val('');
-                notTyping();
 
             },
 
@@ -92,7 +93,7 @@ function sendMessage()
     }
 }
 
-function isTyping()
+function isTyping(id)
 {
     $.ajax({
         headers: {
@@ -100,7 +101,7 @@ function isTyping()
         },
         type: "POST",
         data : {
-            username: username
+            id: id,
         } ,
         url: '/isTyping',
 
@@ -108,7 +109,7 @@ function isTyping()
     });
 }
 
-function notTyping()
+function notTyping(id)
 {
     $.ajax({
         headers: {
@@ -116,7 +117,7 @@ function notTyping()
         },
         type: "POST",
         data : {
-            username: username
+            id: id,
         } ,
         url: '/notTyping',
 

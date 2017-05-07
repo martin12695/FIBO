@@ -26,8 +26,8 @@
                             <div class="inboxContainer__tw3-personList jsMessageInboxList">
                                 <ul class="tw3-personList scrollPane jsMessageInboxListItems">
                                     @foreach($listFriend as $friend)
-                                    <li class="tw3-person" data-inboxtype="NOTIFICATION" data-id="2">
-                                        <a href="#" class="noline">
+                                    <li class="tw3-person" >
+                                        <a href="#" class="noline" onclick="makeChat({{$friend->id}})">
                                             <div class="tw3-person__image tw3-avatarContainer">
                                                 <div class="tw3-avatarContainer">
                                                     <img src="/{{$friend->avatar}}" data-src-small="https://twoo00-a.akamaihd.net/t/796d96c522e9b3d170df05f4873bfee3_1_5_0_960_1280_75_75_0011425603.jpg" data-src-medium="https://twoo01-a.akamaihd.net/t/796d96c522e9b3d170df05f4873bfee3_1_6_0_960_1280_180_180_0002574208.jpg" data-src-large="https://twoo04-a.akamaihd.net/c/02949757b7a1b831b6c49937bb955e3e_1_5_0_960_1280_215_215_0013627751.jpg" alt="Cao" class="tw3-avatar--circle tw3-avatar--fluid userGrid__avatar jsAvatar">
@@ -50,7 +50,7 @@
                             <div class="conversationsContainer__item__bottomBar jsMessageSenderBar">
                                 <div class="conversationsContainer__item__bottomBar__container conversationsContainer__item__bottomBar__container--normal">
                                     <div id="jsSendMessageFormSend" class="container--normal">
-                                        <div class="bottomBar__textarea"><textarea id="text" autofocus="" onblur="notTyping()" class="jsChatInput tw3-textarea" data-tip-id="#jsMessageToShort" data-message-to-short="Tin nhắn của bạn quá ngắn. Hãy sáng tạo :)" name="message" placeholder="Viết tin nhắn..." style="height: 58px;"></textarea></div>
+                                        <div class="bottomBar__textarea"><input id="text" cols="40" rows="5"  autofocus=""  class="jsChatInput tw3-textarea" data-tip-id="#jsMessageToShort"  name="message" placeholder="Viết tin nhắn..." style="height: 58px;"></div>
                                         <div class="bottomBar__actions clearfix">
                                             <button onclick="sendMessage()" class="disabled fw500 jsSubmitButton bottomBar__actions__submit">GỬI</button>
                                         </div>

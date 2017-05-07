@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Input;
 use DB;
+use Auth;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Middleware\FriendService;
 class ChatMessage extends Model
@@ -25,9 +26,9 @@ class ChatController extends BaseController
 
     public function sendMessage()
     {
-        $username = Input::get('username');
+        $username = Auth::id();
         $text = Input::get('text');
-        $to_user = Input::get('to_user');
+        $to_user = Input::get('id');
         $chatMessage = new ChatMessage();
         $chatMessage->sender_username = $username;
         $chatMessage->message = $text;
@@ -35,9 +36,9 @@ class ChatController extends BaseController
         $chatMessage->save();
     }
 
-    public function isTyping()
+   /* public function isTyping()
     {
-        $username = Input::get('username');
+        $username = Input::get('id');
 
         $chat = Chat::find(1);
         if ($chat->user1 == $username)
@@ -57,13 +58,13 @@ class ChatController extends BaseController
         else
             $chat->user2_is_typing = false;
         $chat->save();
-    }
+    }*/
 
     public function retrieveChatMessages()
     {
-        $username = Input::get('username');
+        $id_send = Input::get('id');
 
-        $message = ChatMessage::where('sender_username', '!=', $username)->where('read', '=', false)->first();
+        $message = ChatMessage::where('sender_username', '=', $id_send)->where('to_user', '=', Auth::id())->where('read', '=', false)->first();
 
         if (count($message) > 0)
         {
@@ -73,7 +74,7 @@ class ChatController extends BaseController
         }
     }
 
-    public function retrieveTypingStatus()
+    /*public function retrieveTypingStatus()
     {
         $username = Input::get('username');
 
@@ -88,5 +89,5 @@ class ChatController extends BaseController
             if ($chat->user1_is_typing)
                 return $chat->user1;
         }
-    }
+    }*/
 }
