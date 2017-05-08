@@ -38,7 +38,7 @@ $("#btn-submit").click(function() {
             },
             beforeSend: function()
             {
-                $("#btn-submit").html('<img style="width: 19px;height: 17px;padding-right: 5px" src="/images/ajax-loader.gif">Đang gửi yêu cầu ...');
+                $("#btn-submit").html('<img style="width: 19px;height: 17px;padding-right: 5px" src="/images/default.gif">Đang gửi yêu cầu ...');
             },
             complete: function () {
                 setTimeout(function () {
