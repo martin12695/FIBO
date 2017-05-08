@@ -28,10 +28,36 @@ class UserController
                 ->join('option_sex', 'sex', '=', 'option_sex.id')
                 ->select('users.id', 'option_sex.id','option_sex.value')
                 ->first();
+
             $option_sex = DB::table('option_sex')->get();
+
+            $bodys = DB::table('user_description')
+                ->join('option_body', 'body', '=', 'option_body.id')
+                ->where('user_id', Auth::id())
+                ->select('user_description.id', 'option_body.id','option_body.value')
+                ->first();
+
+            $finances = DB::table('user_description')
+                ->join('option_finace', 'finance', '=', 'option_finace.id')
+                ->where('user_id', Auth::id())
+                ->select('user_description.id', 'option_finace.id','option_finace.value')
+                ->first();
+
+            $findSubs = DB::table('user_description')
+                ->join('option_subject_find', 'subject_find', '=', 'option_subject_find.id')
+                ->where('user_id', Auth::id())
+                ->select('user_description.id', 'option_subject_find.id','option_subject_find.value')
+                ->first();
+
+            $findAges = DB::table('user_description')
+                ->join('option_subject_eag', 'subject_eag', '=', 'option_subject_eag.id')
+                ->where('user_id', Auth::id())
+                ->select('user_description.id', 'option_subject_eag.id','option_subject_eag.value')
+                ->first();
+
             $findAge = DB::table('option_subject_eag')->get();
             $findSub = DB::table('option_subject_find')->get();
-            $finace = DB::table('option_finace')->get();
+            $finance = DB::table('option_finace')->get();
             $province =  DB::table('province')->get();
             $body = DB::table('option_body')->get();
             $infoDes =  DB::table('user_description')->where('user_id', session('userId'))->first();
@@ -59,12 +85,16 @@ class UserController
             return view('term_profile',[
                 'info_basic' => $info,
                 'sex'        => $sex,
+                'bodys'      => $bodys,
+                'finances'   => $finances,
+                'findSubs'   => $findSubs,
+                'findAges'   => $findAges,
                 'option_sex' => $option_sex,
                 'infoDes'    => $infoDes,
                 'infoHobby'  => $infoHobby,
                 'findAge'    => $findAge,
                 'findSub'    => $findSub,
-                'finace'     => $finace,
+                'finance'     => $finance,
                 'body'       => $body,
                 'province'   => $province
             ]);

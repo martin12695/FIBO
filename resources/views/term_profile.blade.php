@@ -192,7 +192,8 @@
                                 </div>
                             </div>
                             <div data-tab="details" style="display:none" id="details" class="tw3-panel tab-item tw3-editable__block" >
-                                <form action="/ss" method="post">
+                                <form action="{{ url('/user/updateInfo') }}" method="post">
+                                    {{ csrf_field() }}
                                     <div class="">
                                         <h5 class="jsEditableBlockTitle mb--default text--bold">THÔNG TIN CƠ BẢN</h5>
                                         <div class="tw3-field__editIcon" style="margin-right: 10px">
@@ -267,6 +268,14 @@
                                                                 </div>
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Mã số sinh viên</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">...</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
                                                                         <p class="tw3-field-title">Sinh viên trường</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
@@ -288,46 +297,36 @@
                                                                     <div class="tw3-row">
                                                                         <div class="tw3-col-12 mb--default">
                                                                             <div class="tw3-form__row__label">
-                                                                                <label for="firstname">
-                                                                                    TÊN
+                                                                                <label for="">
+                                                                                    Điện thoại
                                                                                 </label>
                                                                             </div>
                                                                             <div class="tw3-form__row__input">
-                                                                                <input type="text" ng-init="info.name='{{$info_basic->name}}'" name="firstname" id="firstname" class="tw3-text" >
+                                                                                <input type="text" value="" name="phone" class="tw3-text">
                                                                             </div>
                                                                         </div>
                                                                     </div>
                                                                     <div class="tw3-row">
                                                                         <div class="tw3-col-12 mb--default">
                                                                             <div class="tw3-form__row__label">
-                                                                                <label for="gender">
-                                                                                    GIỚI TÍNH
+                                                                                <label for="">
+                                                                                    Mã số sinh viên
                                                                                 </label>
                                                                             </div>
-                                                                            <div class="tw3-dropdownHolder">
-                                                                                <select tabindex="1" name="gender" class="dropdown">
-                                                                                    @foreach($option_sex as $itemSex)
-                                                                                        <option value="{{$itemSex->id}}" {{$itemSex->id == $sex->id?  'selected="selected"' : ''}} >{{$itemSex->value}}</option>
-                                                                                    @endforeach
-                                                                                </select>
-                                                                                <small class="text--subtle">Bạn chỉ được thay đổi một lần</small>
+                                                                            <div class="tw3-form__row__input">
+                                                                                <input type="text" value="" name="mssv" class="tw3-text">
                                                                             </div>
-
                                                                         </div>
                                                                     </div>
                                                                     <div class="tw3-row">
                                                                         <div class="tw3-col-12 mb--default">
-
                                                                             <div class="tw3-form__row__label">
-                                                                                <label for="birthday">
-                                                                                    NGÀY SINH
+                                                                                <label for="">
+                                                                                    Upload hình thẻ sinh viên
                                                                                 </label>
                                                                             </div>
                                                                             <div class="tw3-form__row__input">
-                                                                                <div class="tw3-row">
-                                                                                    <input class="tw3-text" id="datepicker" type="datetime" placeholder="Ngày sinh Của Bạn..." value="{{$info_basic->birthday}}" >
-                                                                                </div>
-                                                                                <small class="text--subtle">Bạn chỉ được thay đổi một lần</small>
+                                                                                <a style="left: 0px;" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-upload-image" data-toggle="modal" data-target="#myModal">Upload ảnh đại diện</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -356,28 +355,6 @@
                                                                     <div class="tw3-row">
                                                                         <div class="tw3-col-12 mb--default">
                                                                             <div class="tw3-form__row__label">
-                                                                                <label for="gender">
-                                                                                    Địa chỉ Email
-                                                                                </label>
-                                                                            </div>
-                                                                            <input type="text" value="" name="email" class="tw3-text">
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="tw3-row">
-                                                                        <div class="tw3-col-12 mb--default">
-                                                                            <div class="tw3-form__row__label">
-                                                                                <label for="">
-                                                                                    Điện thoại
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="tw3-form__row__input">
-                                                                                <input type="text" value="" name="phone" class="tw3-text">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="tw3-row">
-                                                                        <div class="tw3-col-12 mb--default">
-                                                                            <div class="tw3-form__row__label">
                                                                                 <label for="">
                                                                                     Sinh viên trường
                                                                                 </label>
@@ -394,8 +371,6 @@
                                                         </div>
                                                     </div>
                                                     <hr class="tw3-hr mb--default">
-
-
                                                 </div>
                                             </div>
                                         </div>
@@ -413,7 +388,7 @@
                                                                         <p class="tw3-field-title">Thân hình</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">{{$infoDes->hair}}</p>
+                                                                        <p class="tw3-field-value">{{ isset($bodys->value) ? $bodys->value : '...' }}</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">
@@ -421,7 +396,15 @@
                                                                         <p class="tw3-field-title">Chiều cao</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">{{$infoDes->height}} cm</p>
+                                                                        <p class="tw3-field-value">{{ isset($infoDes->height) ? $infoDes->height. ' cm': '...' }}</p>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Cân nặng</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">{{ isset($infoDes->weight) ? $infoDes->weight. ' kg': '...' }}</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">
@@ -430,7 +413,7 @@
                                                                     </div>
                                                                     <div class="tw3-col-6">
                                                                         <p class="tw3-field-value">
-                                                                            {{$infoDes->hair}}
+                                                                            {{ isset($infoDes->hair) ? $infoDes->hair : '...' }}
                                                                         </p>
                                                                     </div>
                                                                 </div>
@@ -440,6 +423,16 @@
                                                     <div class="tw3-col-12 tw3-bp4-col-6">
                                                         <div class="tw3-row">
                                                             <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1 padding-info">
+                                                                <div class="tw3-row">
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-title">Tài chính</p>
+                                                                    </div>
+                                                                    <div class="tw3-col-6">
+                                                                        <p class="tw3-field-value">
+                                                                            {{ isset($finances->value) ? $finances->value : '...' }}
+                                                                        </p>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-6">
                                                                         <p class="tw3-field-title">Ưu tiên cuộc sống</p>
@@ -452,21 +445,21 @@
                                                                 </div>
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Tôi có</p>
+                                                                        <p class="tw3-field-title">Đối tượng tìm kiếm</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
                                                                         <p class="tw3-field-value">
-                                                                            ...
+                                                                            {{ isset($findSubs->value) ? $findSubs->value : '...' }}
                                                                         </p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Phong cách ăn mặc</p>
+                                                                        <p class="tw3-field-title">Độ tuổi</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
                                                                         <p class="tw3-field-value">
-                                                                            ...
+                                                                            {{ isset($findAges->value) ? $findAges->value : '...' }}
                                                                         </p>
                                                                     </div>
                                                                 </div>
@@ -493,7 +486,7 @@
                                                                                 <div class="tw3-dropdownHolder">
                                                                                     <select name="body" class="dropdown">
                                                                                         @foreach($body as $itemBody)
-                                                                                            <option value="{{$itemBody->id}}" {{$itemBody->id == '2' ?  'selected="selected"' : ''}}>{{$itemBody->value}}</option>
+                                                                                            <option value="{{$itemBody->id}}" {{$itemBody->id == $infoDes->body ?  'selected="selected"' : ''}}>{{$itemBody->value}}</option>
                                                                                         @endforeach
                                                                                     </select>
                                                                                 </div>
@@ -514,6 +507,18 @@
                                                                         <div class="tw3-row tw3-form__row">
                                                                             <div class="tw3-col-12">
                                                                                 <div class="tw3-form__row__label">
+                                                                                    <label for="length">
+                                                                                        CÂN NẶNG (kg)
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div >
+                                                                                    <input class="tw3-text" type="text" placeholder="Cân nặng của bạn (Đơn vị kg)..."  value="{{$infoDes->weight}}" name="weight">
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="tw3-row tw3-form__row">
+                                                                            <div class="tw3-col-12">
+                                                                                <div class="tw3-form__row__label">
                                                                                     <label for="hairColor">
                                                                                         MÀU TÓC
                                                                                     </label>
@@ -527,6 +532,22 @@
                                                             <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
                                                                 <div class="tw3-row">
                                                                     <div class="col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1">
+                                                                        <div class="tw3-row tw3-form__row">
+                                                                            <div class="tw3-col-12">
+                                                                                <div class="tw3-form__row__label">
+                                                                                    <label for="silhouette">
+                                                                                        TÀI CHÍNH
+                                                                                    </label>
+                                                                                </div>
+                                                                                <div class="tw3-dropdownHolder">
+                                                                                    <select name="finance" class="dropdown">
+                                                                                        @foreach($finance as $itemFinance)
+                                                                                            <option value="{{$itemFinance->id}}" {{$itemFinance->id == $infoDes->finance ?  'selected="selected"' : ''}}>{{$itemFinance->value}}</option>
+                                                                                        @endforeach
+                                                                                    </select>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
                                                                         <div class="tw3-row tw3-form__row">
                                                                             <div class="tw3-col-12">
                                                                                 <div class="tw3-form__row__label">
