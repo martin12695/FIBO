@@ -54,7 +54,9 @@
                                 <div class="tw3-row">
                                     <div class="tw3-col-12">
                                         <div class="tw3-form__row__input">
-                                            <input style="background: #007be6; border-color: #007be6" class="tw3-button tw3-button--green" id="btn-submit" value="Đổi mật khẩu">
+                                            <button type="button" style="background: #007be6; border-color: #007be6" class="tw3-button tw3-button--green" id="btn-submit">
+                                                <div id="ajax-loader">Đổi mật khẩu</div>
+                                            </button>
                                             <div style="display: none;margin-top: 10px;opacity: 0.8" class="alert-box success" id="success_change_password">Đổi mật khẩu thành công !!!</div>
                                         </div>
                                     </div>
