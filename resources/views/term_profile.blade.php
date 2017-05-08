@@ -222,7 +222,7 @@
                                                                         <p class="tw3-field-title">Giới tính</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value"></p>
+                                                                        <p class="tw3-field-value">{{ $sex->value }}</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">
@@ -306,8 +306,9 @@
                                                                             </div>
                                                                             <div class="tw3-dropdownHolder">
                                                                                 <select tabindex="1" name="gender" class="dropdown">
-                                                                                    <option value="1" selected>Nam</option>
-                                                                                    <option value="2">Nữ</option>
+                                                                                    @foreach($option_sex as $itemSex)
+                                                                                        <option value="{{$itemSex->id}}" {{$itemSex->id == $sex->id?  'selected="selected"' : ''}} >{{$itemSex->value}}</option>
+                                                                                    @endforeach
                                                                                 </select>
                                                                                 <small class="text--subtle">Bạn chỉ được thay đổi một lần</small>
                                                                             </div>

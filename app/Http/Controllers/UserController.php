@@ -24,6 +24,11 @@ class UserController
             return redirect('/');
         }else {
             $info = DB::table('users')->where('id', session('userId'))->first();
+            $sex = DB::table('users')
+                ->join('option_sex', 'sex', '=', 'option_sex.id')
+                ->select('users.id', 'option_sex.id','option_sex.value')
+                ->first();
+            $option_sex = DB::table('option_sex')->get();
             $findAge = DB::table('option_subject_eag')->get();
             $findSub = DB::table('option_subject_find')->get();
             $finace = DB::table('option_finace')->get();
@@ -53,6 +58,8 @@ class UserController
             $info->birthday = $date->format('d/m/Y');
             return view('term_profile',[
                 'info_basic' => $info,
+                'sex'        => $sex,
+                'option_sex' => $option_sex,
                 'infoDes'    => $infoDes,
                 'infoHobby'  => $infoHobby,
                 'findAge'    => $findAge,
