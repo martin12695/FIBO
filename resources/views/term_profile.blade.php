@@ -222,7 +222,7 @@
                                                                         <p class="tw3-field-title">Giới tính</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">Nam</p>
+                                                                        <p class="tw3-field-value"></p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">

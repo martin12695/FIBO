@@ -75,9 +75,10 @@
                                     <dd>
                                         <div class="inputHolder" style="vertical-align: top;">
                                             <div>
-                                                <select class="customDropdown jsInputGender" name="gender" ng-model="sex" tabindex="2"><option value="">Bạn là...</option>
-                                                    <option value="1">Nam</option>
-                                                    <option value="2">Nữ</option>
+                                                <select class="customDropdown jsInputGender" name="gender" ng-model="sex_reg" tabindex="2"><option value="">Bạn là...</option>
+                                                    @foreach($sex as $itemSex)
+                                                        <option value="{{$itemSex->id}}" {{'1' == $itemSex->id ?  'selected="selected"' : ''}} >{{$itemSex->value}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
