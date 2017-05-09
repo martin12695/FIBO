@@ -32,6 +32,21 @@ Route::get('/chat', function () {
     return view('chat');
 });
 
+Route::get('/confession', function () {
+    return view('confession');
+});
+
+Route::group(['prefix' => 'confession'], function () {
+    Route::get('/', function () {
+        return view('confession');
+    });
+    Route::get('/write', function () {
+        return view('write_confess');
+    });
+    Route::post('/submit', 'ConfessController@submitPost');
+});
+
+
 Route::get('/game', function () {
     return view('index');
 });
