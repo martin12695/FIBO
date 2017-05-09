@@ -81,8 +81,10 @@ class HomeController
 
     public function init_signup() {
         $province =  DB::table('province')->get();
+        $sex = DB::table('option_sex')->get();
         return view('term_signup',[
-            'province'   => $province
+            'province'   => $province,
+            'sex'        => $sex
         ]);
 
     }
@@ -104,7 +106,7 @@ class HomeController
 
             try {
                 DB::table('users')->insert(
-                    ['email' => $info['email'], 'password' => $passMd5, 'name' => $info['name'],
+                    ['email' => $info['email'],'sex' => $info['sex'],'password' => $passMd5, 'name' => $info['name'],
                         'phone' => $info['phone'],'come_from' => $info['from'], 'birthday' => $date]
                 );
                 return \Response::json(0);

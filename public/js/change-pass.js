@@ -38,10 +38,12 @@ $("#btn-submit").click(function() {
             },
             beforeSend: function()
             {
-
+                $("#btn-submit").html('<img style="width: 19px;height: 17px;padding-right: 5px" src="/images/default.gif">Đang gửi yêu cầu ...');
             },
             complete: function () {
-
+                setTimeout(function () {
+                    $('#btn-submit').html('<div id="ajax-loader">Đổi mật khẩu</div>');
+                }, 3000);
             },
             success :  function(data) {
                 if(data == 1){

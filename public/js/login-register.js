@@ -11,7 +11,7 @@ sign_form.controller('sign_form_ctrl', function($scope, $http) {
     $scope.check_field = 'hide';
     $scope.pass ='';
     $scope.email ='';
-    $scope.email_reg = $scope.pass_reg =  $scope.repass_reg = $scope.name_reg = $scope.phone_reg = '';
+    $scope.email_reg = $scope.pass_reg =  $scope.repass_reg = $scope.name_reg = $scope.phone_reg = $scope.sex_reg = '';
     $scope.sign_in = function() {
         if ( $scope.email =='' || $scope.pass ==''){
             $scope.check_field = 'show';
@@ -56,6 +56,7 @@ sign_form.controller('sign_form_ctrl', function($scope, $http) {
                 method: "POST",
                 data: {
                     email: $scope.email_reg,
+                    sex: $scope.sex_reg,
                     pass: $scope.pass_reg,
                     repass: $scope.repass_reg,
                     name: $scope.name_reg,
