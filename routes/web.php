@@ -40,6 +40,7 @@ Route::group(['prefix' => 'confession'], function () {
     Route::get('/', function () {
         return view('confession');
     });
+    Route::get('/{postid}', 'ConfessController@initPage')->where(['postid' => '[0-9]+']);
     Route::get('/write', function () {
         return view('write_confess');
     });

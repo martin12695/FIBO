@@ -14,4 +14,9 @@ class ConfessController {
             ['title' => $title, 'author' => $author, 'detail' => $detail,'status' => '0']
         );
     }
+
+    public function initPage($postid){
+        $info = DB::table('confession')->where('id', $postid)->first();
+        return view('confession.detail', ['info' => $info]);
+    }
 }
