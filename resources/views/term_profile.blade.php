@@ -362,7 +362,7 @@
                                                                             <div class="tw3-dropdownHolder">
                                                                                 <select name="school" class="dropdown">
                                                                                     @if( empty($schools) )
-                                                                                        {{ $term = '3' }}
+                                                                                        {{ $term = '1' }}
                                                                                     @else
                                                                                         {{ $term = $schools->id }}
                                                                                     @endif
