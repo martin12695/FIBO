@@ -240,7 +240,7 @@
                                                                         <p class="tw3-field-title">Thành phố</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">Thành phố Hồ Chí Minh</p>
+                                                                        <p class="tw3-field-value">{{ isset($cities->name) ? $cities->name : '...' }}</p>
                                                                     </div>
                                                                 </div>
 
@@ -271,7 +271,7 @@
                                                                         <p class="tw3-field-title">Mã số sinh viên</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
+                                                                        <p class="tw3-field-value">{{ isset($info_basic->mssv) ? $info_basic->mssv : '...' }}</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">
@@ -279,7 +279,7 @@
                                                                         <p class="tw3-field-title">Sinh viên trường</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
+                                                                        <p class="tw3-field-value">{{ isset($schools->value) ? $schools->value : '...' }}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -340,7 +340,7 @@
                                                                             <div class="tw3-dropdownHolder">
                                                                                 <select name="province" class="dropdown">
                                                                                     @foreach($province as $itemPro)
-                                                                                        <option value="{{$itemPro->id}}" {{'2' == $itemPro->id ?  'selected="selected"' : ''}} >{{$itemPro->name}}</option>
+                                                                                        <option value="{{$itemPro->id}}" {{$itemPro->id == $cities->id ?  'selected="selected"' : ''}} >{{$itemPro->name}}</option>
                                                                                     @endforeach
                                                                                 </select>
                                                                             </div>
@@ -359,9 +359,16 @@
                                                                                     Sinh viên trường
                                                                                 </label>
                                                                             </div>
-                                                                            <div class="tw3-form__row__input">
-                                                                                <select class="dropdown">
-                                                                                    <option>Trường Công Nghệ Thông tin</option>
+                                                                            <div class="tw3-dropdownHolder">
+                                                                                <select name="school" class="dropdown">
+                                                                                    @if( empty($schools) )
+                                                                                        {{ $term = '1' }}
+                                                                                    @else
+                                                                                        {{ $term = $schools->id }}
+                                                                                    @endif
+                                                                                    @foreach($school as $itemPro)
+                                                                                        <option value="{{$itemPro->id}}" {{$itemPro->id == $term ?  'selected="selected"' : ''}} >{{$itemPro->value}}</option>
+                                                                                    @endforeach
                                                                                 </select>
                                                                             </div>
                                                                         </div>
@@ -388,7 +395,7 @@
                                                                         <p class="tw3-field-title">Thân hình</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">{{ isset($bodys->value) ? $bodys->value : '...' }}</p>
+                                                                        <p class="tw3-field-value">{{ isset($bodies->value) ? $bodies->value : '...' }}</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">
@@ -412,9 +419,7 @@
                                                                         <p class="tw3-field-title">Màu tóc</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">
-                                                                            {{ isset($infoDes->hair) ? $infoDes->hair : '...' }}
-                                                                        </p>
+                                                                        <p class="tw3-field-value">{{ isset($infoDes->hair) ? $infoDes->hair : '...' }}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -485,8 +490,13 @@
                                                                                 </div>
                                                                                 <div class="tw3-dropdownHolder">
                                                                                     <select name="body" class="dropdown">
+                                                                                        @if( empty($bodies) )
+                                                                                            {{ $term = '8' }}
+                                                                                        @else
+                                                                                            {{ $term = $bodies->id }}
+                                                                                        @endif
                                                                                         @foreach($body as $itemBody)
-                                                                                            <option value="{{$itemBody->id}}" {{$itemBody->id == $infoDes->body ?  'selected="selected"' : ''}}>{{$itemBody->value}}</option>
+                                                                                            <option value="{{$itemBody->id}}" {{$itemBody->id == $term ?  'selected="selected"' : ''}}>{{$itemBody->value}}</option>
                                                                                         @endforeach
                                                                                     </select>
                                                                                 </div>
@@ -541,8 +551,13 @@
                                                                                 </div>
                                                                                 <div class="tw3-dropdownHolder">
                                                                                     <select name="finance" class="dropdown">
+                                                                                        @if( empty($finances) )
+                                                                                            {{ $term = '1' }}
+                                                                                        @else
+                                                                                            {{ $term = $finances->id }}
+                                                                                        @endif
                                                                                         @foreach($finance as $itemFinance)
-                                                                                            <option value="{{$itemFinance->id}}" {{$itemFinance->id == $infoDes->finance ?  'selected="selected"' : ''}}>{{$itemFinance->value}}</option>
+                                                                                            <option value="{{$itemFinance->id}}" {{$itemFinance->id == $term ?  'selected="selected"' : ''}}>{{$itemFinance->value}}</option>
                                                                                         @endforeach
                                                                                     </select>
                                                                                 </div>
@@ -567,8 +582,20 @@
                                                                                 </div>
                                                                                 <div class="tw3-dropdownHolder">
                                                                                     <select name="sub" class="dropdown">
+                                                                                        @if( empty($findSubs) && $info_basic->sex == '1')
+                                                                                            {{ $term = '2'}}
+                                                                                        @endif
+
+                                                                                        @if( empty($findSubs) && $info_basic->sex == '2' )
+                                                                                            {{ $term = '1' }}
+                                                                                        @endif
+
+                                                                                        @if( !empty($findSubs) )
+                                                                                            {{ $term = $findSubs->id }}
+                                                                                        @endif
+
                                                                                         @foreach($findSub as $itemSub)
-                                                                                            <option value="{{$itemSub->id}}" {{$infoDes->subject_find == $itemSub->id ?  'selected="selected"' : ''}} >{{$itemSub->value}}</option>
+                                                                                            <option value="{{$itemSub->id}}" {{$itemSub->id == $term ?  'selected="selected"' : ''}} >{{$itemSub->value}}</option>
                                                                                         @endforeach
                                                                                     </select>
                                                                                 </div>
@@ -583,8 +610,13 @@
                                                                                 </div>
                                                                                 <div class="tw3-dropdownHolder">
                                                                                     <select name="sub_age" class="dropdown">
+                                                                                        @if( empty($findAges) )
+                                                                                            {{ $term = 1 }}
+                                                                                        @else
+                                                                                            {{ $term = $findAges->id }}
+                                                                                        @endif
                                                                                         @foreach($findAge as $itemAge)
-                                                                                            <option value="{{$itemAge->id}}" {{$infoDes->subject_eag == $itemAge->id ?  'selected="selected"' : ''}} >{{$itemAge->value}}</option>
+                                                                                            <option value="{{$itemAge->id}}" {{$itemAge->id == $term ?  'selected="selected"' : ''}} >{{$itemAge->value}}</option>
                                                                                         @endforeach
                                                                                     </select>
                                                                                 </div>
@@ -613,9 +645,7 @@
                                                                         <p class="tw3-field-title">Âm nhạc</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">
-                                                                            {{$infoHobby->music}}
-                                                                        </p>
+                                                                        <p class="tw3-field-value">{{ isset($infoHobby->music) ? $infoHobby->music : '...'}}</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">
@@ -623,8 +653,7 @@
                                                                         <p class="tw3-field-title">Phim</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">{{$infoHobby->movie}}
-                                                                        </p>
+                                                                        <p class="tw3-field-value">{{ isset($infoHobby->movie) ? $infoHobby->movie : '...'}}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -635,26 +664,18 @@
                                                             <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1 padding-info">
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Hôn nhân là</p>
+                                                                        <p class="tw3-field-title">Thể thao</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Tôi ghen tỵ</p>
-                                                                    </div>
-                                                                    <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
+                                                                        <p class="tw3-field-value">{{ isset($infoHobby->sport) ? $infoHobby->sport : '...'}}</p>
                                                                     </div>
                                                                 </div>
                                                                 <div class="tw3-row">
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-title">Vật nuôi</p>
+                                                                        <p class="tw3-field-title">Sở thích</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">...</p>
+                                                                        <p class="tw3-field-value">{{ isset($infoHobby->hobby) ? $infoHobby->hobby : '...'}}</p>
                                                                     </div>
                                                                 </div>
                                                             </div>
