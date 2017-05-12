@@ -25,12 +25,8 @@
                                             </div>
                                             <div class="tw3-form__row__input">
                                                 <input class="tw3-text" type="password" maxlength="80" id="oldPassword" name="old_password" autofocus="autofocus">
-                                                <div class="tw3-form__row__label">
-                                                    <label for="oldPassword">
-                                                        <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none" class="text--subtle" id="error_old_password">Bạn chưa nhập mật khẩu hiện tại</div>
-                                                        <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none" class="text--subtle" id="errors_old_password">Mật khẩu hiện tại không chính xác</div>
-                                                    </label>
-                                                </div>
+                                                <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none" class="text--subtle" id="error_old_password">Bạn chưa nhập mật khẩu hiện tại</div>
+                                                <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none" class="text--subtle" id="errors_old_password">Mật khẩu hiện tại không chính xác</div>
                                             </div>
                                         </div>
                                         <div class="tw3-form__row">
@@ -42,11 +38,7 @@
                                             <div class="tw3-form__row__input">
                                                 <div id="ajax-loader"></div>
                                                 <input class="tw3-text" type="password" maxlength="80" id="newPassword" name="new_password" autofocus="autofocus">
-                                                <div class="tw3-form__row__label">
-                                                    <label for="newPassword">
-                                                        <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none;" class="text--subtle" id="error_new_password">Bạn chưa nhập mật khẩu mới</div>
-                                                    </label>
-                                                </div>
+                                                <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none;" class="text--subtle" id="error_new_password">Bạn chưa nhập mật khẩu mới</div>
                                             </div>
                                         </div>
                                     </div>
