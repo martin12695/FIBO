@@ -53,9 +53,6 @@ Route::get('/game', function () {
 Route::get('/game/profile', function () {
     return view('term_profile');
 });
-Route::get('/forget-password', function () {
-    return view('forget-password');
-});
 
 Route::get('/chat', 'ChatController@initChat');
 Route::get('/whoiknow','FriendController@whoIKnow' );
@@ -69,8 +66,6 @@ Route::group(['prefix' => 'user'], function () {
 Route::group(['prefix' => 'friend'], function () {
     Route::get('{request}/{userId}', 'FriendController@RequestFriend');
 });
-
-
 
 Route::get('/signout', 'HomeController@signout');
 Route::post('/signin', 'HomeController@signin');
@@ -88,4 +83,9 @@ Route::post('isTyping', array('uses' => 'ChatController@isTyping'));
 Route::post('notTyping', array('uses' => 'ChatController@notTyping'));
 Route::post('retrieveChatMessages', array('uses' => 'ChatController@retrieveChatMessages'));
 Route::post('retrieveTypingStatus', array('uses' => 'ChatController@retrieveTypingStatus'));
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
 

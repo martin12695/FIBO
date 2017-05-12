@@ -98,7 +98,7 @@
                                     <dt>&nbsp;</dt>
                                     <dd class="form__extraOptions">
                                         <p class="m0">
-                                            <a href="{{ url('/forget-password') }}">Quên mật khẩu</a>
+                                            <a href="{{ url('/password/reset') }}">Quên mật khẩu</a>
                                         </p>
                                         <p>
                                             Chưa là thành viên? <a href="{{ url('/term-signup') }}">Đăng ký tại đây</a>
