@@ -88,5 +88,5 @@ Route::post('retrieveTypingStatus', array('uses' => 'ChatController@retrieveTypi
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
 
