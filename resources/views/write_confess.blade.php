@@ -4,13 +4,15 @@
     <link rel="stylesheet" href="./css/write_confess.css">
 @endsection
 @section('content')
+    <script language="javascript" src="/js/lib/ckeditor/ckeditor.js" type="text/javascript"></script>
+    <script language="javascript" src="/js/lib/ckeditor/config.js" type="text/javascript"></script>
     <span id="username">{{Auth::id()}}</span>
     <div class="tw3-wrapper" style="position: relative; margin-bottom: 208px; margin-top: 100px">
         <div class="container">
             <div class="row">
                 <!-- Blog Post Content Column -->
                 <div class="col-lg-12">
-                    <form role="form" action="/submit" method="post">
+                    <form role="form" action="submit" method="post">
                     {{ csrf_field() }}
                         <!-- Title -->
                         <div class="row overview_info">
@@ -43,7 +45,7 @@
                                         Nội dung
                                     </label>
                                 </div>
-                                <textarea class="form-control" rows="12" name="detail"></textarea>
+                                <textarea class="content ckeditor" id="content" name="detail"></textarea>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Gửi bài</button>
@@ -56,4 +58,11 @@
     </div>
 @endsection
 @section('custom-js')
+    <script>
+        CKEDITOR.replace('content',
+        {
+            toolbar : 'Basic', /* this does the magic */
+            uiColor : '#9AB8F3'
+        });
+    </script>
 @endsection
