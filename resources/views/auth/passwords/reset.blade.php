@@ -33,11 +33,9 @@
                                             </div>
                                             <div class="tw3-form__row__input">
                                                 <input id="email" type="email" class="tw3-text" name="email" value="{{ $email or old('email') }}" autofocus>
-                                                @if ($errors->has('email'))
-                                                    <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000" class="text--subtle">
-                                                        {{ $errors->first('email') }}
-                                                    </div>
-                                                @endif
+                                                <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none;" class="text--subtle" id="error_reset_email">
+                                                    <div id="check">Địa chỉ email không chính xác</div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -49,11 +47,9 @@
                                             </div>
                                             <div class="tw3-form__row__input">
                                                 <input id="password" type="password" class="tw3-text" name="password">
-                                                @if ($errors->has('password'))
-                                                    <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000" class="text--subtle">
-                                                        {{ $errors->first('password') }}
-                                                    </div>
-                                                @endif
+                                                <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none;" class="text--subtle" id="error_reset_password">
+                                                    <div id="check">Bạn chưa nhập mật khẩu cần thay đổi</div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="tw3-form__row">
@@ -64,11 +60,9 @@
                                             </div>
                                             <div class="tw3-form__row__input">
                                                 <input id="password-confirm" type="password" class="tw3-text" name="password_confirmation">
-                                                @if ($errors->has('password_confirmation'))
-                                                    <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000" class="text--subtle">
-                                                        {{ $errors->first('password_confirmation') }}
-                                                    </div>
-                                                @endif
+                                                <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none;" class="text--subtle" id="error_reset_confirm_password">
+                                                    <div id="check">Bạn chưa xác nhận lại mật khẩu cần thay đổi</div>
+                                                </div>
                                             </div>
                                         </div>
 
@@ -77,7 +71,7 @@
                                 <div class="tw3-row">
                                     <div class="tw3-col-12">
                                         <div class="tw3-form__row__input">
-                                            <button type="submit" style="background: #007be6; border-color: #007be6" class="tw3-button tw3-button--green">
+                                            <button type="submit" style="background: #007be6; border-color: #007be6" class="tw3-button tw3-button--green" id="btn-res-change-pass">
                                                 Đổi mật khẩu
                                             </button>
                                             <div style="display: none;margin-top: 10px;opacity: 0.8" class="alert-box success" id="success_change_password">Đổi mật khẩu thành công !!!</div>
@@ -91,4 +85,7 @@
             </div>
         </div>
     </div>
+@endsection
+@section('custom-js')
+    <script src="/js/reset-change-pass.js" type="text/javascript"></script>
 @endsection
