@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+    'host' => env('MAIL_HOST', 'mail.fibo.webstarterz.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -42,7 +42,7 @@ return [
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' => env('MAIL_PORT', 25),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'huutrung.mmt@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Nguyen Huu Trung'),
+        'address' => env('MAIL_FROM_ADDRESS', 'admin@fibo.webstarterz.com'),
+        'name' => env('MAIL_FROM_NAME', 'admin'),
     ],
 
     /*
