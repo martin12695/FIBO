@@ -34,8 +34,8 @@
                                             </div>
                                             <div class="tw3-form__row__input">
                                                 <input class="tw3-text" type="email" maxlength="80" value="" id="emailText" name="email" autofocus="autofocus">
-                                               <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none;" class="text--subtle" id="error_reset_password-1">
-                                                    Địa chỉ email không chính xác hoặc bạn đang bỏ trống
+                                               <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none;" class="text--subtle" id="error_reset_password">
+                                                    <div id="check">Địa chỉ email không chính xác</div>
                                                </div>
                                             </div>
                                         </div>
