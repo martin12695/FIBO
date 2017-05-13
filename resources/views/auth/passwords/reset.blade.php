@@ -35,7 +35,7 @@
                                                 <input id="email" type="email" class="tw3-text" name="email" value="{{ $email or old('email') }}" autofocus>
                                                 @if ($errors->has('email'))
                                                     <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000" class="text--subtle">
-                                                        Bạn chưa nhập email hoặc email không chính xác
+                                                        {{ $errors->first('email') }}
                                                     </div>
                                                 @endif
                                             </div>
@@ -51,7 +51,7 @@
                                                 <input id="password" type="password" class="tw3-text" name="password">
                                                 @if ($errors->has('password'))
                                                     <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000" class="text--subtle">
-                                                        Bạn chưa nhập mật khẩu mới
+                                                        {{ $errors->first('password') }}
                                                     </div>
                                                 @endif
                                             </div>
@@ -66,7 +66,7 @@
                                                 <input id="password-confirm" type="password" class="tw3-text" name="password_confirmation">
                                                 @if ($errors->has('password_confirmation'))
                                                     <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000" class="text--subtle">
-                                                        Mật khẩu nhập lại không chính xác
+                                                        {{ $errors->first('password_confirmation') }}
                                                     </div>
                                                 @endif
                                             </div>

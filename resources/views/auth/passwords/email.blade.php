@@ -33,8 +33,11 @@
                                                 </label>
                                             </div>
                                             <div class="tw3-form__row__input">
-                                                <input class="tw3-text" type="email" maxlength="80" value="{{ old('email') }}" id="emailText" name="email" autofocus="autofocus" novalidate="">
-                                                <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none;" class="text--subtle" id="error_reset_password">Bạn chưa nhập địa chỉ email hoặc email không tồn tại</div>
+                                                <input class="tw3-text" type="email" maxlength="80" value="{{ old('email') }}" id="emailText" name="email" autofocus="autofocus">
+                                                @if($errors->has('email'))
+                                                    <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;" class="text--subtle" id="error_reset_password">{{ $errors->first('email') }}</div>
+                                                @endif
+                                                {{--<div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none;" class="text--subtle" id="error_reset_password">Bạn chưa nhập địa chỉ email hoặc email không tồn tại</div>--}}
                                             </div>
                                         </div>
                                     </div>
@@ -58,7 +61,4 @@
             </div>
         </div>
     </div>
-@endsection
-@section('custom-js')
-    <script src="/js/reset-pass.js" type="text/javascript"></script>
 @endsection
