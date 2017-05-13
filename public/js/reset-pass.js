@@ -14,14 +14,6 @@ $("#btn-submit-reset-password").click(function() {
             $('#error_reset_password').hide();
             $('#emailText').removeAttr('style');
         }, 3000);
-    }
-    if ($.trim(emailtext).length == 0) {
-        $('#emailText').css('border-color','red');
-        $('#error_reset_password').show();
-        setTimeout(function () {
-            $('#error_reset_password').hide();
-            $('#emailText').removeAttr('style');
-        }, 3000);
         return false;
     }
 });
