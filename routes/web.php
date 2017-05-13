@@ -90,3 +90,7 @@ Route::post('notTyping', array('uses' => 'ChatController@notTyping'));
 Route::post('retrieveChatMessages', array('uses' => 'ChatController@retrieveChatMessages'));
 Route::post('retrieveTypingStatus', array('uses' => 'ChatController@retrieveTypingStatus'));
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
