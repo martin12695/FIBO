@@ -63,6 +63,7 @@ Route::get('/whoiknow','FriendController@whoIKnow' );
 Route::group(['prefix' => 'user'], function () {
     Route::get('profile', 'UserController@initPage');
     Route::post('updateInfo', 'UserController@updateInfo');
+    Route::get('profile/{id}', ['as' => 'user.id', 'uses' => 'SearchController@initPage']);
 });
 
 Route::group(['prefix' => 'friend'], function () {

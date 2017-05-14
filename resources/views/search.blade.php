@@ -21,7 +21,7 @@
                                                 <div class="tw3-card--gridFlex">
                                                     <div class="tw3-card jsCard jsVisitButton noline  jsShowOnboardingCard " id="profile_590393644" data-otheruser="590393644" data-p="0" data-r="search_v3_all" data-s="search">
                                                         <div class="tw3-card__avatar">
-                                                            <a href="" class="noline tw3-card__avatar__link jsVisitButton jsSearchV3AvatarLinkTrigger jsShowOnboardingCard" data-otheruser="590393644" data-p="0" data-r="search_v3_all" data-s="search">
+                                                            <a href="{{ route('user.id', $people->id) }}" class="noline tw3-card__avatar__link jsVisitButton jsSearchV3AvatarLinkTrigger jsShowOnboardingCard" data-otheruser="590393644" data-p="0" data-r="search_v3_all" data-s="search">
                                                                 <div class="scrollableHolder jsScrollableHolder" data-userid="590393644" data-needstopaytovisitprofiles="false" data-r="search_v3_all" data-p="0">
                                                                     <div class="scrollable jsScrollable">
                                                                         <div class="scrollable__panel jsScrollablePanel" style="width: 100%;">
