@@ -35,7 +35,11 @@
                                                             <div class="tw3-card__actions">
                                                                 <a class="jsMatchScoreBadge jsVisitButton" data-questions-count="6" data-otheruser="590393644" data-p="0" data-r="search_v3_all" data-s="search" data-hash="panel=questions" href="/590393644?r=search_v3_all&amp;s=search&amp;p=#panel=questions">
                                                                     <div class="badge--blue badge--matchScore vam">
-                                                                        Bạn có thích bạn ấy không?
+                                                                        @if($people->sex == '1')
+                                                                            Bạn có thích anh ấy không?
+                                                                        @else
+                                                                            Bạn có thích cô ấy không?
+                                                                        @endif
                                                                     </div>
                                                                 </a>
                                                             </div>
