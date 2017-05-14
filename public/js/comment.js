@@ -19,7 +19,7 @@ function sendComment(id)
                     $('.comment-list').append(
                         '<div class="media">' +
                         '<a class="pull-left" href="#">' +
-                        '<img class="media-object" src="/' + user.avatar + '" alt="">' +
+                        '<img class="media-object avatar" src="/' + user.avatar + '" alt="">' +
                         '</a>' +
                         '<div class="media-body">' +
                         '<h4 class="media-heading">' + user.name + '</h4>' +

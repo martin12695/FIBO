@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title', 'FIBO Confession')
 @section('custom-css')
+    <link rel="stylesheet" href="/css/confession.css">
 @endsection
 @section('content')
     <span id="username" hidden>{{Auth::user()->name}}</span>
@@ -41,7 +42,7 @@
                         @foreach($listComment as $comment)
                             <div class="media">
                             <a class="pull-left" href="#">
-                                <img class="media-object" src="/{{$comment->avatar}}" alt="">
+                                <img class="media-object avatar" src="/{{$comment->avatar}}" alt="">
                             </a>
                             <div class="media-body">
                                 <h4 class="media-heading">{{$comment->name}}
