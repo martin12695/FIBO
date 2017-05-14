@@ -55,24 +55,8 @@
                                             @endforeach
                                         </div>
                                     </div>
-
                                     {{ $listPeople->links() }}
                                     {{--////Pagination--}}
-                                    <div class="text--center tw3-col-hide tw3-bp3-col-show-block">
-                                        <div class="tw3-pager tw3-paging tw3-swap jsPager" data-next="Tiếp" data-previous="Trước">
-                                            <span class="tw3-pager__item disabled first jsPrevious">
-                                                <i class="fa fa-angle-left" aria-hidden="true"></i>
-                                                <span class="tw3-pager__item__span">Trước</span>
-                                            </span>
-                                            <span class="tw3-pager__item current jsCurrent" data-page="1">1</span>
-                                            <a href="/search?page=2" data-page="2" rel="ajax" class="tw3-pager__item jsPagerItem"><span>2</span></a>
-                                            <a href="/search?page=3" data-page="3" rel="ajax" class="tw3-pager__item jsPagerItem"><span>3</span></a>
-                                            <span class="tw3-pager__item dots">...</span>
-                                            <a href="/search?page=2" data-page="2" class="tw3-pager__item last jsPagerItem" rel="ajax"><span class="tw3-pager__item__span">Tiếp</span>
-                                                <i class="fa fa-angle-right" aria-hidden="true"></i>
-                                            </a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
