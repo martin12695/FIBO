@@ -46,9 +46,12 @@
                                                 </label>
                                             </div>
                                             <div class="tw3-form__row__input">
-                                                <input id="password" type="password" class="tw3-text" name="password">
+                                                <input id="password" type="password" class="tw3-text" name="password" value="">
                                                 <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none;" class="text--subtle" id="error_reset_password">
-                                                    <div id="check">Bạn chưa nhập mật khẩu cần thay đổi</div>
+                                                    <div id="check_1">Bạn chưa nhập mật khẩu cần thay đổi</div>
+                                                </div>
+                                                <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none;" class="text--subtle" id="error_reset_password_2">
+                                                    <div id="check_2">Mật khẩu phải từ 6 ký tự trở lên</div>
                                                 </div>
                                             </div>
                                         </div>
