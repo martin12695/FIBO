@@ -52,7 +52,7 @@
                                     <div id="jsSendMessageFormSend" class="container--normal">
                                         <div class="bottomBar__textarea"><input id="text" cols="40" rows="5"  autofocus=""  class="jsChatInput tw3-textarea" data-tip-id="#jsMessageToShort"  name="message" placeholder="Viết tin nhắn..." style="height: 58px;"></div>
                                         <div class="bottomBar__actions clearfix">
-                                            <button onclick="sendMessage()" class="disabled fw500 jsSubmitButton bottomBar__actions__submit">GỬI</button>
+                                            <button onclick="sendMessage()" class="jsChatButton tw3-button tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--agree tw3-button--addfriends ng-binding">Gửi</button>
                                         </div>
                                     </div>
 
