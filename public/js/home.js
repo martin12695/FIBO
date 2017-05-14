@@ -5,6 +5,7 @@ $(document).ready(function(e) {
         autoplay: true,
         autoplaySpeed: 2000,
     });
+
 });
 
 var home = angular.module('home', [], function($interpolateProvider) {

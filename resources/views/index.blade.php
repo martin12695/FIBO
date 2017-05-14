@@ -142,5 +142,6 @@
 
 @endsection
 @section('custom-js')
+    <script type='text/javascript' src='/js/lib/heart-fly.js'></script>
     <script src="/js/home.js" type="text/javascript"></script>
 @endsection
