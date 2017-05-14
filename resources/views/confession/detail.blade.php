@@ -3,7 +3,7 @@
 @section('custom-css')
 @endsection
 @section('content')
-    <span id="userId" hidden>{{Auth::id()}}</span>
+    <span id="username" hidden>{{Auth::user()->name}}</span>
     <div class="tw3-wrapper" style="position: relative; margin-bottom: 208px; margin-top: 100px">
         <div class="container">
             <div class="row">
@@ -29,7 +29,7 @@
                         <h4>Bình luận:</h4>
                         <form role="form">
                             <div class="form-group">
-                                <textarea class="form-control" rows="3"></textarea>
+                                <textarea class="form-control" rows="3" id="detail_comment"></textarea>
                             </div>
                             <button type="button" class="btn btn-primary" onclick="sendComment({{$info->id}})">Gửi</button>
                         </form>
@@ -37,19 +37,21 @@
                     <hr>
                     <!-- Posted Comments -->
                     <!-- Comment -->
-                    @foreach($listComment as $comment)
-                    <div class="media">
-                        <a class="pull-left" href="#">
-                            <img class="media-object" src="/{{$comment->avatar}}" alt="">
-                        </a>
-                        <div class="media-body">
-                            <h4 class="media-heading">{{$comment->name}}
-                                <small>{{$comment->created}}</small>
-                            </h4>
-                            {{$comment->detail}}
+                    <div class="comment-list">
+                        @foreach($listComment as $comment)
+                            <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="/{{$comment->avatar}}" alt="">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">{{$comment->name}}
+                                    <small>{{$comment->created}}</small>
+                                </h4>
+                                {{$comment->detail}}
+                            </div>
                         </div>
+                        @endforeach
                     </div>
-                    @endforeach
 
                 </div>
                 <hr>
@@ -58,6 +60,12 @@
     </div>
 @endsection
 @section('custom-js')
+    <script>
+        var user = {
+            name : "{{Auth::user()->name}}" ,
+            avatar : "{{Auth::user()->avatar}}"
+        };
+    </script>
     <script src="/js/comment.js" type="text/javascript"></script>
 @endsection
 <!-- Nested Comment -->

@@ -22,9 +22,16 @@ class CommentService
     }
 
     public function setComment ($detail, $postID) {
-        DB::table('comment')->insert(
-            ['user_id' => Auth::id(), 'detail' => $detail,'post_id' => $postID,]
-        );
+        try {
+            DB::table('comment')->insert(
+                ['user_id' => Auth::id(), 'detail' => $detail, 'post_id' => $postID, 'type' => '1']
+            );
+            return 0;
+        }
+        catch(\Illuminate\Database\QueryException $ex){
+            return 1;
+        }
+
 
     }
 

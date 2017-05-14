@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Input;
 use DB;
 use Auth;
 use App\Http\Middleware\CommentService;
+use Illuminate\Http\Request;
 
 class ConfessController {
     public function submitPost()
@@ -25,7 +26,10 @@ class ConfessController {
                                         ]);
     }
 
-    public function writeComment($postid){
-
+    public function addComment(Request $request){
+        $info = $request->input();
+        $comment = new CommentService();
+        $status = $comment->setComment($info['detail'],$info['postId']);
+        return \Response::json($status);
     }
 }
