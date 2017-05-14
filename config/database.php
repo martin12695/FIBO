@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
+            'host' => env('DB_HOST', 'fibo.webstarterz.com'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'fibo_db'),
-            'username' => env('DB_USERNAME', 'root'),
-            'password' => env('DB_PASSWORD', ''),
+            'database' => env('DB_DATABASE', 'cp625576_fibo_db'),
+            'username' => env('DB_USERNAME', 'cp625576_fibo'),
+            'password' => env('DB_PASSWORD', 'fibovn.net'),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',
