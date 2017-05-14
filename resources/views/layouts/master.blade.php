@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li class="menuItem tw3-headerV2__navigation__item">
-                    <a href="">
+                    <a href="{{ url('/search') }}">
                         <i class="fa fa-search" aria-hidden="true"></i>
                         <span class="tw3-headerV2__navigation__item__label">Tìm kiếm</span>
                     </a>

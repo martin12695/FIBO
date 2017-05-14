@@ -101,7 +101,7 @@
                                             <a href="{{ url('/password/reset') }}">Quên mật khẩu</a>
                                         </p>
                                         <p>
-                                            Chưa là thành viên? <a href="{{ url('/term-signup') }}">Đăng ký tại đây</a>
+                                            Chưa là thành viên? <a href="{{ url('/signup') }}">Đăng ký tại đây</a>
                                         </p>
                                     </dd>
                                 </dl>
