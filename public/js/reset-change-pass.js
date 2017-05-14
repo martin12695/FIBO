@@ -46,7 +46,7 @@ $("#btn-res-change-pass").click(function() {
             }, 3000);
             return false;
         }
-        if(password.length < '6'){
+        if(password.length > '0' && password.length <= '6'){
             $('#password').css('border-color','red');
             $('#error_reset_password_2').show();
             setTimeout(function () {
