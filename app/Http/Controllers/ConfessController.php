@@ -3,6 +3,8 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Input;
 use DB;
 use Auth;
+use App\Http\Middleware\CommentService;
+use Illuminate\Http\Request;
 
 class ConfessController {
     public function submitPost()
@@ -17,6 +19,17 @@ class ConfessController {
 
     public function initPage($postid){
         $info = DB::table('confession')->where('id', $postid)->first();
-        return view('confession.detail', ['info' => $info]);
+        $listComment = new CommentService();
+        $listComment = $listComment->getComment(1,$postid);
+        return view('confession.detail', ['info' => $info,
+                                        'listComment' => $listComment
+                                        ]);
+    }
+
+    public function addComment(Request $request){
+        $info = $request->input();
+        $comment = new CommentService();
+        $status = $comment->setComment($info['detail'],$info['postId']);
+        return \Response::json($status);
     }
 }

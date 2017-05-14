@@ -45,6 +45,7 @@ Route::group(['prefix' => 'confession'], function () {
         return view('write_confess');
     });
     Route::post('/submit', 'ConfessController@submitPost');
+    Route::post('/addComment', 'ConfessController@addComment');
 });
 
 
