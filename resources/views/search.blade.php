@@ -41,13 +41,17 @@
                                                             </div>
                                                             <?php $getAge = \App\Http\Middleware\FunctionBasic::getAge($people->birthday);?>
                                                             <div>
-                                                                <strong><span class="name">{{ $people->name }}, {{ $getAge }}</span></strong>
+                                                                <strong><span class="name">{{ $people->name }}, {{ $getAge }} tuổi</span></strong>
                                                             </div>
                                                             <div class="tw3-card__userInfo__locAndWork">
                                                                 <span>Tp Hồ Chí Minh</span>
                                                             </div>
                                                             <div class="tw3-card__userInfo__locAndWork">
-                                                                <span>ĐH Khoa học xã hội & nhân văn</span>
+                                                                @if( empty($people->school) )
+                                                                    <span>...</span>
+                                                                @else
+                                                                    <span>{{ $people->school }}</span>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </div>

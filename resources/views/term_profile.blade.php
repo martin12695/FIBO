@@ -31,11 +31,12 @@
                                                             <img width="100" height="100" alt="275135195" src="/{{$info_basic->avatar}}" class="tw3-avatar">
                                                         </div>
                                                     </div>
+
                                                     <div class="tw3-media__body">
-                                                        <span class="tw3-h3"><strong>{{$info_basic->name}}</strong>, 21</span><br>
+                                                        <span class="tw3-h3"><strong>{{$info_basic->name}}</strong></span><br>
                                                         <div class="tw3-media__body__content">
                                                             <div class="text--subtle text--smaller">
-                                                                Sống tại <a class="tw3-completeContainer__text noline" href="">Tp. Hồ Chí Minh</a>
+                                                                Sống tại <a class="tw3-completeContainer__text noline" href="">{{ $cities->name }}</a>
                                                             </div>
                                                         </div>
                                                     </div>
