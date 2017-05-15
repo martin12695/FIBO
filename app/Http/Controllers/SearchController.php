@@ -2,13 +2,14 @@
 
 
 namespace App\Http\Controllers;
-use App\Http\Requests;
-use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\DB;
+
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
 use DateTime;
+use Illuminate\Contracts\View\View;
 
 
 class SearchController
@@ -16,15 +17,16 @@ class SearchController
     public function getSearch()
     {
         if (Auth::check()) {
-            $getSearch = DB::table('users')->where('id', '!=', Auth::id())->paginate(12);
 
+            $getSearch = DB::table('users')->where('id', '!=', Auth::id())->paginate(4);
 
-            return view('search', ['listPeople' => $getSearch]);
+            return view('search', array('listPeople' => $getSearch))->render();
 
         } else {
             return view('error.404');
         }
     }
+
     public function initPage($id) {
         if(!$id){
             return redirect('/');

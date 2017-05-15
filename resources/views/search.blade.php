@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="./css/home.css">
 @endsection
 @section('content')
-    <div class="tw3-wrapper" style="margin-top: 160px" ng-app ="home" ng-controller="home_ctrl">
+    <div class="tw3-wrapper ajax-load-paginate" style="margin-top: 160px" ng-app ="home" ng-controller="home_ctrl">
         <div class="tw3-search tw3-search--results jsSearch" id="gameContainerV3">
             <div class="tw3-content">
                 <div class="tw3-search__results">
@@ -65,5 +65,35 @@
             </div>
         </div>
     </div>
+    {{--////Ajax pagination--}}
+    <script type="text/javascript">
 
+        $(document).ready(function() {
+            $(document).on('click', '.tw3-bp3-col-show-block .jsPager a', function (e) {
+                var test = $(this).attr('href').split('page=')[1];
+                getSearch(test);
+                e.preventDefault();
+            });
+        });
+        function getSearch(page) {
+
+            if (!isNaN(page) && page > 0) {
+                page = '?page=' + page;
+            } else {
+                page = '';
+            }
+            $.ajax({
+                url : 'search' + page
+            }).done(function (data) {
+
+                $('.ajax-load-paginate').html(data);
+                console.log(data);
+                location.hash = page;
+
+            }).fail(function () {
+                alert('Could not be loaded.');
+            });
+        }
+
+    </script>
 @endsection
