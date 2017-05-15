@@ -77,6 +77,9 @@ class HomeController
             return \Response::json(0);
 
         }
+        else {
+            return \Response::json(1);
+        }
     }
 
     public function init_signup() {

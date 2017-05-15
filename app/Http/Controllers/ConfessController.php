@@ -32,4 +32,13 @@ class ConfessController {
         $status = $comment->setComment($info['detail'],$info['postId']);
         return \Response::json($status);
     }
+
+    public function initPageOver(){
+        $info = DB::table('confession')->get();
+        return view('confession.index',
+            [
+            'listPost' => $info
+            ]);
+    }
+
 }
