@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Chào Mừng Bạn Đến Với FiBo')
+@section('title', 'Tìm kiếm - FIBO')
 @section('custom-css')
     <link rel="stylesheet" href="./css/home.css">
 @endsection
