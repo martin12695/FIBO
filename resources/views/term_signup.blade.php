@@ -103,7 +103,7 @@
                                         <div class="inputHolder" style="width: 100%">
                                             <select name="province" class="customDropdown" ng-model="from" >
                                                 @foreach($province as $itemPro)
-                                                    <option value="{{$itemPro->id}}" {{'2' == $itemPro->id ?  'selected="selected"' : ''}} >{{$itemPro->name}}</option>
+                                                    <option value="{{$itemPro->id_province}}" {{'2' == $itemPro->id_province ?  'selected="selected"' : ''}} >{{$itemPro->value}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
