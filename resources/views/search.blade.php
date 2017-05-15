@@ -3,6 +3,7 @@
 @section('custom-css')
     <link rel="stylesheet" href="./css/home.css">
 @endsection
+
 @section('content')
     <div class="tw3-wrapper ajax-load-paginate" style="margin-top: 160px" ng-app ="home" ng-controller="home_ctrl">
         <div class="tw3-search tw3-search--results jsSearch" id="gameContainerV3">
@@ -17,7 +18,10 @@
                                         <div class="tw3-cards jsResults">
                                             {{--Noi dung hien thi tai day--}}
                                             {{-----------------}}
+                                            @if( !empty($listPeople) )
                                             @foreach($listPeople as $people)
+                                                @foreach($listUser as $user)
+                                                @if($people->id == $user->id)
                                                 <div class="tw3-card--gridFlex">
                                                     <div class="tw3-card jsCard jsVisitButton noline  jsShowOnboardingCard " id="profile_590393644" data-otheruser="590393644" data-p="0" data-r="search_v3_all" data-s="search">
                                                         <div class="tw3-card__avatar">
@@ -44,15 +48,20 @@
                                                                 </a>
                                                             </div>
                                                             <?php $getAge = \App\Http\Middleware\FunctionBasic::getAge($people->birthday);?>
-                                                            <hr>
                                                             <div>
                                                                 <strong><span class="name">{{ $people->name }}, {{ $getAge }} tuổi</span></strong>
                                                             </div>
-
+                                                            <div class="tw3-card__userInfo__locAndWork">
+                                                                <span>Sống tại: {{ ($user->id_province == '79') ? 'Tp '.$user->value : $user->value }}</span>
+                                                            </div>
+                                                            <hr>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @endif
+                                                @endforeach
                                             @endforeach
+                                            @endif
                                         </div>
                                     </div>
                                     {{ $listPeople->links() }}

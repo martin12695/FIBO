@@ -17,10 +17,14 @@ class SearchController
     public function getSearch()
     {
         if (Auth::check()) {
+            $getSearch = DB::table('users')->where('id', '!=', Auth::id())->orderBy('id', 'desc')->paginate(4);
 
-            $getSearch = DB::table('users')->where('id', '!=', Auth::id())->paginate(12);
+            $cities = DB::table('users')
+                ->join('province', 'come_from', '=', 'province.id_province')
+                ->select('*')
+                ->get();
 
-            return view('search', array('listPeople' => $getSearch))->render();
+            return view('search', array('listPeople' => $getSearch, 'listUser' => $cities))->render();
 
         } else {
             return view('error.404');
