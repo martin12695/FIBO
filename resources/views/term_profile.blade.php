@@ -36,7 +36,7 @@
                                                         <span class="tw3-h3"><strong>{{$info_basic->name}}</strong></span><br>
                                                         <div class="tw3-media__body__content">
                                                             <div class="text--subtle text--smaller">
-                                                                Sống tại <a class="tw3-completeContainer__text noline" href="">{{ $cities->name }}</a>
+                                                                Sống tại <a class="tw3-completeContainer__text noline" href="">{{ $cities->value }}</a>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -241,7 +241,7 @@
                                                                         <p class="tw3-field-title">Thành phố</p>
                                                                     </div>
                                                                     <div class="tw3-col-6">
-                                                                        <p class="tw3-field-value">{{ isset($cities->name) ? $cities->name : '...' }}</p>
+                                                                        <p class="tw3-field-value">{{ isset($cities->value) ? $cities->value : '...' }}</p>
                                                                     </div>
                                                                 </div>
 
@@ -341,7 +341,7 @@
                                                                             <div class="tw3-dropdownHolder">
                                                                                 <select name="province" class="dropdown">
                                                                                     @foreach($province as $itemPro)
-                                                                                        <option value="{{$itemPro->id}}" {{$itemPro->id == $cities->id ?  'selected="selected"' : ''}} >{{$itemPro->name}}</option>
+                                                                                        <option value="{{$itemPro->id_province}}" {{$itemPro->id_province == $cities->id_province ?  'selected="selected"' : ''}} >{{$itemPro->value}}</option>
                                                                                     @endforeach
                                                                                 </select>
                                                                             </div>

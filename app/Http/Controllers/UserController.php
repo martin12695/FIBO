@@ -57,9 +57,9 @@ class UserController
                 ->first();
 
             $cities = DB::table('users')
-                ->join('province', 'come_from', '=', 'province.id')
+                ->join('province', 'come_from', '=', 'province.id_province')
                 ->where('users.id', Auth::id())
-                ->select('users.id', 'province.id','province.name')
+                ->select('users.id', 'province.id_province','province.value')
                 ->first();
 
             $schools = DB::table('users')
