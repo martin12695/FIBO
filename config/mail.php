@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'mail.fibo.webstarterz.com'),
+    'host' => env('MAIL_HOST', 'mail.fibo.site'),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'admin@fibo.webstarterz.com'),
-        'name' => env('MAIL_FROM_NAME', 'admin'),
+        'address' => env('MAIL_FROM_ADDRESS', 'support@fibo.site'),
+        'name' => env('MAIL_FROM_NAME', 'FIBO-SUPPORT'),
     ],
 
     /*
