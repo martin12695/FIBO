@@ -18,7 +18,7 @@ class SearchController
     {
         if (Auth::check()) {
 
-            $getSearch = DB::table('users')->where('id', '!=', Auth::id())->paginate(4);
+            $getSearch = DB::table('users')->where('id', '!=', Auth::id())->paginate(12);
 
             return view('search', array('listPeople' => $getSearch))->render();
 
