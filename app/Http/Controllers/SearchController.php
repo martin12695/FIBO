@@ -35,6 +35,7 @@ class SearchController
         if(!$id){
             return redirect('/');
         }else {
+
             $info = DB::table('users')->where('id', $id)->first();
             $sex = DB::table('users')
                 ->join('option_sex', 'sex', '=', 'option_sex.id')

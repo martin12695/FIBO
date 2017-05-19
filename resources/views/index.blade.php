@@ -31,7 +31,9 @@
                                                     <p>{{$people->intro}}</p>
                                                 </div>
                                             </aside>
-                                            <div class="button"><a  class="jsChatButton tw3-button tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--agree tw3-button--addfriends" ng-click="addFriend({{$people->id}})"><% button_info[{{$people->id}}] %></a></div>
+                                            <div class="button">
+                                                <a  class="jsChatButton tw3-button tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--agree tw3-button--addfriends" ng-click="addFriend({{$people->id}})"><% button_info[{{$people->id}}] %></a>
+                                            </div>
                                         </div>
                                     @endforeach
                                 </div>
