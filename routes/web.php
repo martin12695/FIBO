@@ -77,6 +77,7 @@ Route::get('/change-password', 'HomeController@changePassword');
 Route::post('/change-password', 'HomeController@changePasswordPost');
 
 Route::get('/search', 'SearchController@getSearch');
+Route::post('/search', 'SearchController@postSearch');
 
 
 Route::get('image-upload','ImageController@imageUpload');

@@ -7,7 +7,8 @@
 @section('content')
     <div class="tw3-wrapper ajax-load-paginate" style="margin-top: 160px" ng-app ="home" ng-controller="home_ctrl">
         <div class="tw3-search tw3-search--results jsSearch" id="gameContainerV3">
-            <form action="/search" method="post" class="clearfix jsFormFilter" id="formFilter" rel="ajax">
+            <form action="{{ url('/search') }}" method="post" class="clearfix jsFormFilter" id="formFilter" rel="ajax">
+                {{ csrf_field() }}
                 <div class="tw3-search__filter jsSearchFilter">
                     <div class="tw3-container" style="margin-top: -30px">
                         <div class="tw3-row">
@@ -27,9 +28,9 @@
                                                                 </div>
                                                                 <div class="tw3-dropdownHolder">
                                                                     <select name="gender" class="dropdown">
-                                                                        <option value="1">Nam</option>
-                                                                        <option value="2">Nữ</option>
-                                                                        <option value="2">Mọi người</option>
+                                                                        @foreach($getSex as $item)
+                                                                            <option value="{{$item->id}}" {{$item->id != $getUser->sex ?  'selected="selected"' : ''}} >{{$item->value}}</option>
+                                                                        @endforeach
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -44,10 +45,33 @@
                                                                     </label>
                                                                 </div>
                                                                 <div class="tw3-dropdownHolder">
+                                                                    <?php
+                                                                    $age = \App\Http\Middleware\FunctionBasic::getAge($getUser->birthday);
+                                                                        $check = '';
+                                                                        $term = '';
+                                                                    ?>
                                                                     <select name="age" class="dropdown">
-                                                                        <option value="1">18-20</option>
-                                                                        <option value="2">21-25</option>
-                                                                        <option value="3">26-30</option>
+                                                                        @if( $age )
+                                                                            {{ $check = $age }}
+                                                                            @if( $check >= '21' && $check <= '25')
+                                                                                {{ $term = '2' }}
+                                                                            @elseif( $check >= '18' && $check <= '20' )
+                                                                                {{ $term = '1' }}
+                                                                            @elseif( $check >= '26' && $check <= '30' )
+                                                                                {{ $term = '3' }}
+                                                                            @elseif( $check >= '31' && $check <= '35' )
+                                                                                {{ $term = '4' }}
+                                                                            @elseif( $check >= '36' && $check <= '40' )
+                                                                                {{ $term = '5' }}
+                                                                            @elseif( $check >= '41' && $check <= '50' )
+                                                                                {{ $term = '6' }}
+                                                                            @elseif( $check >= '51' && $check <= '60' )
+                                                                                {{ $term = '7' }}
+                                                                            @endif
+                                                                        @endif
+                                                                        @foreach($getAge as $item)
+                                                                            <option value="{{$item->id}}" {{$item->id == $term ?  'selected="selected"' : ''}} >{{$item->value}}</option>
+                                                                        @endforeach
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -63,8 +87,12 @@
                                                                 </div>
                                                                 <div class="tw3-dropdownHolder">
                                                                     <select name="city" class="dropdown">
-                                                                        <option value="1">Hồ Chính Minh</option>
-                                                                        <option value="2">Vũng Tàu</option>
+                                                                        @if( $getUser->come_from )
+                                                                            {{ $term = $getUser->come_from }}
+                                                                        @endif
+                                                                        @foreach($getCity as $item)
+                                                                            <option value="{{$item->id_province}}" {{$item->id_province == $term ?  'selected="selected"' : ''}} >{{$item->value}}</option>
+                                                                        @endforeach
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -80,12 +108,8 @@
                                         <div class="tw3-row">
                                             <div class="tw3-col-12 tw3-bp3-col-8 text--subtle tw3-filter__submit__submitSection tw3-filter__submit__submitSection--submit--refresh jsSubmitContainer ">
                                                 <div class="tw3-filter__submit__submitSection__submit">
-                                                    <input type="submit" value="Tải lại" class="tw3-button tw3-button--blue tw3-button--rounded buttonApplyChanges jsApplyChanges jsSubmitSearch jsOnboardingSubmit" data-text-apply="Thay đổi" data-text-refresh="Tải lại">
+                                                    <input type="submit" value="Tìm kiếm" class="tw3-button tw3-button--blue tw3-button--rounded buttonApplyChanges jsApplyChanges jsSubmitSearch jsOnboardingSubmit" data-text-apply="Thay đổi" data-text-refresh="Tải lại">
                                                 </div>
-                                                <a href="/search?action=resetToBasicSearch" class="tw3-filter__submit__submitSection__reset tw3-button--subtle tw3-button">Bắt đầu lại</a>
-                                            </div>
-                                            <div class="tw3-col-4 pt--compact hide tw3-bp3-col-show-block text--right">
-                                                <a href="javascript://" class="text--subtle pt--tight jsFilterCollapse">Ẩn<img src="https://twoo-a.akamaihd.net/static/91222762839136100/images/icons/v3/icon-settings.png" height="22" width="18" class="vam ml--compact"></a>
                                             </div>
                                         </div>
                                     </div>
@@ -93,6 +117,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </form>
             <div class="tw3-content">

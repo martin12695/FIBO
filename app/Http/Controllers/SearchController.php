@@ -17,20 +17,33 @@ class SearchController
     public function getSearch()
     {
         if (Auth::check()) {
+            $getSex = DB::table('option_sex')->get();
+            $getUser = DB::table('users')->where('id', Auth::id())->first();
             $getSearch = DB::table('users')->where('id', '!=', Auth::id())->orderBy('created', 'desc')->paginate(8);
-
+            $getAge = DB::table('option_subject_eag')->get();
+            $getCity = DB::table('province')->get();
             $cities = DB::table('users')
                 ->join('province', 'come_from', '=', 'province.id_province')
                 ->select('*')
                 ->get();
 
-            return view('search', array('listPeople' => $getSearch, 'listUser' => $cities))->render();
+            return view('search', array(
+                'listPeople' => $getSearch,
+                'listUser' => $cities,
+                'getUser' => $getUser,
+                'getSex'       => $getSex,
+                'getAge'    => $getAge,
+                'getCity'   => $getCity
+            ))->render();
 
         } else {
             return view('error.404');
         }
     }
 
+    public function postSearch(){
+        echo "dawdaw";
+    }
     public function initPage($id) {
         if(!$id){
             return redirect('/');
