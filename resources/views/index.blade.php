@@ -20,7 +20,7 @@
                                         <div class="info_basic" ng-init="button_info[{{$people->id}}] = 'Kết bạn'">
                                             <aside class="profile-card">
                                                 <header>
-                                                    <a>
+                                                    <a href="{{ route('user.id', $people->id) }}">
                                                         <img height="200" width="200" src="/{{$people->avatar}}">
                                                     </a>
                                                     <h1>{{$people->name}}</h1>
