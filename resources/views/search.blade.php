@@ -13,29 +13,11 @@
                     <div class="tw3-container" style="margin-top: -30px">
                         <div class="tw3-row">
                             <div class="tw3-col-12 tw3-filter jsShowOnboardingSearch">
-                                <div class="tw3-filter__form">
+                                <div class="tw3-filter__form" style="top: -30px; margin-bottom: -80px">
                                     <div class="tw3-search__filter__filters jsFilterFilters jsShowOnboardingSearchFilters" style="opacity: 1;">
-                                        <div class="tw3-row">
+                                        <div class="tw3-row" style="position: relative; left: 70px; top: 1px;">
                                             <div class="tw3-filter__form__content" style="left: 70px;">
                                                 <div class="tw3-row">
-                                                    <div class="tw3-filter__form__content__flex">
-                                                        <div class="tw3-rangeHolder jsCustomRange" name="gender">
-                                                            <div class="tw3-col-12">
-                                                                <div class="tw3-form__row__label">
-                                                                    <label for="gender">
-                                                                        ĐỐI TƯỢNG
-                                                                    </label>
-                                                                </div>
-                                                                <div class="tw3-dropdownHolder">
-                                                                    <select name="gender" class="dropdown">
-                                                                        @foreach($getSex as $item)
-                                                                            <option value="{{$item->id}}" {{$item->id != $getUser->sex ?  'selected="selected"' : ''}} >{{$item->value}}</option>
-                                                                        @endforeach
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                     <div class="tw3-filter__form__content__flex">
                                                         <div class="tw3-rangeHolder jsCustomRange" name="age">
                                                             <div class="tw3-col-12">
@@ -45,54 +27,13 @@
                                                                     </label>
                                                                 </div>
                                                                 <div class="tw3-dropdownHolder">
-                                                                    <?php
-                                                                    $age = \App\Http\Middleware\FunctionBasic::getAge($getUser->birthday);
-                                                                        $check = '';
-                                                                        $term = '';
-                                                                    ?>
                                                                     <select name="age" class="dropdown">
-                                                                        @if( $age )
-                                                                            {{ $check = $age }}
-                                                                            @if( $check >= '21' && $check <= '25')
-                                                                                {{ $term = '2' }}
-                                                                            @elseif( $check >= '18' && $check <= '20' )
-                                                                                {{ $term = '1' }}
-                                                                            @elseif( $check >= '26' && $check <= '30' )
-                                                                                {{ $term = '3' }}
-                                                                            @elseif( $check >= '31' && $check <= '35' )
-                                                                                {{ $term = '4' }}
-                                                                            @elseif( $check >= '36' && $check <= '40' )
-                                                                                {{ $term = '5' }}
-                                                                            @elseif( $check >= '41' && $check <= '50' )
-                                                                                {{ $term = '6' }}
-                                                                            @elseif( $check >= '51' && $check <= '60' )
-                                                                                {{ $term = '7' }}
-                                                                            @endif
-                                                                        @endif
+                                                                        @if( is_array($getAge) || is_object($getAge) )
+                                                                            <option value="0">Toàn Bộ</option>
                                                                         @foreach($getAge as $item)
-                                                                            <option value="{{$item->id}}" {{$item->id == $term ?  'selected="selected"' : ''}} >{{$item->value}}</option>
+                                                                            <option value="{{$item->id}}" {{$item->id == '0' ?  'selected="selected"' : ''}} >{{$item->value}}</option>
                                                                         @endforeach
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="tw3-filter__form__content__flex">
-                                                        <div class="tw3-rangeHolder jsCustomRange" name="city">
-                                                            <div class="tw3-col-12">
-                                                                <div class="tw3-form__row__label">
-                                                                    <label for="city">
-                                                                        THÀNH PHỐ
-                                                                    </label>
-                                                                </div>
-                                                                <div class="tw3-dropdownHolder">
-                                                                    <select name="city" class="dropdown">
-                                                                        @if( $getUser->come_from )
-                                                                            {{ $term = $getUser->come_from }}
                                                                         @endif
-                                                                        @foreach($getCity as $item)
-                                                                            <option value="{{$item->id_province}}" {{$item->id_province == $term ?  'selected="selected"' : ''}} >{{$item->value}}</option>
-                                                                        @endforeach
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -100,12 +41,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        <div class="tw3-row">
-                                            <div class="tw3-filter__form__seperator">
-                                                <hr class="tw3-hr">
-                                            </div>
                                         </div>
-                                        <div class="tw3-row">
+                                        <div class="tw3-row" style="position: relative; top: -50px; ">
                                             <div class="tw3-col-12 tw3-bp3-col-8 text--subtle tw3-filter__submit__submitSection tw3-filter__submit__submitSection--submit--refresh jsSubmitContainer ">
                                                 <div class="tw3-filter__submit__submitSection__submit">
                                                     <input type="submit" value="Tìm kiếm" class="tw3-button tw3-button--blue tw3-button--rounded buttonApplyChanges jsApplyChanges jsSubmitSearch jsOnboardingSubmit" data-text-apply="Thay đổi" data-text-refresh="Tải lại">
@@ -118,9 +55,8 @@
                         </div>
                     </div>
                 </div>
-                </div>
             </form>
-            <div class="tw3-content">
+            <div class="tw3-content ">
                 <div class="tw3-search__results">
                     <div class="tw3-container">
                         <div class="tw3-col-12">
@@ -133,6 +69,7 @@
                                             {{-----------------}}
                                             @if( !empty($listPeople) )
                                             @foreach($listPeople as $people)
+                                                @if( !empty($listUser) )
                                                 @foreach($listUser as $user)
                                                 @if($people->id == $user->id)
                                                 <div class="tw3-card--gridFlex">
@@ -173,6 +110,7 @@
                                                 </div>
                                                 @endif
                                                 @endforeach
+                                                @endif
                                             @endforeach
                                             @endif
                                         </div>
@@ -188,34 +126,34 @@
         </div>
     </div>
     {{--////Ajax pagination--}}
-    <script type="text/javascript">
+    {{--<script type="text/javascript">--}}
 
-        $(document).ready(function() {
-            $(document).on('click', '.tw3-bp3-col-show-block .jsPager a', function (e) {
-                var test = $(this).attr('href').split('page=')[1];
-                getSearch(test);
-                e.preventDefault();
-            });
-        });
-        function getSearch(page) {
+        {{--$(document).ready(function() {--}}
+            {{--$(document).on('click', '.tw3-bp3-col-show-block .jsPager a', function (e) {--}}
+                {{--var test = $(this).attr('href').split('page=')[1];--}}
+                {{--getSearch(test);--}}
+                {{--e.preventDefault();--}}
+            {{--});--}}
+        {{--});--}}
+        {{--function getSearch(page) {--}}
 
-            if (!isNaN(page) && page > 0) {
-                page = '?page=' + page;
-            } else {
-                page = '';
-            }
-            $.ajax({
-                url : 'search' + page
-            }).done(function (data) {
+            {{--if (!isNaN(page) && page > 0) {--}}
+                {{--page = '?page=' + page;--}}
+            {{--} else {--}}
+                {{--page = '';--}}
+            {{--}--}}
+            {{--$.ajax({--}}
+                {{--url : 'search' + page--}}
+            {{--}).done(function (data) {--}}
 
-                $('.ajax-load-paginate').html(data);
-                console.log(data);
-                location.hash = page;
+                {{--$('.ajax-load-paginate').html(data);--}}
+                {{--console.log(data);--}}
+                {{--location.hash = page;--}}
 
-            }).fail(function () {
-                alert('Could not be loaded.');
-            });
-        }
+            {{--}).fail(function () {--}}
+                {{--alert('Could not be loaded.');--}}
+            {{--});--}}
+        {{--}--}}
 
-    </script>
+    {{--</script>--}}
 @endsection

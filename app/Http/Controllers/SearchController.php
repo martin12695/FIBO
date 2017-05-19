@@ -10,7 +10,9 @@ use Illuminate\Support\Facades\Redirect;
 use Auth;
 use DateTime;
 use Illuminate\Contracts\View\View;
-
+use Illuminate\Support\Facades\Input;
+use App\Http\Middleware\FunctionBasic;
+use Carbon\Carbon;
 
 class SearchController
 {
@@ -42,8 +44,129 @@ class SearchController
     }
 
     public function postSearch(){
-        echo "dawdaw";
+
+        $postSearch = '';
+        $postAge = '';
+        $postUser = '';
+        $postCity = '';
+        $postSex = '';
+        $postCities = '';
+        $userTemp = '';
+
+        /*--DIEU KIEN LOC THEO DO TUOI --*/
+        $checkOption = Input::get('age');
+        if( $checkOption ){
+            $postSex = DB::table('option_sex')->get();
+            $postList = DB::table('users')->where('id', '!=', Auth::id())->get();
+            $postUser = DB::table('users')->where('id', Auth::id())->first();
+            $postAge = DB::table('option_subject_eag')->get();
+            $postCity = DB::table('province')->get();
+            $postCities = DB::table('users')
+                ->join('province', 'come_from', '=', 'province.id_province')
+                ->select('*')
+                ->get();
+            foreach ($postList as $item => $value) {
+                if ($value->id != session('userId')) {
+                    $userTemp = $value->id;
+                }
+                $from = new DateTime($value->birthday);
+                $to = new DateTime('today');
+                if(!$value->age){
+                    DB::table('users')->where('id', $userTemp)->update(['age' => $from->diff($to)->y]);
+                }
+                if( $checkOption == '1' ){
+                    $postSearch = DB::table('users')->whereBetween('age', [18,20])->orderBy('created', 'desc')->paginate(4);
+                }
+                elseif( $checkOption == '2' ){
+                    $postSearch = DB::table('users')->whereBetween('age', [21,25])->orderBy('created', 'desc')->paginate(4);
+                }
+                elseif( $checkOption == '3' ){
+                    $postSearch = DB::table('users')->whereBetween('age', [26,30])->orderBy('created', 'desc')->paginate(4);
+                }
+                elseif( $checkOption == '4' ){
+                    $postSearch = DB::table('users')->whereBetween('age', [31,35])->orderBy('created', 'desc')->paginate(4);
+                }
+                elseif( $checkOption == '5' ){
+                    $postSearch = DB::table('users')->whereBetween('age', [36,40])->orderBy('created', 'desc')->paginate(4);
+                }
+                elseif( $checkOption == '6' ){
+                    $postSearch = DB::table('users')->whereBetween('age', [41,50])->orderBy('created', 'desc')->paginate(4);
+                }
+                elseif( $checkOption == '7' ){
+                    $postSearch = DB::table('users')->whereBetween('age', [51,60])->orderBy('created', 'desc')->paginate(4);
+                }
+                elseif( $checkOption == '0' ){
+                    $postSearch = DB::table('users')->where('id', '!=', Auth::id())->orderBy('created', 'desc')->paginate(8);
+                }
+            }
+        }else{
+            return Redirect::to('/search');
+        }
+
+        /*--DIEU KIEN LOC THEO GIOI TINH --*/
+        /*--
+        $checkAge = Input::get('gender');
+        if ( $checkAge ){
+            $postSex = DB::table('option_sex')->get();
+            $postUser = DB::table('users')->where('id', Auth::id())->first();
+            $postAge = DB::table('option_subject_eag')->get();
+            $postCity = DB::table('province')->get();
+            $postCities = DB::table('users')
+                ->join('province', 'come_from', '=', 'province.id_province')
+                ->select('*')
+                ->get();
+
+            if( $checkAge == '1' ){
+                $postSearch = DB::table('users')->where('sex', $checkAge)->where('id', '!=' , Auth::id())->orderBy('created', 'desc')->paginate(4);
+            }
+            elseif( $checkAge == '2' ){
+                $postSearch = DB::table('users')->where('sex', $checkAge)->where('id', '!=' , Auth::id())->orderBy('created', 'desc')->paginate(4);
+            }
+            elseif( $checkAge == '0' ){
+                $postSearch = DB::table('users')->where('id', '!=', Auth::id())->orderBy('created', 'desc')->paginate(8);
+            }
+        }--*/
+
+        /*--DIEU KIEN LOC THEO THANH PHO --*/
+        /*--
+        $checkCity = Input::get('city');
+        if ( $checkCity ){
+            $postSex = DB::table('option_sex')->get();
+            $postList = DB::table('users')->where('id', '!=', Auth::id())->get();
+            $postUser = DB::table('users')->where('id', Auth::id())->first();
+            $postAge = DB::table('option_subject_eag')->get();
+            $postCity = DB::table('province')->get();
+            $postCities = DB::table('users')
+                ->join('province', 'come_from', '=', 'province.id_province')
+                ->select('*')
+                ->get();
+
+            foreach ($postList as $postCity => $value) {
+                if( $checkCity == $value->come_from){
+                    $postSearch = DB::table('users')
+                        ->join('province', 'come_from', '=', 'province.id_province')
+                        ->where('users.come_from', $checkCity)
+                        ->where('users.id','!=', Auth::id())
+                        ->select('*')
+                        ->orderBy('created', 'desc')
+                        ->paginate(4);
+                }elseif($checkCity == '0'){
+                    $postSearch = DB::table('users')->where('id', '!=', Auth::id())->orderBy('created', 'desc')->paginate(8);
+                }
+            }
+        }--*/
+
+        /*--VIEW KET QUA --*/
+        return view('search', array(
+            'listPeople' => $postSearch,
+            'listUser' => $postCities,
+            'getUser' => $postUser,
+            'getSex'       => $postSex,
+            'getAge'    => $postAge,
+            'getCity'   => $postCity
+        ))->render();
     }
+
     public function initPage($id) {
         if(!$id){
             return redirect('/');
