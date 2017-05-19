@@ -11,10 +11,12 @@
             </div>
             <div class="tw3-profile tw3-box--padding--off jsProfile tw3-profile--your">
                 <div class="tw3-container">
+                    @if( empty($info_basic->id) )
                     <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
                         <a href="" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Kết bạn</a>
                     </div>
-                    <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
+                    @endif
+                    <div class="tw3-col-12 tw3-bp3-col-4 mt--default" style="margin-left: 230px">
                         <a class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-upload-image" data-toggle="modal" data-target="#myModal">Upload ảnh đại diện</a>
                     </div>
                     <div class="tw3-row tab-wrapper">
