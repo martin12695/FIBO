@@ -108,7 +108,7 @@ class SearchController
             }
             $date = new DateTime($info->birthday);
             $info->birthday = $date->format('d/m/Y');
-            return view('term_profile',[
+            return view('user_profile',[
                 'info_basic' => $info,
                 'sex'        => $sex,
                 'bodies'      => $bodies,
