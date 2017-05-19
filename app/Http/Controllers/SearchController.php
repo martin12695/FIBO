@@ -95,9 +95,6 @@ class SearchController
                 elseif( $checkOption == '7' ){
                     $postSearch = DB::table('users')->whereBetween('age', [51,60])->orderBy('created', 'desc')->paginate(4);
                 }
-                elseif( $checkOption == '0' ){
-                    $postSearch = DB::table('users')->where('id', '!=', Auth::id())->orderBy('created', 'desc')->paginate(8);
-                }
             }
         }else{
             return Redirect::to('/search');
