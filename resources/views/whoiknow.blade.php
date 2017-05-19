@@ -16,7 +16,7 @@
                                             <ul class="tw3-thumbsHolder">
                                                 @foreach($listFriend as $friend)
                                                 <li class="tw3-thumb jsContactImporterContactNonSensitive" data-name="hr" >
-                                                    <a href="" class="tw3-thumb__link">
+                                                    <a href="{{ route('user.id', $friend->id) }}" class="tw3-thumb__link">
                                                         <img src="/{{$friend->avatar}}" class="tw3-thumb__link__image">
                                                         <span class="tw3-thumb__link__name">{{$friend->name}}</span>
                                                     </a>
