@@ -29,7 +29,7 @@
                                                                 <div class="tw3-dropdownHolder">
                                                                     <select name="age" class="dropdown">
                                                                         @if( is_array($getAge) || is_object($getAge) )
-                                                                            <option value="0">Toàn Bộ</option>
+                                                                            <option value="0" selected>Toàn Bộ</option>
                                                                         @foreach($getAge as $item)
                                                                             <option value="{{$item->id}}" {{$item->id == '0' ?  'selected="selected"' : ''}} >{{$item->value}}</option>
                                                                         @endforeach
@@ -45,7 +45,7 @@
                                         <div class="tw3-row" style="position: relative; top: -50px; ">
                                             <div class="tw3-col-12 tw3-bp3-col-8 text--subtle tw3-filter__submit__submitSection tw3-filter__submit__submitSection--submit--refresh jsSubmitContainer ">
                                                 <div class="tw3-filter__submit__submitSection__submit">
-                                                    <input type="submit" value="Tìm kiếm" class="tw3-button tw3-button--blue tw3-button--rounded buttonApplyChanges jsApplyChanges jsSubmitSearch jsOnboardingSubmit" data-text-apply="Thay đổi" data-text-refresh="Tải lại">
+                                                    <input type="submit" value="Tìm kiếm" class="tw3-button tw3-button--blue tw3-button--rounded buttonApplyChanges jsApplyChanges jsSubmitSearch jsOnboardingSubmit">
                                                 </div>
                                             </div>
                                         </div>

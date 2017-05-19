@@ -52,6 +52,7 @@ class SearchController
         $postSex = '';
         $postCities = '';
         $userTemp = '';
+        $postAgeTerm = '';
 
         /*--DIEU KIEN LOC THEO DO TUOI --*/
         $checkOption = Input::get('age');
