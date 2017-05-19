@@ -14,9 +14,11 @@
                         <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
                             <a href="" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Kết bạn</a>
                         </div>
+                        @if( empty($info_basic->id) )
                         <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
                             <a class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-upload-image" data-toggle="modal" data-target="#myModal">Upload ảnh đại diện</a>
                         </div>
+                        @endif
                         <div class="tw3-row tab-wrapper">
                             <div class="tw3-profile__infoTop">
                                 <div class="tw3-row">
@@ -328,9 +330,11 @@
                                                                                         Upload hình thẻ sinh viên
                                                                                     </label>
                                                                                 </div>
+                                                                                @if( empty($info_basic->id) )
                                                                                 <div class="tw3-form__row__input">
                                                                                     <a style="left: 0px;" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-upload-image" data-toggle="modal" data-target="#myModal">Upload ảnh đại diện</a>
                                                                                 </div>
+                                                                                @endif
                                                                             </div>
                                                                         </div>
                                                                         <div class="tw3-row">
