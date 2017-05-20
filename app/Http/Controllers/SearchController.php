@@ -72,29 +72,29 @@ class SearchController
                 }
                 $from = new DateTime($value->birthday);
                 $to = new DateTime('today');
-                if(!$value->age){
-                    DB::table('users')->where('id', $userTemp)->update(['age' => $from->diff($to)->y]);
-                }
+
+                DB::table('users')->where('id', $userTemp)->update(['age' => $from->diff($to)->y]);
+
                 if( $checkOption == '1' ){
-                    $postSearch = DB::table('users')->whereBetween('age', [18,20])->orderBy('created', 'desc')->paginate(4);
+                    $postSearch = DB::table('users')->whereBetween('age', [18,20])->orderBy('created', 'desc')->paginate(8);
                 }
                 elseif( $checkOption == '2' ){
-                    $postSearch = DB::table('users')->whereBetween('age', [21,25])->orderBy('created', 'desc')->paginate(4);
+                    $postSearch = DB::table('users')->whereBetween('age', [21,25])->orderBy('created', 'desc')->paginate(8);
                 }
                 elseif( $checkOption == '3' ){
-                    $postSearch = DB::table('users')->whereBetween('age', [26,30])->orderBy('created', 'desc')->paginate(4);
+                    $postSearch = DB::table('users')->whereBetween('age', [26,30])->orderBy('created', 'desc')->paginate(8);
                 }
                 elseif( $checkOption == '4' ){
-                    $postSearch = DB::table('users')->whereBetween('age', [31,35])->orderBy('created', 'desc')->paginate(4);
+                    $postSearch = DB::table('users')->whereBetween('age', [31,35])->orderBy('created', 'desc')->paginate(8);
                 }
                 elseif( $checkOption == '5' ){
-                    $postSearch = DB::table('users')->whereBetween('age', [36,40])->orderBy('created', 'desc')->paginate(4);
+                    $postSearch = DB::table('users')->whereBetween('age', [36,40])->orderBy('created', 'desc')->paginate(8);
                 }
                 elseif( $checkOption == '6' ){
-                    $postSearch = DB::table('users')->whereBetween('age', [41,50])->orderBy('created', 'desc')->paginate(4);
+                    $postSearch = DB::table('users')->whereBetween('age', [41,50])->orderBy('created', 'desc')->paginate(8);
                 }
                 elseif( $checkOption == '7' ){
-                    $postSearch = DB::table('users')->whereBetween('age', [51,60])->orderBy('created', 'desc')->paginate(4);
+                    $postSearch = DB::table('users')->whereBetween('age', [51,60])->orderBy('created', 'desc')->paginate(8);
                 }
             }
         }else{
