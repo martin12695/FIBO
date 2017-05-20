@@ -12,6 +12,7 @@ use Illuminate\Http\Request;
 use Imagine;
 use DB;
 use Auth;
+use Illuminate\Support\Facades\Validator;
 class ImageController extends Controller
 {
     public function imageUpload()
@@ -40,17 +41,25 @@ class ImageController extends Controller
 
     public function uploadPhoto(Request $request)
     {
-        $input= $request->all();
-        $images=array();
+
         if($files=$request->file('images')){
             foreach($files as $file){
-                $name=$file->getClientOriginalName();
-                $file->move('image',$name);
-                $images[]=$name;
-            }
-        }
-        /*Insert your data*/
+                $validator = Validator::make(
+                    array('file' => $file),
+                    array('file' => 'required|mimes:jpeg,png|image|max:1000')
+                );
+                if ($validator->passes()) {
+                    $name=time().$file->getClientOriginalName();
+                    $file->move('album',$name);
+                    DB::table('user_album')->insert([
+                        'user_id' => Auth::id(),
+                        'link'    => $name
+                    ]);
+                }
 
+            }
+
+        }
 
     }
 }
