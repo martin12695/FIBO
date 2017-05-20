@@ -19,9 +19,23 @@ class SearchController
     public function getSearch()
     {
         if (Auth::check()) {
+
             $getSex = DB::table('option_sex')->get();
             $getUser = DB::table('users')->where('id', Auth::id())->first();
-            $getSearch = DB::table('users')->where('id', '!=', Auth::id())->orderBy('created', 'desc')->paginate(8);
+            $getSearch = DB::table('users')
+                ->where('id', '!=', session('userId'))
+                ->whereNotIn('id', function($q){
+                    $q->select('user_one')
+                        ->from('relationship')
+                        ->where('user_two','=',Auth::id());
+                })
+                ->whereNotIn('id', function($q){
+                    $q->select('user_two')
+                        ->from('relationship')
+                        ->where('user_one','=',Auth::id());
+                })
+                ->orderBy('created', 'desc')
+                ->paginate(8);
             $getAge = DB::table('option_subject_eag')->get();
             $getCity = DB::table('province')->get();
             $cities = DB::table('users')
@@ -76,25 +90,116 @@ class SearchController
                 DB::table('users')->where('id', $userTemp)->update(['age' => $from->diff($to)->y]);
 
                 if( $checkOption == '1' ){
-                    $postSearch = DB::table('users')->where([['id','!=', Auth::id()],['age','>=','18'],['age','<=','20']])->orderBy('created', 'desc')->paginate(8);
+                    $postSearch = DB::table('users')
+                        ->where([['id','!=', Auth::id()],['age','>=','18'],['age','<=','20']])
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_one')
+                                ->from('relationship')
+                                ->where('user_two','=',Auth::id());
+                        })
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_two')
+                                ->from('relationship')
+                                ->where('user_one','=',Auth::id());
+                        })
+                        ->orderBy('created', 'desc')
+                        ->paginate(8);
                 }
                 elseif( $checkOption == '2' ){
-                    $postSearch = DB::table('users')->where([['id','!=', Auth::id()],['age','>=','21'],['age','<=','25']])->orderBy('created', 'desc')->paginate(8);
+                    $postSearch = DB::table('users')
+                        ->where([['id','!=', Auth::id()],['age','>=','21'],['age','<=','25']])
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_one')
+                                ->from('relationship')
+                                ->where('user_two','=',Auth::id());
+                        })
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_two')
+                                ->from('relationship')
+                                ->where('user_one','=',Auth::id());
+                        })
+                        ->orderBy('created', 'desc')
+                        ->paginate(8);
                 }
                 elseif( $checkOption == '3' ){
-                    $postSearch = DB::table('users')->where([['id','!=', Auth::id()],['age','>=','26'],['age','<=','30']])->orderBy('created', 'desc')->paginate(8);
+                    $postSearch = DB::table('users')
+                        ->where([['id','!=', Auth::id()],['age','>=','26'],['age','<=','30']])
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_one')
+                                ->from('relationship')
+                                ->where('user_two','=',Auth::id());
+                        })
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_two')
+                                ->from('relationship')
+                                ->where('user_one','=',Auth::id());
+                        })
+                        ->orderBy('created', 'desc')
+                        ->paginate(8);
                 }
                 elseif( $checkOption == '4' ){
-                    $postSearch = DB::table('users')->where([['id','!=', Auth::id()],['age','>=','31'],['age','<=','35']])->orderBy('created', 'desc')->paginate(8);
+                    $postSearch = DB::table('users')
+                        ->where([['id','!=', Auth::id()],['age','>=','31'],['age','<=','35']])
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_one')
+                                ->from('relationship')
+                                ->where('user_two','=',Auth::id());
+                        })
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_two')
+                                ->from('relationship')
+                                ->where('user_one','=',Auth::id());
+                        })
+                        ->orderBy('created', 'desc')
+                        ->paginate(8);
                 }
                 elseif( $checkOption == '5' ){
-                    $postSearch = DB::table('users')->where([['id','!=', Auth::id()],['age','>=','36'],['age','<=','40']])->orderBy('created', 'desc')->paginate(8);
+                    $postSearch = DB::table('users')
+                        ->where([['id','!=', Auth::id()],['age','>=','36'],['age','<=','40']])
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_one')
+                                ->from('relationship')
+                                ->where('user_two','=',Auth::id());
+                        })
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_two')
+                                ->from('relationship')
+                                ->where('user_one','=',Auth::id());
+                        })
+                        ->orderBy('created', 'desc')
+                        ->paginate(8);
                 }
                 elseif( $checkOption == '6' ){
-                    $postSearch = DB::table('users')->where([['id','!=', Auth::id()],['age','>=','41'],['age','<=','50']])->orderBy('created', 'desc')->paginate(8);
+                    $postSearch = DB::table('users')
+                        ->where([['id','!=', Auth::id()],['age','>=','41'],['age','<=','50']])
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_one')
+                                ->from('relationship')
+                                ->where('user_two','=',Auth::id());
+                        })
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_two')
+                                ->from('relationship')
+                                ->where('user_one','=',Auth::id());
+                        })
+                        ->orderBy('created', 'desc')
+                        ->paginate(8);
                 }
                 elseif( $checkOption == '7' ){
-                    $postSearch = DB::table('users')->where([['id','!=', Auth::id()],['age','>=','51'],['age','<=','60']])->orderBy('created', 'desc')->paginate(8);
+                    $postSearch = DB::table('users')
+                        ->where([['id','!=', Auth::id()],['age','>=','51'],['age','<=','60']])
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_one')
+                                ->from('relationship')
+                                ->where('user_two','=',Auth::id());
+                        })
+                        ->whereNotIn('id', function($q){
+                            $q->select('user_two')
+                                ->from('relationship')
+                                ->where('user_one','=',Auth::id());
+                        })
+                        ->orderBy('created', 'desc')
+                        ->paginate(8);
                 }
             }
         }else{

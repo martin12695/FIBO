@@ -127,8 +127,8 @@
             </ul>
         </div>
         <div class="homepageLinks--bottom__counter">
-            <h1 class="jsUserCounter newFontSize" data-counter="182052658.4073" data-step="0">182.052.658</h1>
-            <p>triệu người đang kết bạn trên FIBO</p>
+            <h1 class="jsUserCounter newFontSize" data-counter="182052658.4073" data-step="0">{{ $count }}</h1>
+            <p>người đã đang sử dụng FIBO</p>
         </div>
     </div>
 </div>

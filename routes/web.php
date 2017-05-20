@@ -16,7 +16,8 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 Route::get('/signin', function () {
-    return view('term_signin');
+    $count = DB::table('users')->count();
+    return view('term_signin', compact('count', $count));
 });
 Route::get('/signup', 'HomeController@init_signup');
 Route::get('/about', function () {
