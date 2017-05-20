@@ -83,6 +83,7 @@ Route::post('/search', 'SearchController@postSearch');
 
 Route::get('image-upload','ImageController@imageUpload');
 Route::post('image-upload','ImageController@imageUploadPost');
+Route::post('uploadPhoto','ImageController@uploadPhoto');
 
 Route::post('sendMessage', array('uses' => 'ChatController@sendMessage'));
 Route::post('isTyping', array('uses' => 'ChatController@isTyping'));

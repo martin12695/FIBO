@@ -37,4 +37,20 @@ class ImageController extends Controller
             ->update(['avatar' => 'images/user/' .$png_url]);
         return \Response::json(0);
     }
+
+    public function uploadPhoto(Request $request)
+    {
+        $input= $request->all();
+        $images=array();
+        if($files=$request->file('images')){
+            foreach($files as $file){
+                $name=$file->getClientOriginalName();
+                $file->move('image',$name);
+                $images[]=$name;
+            }
+        }
+        /*Insert your data*/
+
+
+    }
 }

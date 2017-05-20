@@ -757,16 +757,11 @@
                                 <div class="tw3-thumbsHolder">
                                     <div class="tw3-row">
                                         <div class="tw3-thumb tw3-thumb--addPhoto">
-                                            <a href="javascript:;" class="tw3-thumb__link tw3-pointerMenuToggle jsAddPhoto">
-                                                <span class="heightBlock tw3-thumb__link__image">
-                                                    <span class="centerBlock">
-                                                        <p class="centerBlock__item thumb--private__text">
-                                                            <i class="fa fa-plus" aria-hidden="true"></i><br>
-                                                            <span>Thêm hình</span>
-                                                        </p>
-                                                    </span>
-                                                </span>
-                                            </a>
+                                            <form class="form-horizontal" enctype="multipart/form-data" method="post" action="/uploadPhoto">
+                                                {{ csrf_field() }}
+                                                <input required type="file" class="form-control" name="images[]" placeholder="address" multiple>
+                                                <button type="submit">Up</button>
+                                            </form>
                                         </div>
                                         <div class="tw3-thumb jsPhotoThumb">
                                             <a class="tw3-thumb__link fancybox" rel="gallery1" href="https://twoo01-a.akamaihd.net/c/ed25bb5908882fb0c82ffffbe75fd9e6_3_5_0_959_960_600_720_0000748495.jpg">
