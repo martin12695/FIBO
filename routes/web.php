@@ -61,6 +61,7 @@ Route::get('/whoiknow','FriendController@whoIKnow' );
 Route::group(['prefix' => 'user'], function () {
     Route::get('profile', 'UserController@initPage');
     Route::post('updateInfo', 'UserController@updateInfo');
+    Route::post('updatePosition', 'UserController@updatePosition');
     Route::get('profile/{id}', ['as' => 'user.id', 'uses' => 'SearchController@initPage']);
 });
 

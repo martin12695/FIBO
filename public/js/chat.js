@@ -3,8 +3,8 @@ var to_user;
 $(document).ready(function()
 {
     username = $('#username').html();
-
-   // pullData();
+    $('[data-toggle="tooltip"]').tooltip();
+    // pullData();
 
     $(document).keyup(function(e) {
         if (e.keyCode == 13)

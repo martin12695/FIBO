@@ -30,6 +30,7 @@ class FriendService
             $friend_temp = DB::table('users')
                 ->where('id', $userTemp)
                 ->first();
+            $friend_temp->latest_position = json_decode($friend_temp->latest_position);
             $from = new DateTime($friend_temp->birthday);
             $to = new DateTime('today');
             $friend_temp->yob = $from->diff($to)->y;

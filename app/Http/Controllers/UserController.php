@@ -118,6 +118,13 @@ class UserController
         }
     }
 
+    public function updatePosition(Request $request) {
+        $info = $request->input();
+        DB::table('users')
+            ->where('id', Auth::id())
+            ->update(['latest_position' => json_encode($info)]);
+    }
+
     public function updateInfo(Request $request) {
         $info = $request->input();
 

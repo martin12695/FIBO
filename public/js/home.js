@@ -5,6 +5,7 @@ $(document).ready(function(e) {
         autoplay: true,
         autoplaySpeed: 2000,
     });
+    getLocation();
 
 });
 
@@ -29,3 +30,31 @@ home.controller('home_ctrl', function($scope, $http) {
             });
     };
 });
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+        alert('Trình duyệt không hỗ trợ tính năng cập nhật vị trí');
+    }
+}
+
+function showPosition(position) {
+    var a= $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude+ ','+ position.coords.longitude +'&sensor=true', function(data) {
+      if (data.results[0].formatted_address){
+          $.ajax({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+              type: "POST",
+              data : {
+                  location_name : data.results[0].formatted_address,
+                  lat : position.coords.latitude,
+                  lng : position.coords.longitude,
+              } ,
+              url: '/user/updatePosition',
+
+          });
+      }
+    });
+}

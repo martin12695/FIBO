@@ -16,7 +16,7 @@
     <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/456398502947355001/css/sass/ltr/ui.css">
     <link rel="stylesheet" media="screen" href="{{ asset('css/group-more.p1.css') }}">
     <link rel="stylesheet" media="screen" href="{{ asset('css/group-more.p2.css') }}">
-    <link rel="stylesheet" media="screen" href="https://www.twoo.com/static/37339762993591368798/css/sass/ltr/group-more.p3.css">
+    <link rel="stylesheet" media="screen" href="{{ asset('css/group-more.p3.css') }}">
     <link rel="stylesheet" media="screen" href="{{ asset('css/message-v3.css') }}">
     <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.css">
     <link rel="stylesheet" href="/css/dropdown.css">
