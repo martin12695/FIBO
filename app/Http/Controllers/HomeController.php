@@ -85,9 +85,11 @@ class HomeController
     public function init_signup() {
         $province =  DB::table('province')->get();
         $sex = DB::table('option_sex')->get();
+        $count = DB::table('users')->count();
         return view('term_signup',[
             'province'   => $province,
-            'sex'        => $sex
+            'sex'        => $sex,
+            'count'      => $count
         ]);
 
     }
