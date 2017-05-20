@@ -21,6 +21,7 @@ function pullData(id)
 
 function makeChat(id)
 {
+    $('#chat-window').html('');
     to_user = id;
     pullData(id);
 }
