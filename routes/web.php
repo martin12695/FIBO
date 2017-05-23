@@ -105,5 +105,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::post('/login','AdminController@postLogin');
     Route::get('/logout','AdminController@logout');
     Route::get('/index','AdminController@index');
+    Route::get('/member', 'UserManagerController@getUser');
 });
 

@@ -39,7 +39,7 @@ class AdminController
     }
 
     public function getLogin(){
-        $authCheck = DB::table('users')->where([['id', '=', Auth::id()],['level', '=', '1']])->first();
+        $authCheck = DB::table('users')->where([['id', '=', Auth::id()],['level', '=', 'Admin']])->first();
         if( $authCheck ){
             return view('admin.login');
         }else{
