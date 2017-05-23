@@ -26,6 +26,7 @@ Route::get('/about', function () {
 Route::get('/about/team', function () {
     return view('team');
 });
+
 Route::get('/intro', function () {
     return view('intro');
 });
@@ -96,4 +97,15 @@ Route::post('retrieveTypingStatus', array('uses' => 'ChatController@retrieveTypi
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+
+Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
+{
+    Route::get('/login', function() {
+        return view('admin.login');
+    });
+    Route::get('/index', function() {
+        return view('admin.index');
+    });
+});
 
