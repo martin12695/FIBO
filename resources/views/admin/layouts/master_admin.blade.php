@@ -59,7 +59,7 @@
                     </li>
                     <li class="divider"></li>
                     <li>
-                        <a href=""><i class="fa fa-fw fa-power-off"></i> Đăng xuất</a>
+                        <a href="{{ url('/admin/logout') }}"><i class="fa fa-fw fa-power-off"></i> Đăng xuất</a>
                     </li>
                 </ul>
             </li>

@@ -22,8 +22,9 @@
 <h1>To enter admin site, let's please login...!</h1>
 <div class="login-box">
     <form method="post" action="">
-			<input name="tendangnhap" id="tendangnhap" type="text" class="text" placeholder="Username" value="" >
-			<input name="matkhau" id="matkhau" type="password" placeholder="Password" value="">
+			<input name="email" id="email" type="text" class="text" placeholder="Email" value="" >
+			<input name="password" id="password" type="password" placeholder="Password" value="">
+		{{ csrf_field() }}
 		<div class="remember">
 			<h4>Welcome admin site.</h4>
 		</div>
