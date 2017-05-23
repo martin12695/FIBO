@@ -58,6 +58,7 @@
                         @endforeach
                     @endforeach
                 </table>
+                {{ $user->links() }}
             </div>
         </div>
     </div>

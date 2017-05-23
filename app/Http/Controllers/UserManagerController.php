@@ -23,7 +23,10 @@ use Illuminate\Support\Facades\Hash;
 class UserManagerController
 {
     public function getUser(){
-        $user = DB::table('users')->where([['id', '!=', Auth::id()], ['level','!=', 'Admin']])->get();
+        $user = DB::table('users')
+            ->where([['id', '!=', Auth::id()], ['level','!=', 'Admin']])
+            ->orderBy('created', 'desc')
+            ->paginate(6);
         $sex = DB::table('option_sex')
             ->join('users', 'option_sex.id', '=', 'sex')
             ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
