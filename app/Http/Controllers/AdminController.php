@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\DB;
 use App\Quotation;
 use Illuminate\Http\Request;
@@ -21,6 +22,22 @@ use Illuminate\Support\Facades\Hash;
 
 class AdminController
 {
+
+    public function initHome() {
+
+        $user = DB::table('users')->where('id', '=', Auth::id())->first();
+        return view('admin.index',[
+            'user'         =>$user
+        ]);
+    }
+
+    public function index (){
+        if (Auth::check()) {
+            return $this->initHome();
+        }else
+            return Redirect::to('/admin/login');
+    }
+
     public function getLogin(){
         $authCheck = DB::table('users')->where([['id', '=', Auth::id()],['level', '=', '1']])->first();
         if( $authCheck ){
@@ -33,12 +50,11 @@ class AdminController
     public function postLogin(Request $request) {
         $info = $request->input();
         if (Auth::attempt(['email' => $info['email'], 'password' => $info['password']])) {
-            session(['AdminId' => Auth::id()]);
-            return view('admin.index');
+            session(['UserName' => Auth::user()->name]);
+            return Redirect::to('/admin/index');
         }
-        else {
-            return view('admin.login');
-        }
+        else
+            return Redirect::to('/admin/login');
     }
 
     public function logout() {
