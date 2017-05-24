@@ -13,6 +13,7 @@ use Imagine;
 use DB;
 use Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 class ImageController extends Controller
 {
     public function imageUpload()
@@ -61,6 +62,13 @@ class ImageController extends Controller
             return back()->with('tab',1);
 
         }
+
+    }
+    public function deleteImage($id)
+    {
+        $name = DB::table('user_album')->select('link')->where('id',$id)->first();
+        Storage::delete('/album/'.$name->link);
+        DB::table('user_album')->where('id',$id)->delete();
 
     }
 }
