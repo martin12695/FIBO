@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="<?= csrf_token() ?>">
 
     <title>SB Admin - @yield('title')</title>
 
@@ -59,7 +60,7 @@
                         <a href="{{ url('/admin/member') }}"><i class="fa fa-fw fa-user"></i> Thành viên</a>
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-fw fa-gear"></i> Ban quản trị</a>
+                        <a href="{{ url('/admin/staff') }}"><i class="fa fa-fw fa-gear"></i> Ban quản trị</a>
                     </li>
                     <li class="divider"></li>
                     <li>
@@ -81,7 +82,7 @@
                     <a href=""><i class="fa fa-fw fa-info"></i> Thông tin thành viên</a>
                 </li>
                 <li>
-                    <a href=""><i class="fa fa-fw fa-users"></i> Ban quản trị</a>
+                    <a href="{{ url('/admin/staff') }}"><i class="fa fa-fw fa-users"></i> Ban quản trị</a>
                 </li>
                 <li>
                     <a href=""><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết đang duyệt</a>

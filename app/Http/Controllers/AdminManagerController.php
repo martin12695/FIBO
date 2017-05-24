@@ -22,25 +22,25 @@ use Illuminate\Support\Facades\Hash;
 use DateTime;
 
 
-class UserManagerController
+class AdminManagerController
 {
-    public function getUser(){
+    public function getAdmin(){
         $user = DB::table('users')
-            ->where([['id', '!=', Auth::id()], ['level','!=', 'Admin']])
+            ->where('level','=', 'Admin')
             ->orderBy('created', 'desc')
             ->paginate(6);
         $sex = DB::table('option_sex')
             ->join('users', 'option_sex.id', '=', 'sex')
-            ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+            ->where('users.level','=', 'Admin')
             ->select('*')
             ->get();
         $come_form = DB::table('users')
             ->join('province', 'come_from', '=', 'province.id_province')
-            ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+            ->where('users.level','=', 'Admin')
             ->select('users.id', 'province.id_province','province.value')
             ->get();
-        return view('admin.member',[
-           'user' => $user,
+        return view('admin.staff',[
+            'user' => $user,
             'sex' => $sex,
             'come_from' => $come_form,
         ]);
@@ -55,7 +55,7 @@ class UserManagerController
         }else {
             $passMd5 = Hash::make($info['password']);
             $date = $info['birthday'];
-            $member = 'Member';
+            $member = 'Admin';
             $from = new DateTime($date);
             $to = new DateTime('today');
             try {
@@ -76,11 +76,11 @@ class UserManagerController
     public function getEdit($id){
         $id = intval($id);
         if(!$id){
-            return Redirect::to('/admin/member');
+            return Redirect::to('/admin/staff');
         }
         $user = DB::table('users')->where('id','=',$id)->first();
         $province = DB::table('province')->get();
-        return view('admin.editMember', [
+        return view('admin.editStaff', [
             'user' => $user,
             'province' => $province
         ]);
@@ -89,7 +89,7 @@ class UserManagerController
     public function postEdit(Request $request,$id){
         $id = intval($id);
         if (!$id){
-            return Redirect::to('/admin/member');
+            return Redirect::to('/admin/staff');
         }else{
             $user = DB::table('users')->where('id','=',$id)->first();
             $info = $request->input();
@@ -134,18 +134,21 @@ class UserManagerController
                         ->where('id', $id)
                         ->update(['password' => $passHash]);
                 }
+                $term = '';
+                if( Input::has('level') ){
+                    if($info['level'] == '1'){
+                        $term = 'Admin';
+                    }
+                    if($info['level'] == '2'){
+                        $term = 'Member';
+                    }
+                    DB::table('users')
+                        ->where('id', $id)
+                        ->update(['level' => $term]);
+                }
             }
             return \Response::json(1);
         }
     }
 
-    public function getDel($id){
-        $id = intval($id);
-        if (!$id){
-            return Redirect::to('/admin/member');
-        }else{
-            DB::table('users')->where('id', $id)->delete();
-            return back();
-        }
-    }
 }

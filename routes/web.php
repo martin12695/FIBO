@@ -106,5 +106,21 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/logout','AdminController@logout');
     Route::get('/index','AdminController@index');
     Route::get('/member', 'UserManagerController@getUser');
+    Route::get('/add-member', function (){
+        $province =  DB::table('province')->get();
+        return view('admin.addMember',compact('province', $province));
+    });
+    Route::post('/add-member', 'UserManagerController@addUser');
+    Route::get('/edit-member/{id}', ['as' => 'getEdit.id', 'uses' => 'UserManagerController@getEdit']);
+    Route::post('/edit-member/{id}', ['as' => 'postEdit.id', 'uses' => 'UserManagerController@postEdit']);
+    Route::get('/del-member/{id}', ['as' => 'getDel.id', 'uses' => 'UserManagerController@getDel']);
+    Route::get('/staff', 'AdminManagerController@getAdmin');
+    Route::get('/edit-staff/{id}', ['as' => 'getEdit.id', 'uses' => 'AdminManagerController@getEdit']);
+    Route::post('/edit-staff/{id}', ['as' => 'postEdit.id', 'uses' => 'AdminManagerController@postEdit']);
+    Route::get('/add-staff', function (){
+        $province =  DB::table('province')->get();
+        return view('admin.addStaff',compact('province', $province));
+    });
+    Route::post('/add-staff', 'AdminManagerController@addUser');
 });
 

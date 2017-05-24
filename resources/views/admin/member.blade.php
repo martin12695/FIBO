@@ -17,9 +17,12 @@
                     <li class="active">
                         <i class="fa fa-file"></i> Thành viên
                     </li>
+                    <li><a href="{{ url('/admin/add-member') }}" class="ThemDulieu btn btn-info">Thêm thành viên</a></li>
+
                 </ol>
             </div>
         </div>
+
         <div class="col-lg-12">
             <div >
                 <table class="table table-bordered table-hover">
@@ -40,7 +43,7 @@
                         @foreach($sex as $item)
                             @foreach($come_from as $key)
                                 @if( $item->id == $row->id && $key->id == $item->id && $key->id == $row->id)
-                                    <tr>
+                                    <tr id="myTableRow">
                                         <td>{{ $row->id }}</td>
                                         <td>{{ $row->name }}</td>
                                         <td>{{ $row->age }}</td>
@@ -50,8 +53,8 @@
                                         <td>{{ $key->value }}</td>
                                         <td>{{ $row->birthday }}</td>
                                         <td>{{ $row->level }}</td>
-                                        <td><a href="" class="XoaDuLieu btn btn-danger">Xóa</a></td>
-                                        <td><a href="" class="SuaDuLieu btn btn-info">Sửa</a></td>
+                                        <td><a href="{{ route('getDel.id', $row->id) }}" class="XoaDuLieu btn btn-danger">Xóa</a></td>
+                                        <td><a href="{{ route('getEdit.id', $row->id) }}" class="SuaDuLieu btn btn-info">Sửa</a></td>
                                     </tr>
                                  @endif
                             @endforeach
@@ -66,8 +69,12 @@
 <script>
     $(document).ready(function () {
         $('.XoaDuLieu').click(function(){
-            if(!confirm("Bạn có thực muốn xóa !"))
+            if(confirm("Bạn có thực muốn xóa !")){
+                $('#myTableRow').remove();
+                return true;
+            }else {
                 return false;
+            }
         });
     });
 </script>
