@@ -111,5 +111,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
         return view('admin.addMember',compact('province', $province));
     });
     Route::post('/add-member', 'UserManagerController@addUser');
+    Route::get('/edit-member/{id}', ['as' => 'getEdit.id', 'uses' => 'UserManagerController@getEdit']);
+    Route::post('/edit-member/{id}', ['as' => 'postEdit.id', 'uses' => 'UserManagerController@postEdit']);
 });
 

@@ -54,7 +54,7 @@
                                         <td>{{ $row->birthday }}</td>
                                         <td>{{ $row->level }}</td>
                                         <td><a href="" class="XoaDuLieu btn btn-danger">Xóa</a></td>
-                                        <td><a href="" class="SuaDuLieu btn btn-info">Sửa</a></td>
+                                        <td><a href="{{ route('getEdit.id', $row->id) }}" class="SuaDuLieu btn btn-info">Sửa</a></td>
                                     </tr>
                                  @endif
                             @endforeach

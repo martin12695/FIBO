@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">
-                    Cập nhật thành viên
+                    Thêm thành viên
                 </h1>
                 <ol class="breadcrumb">
                     <li>
@@ -19,7 +19,7 @@
                         <i class="fa fa-file"></i> <a href="{{ url('/admin/member') }}">Danh sách thành viên</a>
                     </li>
                     <li class="active">
-                        <i class="fa fa-file"></i> Cập nhật nhân viên
+                        <i class="fa fa-file"></i> Thêm thành viên
                     </li>
                 </ol>
             </div>
