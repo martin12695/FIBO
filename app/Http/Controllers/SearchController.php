@@ -348,6 +348,7 @@ class SearchController
             }
             $date = new DateTime($info->birthday);
             $info->birthday = $date->format('d/m/Y');
+            $photos = DB::table('user_album')->where('user_id', $id)->get();
             return view('user_profile',[
                 'info_basic' => $info,
                 'sex'        => $sex,
@@ -365,7 +366,8 @@ class SearchController
                 'finance'    => $finance,
                 'body'       => $body,
                 'province'   => $province,
-                'school'     => $school
+                'school'     => $school,
+                'photos'     => $photos
             ]);
         }
     }
