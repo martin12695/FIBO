@@ -114,5 +114,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/edit-member/{id}', ['as' => 'getEdit.id', 'uses' => 'UserManagerController@getEdit']);
     Route::post('/edit-member/{id}', ['as' => 'postEdit.id', 'uses' => 'UserManagerController@postEdit']);
     Route::get('/del-member/{id}', ['as' => 'getDel.id', 'uses' => 'UserManagerController@getDel']);
+    Route::get('/staff', 'AdminManagerController@getAdmin');
 });
 

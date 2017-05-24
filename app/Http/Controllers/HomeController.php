@@ -108,11 +108,14 @@ class HomeController
             $passMd5 = Hash::make($info['pass']);
             $date = date_create_from_format('d/m/Y', $info['birthday']);
             $date = $date->format('Y-m-d');
-
+            $level = 'Member';
+            $from = new DateTime($date);
+            $to = new DateTime('today');
             try {
                 DB::table('users')->insert(
                     ['email' => $info['email'],'sex' => $info['sex'],'password' => $passMd5, 'name' => $info['name'],
-                        'phone' => $info['phone'],'come_from' => $info['from'], 'birthday' => $date]
+                        'phone' => $info['phone'],'come_from' => $info['from'], 'birthday' => $date,
+                        'level' => $level,'age' => $from->diff($to)->y]
                 );
                 return \Response::json(0);
             }
