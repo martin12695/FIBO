@@ -136,4 +136,13 @@ class UserManagerController
             return \Response::json(1);
         }
     }
+
+    public function getDel($id){
+        if (!$id){
+            return Redirect::to('/admin/member');
+        }else{
+            DB::table('users')->where('id', $id)->delete();
+            return back();
+        }
+    }
 }
