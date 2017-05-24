@@ -35,7 +35,7 @@ class AdminController
         if (Auth::check()) {
             return $this->initHome();
         }else
-            return Redirect::to('/admin/login');
+            return view('admin.login');
     }
 
     public function getLogin(){

@@ -25,25 +25,29 @@ use DateTime;
 class UserManagerController
 {
     public function getUser(){
-        $user = DB::table('users')
-            ->where([['id', '!=', Auth::id()], ['level','!=', 'Admin']])
-            ->orderBy('created', 'desc')
-            ->paginate(6);
-        $sex = DB::table('option_sex')
-            ->join('users', 'option_sex.id', '=', 'sex')
-            ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
-            ->select('*')
-            ->get();
-        $come_form = DB::table('users')
-            ->join('province', 'come_from', '=', 'province.id_province')
-            ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
-            ->select('users.id', 'province.id_province','province.value')
-            ->get();
-        return view('admin.member',[
-           'user' => $user,
-            'sex' => $sex,
-            'come_from' => $come_form,
-        ]);
+        if(Auth::check()){
+            $user = DB::table('users')
+                ->where([['id', '!=', Auth::id()], ['level','!=', 'Admin']])
+                ->orderBy('created', 'desc')
+                ->paginate(6);
+            $sex = DB::table('option_sex')
+                ->join('users', 'option_sex.id', '=', 'sex')
+                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+                ->select('*')
+                ->get();
+            $come_form = DB::table('users')
+                ->join('province', 'come_from', '=', 'province.id_province')
+                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+                ->select('users.id', 'province.id_province','province.value')
+                ->get();
+            return view('admin.member',[
+                'user' => $user,
+                'sex' => $sex,
+                'come_from' => $come_form,
+            ]);
+        }else
+            return view('admin.login');
+
     }
 
     public function addUser(Request $request){

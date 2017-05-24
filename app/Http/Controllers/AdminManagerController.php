@@ -25,25 +25,29 @@ use DateTime;
 class AdminManagerController
 {
     public function getAdmin(){
-        $user = DB::table('users')
-            ->where('level','=', 'Admin')
-            ->orderBy('created', 'desc')
-            ->paginate(6);
-        $sex = DB::table('option_sex')
-            ->join('users', 'option_sex.id', '=', 'sex')
-            ->where('users.level','=', 'Admin')
-            ->select('*')
-            ->get();
-        $come_form = DB::table('users')
-            ->join('province', 'come_from', '=', 'province.id_province')
-            ->where('users.level','=', 'Admin')
-            ->select('users.id', 'province.id_province','province.value')
-            ->get();
-        return view('admin.staff',[
-            'user' => $user,
-            'sex' => $sex,
-            'come_from' => $come_form,
-        ]);
+        if(Auth::check()){
+            $user = DB::table('users')
+                ->where('level','=', 'Admin')
+                ->orderBy('created', 'desc')
+                ->paginate(6);
+            $sex = DB::table('option_sex')
+                ->join('users', 'option_sex.id', '=', 'sex')
+                ->where('users.level','=', 'Admin')
+                ->select('*')
+                ->get();
+            $come_form = DB::table('users')
+                ->join('province', 'come_from', '=', 'province.id_province')
+                ->where('users.level','=', 'Admin')
+                ->select('users.id', 'province.id_province','province.value')
+                ->get();
+            return view('admin.staff',[
+                'user' => $user,
+                'sex' => $sex,
+                'come_from' => $come_form,
+            ]);
+        }else
+            return view('admin.login');
+
     }
 
     public function addUser(Request $request){
