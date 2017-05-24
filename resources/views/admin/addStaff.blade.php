@@ -178,7 +178,7 @@
                         console.log(data.length);
 
                         //notify user if nothing to load
-                        $('.ajax-loading').html("Đã load xong dữ liệu!");
+                        $('.ajax-loading').html("Done!");
                         return;
                     }
                     $('.ajax-loading').hide(); //hide loading animation once data is received
