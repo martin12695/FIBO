@@ -73,6 +73,17 @@ class AdminManagerController
         }
     }
 
+    public function addUserOther($id){
+        $id = intval($id);
+        if (!$id){
+            return Redirect::to('/admin/staff');
+        }else{
+            $term = 'Admin';
+            DB::table('users')->where('id', $id)->update(['level' => $term]);
+            return Redirect::to('/admin/staff');
+        }
+    }
+
     public function getEdit($id){
         $id = intval($id);
         if(!$id){

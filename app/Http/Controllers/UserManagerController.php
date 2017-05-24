@@ -140,7 +140,7 @@ class UserManagerController
     }
 
     public function getDel($id){
-        $id = intval($id);
+
         if (!$id){
             return Redirect::to('/admin/member');
         }else{

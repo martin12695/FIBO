@@ -119,8 +119,28 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::post('/edit-staff/{id}', ['as' => 'postEdit.id', 'uses' => 'AdminManagerController@postEdit']);
     Route::get('/add-staff', function (){
         $province =  DB::table('province')->get();
-        return view('admin.addStaff',compact('province', $province));
+        $user = DB::table('users')
+            ->where([['id', '!=', Auth::id()], ['level','!=', 'Admin']])
+            ->orderBy('created', 'desc')
+            ->get();
+        $sex = DB::table('option_sex')
+            ->join('users', 'option_sex.id', '=', 'sex')
+            ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+            ->select('*')
+            ->get();
+        $come_form = DB::table('users')
+            ->join('province', 'come_from', '=', 'province.id_province')
+            ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+            ->select('users.id', 'province.id_province','province.value')
+            ->get();
+        return view('admin.addStaff',[
+            'province' => $province,
+            'user' => $user,
+            'sex' => $sex,
+            'come_from' => $come_form
+        ]);
     });
     Route::post('/add-staff', 'AdminManagerController@addUser');
+    Route::get('/add-staff/{id}', ['as' => 'addStaff.id', 'uses' => 'AdminManagerController@addUserOther']);
 });
 

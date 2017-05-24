@@ -1,8 +1,21 @@
 @extends('admin.layouts.master_admin')
 @section('title','Dashboard')
 @section('content')
+<style>
+    .results tr[visible='false'],
+    .no-result{
+        display:none;
+    }
 
+    .results tr[visible='true']{
+        display:table-row;
+    }
 
+    .counter{
+        padding:8px;
+        color:#ccc;
+    }
+</style>
     <div id="page-wrapper">
         <div class="container-fluid">
             <!-- Page Heading -->
@@ -23,7 +36,15 @@
                         </li>
                     </ol>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="width: 22%">
+                    <select class="form-control" id="showOption" name="option">
+                        <option value="1">Thêm mới nhân viên</option>
+                        <option value="2">Lấy danh sách thành viên</option>
+                    </select>
+                </div>
+                <hr class="col-xs-12">
+
+                <div class="col-lg-12" id="addNew">
                     <div >
                         <form>
                             <table class="table table-bordered">
@@ -94,6 +115,55 @@
                         </form>
                     </div>
                 </div>
+
+                <div class="col-lg-12" style="display: none;" id="currentMember">
+                    <div class="form-group pull-right">
+                        <input type="text" class="search form-control" placeholder="What you looking for?">
+                    </div>
+                    <span class="counter pull-right"></span>
+                    <table class="table table-bordered table-hover results">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                                <th>Sex</th>
+                                <th>Phone</th>
+                                <th>Come From</th>
+                                <th>Birthday</th>
+                                <th>Level</th>
+                                <th>Add</th>
+                            </tr>
+                            <tr class="warning no-result">
+                                <td colspan="9"><i class="fa fa-warning"></i> No result</td>
+                            </tr>
+                            </thead>
+                            @foreach($user as $row)
+                                @foreach($sex as $item)
+                                    @foreach($come_from as $key)
+                                        @if( $item->id == $row->id && $key->id == $item->id && $key->id == $row->id)
+                                            <tbody>
+                                            <tr id="myTableRow">
+                                                <td>{{ $row->id }}</td>
+                                                <td>{{ $row->name }}</td>
+                                                <td>{{ $row->age }}</td>
+                                                <td>{{ $row->email }}</td>
+                                                <td>{{ $item->value }}</td>
+                                                <td>{{ $row->phone }}</td>
+                                                <td>{{ $key->value }}</td>
+                                                <td>{{ $row->birthday }}</td>
+                                                <td>{{ $row->level }}</td>
+                                                <td><a href="{{ route('addStaff.id', $row->id) }}" class="ThemDuLieu btn btn-info">Thêm</a></td>
+                                            </tr>
+                                            </tbody>
+                                        @endif
+                                    @endforeach
+                                @endforeach
+                            @endforeach
+                        </table>
+                </div>
+
             </div>
         </div>
     </div>
@@ -180,6 +250,61 @@
                     }
                 });
             }
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+            $("#showOption").change(function(){
+                if($("#showOption").val() == '2'){
+                    //Show text box here
+                    $("#currentMember").show();
+                    $("#addNew").hide();
+                }
+                else{
+                    $("#currentMember").hide();
+                    $("#addNew").show();
+                }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(".search").keyup(function () {
+                var searchTerm = $(".search").val();
+                var listItem = $('.results tbody').children('tr');
+                var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+
+                $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+                    return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+                }
+                });
+
+                $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+                    $(this).attr('visible','false');
+                });
+
+                $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+                    $(this).attr('visible','true');
+                });
+
+                var jobCount = $('.results tbody tr[visible="true"]').length;
+                $('.counter').text(jobCount + ' item');
+
+                if(jobCount == '0') {$('.no-result').show();}
+                else {$('.no-result').hide();}
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.ThemDuLieu').click(function(){
+                if(confirm("Bạn có thực muốn thêm !")){
+                    $('#myTableRow').remove();
+                    return true;
+                }else {
+                    return false;
+                }
+            });
         });
     </script>
 @endsection
