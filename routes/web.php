@@ -171,7 +171,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
             ]);
         }else
             return view('admin.login');
-        
+
     });
     Route::post('/add-staff', 'AdminManagerController@addUser');
     Route::get('/add-staff/{id}', ['as' => 'addStaff.id', 'uses' => 'AdminManagerController@addUserOther']);
