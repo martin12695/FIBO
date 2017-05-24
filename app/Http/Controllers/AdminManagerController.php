@@ -55,7 +55,7 @@ class AdminManagerController
         }else {
             $passMd5 = Hash::make($info['password']);
             $date = $info['birthday'];
-            $member = 'Member';
+            $member = 'Admin';
             $from = new DateTime($date);
             $to = new DateTime('today');
             try {
@@ -74,20 +74,22 @@ class AdminManagerController
     }
 
     public function getEdit($id){
+        $id = intval($id);
         if(!$id){
-            return Redirect::to('/admin/member');
+            return Redirect::to('/admin/staff');
         }
         $user = DB::table('users')->where('id','=',$id)->first();
         $province = DB::table('province')->get();
-        return view('admin.editMember', [
+        return view('admin.editStaff', [
             'user' => $user,
             'province' => $province
         ]);
     }
 
     public function postEdit(Request $request,$id){
+        $id = intval($id);
         if (!$id){
-            return Redirect::to('/admin/member');
+            return Redirect::to('/admin/staff');
         }else{
             $user = DB::table('users')->where('id','=',$id)->first();
             $info = $request->input();
@@ -132,17 +134,21 @@ class AdminManagerController
                         ->where('id', $id)
                         ->update(['password' => $passHash]);
                 }
+                $term = '';
+                if( Input::has('level') ){
+                    if($info['level'] == '1'){
+                        $term = 'Admin';
+                    }
+                    if($info['level'] == '2'){
+                        $term = 'Member';
+                    }
+                    DB::table('users')
+                        ->where('id', $id)
+                        ->update(['level' => $term]);
+                }
             }
             return \Response::json(1);
         }
     }
 
-    public function getDel($id){
-        if (!$id){
-            return Redirect::to('/admin/member');
-        }else{
-            DB::table('users')->where('id', $id)->delete();
-            return back();
-        }
-    }
 }

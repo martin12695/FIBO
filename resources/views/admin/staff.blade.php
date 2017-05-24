@@ -17,7 +17,7 @@
                         <li class="active">
                             <i class="fa fa-file"></i> Nhân viên
                         </li>
-                        <li><a href="{{ url('/admin/add-member') }}" class="ThemDulieu btn btn-info">Thêm nhân viên</a></li>
+                        <li><a href="{{ url('/admin/add-staff') }}" class="ThemDulieu btn btn-info">Thêm nhân viên</a></li>
 
                     </ol>
                 </div>

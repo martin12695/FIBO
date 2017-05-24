@@ -74,6 +74,7 @@ class UserManagerController
     }
 
     public function getEdit($id){
+        $id = intval($id);
         if(!$id){
             return Redirect::to('/admin/member');
         }
@@ -86,6 +87,7 @@ class UserManagerController
     }
 
     public function postEdit(Request $request,$id){
+        $id = intval($id);
         if (!$id){
             return Redirect::to('/admin/member');
         }else{
@@ -138,6 +140,7 @@ class UserManagerController
     }
 
     public function getDel($id){
+        $id = intval($id);
         if (!$id){
             return Redirect::to('/admin/member');
         }else{
