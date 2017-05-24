@@ -8,6 +8,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests;
+use Illuminate\Auth\Access\Response;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\DB;
 use App\Quotation;
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Redirect;
 use Auth;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use DateTime;
 
 
 class UserManagerController
@@ -42,5 +44,32 @@ class UserManagerController
             'sex' => $sex,
             'come_from' => $come_form,
         ]);
+    }
+
+    public function addUser(Request $request){
+
+        $info = $request->input();
+        $check_email = DB::table('users')->where('email', $info['email'])->first();
+        if ( !empty($check_email) ) {
+            return \Response::json(2);
+        }else {
+            $passMd5 = Hash::make($info['password']);
+            $date = $info['birthday'];
+            $member = 'Member';
+            $from = new DateTime($date);
+            $to = new DateTime('today');
+            try {
+
+                DB::table('users')->insert(
+                    ['email' => $info['email'],'sex' => $info['sex'],'password' => $passMd5, 'name' => $info['name'],
+                        'phone' => $info['phone'],'come_from' => $info['province'], 'birthday' => $date,'level' => $member,
+                        'age' => $from->diff($to)->y]
+                );
+                return \Response::json(1);
+            }
+            catch(Exception $e) {
+                return \Response::json(0);
+            }
+        }
     }
 }

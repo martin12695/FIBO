@@ -17,9 +17,12 @@
                     <li class="active">
                         <i class="fa fa-file"></i> Thành viên
                     </li>
+                    <li><a href="{{ url('/admin/add-member') }}" class="ThemDulieu btn btn-info">Thêm thành viên</a></li>
+
                 </ol>
             </div>
         </div>
+
         <div class="col-lg-12">
             <div >
                 <table class="table table-bordered table-hover">

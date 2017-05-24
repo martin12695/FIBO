@@ -106,5 +106,10 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/logout','AdminController@logout');
     Route::get('/index','AdminController@index');
     Route::get('/member', 'UserManagerController@getUser');
+    Route::get('/add-member', function (){
+        $province =  DB::table('province')->get();
+        return view('admin.addMember',compact('province', $province));
+    });
+    Route::post('/add-member', 'UserManagerController@addUser');
 });
 
