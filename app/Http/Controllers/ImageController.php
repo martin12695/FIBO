@@ -58,6 +58,7 @@ class ImageController extends Controller
                 }
 
             }
+            return back()->with('tab',1);
 
         }
 

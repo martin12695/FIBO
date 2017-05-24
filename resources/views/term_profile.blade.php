@@ -2,6 +2,8 @@
 @section('title', 'Trang cá nhân')
 @section('custom-css')
     <link rel="stylesheet" href="/css/lib/editor-image.css">
+    <link rel="stylesheet" href="/css/lib/component.css">
+
 @endsection
 @section('content')
     <div class="tw3-wrapper" style="margin-top:80px" ng-app="profile" ng-controller="profile_ctrl">
@@ -51,12 +53,12 @@
                         </div>
 
                         <div class="tw3-tabsHolder tw3-profileTabsHolder tab">
-                            <a class="tw3-tab selected" href="#panel=about" data-tab="about" style="text-decoration: none">Thông tin</a>
+                            <a class="tw3-tab @if (Session::get('tab') == null) {{'selected'}} @endif" href="#panel=about" data-tab="about" style="text-decoration: none">Thông tin</a>
                             <a class="tw3-tab" href="#panel=details" data-tab="details" style="text-decoration: none">Chi tiết</a>
-                            <a class="tw3-tab" href="#panel=photos" data-tab="photos" style="text-decoration: none">Hình</a>
+                            <a class="tw3-tab @if (Session::get('tab') == 1) {{'selected'}} @endif" href="#panel=photos" data-tab="photos" style="text-decoration: none">Hình</a>
                         </div>
                         <div class="jsPanels tw3-col--flex tab-content" style="margin-top:25px">
-                            <div data-tab="about" id="about" class="tw3-panel tab-item selected" style="display: block;">
+                            <div data-tab="about" id="about" class="tw3-panel tab-item selected" @if (Session::get('tab') == 1) {{'hidden'}} @endif>
                                 <div class="tw3-row">
                                     <div class="tw3-col-12">
                                         <div class="tw3-row">
@@ -194,7 +196,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div data-tab="details" style="display:none" id="details" class="tw3-panel tab-item tw3-editable__block" >
+                            <div data-tab="details"  id="details" class="tw3-panel tab-item tw3-editable__block" hidden>
                                 <form action="{{ url('/user/updateInfo') }}" method="post">
                                     {{ csrf_field() }}
                                     <div class="">
@@ -753,36 +755,26 @@
                                     </div>
                                 </form>
                             </div>
-                            <div data-tab="photos" style="display:none" id="photos" class="tw3-panel tab-item" >
+                            <div data-tab="photos"  id="photos" class="tw3-panel tab-item" @if (Session::get('tab') == null) {{'hidden'}} @endif>
                                 <div class="tw3-thumbsHolder">
                                     <div class="tw3-row">
-                                        <div class="tw3-thumb tw3-thumb--addPhoto">
-                                            <form class="form-horizontal" enctype="multipart/form-data" method="post" action="/uploadPhoto">
-                                                {{ csrf_field() }}
-                                                <input required type="file" class="form-control" name="images[]" placeholder="address" multiple>
-                                                <button type="submit">Up</button>
-                                            </form>
-                                        </div>
+                                        @foreach($photos as $photo)
                                         <div class="tw3-thumb jsPhotoThumb">
-                                            <a class="tw3-thumb__link fancybox" rel="gallery1" href="https://twoo01-a.akamaihd.net/c/ed25bb5908882fb0c82ffffbe75fd9e6_3_5_0_959_960_600_720_0000748495.jpg">
-                                                <img class="jsTriggerPhotoBox tw3-thumb__link__image" alt="" src="https://twoo01-a.akamaihd.net/c/ed25bb5908882fb0c82ffffbe75fd9e6_3_5_0_959_960_600_720_0000748495.jpg">
+                                            <a class="tw3-thumb__link fancybox" rel="gallery1" href="{{url('album/'.$photo->link)}}">
+                                                <img class="jsTriggerPhotoBox tw3-thumb__link__image" alt="" src="{{url('album/'.$photo->link)}}">
                                             </a>
                                         </div>
-                                        <div class="tw3-thumb jsPhotoThumb">
-                                            <a class="tw3-thumb__link fancybox" rel="gallery1" href="https://twoo01-a.akamaihd.net/c/ed25bb5908882fb0c82ffffbe75fd9e6_3_5_0_959_960_600_720_0000748495.jpg">
-                                                <img class="jsTriggerPhotoBox tw3-thumb__link__image" alt="" src="https://twoo01-a.akamaihd.net/c/ed25bb5908882fb0c82ffffbe75fd9e6_3_5_0_959_960_600_720_0000748495.jpg">
-                                            </a>
-                                        </div>
-                                        <div class="tw3-thumb jsPhotoThumb">
-                                            <a class="tw3-thumb__link fancybox" rel="gallery1" href="https://twoo01-a.akamaihd.net/c/fbcacf57cabab00145cfe64793a9dc92_3_5_0_959_960_600_720_0012050110.jpg">
-                                                <img class="jsTriggerPhotoBox tw3-thumb__link__image" alt="" src="https://twoo01-a.akamaihd.net/c/fbcacf57cabab00145cfe64793a9dc92_3_5_0_959_960_600_720_0012050110.jpg">
-                                            </a>
-                                        </div>
-                                        <div class="tw3-thumb jsPhotoThumb">
-                                            <a class="tw3-thumb__link fancybox" rel="gallery1" href="https://twoo01-a.akamaihd.net/c/8e1963b416e44a357c1012f659083847_3_5_0_960_960_600_720_0006110854.jpg">
-                                                <img class="jsTriggerPhotoBox tw3-thumb__link__image" alt="" src="https://twoo01-a.akamaihd.net/c/8e1963b416e44a357c1012f659083847_3_5_0_960_960_600_720_0006110854.jpg">
-                                            </a>
-                                        </div>
+                                        @endforeach
+                                    </div>
+                                    <div class="tw3-row">
+                                        <form class="form-horizontal" enctype="multipart/form-data" method="post" action="/uploadPhoto">
+                                            {{ csrf_field() }}
+                                            <div class="box js ">
+                                                <input type="file" name="images[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} hình được chọn" multiple  />
+                                                <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Chọn hình&hellip;</span></label>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Tải hình lênh</button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -870,4 +862,5 @@
 @section('custom-js')
     <script src="/js/user-profile.js" type="text/javascript"></script>
     <script src="/js/lib/editor-image.js"></script>
+    <script src="/js/lib/custom-file-input.js"></script>
 @endsection
