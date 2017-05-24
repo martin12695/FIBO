@@ -143,26 +143,7 @@
                             </tr>
                             </thead>
                             <tbody id="result_table">
-                            @foreach($user as $row)
-                                @foreach($sex as $item)
-                                    @foreach($come_from as $key)
-                                        @if( $item->id == $row->id && $key->id == $item->id && $key->id == $row->id)
-                                            <tr id="myTableRow">
-                                                <td>{{ $row->id }}</td>
-                                                <td>{{ $row->name }}</td>
-                                                <td>{{ $row->age }}</td>
-                                                <td>{{ $row->email }}</td>
-                                                <td>{{ $item->value }}</td>
-                                                <td>{{ $row->phone }}</td>
-                                                <td>{{ $key->value }}</td>
-                                                <td>{{ $row->birthday }}</td>
-                                                <td>{{ $row->level }}</td>
-                                                <td><a href="{{ route('addStaff.id', $row->id) }}" class="ThemDuLieu btn btn-info">Thêm</a></td>
-                                            </tr>
-                                        @endif
-                                    @endforeach
-                                @endforeach
-                            @endforeach
+                            {{--show noi dung o day--}}
                             </tbody>
                         </table>
                     <div class="ajax-loading" style="text-align: center;"><img src="{{ asset('images/default (6).gif') }}" /></div>
