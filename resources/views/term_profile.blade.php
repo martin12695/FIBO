@@ -759,8 +759,8 @@
                                 <div class="tw3-thumbsHolder">
                                     <div class="tw3-row">
                                         @foreach($photos as $photo)
-                                        <div class="tw3-thumb jsPhotoThumb">
-                                            <a class="tw3-thumb__link fancybox" rel="gallery1" href="{{url('album/'.$photo->link)}}">
+                                        <div class="tw3-thumb jsPhotoThumb photo_image" data-image="{{$photo->id}}">
+                                            <a class="tw3-thumb__link fancybox" rel="gallery1" title="<button onclick='delImage({{$photo->id}})'>Xóa</button>"  href="{{url('album/'.$photo->link)}}">
                                                 <img class="jsTriggerPhotoBox tw3-thumb__link__image" alt="" src="{{url('album/'.$photo->link)}}">
                                             </a>
                                         </div>

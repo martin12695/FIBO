@@ -543,7 +543,7 @@
                                     <div class="tw3-thumbsHolder">
                                         @foreach($photos as $photo)
                                             <div class="tw3-thumb jsPhotoThumb">
-                                                <a class="tw3-thumb__link fancybox" rel="gallery1" href="{{url('album/'.$photo->link)}}">
+                                                <a class="tw3-thumb__link fancybox" rel="gallery1" href="{{url('album/'.$photo->link)}}" title="Lorem ipsum dolor sit amet">
                                                     <img class="jsTriggerPhotoBox tw3-thumb__link__image" alt="" src="{{url('album/'.$photo->link)}}">
                                                 </a>
                                             </div>
