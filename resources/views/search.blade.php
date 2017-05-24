@@ -97,9 +97,8 @@
                                                                     </div>
                                                                 </a>
                                                             </div>
-                                                            <?php $getAge = \App\Http\Middleware\FunctionBasic::getAge($people->birthday);?>
                                                             <div>
-                                                                <strong><span class="name">{{ $people->name }}, {{ $getAge }} tuổi</span></strong>
+                                                                <strong><span class="name">{{ $people->name }}, {{ $people->age }} tuổi</span></strong>
                                                             </div>
                                                             <div class="tw3-card__userInfo__locAndWork">
                                                                 <span>Sống tại: {{ ($user->id_province == '79') ? 'Tp '.$user->value : $user->value }}</span>
