@@ -107,7 +107,7 @@
                                 <tr>
                                     <th></th>
                                     <th>
-                                        <span style="color: red;" id="thongbao"></span> <br>
+                                        <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none" class="text--subtle" id="error_age">Tuổi chưa đủ để tham gia</div> <br>
                                         <button id="btn-submit" type="button" class="btn btn-primary"><div id="ajax-loader">Thêm</div></button>
                                     </th>
                                 </tr>
@@ -246,6 +246,13 @@
                         }
                         if(data == 1){
                             window.location.replace('/admin/staff');
+                        }
+                        if(data == 3){
+                            $('#error_age').show();
+                            setTimeout(function () {
+                                $('#error_age').hide();
+                            }, 3000);
+                            flag = false;
                         }
                     }
                 });

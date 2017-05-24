@@ -58,18 +58,22 @@ class UserManagerController
             $member = 'Member';
             $from = new DateTime($date);
             $to = new DateTime('today');
-            try {
+            if($from->diff($to)->y >= '18' && $from->diff($to)->y <= '60'){
+                try {
 
-                DB::table('users')->insert(
-                    ['email' => $info['email'],'sex' => $info['sex'],'password' => $passMd5, 'name' => $info['name'],
-                        'phone' => $info['phone'],'come_from' => $info['province'], 'birthday' => $date,'level' => $member,
-                        'age' => $from->diff($to)->y]
-                );
-                return \Response::json(1);
-            }
-            catch(Exception $e) {
-                return \Response::json(0);
-            }
+                    DB::table('users')->insert(
+                        ['email' => $info['email'],'sex' => $info['sex'],'password' => $passMd5, 'name' => $info['name'],
+                            'phone' => $info['phone'],'come_from' => $info['province'], 'birthday' => $date,'level' => $member,
+                            'age' => $from->diff($to)->y]
+                    );
+                    return \Response::json(1);
+                }
+                catch(Exception $e) {
+                    return \Response::json(0);
+                }
+            }else
+                return \Response::json(3);
+
         }
     }
 
