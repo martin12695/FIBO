@@ -136,7 +136,7 @@
                                 <th>Add</th>
                             </tr>
                             <tr class="warning no-result">
-                                <td colspan="9"><i class="fa fa-warning"></i> No result</td>
+                                <td colspan="9"><i class="fa fa-warning"></i> Kết quả tìm kiếm không thấy</td>
                             </tr>
                             </thead>
                             @foreach($user as $row)
@@ -288,7 +288,7 @@
                 });
 
                 var jobCount = $('.results tbody tr[visible="true"]').length;
-                $('.counter').text(jobCount + ' item');
+                $('.counter').text(jobCount + ' thành viên');
 
                 if(jobCount == '0') {$('.no-result').show();}
                 else {$('.no-result').hide();}

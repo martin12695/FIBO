@@ -115,8 +115,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::post('/edit-member/{id}', ['as' => 'postEdit.id', 'uses' => 'UserManagerController@postEdit']);
     Route::get('/del-member/{id}', ['as' => 'getDel.id', 'uses' => 'UserManagerController@getDel']);
     Route::get('/staff', 'AdminManagerController@getAdmin');
-    Route::get('/edit-staff/{id}', ['as' => 'getEdit.id', 'uses' => 'AdminManagerController@getEdit']);
-    Route::post('/edit-staff/{id}', ['as' => 'postEdit.id', 'uses' => 'AdminManagerController@postEdit']);
+    Route::get('/edit-staff/{id}', ['as' => 'getEditStaff.id', 'uses' => 'AdminManagerController@getEdit']);
+    Route::post('/edit-staff/{id}', ['as' => 'postEditStaff.id', 'uses' => 'AdminManagerController@postEdit']);
     Route::get('/add-staff', function (){
         $province =  DB::table('province')->get();
         $user = DB::table('users')
