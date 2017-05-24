@@ -15,6 +15,9 @@
         padding:8px;
         color:#ccc;
     }
+    #showLoad tr{
+        display: none;
+    }
 </style>
     <div id="page-wrapper">
         <div class="container-fluid">
@@ -139,11 +142,11 @@
                                 <td colspan="9"><i class="fa fa-warning"></i> Kết quả tìm kiếm không thấy</td>
                             </tr>
                             </thead>
+                            <tbody id="result_table">
                             @foreach($user as $row)
                                 @foreach($sex as $item)
                                     @foreach($come_from as $key)
                                         @if( $item->id == $row->id && $key->id == $item->id && $key->id == $row->id)
-                                            <tbody>
                                             <tr id="myTableRow">
                                                 <td>{{ $row->id }}</td>
                                                 <td>{{ $row->name }}</td>
@@ -156,17 +159,57 @@
                                                 <td>{{ $row->level }}</td>
                                                 <td><a href="{{ route('addStaff.id', $row->id) }}" class="ThemDuLieu btn btn-info">Thêm</a></td>
                                             </tr>
-                                            </tbody>
                                         @endif
                                     @endforeach
                                 @endforeach
                             @endforeach
+                            </tbody>
                         </table>
+                    <div class="ajax-loading" style="text-align: center;"><img src="{{ asset('images/default (6).gif') }}" /></div>
                 </div>
-
             </div>
         </div>
     </div>
+{{--scrip load more ajax--}}
+<script>
+    var page = 1; //track user scroll as page number, right now page number is 1
+    load_more(page); //initial content load
+    $(window).scroll(function() { //detect page scroll
+        if($(window).scrollTop() + $(window).height() >= $(document).height()) { //if user scrolled from top to bottom of the page
+            page++; //page number increment
+            load_more(page); //load content
+        }
+    });
+    function load_more(page){
+        $.ajax(
+                {
+                    url: '?page=' + page,
+                    type: "get",
+                    datatype: "html",
+                    beforeSend: function()
+                    {
+                        $('.ajax-loading').show();
+                    }
+                })
+                .done(function(data)
+                {
+                    if(data.length == 0){
+                        console.log(data.length);
+
+                        //notify user if nothing to load
+                        $('.ajax-loading').html("Đã load xong dữ liệu!");
+                        return;
+                    }
+                    $('.ajax-loading').hide(); //hide loading animation once data is received
+                    $("#result_table").append(data); //append data into #results element
+                })
+                .fail(function(jqXHR, ajaxOptions, thrownError)
+                {
+                    alert('No response from server');
+                });
+    }
+</script>
+{{--scrip dieu kien them tai khoan--}}
     <script>
         $("#btn-submit").click(function() {
             //get input field values
@@ -259,6 +302,7 @@
             }
         });
     </script>
+{{--scrip show hide select option--}}
     <script>
         $(document).ready(function(){
             $("#showOption").change(function(){
@@ -274,6 +318,7 @@
             });
         });
     </script>
+{{--scrip search jquery--}}
     <script>
         $(document).ready(function() {
             $(".search").keyup(function () {
@@ -302,6 +347,7 @@
             });
         });
     </script>
+{{--scrip bang thong bao confirm--}}
     <script>
         $(document).ready(function () {
             $('.ThemDuLieu').click(function(){

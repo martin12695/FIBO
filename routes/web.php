@@ -117,12 +117,13 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/staff', 'AdminManagerController@getAdmin');
     Route::get('/edit-staff/{id}', ['as' => 'getEditStaff.id', 'uses' => 'AdminManagerController@getEdit']);
     Route::post('/edit-staff/{id}', ['as' => 'postEditStaff.id', 'uses' => 'AdminManagerController@postEdit']);
-    Route::get('/add-staff', function (){
+    Route::get('/add-staff', function (\Illuminate\Http\Request $request){
         $province =  DB::table('province')->get();
+        $html = '';
         $user = DB::table('users')
             ->where([['id', '!=', Auth::id()], ['level','!=', 'Admin']])
             ->orderBy('created', 'desc')
-            ->get();
+            ->paginate(6);
         $sex = DB::table('option_sex')
             ->join('users', 'option_sex.id', '=', 'sex')
             ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
@@ -133,6 +134,30 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
             ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
             ->select('users.id', 'province.id_province','province.value')
             ->get();
+        foreach($user as $row){
+            foreach($sex as $item)
+            {
+                foreach($come_form as $key){
+                    if( $item->id == $row->id && $key->id == $item->id && $key->id == $row->id){
+                        $html .= '<tr id="myTableRow">
+                                      <td>'.$row->id.'</td>
+                                      <td>'.$row->name.'</td>
+                                      <td>'.$row->age.'</td>
+                                      <td>'.$row->email.'</td>
+                                      <td>'.$item->value.'</td>
+                                      <td>'.$row->phone.'</td>
+                                      <td>'.$key->value.'</td>
+                                      <td>'.$row->birthday.'</td>
+                                      <td>'.$row->level.'</td>
+                                      <td><a href="'.route('addStaff.id', $row->id).'" class="ThemDuLieu btn btn-info">Thêm</a></td>
+                                   </tr>';
+                    }
+                }
+            }
+        }
+        if ($request->ajax()) {
+            return $html;
+        }
         return view('admin.addStaff',[
             'province' => $province,
             'user' => $user,
