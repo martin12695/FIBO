@@ -114,6 +114,13 @@ class UserManagerController
                         ->where('id', $id)
                         ->update(['sex' => $info['sex']]);
                 }
+                if($user->birthday == $info['birthday']){
+                    $from = new DateTime($info['birthday']);
+                    $to = new DateTime('today');
+                    DB::table('users')
+                        ->where('id', $id)
+                        ->update(['age' => $from->diff($to)->y]);
+                }
                 if( Input::has('birthday') ){
                     DB::table('users')
                         ->where('id', $id)
