@@ -87,6 +87,7 @@ Route::get('image-upload','ImageController@imageUpload');
 Route::post('image-upload','ImageController@imageUploadPost');
 Route::post('/deleteImage/{id}','ImageController@deleteImage')->where(['id' => '[0-9]+']);
 Route::post('uploadPhoto','ImageController@uploadPhoto');
+Route::post('uploadstudentId','ImageController@uploadstudentId');
 
 
 Route::post('sendMessage', array('uses' => 'ChatController@sendMessage'));

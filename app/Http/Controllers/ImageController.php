@@ -71,4 +71,25 @@ class ImageController extends Controller
         DB::table('user_album')->where('id',$id)->delete();
 
     }
+
+    public function uploadstudentId(Request $request){
+        if($files=$request->file('images')){
+            foreach($files as $file){
+                $validator = Validator::make(
+                    array('file' => $file),
+                    array('file' => 'required|mimes:jpeg,png|image|max:1000')
+                );
+                if ($validator->passes()) {
+                    $name=time().$file->getClientOriginalName();
+                    $file->move('album',$name);
+                    DB::table('user_image_authen')->insert([
+                        'user_id' => Auth::id(),
+                        'link'    => $name
+                    ]);
+                }
+            }
+            return back()->with('tab',2);
+
+        }
+    }
 }

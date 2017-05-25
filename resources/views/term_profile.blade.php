@@ -56,9 +56,10 @@
                             <a class="tw3-tab @if (Session::get('tab') == null) {{'selected'}} @endif" href="#panel=about" data-tab="about" style="text-decoration: none">Thông tin</a>
                             <a class="tw3-tab" href="#panel=details" data-tab="details" style="text-decoration: none">Chi tiết</a>
                             <a class="tw3-tab @if (Session::get('tab') == 1) {{'selected'}} @endif" href="#panel=photos" data-tab="photos" style="text-decoration: none">Hình</a>
+                            <a class="tw3-tab" @if (Session::get('tab') == 2) {{'selected'}} @endif href="#panel=details" data-tab="authen" style="text-decoration: none">Chứng thực</a>
                         </div>
                         <div class="jsPanels tw3-col--flex tab-content" style="margin-top:25px">
-                            <div data-tab="about" id="about" class="tw3-panel tab-item selected" @if (Session::get('tab') == 1) {{'hidden'}} @endif>
+                            <div data-tab="about" id="about" class="tw3-panel tab-item selected" @if (Session::get('tab') != null) {{'hidden'}} @endif>
                                 <div class="tw3-row">
                                     <div class="tw3-col-12">
                                         <div class="tw3-row">
@@ -319,19 +320,7 @@
                                                                                 </label>
                                                                             </div>
                                                                             <div class="tw3-form__row__input">
-                                                                                <input type="text" value="" name="mssv" class="tw3-text">
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="tw3-row">
-                                                                        <div class="tw3-col-12 mb--default">
-                                                                            <div class="tw3-form__row__label">
-                                                                                <label for="">
-                                                                                    Upload hình thẻ sinh viên
-                                                                                </label>
-                                                                            </div>
-                                                                            <div class="tw3-form__row__input">
-                                                                                <a style="left: 0px;" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-upload-image" data-toggle="modal" data-target="#myModal">Upload ảnh đại diện</a>
+                                                                                <input type="text" value="{{$info_basic->mssv}}" name="mssv" class="tw3-text">
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -375,6 +364,18 @@
                                                                                         <option value="{{$itemPro->id}}" {{$itemPro->id == $term ?  'selected="selected"' : ''}} >{{$itemPro->value}}</option>
                                                                                     @endforeach
                                                                                 </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="tw3-row">
+                                                                        <div class="tw3-col-12 mb--default">
+                                                                            <div class="tw3-form__row__label">
+                                                                                <label for="">
+                                                                                    Giới thiệu bản thân
+                                                                                </label>
+                                                                            </div>
+                                                                            <div class="tw3-dropdownHolder">
+                                                                               <textarea placeholder="Viết vài dòng về bạn" rows="6" class="tw3-col-12"></textarea>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -755,7 +756,7 @@
                                     </div>
                                 </form>
                             </div>
-                            <div data-tab="photos"  id="photos" class="tw3-panel tab-item" @if (Session::get('tab') == null) {{'hidden'}} @endif>
+                            <div data-tab="photos"  id="photos" class="tw3-panel tab-item" @if (Session::get('tab') == null || Session::get('tab') == 2 ) {{'hidden'}} @endif>
                                 <div class="tw3-thumbsHolder">
                                     <div class="tw3-row">
                                         @foreach($photos as $photo)
@@ -777,6 +778,46 @@
                                         </form>
                                     </div>
                                 </div>
+                            </div>
+                            <div data-tab="authen"  id="authen" class="tw3-panel tab-item tw3-editable__block" @if (Session::get('tab') == null || Session::get('tab') == 1 ) {{'hidden'}} @endif>
+                                <div class="">
+                                    <div class="tw3-field">
+                                        <div>
+                                            <div class="tw3-row">
+                                                <div class="tw3-col-12 mb--default">
+                                                    <div class="tw3-form__row__label">
+                                                        <label for="">
+                                                            Upload hình thẻ sinh viên
+                                                        </label>
+                                                    </div>
+                                                    <p>Vui lòng Upload 2 ảnh thẻ sinh viên (2 mặt) của bạn để chứng thực.(Kích thước mỗi tấm không quá 2mb)</p>
+                                                    <div class="tw3-row">
+                                                        @foreach($photos_authen as $photo)
+                                                            <div class="tw3-thumb jsPhotoThumb photo_image" data-image="{{$photo->id}}">
+                                                                <a class="tw3-thumb__link fancybox" rel="gallery1" title="<button onclick='delImage({{$photo->id}})'>Xóa</button>"  href="{{url('album/'.$photo->link)}}">
+                                                                    <img class="jsTriggerPhotoBox tw3-thumb__link__image" alt="" src="{{url('album/'.$photo->link)}}">
+                                                                </a>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                    <div class="tw3-col-8">
+                                                        <form id="updateStudent" class="form-horizontal" enctype="multipart/form-data" method="post" action="/uploadstudentId">
+                                                            {{ csrf_field() }}
+                                                            <div class="box js ">
+                                                                <input type="file" name="images[]" id="file-2" class="inputfile inputfile-1" data-multiple-caption="{count} hình được chọn" multiple  />
+                                                                <label for="file-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> <span>Chọn hình&hellip;</span></label>
+                                                                <input type="submit" class="btn btn-primary" style="float:right" form="updateStudent"/>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="tw3-row"><span>Trạng thái: Chưa được chứng thực</span></div>
+                                            <p class="tw3-row"><i>Sau khi chứng thực thành công bạn có thể sử dụng hết tất cả dịch vụ của FIBO.</i></p>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -97,6 +97,7 @@ class UserController
             $date = new DateTime($info->birthday);
             $info->birthday = $date->format('d/m/Y');
             $photos = DB::table('user_album')->where('user_id', Auth::id())->get();
+            $photos_authen = DB::table('user_image_authen')->where('user_id', Auth::id())->get();
             return view('term_profile',[
                 'info_basic' => $info,
                 'sex'        => $sex,
@@ -115,7 +116,8 @@ class UserController
                 'body'       => $body,
                 'province'   => $province,
                 'school'     => $school,
-                'photos'     => $photos
+                'photos'     => $photos,
+                'photos_authen'=> $photos_authen
             ]);
         }
     }
