@@ -25,25 +25,29 @@ use DateTime;
 class AdminManagerController
 {
     public function getAdmin(){
-        $user = DB::table('users')
-            ->where('level','=', 'Admin')
-            ->orderBy('created', 'desc')
-            ->paginate(6);
-        $sex = DB::table('option_sex')
-            ->join('users', 'option_sex.id', '=', 'sex')
-            ->where('users.level','=', 'Admin')
-            ->select('*')
-            ->get();
-        $come_form = DB::table('users')
-            ->join('province', 'come_from', '=', 'province.id_province')
-            ->where('users.level','=', 'Admin')
-            ->select('users.id', 'province.id_province','province.value')
-            ->get();
-        return view('admin.staff',[
-            'user' => $user,
-            'sex' => $sex,
-            'come_from' => $come_form,
-        ]);
+        if(Auth::check()){
+            $user = DB::table('users')
+                ->where('level','=', 'Admin')
+                ->orderBy('created', 'desc')
+                ->paginate(6);
+            $sex = DB::table('option_sex')
+                ->join('users', 'option_sex.id', '=', 'sex')
+                ->where('users.level','=', 'Admin')
+                ->select('*')
+                ->get();
+            $come_form = DB::table('users')
+                ->join('province', 'come_from', '=', 'province.id_province')
+                ->where('users.level','=', 'Admin')
+                ->select('users.id', 'province.id_province','province.value')
+                ->get();
+            return view('admin.staff',[
+                'user' => $user,
+                'sex' => $sex,
+                'come_from' => $come_form,
+            ]);
+        }else
+            return view('admin.login');
+
     }
 
     public function addUser(Request $request){
@@ -58,18 +62,33 @@ class AdminManagerController
             $member = 'Admin';
             $from = new DateTime($date);
             $to = new DateTime('today');
-            try {
+            if($from->diff($to)->y >= '18' && $from->diff($to)->y <= '60'){
+                try {
 
-                DB::table('users')->insert(
-                    ['email' => $info['email'],'sex' => $info['sex'],'password' => $passMd5, 'name' => $info['name'],
-                        'phone' => $info['phone'],'come_from' => $info['province'], 'birthday' => $date,'level' => $member,
-                        'age' => $from->diff($to)->y]
-                );
-                return \Response::json(1);
-            }
-            catch(Exception $e) {
-                return \Response::json(0);
-            }
+                    DB::table('users')->insert(
+                        ['email' => $info['email'],'sex' => $info['sex'],'password' => $passMd5, 'name' => $info['name'],
+                            'phone' => $info['phone'],'come_from' => $info['province'], 'birthday' => $date,'level' => $member,
+                            'age' => $from->diff($to)->y]
+                    );
+                    return \Response::json(1);
+                }
+                catch(Exception $e) {
+                    return \Response::json(0);
+                }
+            }else
+                return \Response::json(3);
+
+        }
+    }
+
+    public function addUserOther($id){
+        $id = intval($id);
+        if (!$id){
+            return Redirect::to('/admin/staff');
+        }else{
+            $term = 'Admin';
+            DB::table('users')->where('id', $id)->update(['level' => $term]);
+            return Redirect::to('/admin/staff');
         }
     }
 

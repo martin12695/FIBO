@@ -9,17 +9,17 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Sửa thành viên
+                        Sửa nhân viên
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>  <a href="{{ url('/admin/index') }}">Trang chủ</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> <a href="{{ url('/admin/member') }}">Danh sách thành viên</a>
+                            <i class="fa fa-file"></i> <a href="{{ url('/admin/staff') }}">Danh sách nhân viên</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> Sửa thành viên
+                            <i class="fa fa-file"></i> Sửa nhân viên
                         </li>
                     </ol>
                 </div>

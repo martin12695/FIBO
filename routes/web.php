@@ -109,20 +109,73 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/index','AdminController@index');
     Route::get('/member', 'UserManagerController@getUser');
     Route::get('/add-member', function (){
-        $province =  DB::table('province')->get();
-        return view('admin.addMember',compact('province', $province));
+        if (Auth::check()){
+            $province =  DB::table('province')->get();
+            return view('admin.addMember',compact('province', $province));
+        }else
+            return view('admin.login');
+
     });
     Route::post('/add-member', 'UserManagerController@addUser');
     Route::get('/edit-member/{id}', ['as' => 'getEdit.id', 'uses' => 'UserManagerController@getEdit']);
     Route::post('/edit-member/{id}', ['as' => 'postEdit.id', 'uses' => 'UserManagerController@postEdit']);
     Route::get('/del-member/{id}', ['as' => 'getDel.id', 'uses' => 'UserManagerController@getDel']);
     Route::get('/staff', 'AdminManagerController@getAdmin');
-    Route::get('/edit-staff/{id}', ['as' => 'getEdit.id', 'uses' => 'AdminManagerController@getEdit']);
-    Route::post('/edit-staff/{id}', ['as' => 'postEdit.id', 'uses' => 'AdminManagerController@postEdit']);
-    Route::get('/add-staff', function (){
-        $province =  DB::table('province')->get();
-        return view('admin.addStaff',compact('province', $province));
+    Route::get('/edit-staff/{id}', ['as' => 'getEditStaff.id', 'uses' => 'AdminManagerController@getEdit']);
+    Route::post('/edit-staff/{id}', ['as' => 'postEditStaff.id', 'uses' => 'AdminManagerController@postEdit']);
+    Route::get('/add-staff', function (\Illuminate\Http\Request $request){
+        if (Auth::check()){
+            $province =  DB::table('province')->get();
+            $html = '';
+            $user = DB::table('users')
+                ->where([['id', '!=', Auth::id()], ['level','!=', 'Admin']])
+                ->orderBy('created', 'desc')
+                ->paginate(6);
+            $sex = DB::table('option_sex')
+                ->join('users', 'option_sex.id', '=', 'sex')
+                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+                ->select('*')
+                ->get();
+            $come_form = DB::table('users')
+                ->join('province', 'come_from', '=', 'province.id_province')
+                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+                ->select('users.id', 'province.id_province','province.value')
+                ->get();
+            foreach($user as $row){
+                foreach($sex as $item)
+                {
+                    foreach($come_form as $key){
+                        if( $item->id == $row->id && $key->id == $item->id && $key->id == $row->id){
+                            $html .= '<tr id="myTableRow">
+                                      <td>'.$row->id.'</td>
+                                      <td>'.$row->name.'</td>
+                                      <td>'.$row->age.'</td>
+                                      <td>'.$row->email.'</td>
+                                      <td>'.$item->value.'</td>
+                                      <td>'.$row->phone.'</td>
+                                      <td>'.$key->value.'</td>
+                                      <td>'.$row->birthday.'</td>
+                                      <td>'.$row->level.'</td>
+                                      <td><a href="'.route('addStaff.id', $row->id).'" class="ThemDuLieu btn btn-info">Thêm</a></td>
+                                   </tr>';
+                        }
+                    }
+                }
+            }
+            if ($request->ajax()) {
+                return $html;
+            }
+            return view('admin.addStaff',[
+                'province' => $province,
+                'user' => $user,
+                'sex' => $sex,
+                'come_from' => $come_form
+            ]);
+        }else
+            return view('admin.login');
+
     });
     Route::post('/add-staff', 'AdminManagerController@addUser');
+    Route::get('/add-staff/{id}', ['as' => 'addStaff.id', 'uses' => 'AdminManagerController@addUserOther']);
 });
 

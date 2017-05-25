@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+@if(Session::has('UserName'))
+        <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -53,8 +54,8 @@
                     <i class="fa fa-user"></i>
                     @if(Session::has('UserName'))
                         {{ Session::get('UserName') }}
-                        @endif
-                        <b class="caret"></b></a>
+                    @endif
+                    <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li>
                         <a href="{{ url('/admin/member') }}"><i class="fa fa-fw fa-user"></i> Thành viên</a>
@@ -102,3 +103,6 @@
 </body>
 <script src="/js/jsAdmin/bootstrap.min.js"></script>
 </html>
+@else
+    @include('error.404')
+@endif

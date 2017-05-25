@@ -25,25 +25,29 @@ use DateTime;
 class UserManagerController
 {
     public function getUser(){
-        $user = DB::table('users')
-            ->where([['id', '!=', Auth::id()], ['level','!=', 'Admin']])
-            ->orderBy('created', 'desc')
-            ->paginate(6);
-        $sex = DB::table('option_sex')
-            ->join('users', 'option_sex.id', '=', 'sex')
-            ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
-            ->select('*')
-            ->get();
-        $come_form = DB::table('users')
-            ->join('province', 'come_from', '=', 'province.id_province')
-            ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
-            ->select('users.id', 'province.id_province','province.value')
-            ->get();
-        return view('admin.member',[
-           'user' => $user,
-            'sex' => $sex,
-            'come_from' => $come_form,
-        ]);
+        if(Auth::check()){
+            $user = DB::table('users')
+                ->where([['id', '!=', Auth::id()], ['level','!=', 'Admin']])
+                ->orderBy('created', 'desc')
+                ->paginate(6);
+            $sex = DB::table('option_sex')
+                ->join('users', 'option_sex.id', '=', 'sex')
+                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+                ->select('*')
+                ->get();
+            $come_form = DB::table('users')
+                ->join('province', 'come_from', '=', 'province.id_province')
+                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+                ->select('users.id', 'province.id_province','province.value')
+                ->get();
+            return view('admin.member',[
+                'user' => $user,
+                'sex' => $sex,
+                'come_from' => $come_form,
+            ]);
+        }else
+            return view('admin.login');
+
     }
 
     public function addUser(Request $request){
@@ -58,18 +62,22 @@ class UserManagerController
             $member = 'Member';
             $from = new DateTime($date);
             $to = new DateTime('today');
-            try {
+            if($from->diff($to)->y >= '18' && $from->diff($to)->y <= '60'){
+                try {
 
-                DB::table('users')->insert(
-                    ['email' => $info['email'],'sex' => $info['sex'],'password' => $passMd5, 'name' => $info['name'],
-                        'phone' => $info['phone'],'come_from' => $info['province'], 'birthday' => $date,'level' => $member,
-                        'age' => $from->diff($to)->y]
-                );
-                return \Response::json(1);
-            }
-            catch(Exception $e) {
-                return \Response::json(0);
-            }
+                    DB::table('users')->insert(
+                        ['email' => $info['email'],'sex' => $info['sex'],'password' => $passMd5, 'name' => $info['name'],
+                            'phone' => $info['phone'],'come_from' => $info['province'], 'birthday' => $date,'level' => $member,
+                            'age' => $from->diff($to)->y]
+                    );
+                    return \Response::json(1);
+                }
+                catch(Exception $e) {
+                    return \Response::json(0);
+                }
+            }else
+                return \Response::json(3);
+
         }
     }
 
@@ -114,6 +122,13 @@ class UserManagerController
                         ->where('id', $id)
                         ->update(['sex' => $info['sex']]);
                 }
+                if($user->birthday == $info['birthday']){
+                    $from = new DateTime($info['birthday']);
+                    $to = new DateTime('today');
+                    DB::table('users')
+                        ->where('id', $id)
+                        ->update(['age' => $from->diff($to)->y]);
+                }
                 if( Input::has('birthday') ){
                     DB::table('users')
                         ->where('id', $id)
@@ -140,7 +155,7 @@ class UserManagerController
     }
 
     public function getDel($id){
-        $id = intval($id);
+
         if (!$id){
             return Redirect::to('/admin/member');
         }else{

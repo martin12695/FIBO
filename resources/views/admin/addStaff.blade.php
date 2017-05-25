@@ -1,8 +1,24 @@
 @extends('admin.layouts.master_admin')
 @section('title','Dashboard')
 @section('content')
+<style>
+    .results tr[visible='false'],
+    .no-result{
+        display:none;
+    }
 
+    .results tr[visible='true']{
+        display:table-row;
+    }
 
+    .counter{
+        padding:8px;
+        color:#ccc;
+    }
+    #showLoad tr{
+        display: none;
+    }
+</style>
     <div id="page-wrapper">
         <div class="container-fluid">
             <!-- Page Heading -->
@@ -23,7 +39,15 @@
                         </li>
                     </ol>
                 </div>
-                <div class="col-lg-12">
+                <div class="col-lg-12" style="width: 22%">
+                    <select class="form-control" id="showOption" name="option">
+                        <option value="1">Thêm mới nhân viên</option>
+                        <option value="2">Lấy danh sách thành viên</option>
+                    </select>
+                </div>
+                <hr class="col-xs-12">
+
+                <div class="col-lg-12" id="addNew">
                     <div >
                         <form>
                             <table class="table table-bordered">
@@ -86,7 +110,7 @@
                                 <tr>
                                     <th></th>
                                     <th>
-                                        <span style="color: red;" id="thongbao"></span> <br>
+                                        <div style="text-transform: none;font-weight: normal;margin-top: 10px;color: #FF0000;display: none" class="text--subtle" id="error_age">Tuổi chưa đủ để tham gia</div> <br>
                                         <button id="btn-submit" type="button" class="btn btn-primary"><div id="ajax-loader">Thêm</div></button>
                                     </th>
                                 </tr>
@@ -94,9 +118,79 @@
                         </form>
                     </div>
                 </div>
+
+                <div class="col-lg-12" style="display: none;" id="currentMember">
+                    <div class="form-group pull-right">
+                        <input type="text" class="search form-control" placeholder="What you looking for?">
+                    </div>
+                    <span class="counter pull-right"></span>
+                    <table class="table table-bordered table-hover results">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                                <th>Sex</th>
+                                <th>Phone</th>
+                                <th>Come From</th>
+                                <th>Birthday</th>
+                                <th>Level</th>
+                                <th>Add</th>
+                            </tr>
+                            <tr class="warning no-result">
+                                <td colspan="9"><i class="fa fa-warning"></i> Kết quả tìm kiếm không thấy</td>
+                            </tr>
+                            </thead>
+                            <tbody id="result_table">
+                            {{--show noi dung o day--}}
+                            </tbody>
+                        </table>
+                    <div class="ajax-loading" style="text-align: center;"><img src="{{ asset('images/default (6).gif') }}" /></div>
+                </div>
             </div>
         </div>
     </div>
+{{--scrip load more ajax--}}
+<script>
+    var page = 1; //track user scroll as page number, right now page number is 1
+    load_more(page); //initial content load
+    $(window).scroll(function() { //detect page scroll
+        if($(window).scrollTop() + $(window).height() >= $(document).height()) { //if user scrolled from top to bottom of the page
+            page++; //page number increment
+            load_more(page); //load content
+        }
+    });
+    function load_more(page){
+        $.ajax(
+                {
+                    url: '?page=' + page,
+                    type: "get",
+                    datatype: "html",
+                    beforeSend: function()
+                    {
+                        $('.ajax-loading').show();
+                    }
+                })
+                .done(function(data)
+                {
+                    if(data.length == 0){
+                        console.log(data.length);
+
+                        //notify user if nothing to load
+                        $('.ajax-loading').html("Done!");
+                        return;
+                    }
+                    $('.ajax-loading').hide(); //hide loading animation once data is received
+                    $("#result_table").append(data); //append data into #results element
+                })
+                .fail(function(jqXHR, ajaxOptions, thrownError)
+                {
+                    alert('No response from server');
+                });
+    }
+</script>
+{{--scrip dieu kien them tai khoan--}}
     <script>
         $("#btn-submit").click(function() {
             //get input field values
@@ -177,9 +271,74 @@
                         if(data == 1){
                             window.location.replace('/admin/staff');
                         }
+                        if(data == 3){
+                            $('#error_age').show();
+                            setTimeout(function () {
+                                $('#error_age').hide();
+                            }, 3000);
+                            flag = false;
+                        }
                     }
                 });
             }
+        });
+    </script>
+{{--scrip show hide select option--}}
+    <script>
+        $(document).ready(function(){
+            $("#showOption").change(function(){
+                if($("#showOption").val() == '2'){
+                    //Show text box here
+                    $("#currentMember").show();
+                    $("#addNew").hide();
+                }
+                else{
+                    $("#currentMember").hide();
+                    $("#addNew").show();
+                }
+            });
+        });
+    </script>
+{{--scrip search jquery--}}
+    <script>
+        $(document).ready(function() {
+            $(".search").keyup(function () {
+                var searchTerm = $(".search").val();
+                var listItem = $('.results tbody').children('tr');
+                var searchSplit = searchTerm.replace(/ /g, "'):containsi('")
+
+                $.extend($.expr[':'], {'containsi': function(elem, i, match, array){
+                    return (elem.textContent || elem.innerText || '').toLowerCase().indexOf((match[3] || "").toLowerCase()) >= 0;
+                }
+                });
+
+                $(".results tbody tr").not(":containsi('" + searchSplit + "')").each(function(e){
+                    $(this).attr('visible','false');
+                });
+
+                $(".results tbody tr:containsi('" + searchSplit + "')").each(function(e){
+                    $(this).attr('visible','true');
+                });
+
+                var jobCount = $('.results tbody tr[visible="true"]').length;
+                $('.counter').text(jobCount + ' thành viên');
+
+                if(jobCount == '0') {$('.no-result').show();}
+                else {$('.no-result').hide();}
+            });
+        });
+    </script>
+{{--scrip bang thong bao confirm--}}
+    <script>
+        $(document).ready(function () {
+            $('.ThemDuLieu').click(function(){
+                if(confirm("Bạn có thực muốn thêm !")){
+                    $('#myTableRow').remove();
+                    return true;
+                }else {
+                    return false;
+                }
+            });
         });
     </script>
 @endsection
