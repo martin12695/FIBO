@@ -149,6 +149,18 @@ class UserManagerController
                         ->where('id', $id)
                         ->update(['password' => $passHash]);
                 }
+                $term = '';
+                if( Input::has('level') ){
+                    if($info['level'] == '2'){
+                        $term = 'Member';
+                    }
+                    if($info['level'] == '3'){
+                        $term = 'Quest';
+                    }
+                    DB::table('users')
+                        ->where('id', $id)
+                        ->update(['level' => $term]);
+                }
             }
             return \Response::json(1);
         }

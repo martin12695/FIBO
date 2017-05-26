@@ -90,6 +90,21 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th>Cấp bậc</th>
+                                    <td>
+                                        <select name="level" id="level" class="form-control">
+                                            @if($user->level == 'Member')
+                                                <option value="2" checked>Member</option>
+                                                <option value="3">Quest</option>
+                                            @endif
+                                            @if($user->level == 'Quest')
+                                                <option value="2">Member</option>
+                                                <option value="3" checked>Quest</option>
+                                            @endif
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th></th>
                                     <th>
                                         <span style="color: red;" id="thongbao"></span> <br>
@@ -113,6 +128,7 @@
             var email = $('#email').val();
             var phone = $('#phone').val();
             var password = $('#password').val();
+            var level = $('#level').val();
             var pathArray = window.location.pathname.split( '/' );
             var page = pathArray[3];
             var flag = true;
@@ -132,7 +148,8 @@
                         birthday : birthday,
                         email : email,
                         phone : phone,
-                        password : password
+                        password : password,
+                        level : level
                     },
                     beforeSend: function()
                     {
