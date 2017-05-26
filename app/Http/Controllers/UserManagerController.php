@@ -27,17 +27,17 @@ class UserManagerController
     public function getUser(){
         if(Auth::check()){
             $user = DB::table('users')
-                ->where([['id', '!=', Auth::id()], ['level','!=', 'Admin']])
+                ->where([['id', '!=', Auth::id()], ['level','!=', 'Admin'], ['level', '!=', 'Quest']])
                 ->orderBy('created', 'desc')
                 ->paginate(6);
             $sex = DB::table('option_sex')
                 ->join('users', 'option_sex.id', '=', 'sex')
-                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin'], ['level', '!=', 'Quest']])
                 ->select('*')
                 ->get();
             $come_form = DB::table('users')
                 ->join('province', 'come_from', '=', 'province.id_province')
-                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin'], ['level', '!=', 'Quest']])
                 ->select('users.id', 'province.id_province','province.value')
                 ->get();
             return view('admin.member',[
@@ -167,17 +167,17 @@ class UserManagerController
     public function getTermMember(){
         if(Auth::check()){
             $user = DB::table('users')
-                ->where([['id', '!=', Auth::id()], ['level','!=', 'Admin']])
+                ->where([['id', '!=', Auth::id()], ['level','!=', 'Admin'], ['level', '!=', 'Member']])
                 ->orderBy('created', 'desc')
                 ->paginate(6);
             $sex = DB::table('option_sex')
                 ->join('users', 'option_sex.id', '=', 'sex')
-                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin'], ['level', '!=', 'Member']])
                 ->select('*')
                 ->get();
             $come_form = DB::table('users')
                 ->join('province', 'come_from', '=', 'province.id_province')
-                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin']])
+                ->where([['users.id', '!=', Auth::id()], ['users.level','!=', 'Admin'], ['level', '!=', 'Member']])
                 ->select('users.id', 'province.id_province','province.value')
                 ->get();
             return view('admin.term-member',[
@@ -187,5 +187,32 @@ class UserManagerController
             ]);
         }else
             return view('admin.login');
+    }
+
+    public function delTermMember($id){
+        $id = intval($id);
+        if (!$id){
+            return Redirect::to('/admin/term-member');
+        }else{
+            DB::table('users')->where('id', $id)->delete();
+            return back();
+        }
+    }
+
+    public function getEditTermMember($id){
+        $id = intval($id);
+        if(!$id){
+            return Redirect::to('/admin/term-member');
+        }
+        $user = DB::table('users')->where('id','=',$id)->first();
+        $province = DB::table('province')->get();
+        return view('admin.editTermMember', [
+            'user' => $user,
+            'province' => $province
+        ]);
+    }
+
+    public function postEditTermMember(){
+
     }
 }

@@ -179,5 +179,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::post('/add-staff', 'AdminManagerController@addUser');
     Route::get('/add-staff/{id}', ['as' => 'addStaff.id', 'uses' => 'AdminManagerController@addUserOther']);
     Route::get('/term-member', 'UserManagerController@getTermMember');
+    Route::get('/term-member/del/{id}', ['as' => 'delTermMember.id', 'uses' => 'UserManagerController@delTermMember']);
+    Route::get('/term-member/edit/{id}', ['as' => 'getEditTermMember.id', 'uses' => 'UserManagerController@getEditTermMember']);
+    Route::post('/term-member/edit/{id}', ['as' => 'postEditTermMember.id', 'uses' => 'UserManagerController@postEditTermMember']);
 });
 

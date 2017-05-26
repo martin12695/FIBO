@@ -8,16 +8,15 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Quản lý thành viên
+                        Quản lý thành viên đang duyệt
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>  <a href="{{ url('/admin/index') }}">Trang chủ</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> Thành viên
+                            <i class="fa fa-file"></i> Thành viên đang duyệt
                         </li>
-                        <li><a href="{{ url('/admin/add-member') }}" class="ThemDulieu btn btn-info">Thêm thành viên</a></li>
 
                     </ol>
                 </div>
@@ -53,8 +52,8 @@
                                             <td>{{ $key->value }}</td>
                                             <td>{{ $row->birthday }}</td>
                                             <td>{{ $row->level }}</td>
-                                            <td><a href="{{ route('getDel.id', $row->id) }}" class="XoaDuLieu btn btn-danger">Xóa</a></td>
-                                            <td><a href="{{ route('getEdit.id', $row->id) }}" class="SuaDuLieu btn btn-info">Sửa</a></td>
+                                            <td><a href="{{ route('delTermMember.id', $row->id) }}" class="XoaDuLieu btn btn-danger">Xóa</a></td>
+                                            <td><a href="{{ route('getEditTermMember.id', $row->id) }}" class="SuaDuLieu btn btn-info">Sửa</a></td>
                                         </tr>
                                     @endif
                                 @endforeach

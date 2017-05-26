@@ -9,17 +9,17 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Sửa nhân viên
+                        Sửa thành viên
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>  <a href="{{ url('/admin/index') }}">Trang chủ</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> <a href="{{ url('/admin/staff') }}">Danh sách nhân viên</a>
+                            <i class="fa fa-file"></i> <a href="{{ url('/admin/member') }}">Danh sách thành viên</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> Sửa nhân viên
+                            <i class="fa fa-file"></i> Sửa thành viên
                         </li>
                     </ol>
                 </div>
@@ -90,35 +90,12 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Cấp bậc</th>
-                                    <td>
-                                        <select name="level" id="level" class="form-control">
-                                            @if($user->level == 'Admin')
-                                                <option value="1" checked>Admin</option>
-                                                <option value="2">Member</option>
-                                                <option value="3">Quest</option>
-                                            @endif
-                                            @if($user->level == 'Member')
-                                                <option value="1">Admin</option>
-                                                <option value="2" checked>Member</option>
-                                                <option value="3">Quest</option>
-                                            @endif
-                                                @if($user->level == 'Quest')
-                                                    <option value="1">Admin</option>
-                                                    <option value="2">Member</option>
-                                                    <option value="3" checked>Quest</option>
-                                                @endif
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <th></th>
                                     <th>
                                         <span style="color: red;" id="thongbao"></span> <br>
                                         <button id="btn-submit" type="button" class="btn btn-primary"><div id="ajax-loader">Sửa</div></button>
                                     </th>
                                 </tr>
-
                             </table>
                         </form>
                     </div>
@@ -136,7 +113,6 @@
             var email = $('#email').val();
             var phone = $('#phone').val();
             var password = $('#password').val();
-            var level = $('#level').val();
             var pathArray = window.location.pathname.split( '/' );
             var page = pathArray[3];
             var flag = true;
@@ -148,7 +124,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     type: 'POST',
-                    url: "/admin/edit-staff/" + page,
+                    url: "/admin/edit-member/" + page,
                     data: {
                         name : name,
                         sex : sex,
@@ -156,8 +132,7 @@
                         birthday : birthday,
                         email : email,
                         phone : phone,
-                        password : password,
-                        level : level
+                        password : password
                     },
                     beforeSend: function()
                     {
@@ -170,10 +145,10 @@
                     },
                     success :  function(data) {
                         if(data == 0){
-                            window.location.replace('/admin/staff');
+                            window.location.replace('/admin/member');
                         }
                         if(data == 1){
-                            window.location.replace('/admin/staff');
+                            window.location.replace('/admin/member');
                         }
                     }
                 });
