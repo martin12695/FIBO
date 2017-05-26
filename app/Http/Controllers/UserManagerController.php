@@ -282,7 +282,26 @@ class UserManagerController
                 ->where('user_id', $id)
                 ->select('users.id','user_id', 'link')
                 ->get();
-            return view('admin.checkTermMember', compact('getImage', $getImage));
+            $getID = DB::table('users')
+                ->join('user_image_authen', 'user_id', '=', 'users.id')
+                ->where('user_id', $id)
+                ->select('users.id','user_id', 'link')
+                ->first();
+            return view('admin.checkTermMember', [
+                'getImage' => $getImage,
+                'getID' => $getID
+            ]);
+        }
+    }
+
+    public function getCheckedTermMember($id){
+        $id = intval($id);
+        if (!$id){
+            return Redirect::to('/admin/term-member');
+        }else {
+            $term = 'Member';
+            DB::table('users')->where('id', $id)->update(['level' => $term]);
+            return Redirect::to('/admin/term-member');
         }
     }
 }

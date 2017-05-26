@@ -26,30 +26,30 @@
         </div>
         <div class="col-lg-12">
             <div >
-                <table class="table table-bordered table-hover">
-                    <tr>
-                        <th>The front of the picture</th>
-                        <th>The back of the picture</th>
-                        <th>Pass</th>
-                        <th>Return</th>
-                    </tr>
-                    <tr>
-                        @if(isset($getImage))
-                            @foreach($getImage as $row)
-                        <td><img width="200" height="200" src="/album/{{ $row->link }}"></td>
-                            @endforeach
+                    <table class="table table-bordered table-hover">
+                        <tr>
+                            <th>The front of the picture</th>
+                            <th>The back of the picture</th>
+                            <th>Pass</th>
+                            <th>Return</th>
+                        </tr>
+                        <tr>
+                            @if(isset($getImage))
+                                @foreach($getImage as $row)
+                                    <td><img width="200" height="200" src="/album/{{ $row->link }}"></td>
+                                @endforeach
                             @else
-                            <td><img width="200" height="200" src="/album/no-avatar.png"></td>
-                            <td><img width="200" height="200" src="/album/no-avatar.png"></td>
-                        @endif
-                        <td>
-                            <a style="margin-top: 90px" href="" class="btn btn-success">Duyệt</a>
-                        </td>
-                        <td>
-                            <a style="margin-top: 90px" href="" class="XoaDuLieu btn btn-danger">Phản hồi</a>
-                        </td>
-                    </tr>
-                </table>
+                                <td><img width="200" height="200" src="/album/no-avatar.png"></td>
+                                <td><img width="200" height="200" src="/album/no-avatar.png"></td>
+                            @endif
+                            <td>
+                                <a style="margin-top: 90px" href="{{ route('getCheckedTermMember.id', $getID->user_id) }}" id="verification" class="btn btn-success">Duyệt</a>
+                            </td>
+                            <td>
+                                <a style="margin-top: 90px" href="" class="XoaDuLieu btn btn-danger">Phản hồi</a>
+                            </td>
+                        </tr>
+                    </table>
             </div>
         </div>
     </div>

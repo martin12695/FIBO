@@ -184,6 +184,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/term-member/edit/{id}', ['as' => 'getEditTermMember.id', 'uses' => 'UserManagerController@getEditTermMember']);
     Route::post('/term-member/edit/{id}', ['as' => 'postEditTermMember.id', 'uses' => 'UserManagerController@postEditTermMember']);
 
-    Route::get('/term-member/check/{id}', ['as' => 'getEditTermMember.id', 'uses' => 'UserManagerController@getCheckTermMember']);
+    Route::get('/term-member/check/{id}', ['as' => 'getCheckTermMember.id', 'uses' => 'UserManagerController@getCheckTermMember']);
+    Route::get('/term-member/checked/{id}', ['as' => 'getCheckedTermMember.id', 'uses' => 'UserManagerController@getCheckedTermMember']);
+
 });
 
