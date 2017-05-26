@@ -16,7 +16,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
-use Auth;
+use Auth, Mail;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use DateTime;
@@ -316,6 +316,28 @@ class UserManagerController
             $term = 'Member';
             DB::table('users')->where('id', $id)->update(['level' => $term]);
             return Redirect::to('/admin/term-member');
+        }
+    }
+
+    public function sendMail($id){
+        $id = intval($id);
+        if (!$id){
+            return Redirect::to('/admin/term-member');
+        }else {
+            $user = DB::table('users')->where('id', $id)->first();;
+
+            Mail::send('blank', array(
+                'user' => $user,
+                'content' => 'Chúng tôi vô cùng xin lỗi vì hình ảnh chứng thực của bạn không hợp lệ, nên bạn chưa thể làm thành viên chính thức của Website được.'),
+                function ($m) use ($user) {
+                $m->from('support@fibo.site', 'FIBO-SUPPORT');
+                $m->to($user->email, $user->name)->subject('Your reminder!');
+            });
+            
+            echo "<script>
+                alert('Đã gửi email thành công');
+                window.location = '".url('/admin/term-member')."'
+                </script>";
         }
     }
 }

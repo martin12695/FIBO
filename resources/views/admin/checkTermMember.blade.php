@@ -60,7 +60,7 @@
                             @endif
                             <td>
                                 <a style="margin-top: 90px" href="{{ route('getCheckedTermMember.id', $getID->user_id) }}" id="verification" class="btn btn-success">Xác Nhận</a>
-                                <a style="margin-top: 90px" href="" class="XoaDuLieu btn btn-danger">Phản hồi</a>
+                                <a style="margin-top: 90px" href="{{ route('sendMail.id', $getID->user_id) }}" class="SendDuLieu btn btn-danger">Phản hồi</a>
                             </td>
                         </tr>
                     </table>
@@ -69,12 +69,4 @@
         </div>
     </div>
 </div>
-<script>
-    $(document).ready(function () {
-        $('.XoaDuLieu').click(function(){
-            if(!confirm("Bạn có thực muốn xóa !"))
-                return false;
-        });
-    });
-</script>
     @endsection

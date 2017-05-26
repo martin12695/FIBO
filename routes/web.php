@@ -186,6 +186,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 
     Route::get('/term-member/check/{id}', ['as' => 'getCheckTermMember.id', 'uses' => 'UserManagerController@getCheckTermMember']);
     Route::get('/term-member/checked/{id}', ['as' => 'getCheckedTermMember.id', 'uses' => 'UserManagerController@getCheckedTermMember']);
-
+    Route::get('/term-member/send-mail/{id}', ['as' => 'sendMail.id', 'uses' => 'UserManagerController@sendMail']);
 });
 
