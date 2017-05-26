@@ -34,8 +34,14 @@
                         <th>Return</th>
                     </tr>
                     <tr>
-                        <td><img width="200" height="200" src="/album/"></td>
-                        <td><img width="200" height="200" src="/album/"></td>
+                        @if(isset($getImage))
+                            @foreach($getImage as $row)
+                        <td><img width="200" height="200" src="/album/{{ $row->link }}"></td>
+                            @endforeach
+                            @else
+                            <td><img width="200" height="200" src="/album/no-avatar.png"></td>
+                            <td><img width="200" height="200" src="/album/no-avatar.png"></td>
+                        @endif
                         <td>
                             <a style="margin-top: 90px" href="" class="btn btn-success">Duyệt</a>
                         </td>

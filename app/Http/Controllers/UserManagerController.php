@@ -277,7 +277,12 @@ class UserManagerController
         if (!$id){
             return Redirect::to('/admin/term-member');
         }else {
-            return view('admin.checkTermMember');
+            $getImage = DB::table('users')
+                ->join('user_image_authen', 'user_id', '=', 'users.id')
+                ->where('user_id', $id)
+                ->select('users.id','user_id', 'link')
+                ->get();
+            return view('admin.checkTermMember', compact('getImage', $getImage));
         }
     }
 }
