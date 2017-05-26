@@ -1,7 +1,19 @@
 @extends('admin.layouts.master_admin')
 @section('title','Dashboard')
 @section('content')
+<style>
+    .tw3-thumb__link__image {
+        background-color: #fff;
+        border-radius: 4px;
+        background-color: #edefef;
+        text-align: center;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
 
+</style>
 
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -25,35 +37,37 @@
             </div>
         </div>
         <div class="col-lg-12">
-            <div >
-                    <table class="table table-bordered table-hover">
+            <div class="bs-example">
+                <div class="table-responsive">
+                <table class="table table-bordered table-hover">
                         <tr>
-                            <th>The front of the picture</th>
-                            <th>The back of the picture</th>
-                            <th>Pass</th>
-                            <th>Return</th>
+                            <th style="text-align: center">The front of the picture</th>
+                            <th style="text-align: center">Options</th>
                         </tr>
                         <tr>
                             @if(isset($getImage))
+                                <td>
                                 @foreach($getImage as $row)
-                                    <td><img width="200" height="200" src="/album/{{ $row->link }}"></td>
+                                    <img style="margin-right: 40px" class="jsTriggerPhotoBox tw3-thumb__link__image" alt="{{ $row->link }}" width="375" height="450" src="/album/{{ $row->link }}">
+
                                 @endforeach
+                                </td>
                             @else
-                                <td><img width="200" height="200" src="/album/no-avatar.png"></td>
-                                <td><img width="200" height="200" src="/album/no-avatar.png"></td>
+                                <td>
+                                    <img  alt="no-picture.png"  width="385" height="450" src="/album/no-avatar.png">
+                                    <img  alt="no-picture.png"  width="385" height="450" src="/album/no-avatar.png">
+                                </td>
                             @endif
                             <td>
-                                <a style="margin-top: 90px" href="{{ route('getCheckedTermMember.id', $getID->user_id) }}" id="verification" class="btn btn-success">Duyệt</a>
-                            </td>
-                            <td>
+                                <a style="margin-top: 90px" href="{{ route('getCheckedTermMember.id', $getID->user_id) }}" id="verification" class="btn btn-success">Xác Nhận</a>
                                 <a style="margin-top: 90px" href="" class="XoaDuLieu btn btn-danger">Phản hồi</a>
                             </td>
                         </tr>
                     </table>
+                </div>
             </div>
         </div>
     </div>
-
 </div>
 <script>
     $(document).ready(function () {
