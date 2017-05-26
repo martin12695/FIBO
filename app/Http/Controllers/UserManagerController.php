@@ -206,6 +206,8 @@ class UserManagerController
         if (!$id){
             return Redirect::to('/admin/term-member');
         }else{
+            DB::table('relationship')
+                ->where('action_user', '=', $id)->delete();
             DB::table('users')->where('id', $id)->delete();
             return back();
         }
