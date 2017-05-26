@@ -9,17 +9,17 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Sửa thành viên
+                        Sửa thành viên đang duyệt
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>  <a href="{{ url('/admin/index') }}">Trang chủ</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> <a href="{{ url('/admin/member') }}">Danh sách thành viên</a>
+                            <i class="fa fa-file"></i> <a href="{{ url('/admin/term-member') }}">Danh sách thành viên đang duyệt</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> Sửa thành viên
+                            <i class="fa fa-file"></i> Sửa thành viên đang duyệt
                         </li>
                     </ol>
                 </div>
@@ -114,7 +114,7 @@
             var phone = $('#phone').val();
             var password = $('#password').val();
             var pathArray = window.location.pathname.split( '/' );
-            var page = pathArray[3];
+            var page = pathArray[4];
             var flag = true;
 
             if(flag)
@@ -124,7 +124,7 @@
                         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                     },
                     type: 'POST',
-                    url: "/admin/edit-member/" + page,
+                    url: "/admin/term-member/edit/" + page,
                     data: {
                         name : name,
                         sex : sex,
@@ -145,10 +145,10 @@
                     },
                     success :  function(data) {
                         if(data == 0){
-                            window.location.replace('/admin/member');
+                            window.location.replace('/admin/term-member');
                         }
                         if(data == 1){
-                            window.location.replace('/admin/member');
+                            window.location.replace('/admin/term-member');
                         }
                     }
                 });

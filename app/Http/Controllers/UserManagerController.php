@@ -212,7 +212,63 @@ class UserManagerController
         ]);
     }
 
-    public function postEditTermMember(){
-
+    public function postEditTermMember(Request $request, $id){
+        $id = intval($id);
+        if (!$id){
+            return Redirect::to('/admin/term-member');
+        }else{
+            $user = DB::table('users')->where('id','=',$id)->first();
+            $info = $request->input();
+            $email = $info['email'];
+            $password = $info['password'];
+            $passHash = Hash::make($password);
+            if($email != $user->email){
+                DB::table('users')
+                    ->where('id', $id)
+                    ->update(['email' => $email]);
+                return \Response::json(0);
+            }
+            if ($email == $user->email)
+            {
+                if( Input::has('name') ){
+                    DB::table('users')
+                        ->where('id', $id)
+                        ->update(['name' => $info['name']]);
+                }
+                if( Input::has('sex') ){
+                    DB::table('users')
+                        ->where('id', $id)
+                        ->update(['sex' => $info['sex']]);
+                }
+                if($user->birthday == $info['birthday']){
+                    $from = new DateTime($info['birthday']);
+                    $to = new DateTime('today');
+                    DB::table('users')
+                        ->where('id', $id)
+                        ->update(['age' => $from->diff($to)->y]);
+                }
+                if( Input::has('birthday') ){
+                    DB::table('users')
+                        ->where('id', $id)
+                        ->update(['birthday' => $info['birthday']]);
+                }
+                if( Input::has('province') ){
+                    DB::table('users')
+                        ->where('id', $id)
+                        ->update(['come_from' => $info['province']]);
+                }
+                if( Input::has('phone') ){
+                    DB::table('users')
+                        ->where('id', $id)
+                        ->update(['phone' => $info['phone']]);
+                }
+                if ($password){
+                    DB::table('users')
+                        ->where('id', $id)
+                        ->update(['password' => $passHash]);
+                }
+            }
+            return \Response::json(1);
+        }
     }
 }

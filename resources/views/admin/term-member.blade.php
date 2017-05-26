@@ -37,6 +37,7 @@
                             <th>Level</th>
                             <th>Delete</th>
                             <th>Edit</th>
+                            <th>Check</th>
                         </tr>
                         @foreach($user as $row)
                             @foreach($sex as $item)
@@ -54,6 +55,7 @@
                                             <td>{{ $row->level }}</td>
                                             <td><a href="{{ route('delTermMember.id', $row->id) }}" class="XoaDuLieu btn btn-danger">Xóa</a></td>
                                             <td><a href="{{ route('getEditTermMember.id', $row->id) }}" class="SuaDuLieu btn btn-info">Sửa</a></td>
+                                            <td><a href="{{ route('getEditTermMember.id', $row->id) }}" class="CheckDuLieu btn btn-info">Kiểm tra</a></td>
                                         </tr>
                                     @endif
                                 @endforeach
