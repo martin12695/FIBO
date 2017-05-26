@@ -108,7 +108,7 @@ class HomeController
             $passMd5 = Hash::make($info['pass']);
             $date = date_create_from_format('d/m/Y', $info['birthday']);
             $date = $date->format('Y-m-d');
-            $level = 'Member';
+            $level = 'Quest';
             $from = new DateTime($date);
             $to = new DateTime('today');
             try {

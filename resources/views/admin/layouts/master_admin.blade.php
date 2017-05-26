@@ -80,7 +80,7 @@
                     <a href="{{ url('/admin/member') }}"><i class="fa fa-fw fa-user"></i> Thành viên</a>
                 </li>
                 <li>
-                    <a href=""><i class="fa fa-fw fa-info"></i> Thông tin thành viên</a>
+                    <a href="{{ url('admin/term-member') }}"><i class="fa fa-fw fa-info"></i> Thành viên đang duyệt</a>
                 </li>
                 <li>
                     <a href="{{ url('/admin/staff') }}"><i class="fa fa-fw fa-users"></i> Ban quản trị</a>
