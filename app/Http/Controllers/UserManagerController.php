@@ -271,4 +271,13 @@ class UserManagerController
             return \Response::json(1);
         }
     }
+
+    public function getCheckTermMember($id){
+        $id = intval($id);
+        if (!$id){
+            return Redirect::to('/admin/term-member');
+        }else {
+            return view('admin.checkTermMember');
+        }
+    }
 }

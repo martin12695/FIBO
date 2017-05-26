@@ -161,6 +161,9 @@ class AdminManagerController
                     if($info['level'] == '2'){
                         $term = 'Member';
                     }
+                    if($info['level'] == '3'){
+                        $term = 'Quest';
+                    }
                     DB::table('users')
                         ->where('id', $id)
                         ->update(['level' => $term]);
