@@ -75,7 +75,7 @@
                     </a>
                 </li>
                 <li class="menuItem tw3-headerV2__navigation__item">
-                    <a href="{{ url('/confession') }}">
+                    <a href="{{ url('/dating') }}">
                         <i class="fa fa-heart" aria-hidden="true"></i>
                         <span class="tw3-headerV2__navigation__item__label">Hẹn hò</span>
                     </a>
