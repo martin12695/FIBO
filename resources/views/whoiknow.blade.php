@@ -32,32 +32,58 @@
                             </div>
                         </div>
                         <div class="tw3-activity--whoiknow__existingContacts">
-                            <div class="tw3-box__header">Đang chờ kết bạn</div>
+                            <div class="tw3-box__header">Lời mời kết bạn - hẹn hò</div>
+                                <ul class="plr--default jsContactLinksContainer">
+                                    @foreach($listCouple as $people)
+                                        <li class="tw3-mediav2 tw3-mediav2--auto tw3-mediav2--desktop">
+                                            <div class="tw3-mediav2__figure">
+                                                <a href="" class="jsVisitButton">
+                                                    <img src="https://twoo01-a.akamaihd.net/static/1636596845823273814/images/generic/avatar-male.jpg" alt="Martin" width="48" height="48" class="tw3-avatar--circle">
+                                                </a>
+                                            </div>
+                                            <div class="tw3-mediav2__body text--left">
+                                                <div>
+                                                    <a href="" class="jsVisitButton text--bold text--black text--smaller">
+                                                        {{$people->name}}</a>, {{$people->yob}}
+                                                </div>
+                                                <div class="text--subtle">
+                                                    muốn hẹn hò với bạn</div>
+                                                </div>
+                                            <div class="tw3-mediav2__actions">
+                                                <a href="friend/acceptCouple/{{$people->id}}" class="jsChatButton tw3-button tw3-button-blue tw3-button--small tw3-button--subtle tw3-button--agree">Đồng ý</a>
+                                            </div>
+                                            <div class="tw3-mediav2__actions">
+                                                <a href="#" class="jsChatButton tw3-button tw3-button tw3-button--small tw3-button--subtle tw3-button--dismiss">Từ chối</a>
+                                            </div>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </div>
                             <div id="whoiknow" class="existingContacts__container">
                                 <div id="jsLoader" class="loader"></div>
                                 <ul class="plr--default jsContactLinksContainer">
                                     @foreach($listPending as $people)
-                                    <li class="tw3-mediav2 tw3-mediav2--auto tw3-mediav2--desktop">
-                                        <div class="tw3-mediav2__figure">
-                                            <a href="" class="jsVisitButton">
-                                                <img src="https://twoo01-a.akamaihd.net/static/1636596845823273814/images/generic/avatar-male.jpg" alt="Martin" width="48" height="48" class="tw3-avatar--circle">
-                                            </a>
-                                        </div>
-                                        <div class="tw3-mediav2__body text--left">
-                                            <div>
-                                                <a href="" class="jsVisitButton text--bold text--black text--smaller">
-                                                    {{$people->name}}</a>, {{$people->yob}}
+                                        <li class="tw3-mediav2 tw3-mediav2--auto tw3-mediav2--desktop">
+                                            <div class="tw3-mediav2__figure">
+                                                <a href="" class="jsVisitButton">
+                                                    <img src="https://twoo01-a.akamaihd.net/static/1636596845823273814/images/generic/avatar-male.jpg" alt="Martin" width="48" height="48" class="tw3-avatar--circle">
+                                                </a>
                                             </div>
-                                            <div class="text--small text--subtle">
-                                                Thành phố Hồ Chí Minh</div>
-                                        </div>
-                                        <div class="tw3-mediav2__actions">
-                                            <a href="friend/accept/{{$people->id}}" class="jsChatButton tw3-button tw3-button-blue tw3-button--small tw3-button--subtle tw3-button--agree">Đồng ý</a>
-                                        </div>
-                                        <div class="tw3-mediav2__actions">
-                                            <a href="#" class="jsChatButton tw3-button tw3-button tw3-button--small tw3-button--subtle tw3-button--dismiss">Từ chối</a>
-                                        </div>
-                                    </li>
+                                            <div class="tw3-mediav2__body text--left">
+                                                <div>
+                                                    <a href="" class="jsVisitButton text--bold text--black text--smaller">
+                                                        {{$people->name}}</a>, {{$people->yob}}
+                                                </div>
+                                                <div class="text--small text--subtle">
+                                                    Thành phố Hồ Chí Minh</div>
+                                            </div>
+                                            <div class="tw3-mediav2__actions">
+                                                <a href="friend/accept/{{$people->id}}" class="jsChatButton tw3-button tw3-button-blue tw3-button--small tw3-button--subtle tw3-button--agree">Đồng ý</a>
+                                            </div>
+                                            <div class="tw3-mediav2__actions">
+                                                <a href="#" class="jsChatButton tw3-button tw3-button tw3-button--small tw3-button--subtle tw3-button--dismiss">Từ chối</a>
+                                            </div>
+                                        </li>
                                     @endforeach
                                 </ul>
                             </div>

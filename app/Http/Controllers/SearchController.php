@@ -349,6 +349,27 @@ class SearchController
             $date = new DateTime($info->birthday);
             $info->birthday = $date->format('d/m/Y');
             $photos = DB::table('user_album')->where('user_id', $id)->get();
+            if (Auth::id() < $id) {
+                $have_related = DB::table('relationship')
+                    ->where('user_one', Auth::id())
+                    ->where('user_two', $id)
+                    ->where('status', 2)
+                    ->first();
+            } else {
+                $have_related = DB::table('relationship')
+                    ->where('user_one', $id)
+                    ->where('user_two', Auth::id())
+                    ->where('status', 2)
+                    ->first();
+            }
+            if ($have_related == null ) {
+                $have_related = 0;
+            } else {
+                $have_related = 1;
+            }
+
+
+
             return view('user_profile',[
                 'info_basic' => $info,
                 'sex'        => $sex,
@@ -367,7 +388,8 @@ class SearchController
                 'body'       => $body,
                 'province'   => $province,
                 'school'     => $school,
-                'photos'     => $photos
+                'photos'     => $photos,
+                'have_related'=> $have_related
             ]);
         }
     }

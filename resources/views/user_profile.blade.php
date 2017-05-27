@@ -11,9 +11,18 @@
                 </div>
                 <div class="tw3-profile tw3-box--padding--off jsProfile tw3-profile--your">
                     <div class="tw3-container">
-                        <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
-                            <a href="" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Kết bạn</a>
-                        </div>
+                        @if ($have_related == 0)
+                            <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
+                                <a onclick="addFriend({{$info_basic->id}})" id="addfriend_btn" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Kết bạn</a>
+                            </div>
+                        @else
+                            <div class="tw3-col-6 tw3-bp3-col-4 mt--default">
+                                <a href="" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Hủy kết bạn</a>
+                            </div>
+                            <div class="tw3-col-6 tw3-bp3-col-4 mt--default">
+                                <a  onclick="addCouple({{$info_basic->id}})" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends" id="addcouple_btn">Hẹn hò</a>
+                            </div>
+                        @endif
                         @if( empty($info_basic->id) )
                         <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
                             <a class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-upload-image" data-toggle="modal" data-target="#myModal">Upload ảnh đại diện</a>
@@ -560,5 +569,5 @@
 @endsection
 @section('custom-js')
     <script src="/js/user-profile.js" type="text/javascript"></script>
-    <script src="/js/lib/editor-image.js"></script>
+
 @endsection
