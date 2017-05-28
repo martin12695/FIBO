@@ -67,6 +67,7 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('profile/{id}', ['as' => 'user.id', 'uses' => 'SearchController@initPage']);
 });
 
+
 Route::group(['prefix' => 'friend'], function () {
     Route::get('{request}/{userId}', 'FriendController@RequestFriend');
 });
@@ -95,6 +96,11 @@ Route::post('isTyping', array('uses' => 'ChatController@isTyping'));
 Route::post('notTyping', array('uses' => 'ChatController@notTyping'));
 Route::post('retrieveChatMessages', array('uses' => 'ChatController@retrieveChatMessages'));
 Route::post('retrieveTypingStatus', array('uses' => 'ChatController@retrieveTypingStatus'));
+
+
+Route::get('/dating',function () {
+    return view('dating');
+} );
 
 
 Auth::routes();

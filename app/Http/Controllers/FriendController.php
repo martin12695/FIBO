@@ -16,7 +16,9 @@ class FriendController
 {
    /* 1 : pending
       2 : friend
-      3 :Declined*/
+      3 :peding couple
+      4 : couple
+   */
     public function RequestFriend($request, $userId) {
         if ($request == 'addfriend') {
             if (session('userId') < $userId) {
@@ -48,7 +50,8 @@ class FriendController
                     DB::table('relationship')
                         ->where('user_one',session('userId') )
                         ->where('user_two',$userId )
-                        ->update(['status' => 2]);
+                        ->where('status',1)
+                        ->update(['status' => 2,'action_user' =>session('userId') ]);
                     return back();
                 } catch (QueryException $e) {
                     return \Response::json(1);
@@ -58,7 +61,59 @@ class FriendController
                     DB::table('relationship')
                         ->where('user_one',$userId )
                         ->where('user_two',session('userId') )
-                        ->update(['status' => 2]);
+                        ->where('status',1)
+                        ->update(['status' => 2,'action_user' =>session('userId') ]);
+                    return back();
+                } catch (QueryException $e) {
+                    return \Response::json(1);
+                }
+            }
+        }
+        if ( $request == 'requestcouple') {
+            if (session('userId') < $userId) {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',session('userId') )
+                        ->where('user_two',$userId )
+                        ->where('status',2)
+                        ->update(['status' => 3,'action_user' =>session('userId') ]);
+                    return \Response::json(0);
+                } catch (QueryException $e) {
+                    return \Response::json(1);
+                }
+            } else {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',$userId )
+                        ->where('user_two',session('userId') )
+                        ->where('status',2)
+                        ->update(['status' => 3,'action_user' =>session('userId') ]);
+                    return \Response::json(0);
+                } catch (QueryException $e) {
+                    return \Response::json(1);
+                }
+            }
+        }
+
+        if ($request == 'acceptCouple') {
+            if (session('userId') < $userId) {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',session('userId') )
+                        ->where('user_two',$userId )
+                        ->where('status',3)
+                        ->update(['status' => 4,'action_user' =>session('userId') ]);
+                    return back();
+                } catch (QueryException $e) {
+                    return \Response::json(1);
+                }
+            } else {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',$userId )
+                        ->where('user_two',session('userId') )
+                        ->where('status',3)
+                        ->update(['status' => 4,'action_user' =>session('userId') ]);
                     return back();
                 } catch (QueryException $e) {
                     return \Response::json(1);
@@ -70,9 +125,11 @@ class FriendController
     public function whoIKnow() {
         $pendingList = FriendService::peddingList();
         $friendList = FriendService::friendList ();
+        $peddingCouple = FriendService::peddingCouple ();
         return view('whoiknow',[
             'listPending'   => $pendingList,
             'listFriend'   => $friendList,
+            'listCouple'   => $peddingCouple
         ]);
     }
 }

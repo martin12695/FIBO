@@ -29,4 +29,39 @@ function delImage(id)
     });
 
 
+
+}
+
+function addFriend(userId)
+{
+    $.ajax({
+        type: "GET",
+        url: '/friend/addfriend/' + userId ,
+        success: function(data) {
+            if (data == 0) {
+                $('#addfriend_btn').text('Đã gửi yêu cầu kết bạn');
+            } else {
+            }
+
+        },
+
+    });
+
+}
+
+function addCouple(userId)
+{
+    $.ajax({
+        type: "GET",
+        url: '/friend/requestcouple/' + userId ,
+        success: function(data) {
+            if (data == 0) {
+                $('#addcouple_btn').text('Đã gửi lời mời hẹn hò');
+            } else {
+            }
+
+        },
+
+    });
+
 }

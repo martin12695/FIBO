@@ -19,7 +19,11 @@ class FriendService
                 $query->where('user_one', session('userId'))
                     ->orwhere('user_two', session('userId'));
             })
-            ->where('status', 2)
+            ->where(function ($query) {
+                $query->where('status', 2)
+                    ->orwhere('status', 3)
+                    ->orwhere('status', 4);
+            })
             ->get();
         foreach ($list_friend as $request) {
             if ($request->user_one != session('userId')) {
@@ -66,4 +70,34 @@ class FriendService
         }
         return $pendingList;
     }
+
+    public static function peddingCouple () {
+        $pendingList = array();
+        $list_pending = DB::table('relationship')
+            ->where(function ($query) {
+                $query->where('user_one', session('userId'))
+                    ->orwhere('user_two', session('userId'));
+            })
+            ->where('status', 3)
+            ->where('action_user','!=', session('userId'))
+            ->get();
+
+        foreach ($list_pending as $request) {
+            if ($request->user_one != session('userId')) {
+                $userTemp = $request->user_one;
+            } else {
+                $userTemp = $request->user_two;
+            }
+            $pending_temp = DB::table('users')
+                ->where('id', $userTemp)
+                ->first();
+            $from = new DateTime($pending_temp->birthday);
+            $to = new DateTime('today');
+            $pending_temp->yob = $from->diff($to)->y;
+            array_push($pendingList, $pending_temp);
+        }
+        return $pendingList;
+    }
+
+
 }
