@@ -196,5 +196,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 
     Route::get('/confession', 'AdminConfessionController@getConfess');
     Route::get('/confession/del/{id}', ['as' => 'delConfess.id', 'uses' => 'AdminConfessionController@delConfess']);
+
+    Route::get('/confession/edit/{id}', ['as' => 'getEditConfess.id', 'uses' => 'AdminConfessionController@getEditConfess']);
+    Route::post('/confession/edit/{id}', ['as' => 'postEditConfess.id', 'uses' => 'AdminConfessionController@postEditConfess']);
 });
 
