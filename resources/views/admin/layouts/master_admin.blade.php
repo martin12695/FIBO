@@ -89,7 +89,7 @@
                     <a href="{{ url('/admin/confession') }}"><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết đang duyệt</a>
                 </li>
                 <li>
-                    <a href=""><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết đã đăng</a>
+                    <a href="{{ url('/admin/confessed') }}"><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết đã đăng</a>
                 </li>
                 <li>
                     <a href=""><i class="fa fa-fw fa-edit"></i> Bình luận</a>

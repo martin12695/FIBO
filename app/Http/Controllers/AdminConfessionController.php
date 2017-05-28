@@ -31,6 +31,13 @@ class AdminConfessionController
         }
     }
 
+    public function getConfessed(){
+        if (Auth::check()){
+            $cfs = DB::table('confession')->where('status', '=', '1')->orderby('date_create', 'desc')->paginate(6);
+            return view('admin.confessed',compact('cfs', $cfs));
+        }
+    }
+
     public function CheckConfess(){
 
     }
@@ -69,11 +76,6 @@ class AdminConfessionController
                         ->where('id', $id)
                         ->update(['author' => $info['author']]);
                 }
-                if( Input::has('status') ){
-                    DB::table('confession')
-                        ->where('id', $id)
-                        ->update(['status' => $info['status']]);
-                }
             }
             if( $cfs->views != $info['views'] ){
                 if( Input::has('title') ){
@@ -91,11 +93,6 @@ class AdminConfessionController
                         ->where('id', $id)
                         ->update(['author' => $info['author']]);
                 }
-                if( Input::has('status') ){
-                    DB::table('confession')
-                        ->where('id', $id)
-                        ->update(['status' => $info['status']]);
-                }
                 if( Input::has('views') ){
                     DB::table('confession')
                         ->where('id', $id)
@@ -107,6 +104,17 @@ class AdminConfessionController
     }
 
     public function delConfess($id){
+        $id = intval($id);
+        if (!$id){
+            return Redirect::to('/admin/confession');
+        }else{
+            DB::table('confession')
+                ->where('id', '=', $id)->delete();
+            return back();
+        }
+    }
+
+    public function delConfessed($id){
         $id = intval($id);
         if (!$id){
             return Redirect::to('/admin/confession');

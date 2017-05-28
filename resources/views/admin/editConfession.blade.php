@@ -49,15 +49,6 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <th>Trạng thái</th>
-                                    <td>
-                                        <select name="status" id="status" class="form-control">
-                                            <option value="0">Đang xem xét</option>
-                                            <option value="1">Đăng bài</option>
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
                                     <th>Lượt xem</th>
                                     <td>
                                         <input id="views" name="views" class="form-control" placeholder="" value="{{ $cfs->views }}">
@@ -85,7 +76,6 @@
             var title = $('#title').val();
             var detail = $('#detail').val();
             var author = $('#author').val();
-            var status = $('#status').val();
             var views = $('#views').val();
 
             var pathArray = window.location.pathname.split( '/' );
@@ -104,7 +94,6 @@
                         title : title,
                         detail : detail,
                         author : author,
-                        status : status,
                         views : views
                     },
                     beforeSend: function()
