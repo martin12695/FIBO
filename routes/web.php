@@ -194,6 +194,16 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/term-member/check/{id}', ['as' => 'getCheckTermMember.id', 'uses' => 'UserManagerController@getCheckTermMember']);
     Route::get('/term-member/checked/{id}', ['as' => 'getCheckedTermMember.id', 'uses' => 'UserManagerController@getCheckedTermMember']);
     Route::get('/term-member/send-mail/{id}', ['as' => 'sendMail.id', 'uses' => 'UserManagerController@sendMail']);
+
+    Route::get('/confession', 'AdminConfessionController@getConfess');
+    Route::get('/confession/del/{id}', ['as' => 'delConfess.id', 'uses' => 'AdminConfessionController@delConfess']);
+
+    Route::get('/confession/edit/{id}', ['as' => 'getEditConfess.id', 'uses' => 'AdminConfessionController@getEditConfess']);
+    Route::post('/confession/edit/{id}', ['as' => 'postEditConfess.id', 'uses' => 'AdminConfessionController@postEditConfess']);
+
+    Route::get('/confessed', 'AdminConfessionController@getConfessed');
+    Route::get('/confessed/del/{id}', ['as' => 'delConfessed.id', 'uses' => 'AdminConfessionController@delConfessed']);
+    Route::get('/confessed/add/{id}', ['as' => 'CheckConfess.id', 'uses' => 'AdminConfessionController@CheckConfess']);
 });
 
 

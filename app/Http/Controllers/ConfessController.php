@@ -5,6 +5,7 @@ use DB;
 use Auth;
 use App\Http\Middleware\CommentService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class ConfessController {
     public function submitPost()
@@ -15,6 +16,10 @@ class ConfessController {
         DB::table('confession')->insert(
             ['title' => $title, 'author' => $author, 'detail' => $detail,'status' => '0']
         );
+        echo "<script>
+                alert('Chúng tôi sẽ duyệt bài viết của bạn nếu bài viết đảm bảo thì confession của bạn sẽ được đăng');
+                window.location = '".url('/')."'
+                </script>";
     }
 
     public function initPage($postid){
