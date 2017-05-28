@@ -8,14 +8,14 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">
-                        Quản lý bài viết đang duyệt
+                        Quản lý bài viết đã đăng
                     </h1>
                     <ol class="breadcrumb">
                         <li>
                             <i class="fa fa-home"></i>  <a href="{{ url('/admin/index') }}">Trang chủ</a>
                         </li>
                         <li class="active">
-                            <i class="fa fa-file"></i> Bài viết đang duyệt
+                            <i class="fa fa-file"></i> Bài viết đã đăng
                         </li>
 
                     </ol>
@@ -30,7 +30,6 @@
                             <th>Title</th>
                             <th>Detail</th>
                             <th>Author</th>
-                            <th>Status</th>
                             <th>View</th>
                             <th>Comment</th>
                             <th>date_create</th>
@@ -42,7 +41,6 @@
                                 <td>{{ $row->title }}</td>
                                 <td>{!! $row->detail !!} </td>
                                 <td>{{ $row->author }}</td>
-                                <td>{{ $row->status }}</td>
                                 <td>{{ $row->views }}</td>
                                 <td>{{ $row->comments }}</td>
                                 <td>{{ $row->date_create }}</td>

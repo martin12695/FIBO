@@ -30,7 +30,6 @@
                             <th>Title</th>
                             <th>Detail</th>
                             <th>Author</th>
-                            <th>Status</th>
                             <th>View</th>
                             <th>Comment</th>
                             <th>date_create</th>
@@ -45,7 +44,6 @@
                                 <td>{{ $row->title }}</td>
                                 <td>{!! $row->detail !!} </td>
                                 <td>{{ $row->author }}</td>
-                                <td>{{ $row->status }}</td>
                                 <td>{{ $row->views }}</td>
                                 <td>{{ $row->comments }}</td>
                                 <td>{{ $row->date_create }}</td>
