@@ -76,6 +76,7 @@ Route::get('/signout', 'HomeController@signout');
 Route::post('/signin', 'HomeController@signin');
 Route::post('/signup', 'HomeController@signup');
 Route::get('/test', 'HomeController@initHome');
+Route::post('/sendnotify','HomeController@sendNotifi' );
 
 Route::get('/change-password', 'HomeController@changePassword');
 Route::post('/change-password', 'HomeController@changePasswordPost');
@@ -194,4 +195,5 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/term-member/checked/{id}', ['as' => 'getCheckedTermMember.id', 'uses' => 'UserManagerController@getCheckedTermMember']);
     Route::get('/term-member/send-mail/{id}', ['as' => 'sendMail.id', 'uses' => 'UserManagerController@sendMail']);
 });
+
 

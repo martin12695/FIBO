@@ -47,6 +47,19 @@ function addFriend(userId)
 
     });
 
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "POST",
+        url: '/sendnotify',
+        data : {
+            to_user_id :userId,
+            message: 1,
+        },
+
+    });
+
 }
 
 function addCouple(userId)

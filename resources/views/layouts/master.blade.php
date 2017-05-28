@@ -96,15 +96,16 @@
                 </li>
                 <li class="menuItem tw3-headerV2__actions__item">
                     <a class="noline tw3-pointerMenuToggle jsHeaderPointerMenuNotificationsToggle active">
-                        <i class="fa fa-bell" aria-hidden="true"></i>
+                        <i class="glyphicon glyphicon-bell notification-icon"></i>
+                        <span class="badge--darkRed jsCount" id="number_noti" data-count='0' style="vertical-align: 4px;">0</span>
                     </a>
-                    <div class="tw3-pointerMenu tw3-notifications jsNotificationsPopdown active" style="display: none;">
+                    <div class="tw3-pointerMenu tw3-notifications jsNotificationsPopdown " style="display: none;" id="lala">
                         <div class="tw3-tabsHolder">
                             <a href="" class="tw3-tab jsNotificationTab selected" data-type="REQUEST">Yêu cầu <span class="jsUnreadActivityCount" style="display: none;"></span></a>
                         </div>
                         <div class="jsMenuNotificationContent tab-item selected" data-type="ACTIVITY">
                             <div class="tw3-notifications__container jsNotificationsContainer" data-type="ACTIVITY" style="height: 388px;">
-                                <ul class="plr--default jsActivityContainer" data-hasmore="1" data-ismenu="1" style="display: block;">
+                                <ul class="plr--default jsActivityContainer" style="display: block;">
                                     <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
                                         <div class="tw3-mediav2__figure">
                                             <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
@@ -115,81 +116,6 @@
                                             <a href="/330559124">
                                                 <div class="mb--tight">
                                                     <span class="text--bold">Tuấn</span> đã gửi yêu cầu kết bạn.
-                                                </div>
-                                                <div class="text--subtle text--small">hơn một tuần trước</div>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
-                                        <div class="tw3-mediav2__figure">
-                                            <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
-                                                <img src="https://twoo04-a.akamaihd.net/t/7260457e07442f59b7a29f4626c9a46c_1_6_0_679_631_180_180_0011541383.jpg" width="40" height="40" class="tw3-avatar--circle">
-                                            </a>
-                                        </div>
-                                        <div class="tw3-mediav2__body text--left jsNotificationBody">
-                                            <a href="/330559124">
-                                                <div class="mb--tight">
-                                                    <span class="text--bold">Tuấn</span> đã ghé thăm trang cá nhân của bạn.
-                                                </div>
-                                                <div class="text--subtle text--small">hơn một tuần trước</div>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
-                                        <div class="tw3-mediav2__figure">
-                                            <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
-                                                <img src="https://twoo04-a.akamaihd.net/t/7260457e07442f59b7a29f4626c9a46c_1_6_0_679_631_180_180_0011541383.jpg" width="40" height="40" class="tw3-avatar--circle">
-                                            </a>
-                                        </div>
-                                        <div class="tw3-mediav2__body text--left jsNotificationBody">
-                                            <a href="/330559124">
-                                                <div class="mb--tight">
-                                                    <span class="text--bold">Tuấn</span> đã gửi yêu cầu kết bạn.
-                                                </div>
-                                                <div class="text--subtle text--small">hơn một tuần trước</div>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
-                                        <div class="tw3-mediav2__figure">
-                                            <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
-                                                <img src="https://twoo04-a.akamaihd.net/t/7260457e07442f59b7a29f4626c9a46c_1_6_0_679_631_180_180_0011541383.jpg" width="40" height="40" class="tw3-avatar--circle">
-                                            </a>
-                                        </div>
-                                        <div class="tw3-mediav2__body text--left jsNotificationBody">
-                                            <a href="/330559124">
-                                                <div class="mb--tight">
-                                                    <span class="text--bold">Tuấn</span> đã ghé thăm trang cá nhân của bạn.
-                                                </div>
-                                                <div class="text--subtle text--small">hơn một tuần trước</div>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
-                                        <div class="tw3-mediav2__figure">
-                                            <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
-                                                <img src="https://twoo04-a.akamaihd.net/t/7260457e07442f59b7a29f4626c9a46c_1_6_0_679_631_180_180_0011541383.jpg" width="40" height="40" class="tw3-avatar--circle">
-                                            </a>
-                                        </div>
-                                        <div class="tw3-mediav2__body text--left jsNotificationBody">
-                                            <a href="/330559124">
-                                                <div class="mb--tight">
-                                                    <span class="text--bold">Tuấn</span> đã gửi yêu cầu kết bạn.
-                                                </div>
-                                                <div class="text--subtle text--small">hơn một tuần trước</div>
-                                            </a>
-                                        </div>
-                                    </li>
-                                    <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
-                                        <div class="tw3-mediav2__figure">
-                                            <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
-                                                <img src="https://twoo04-a.akamaihd.net/t/7260457e07442f59b7a29f4626c9a46c_1_6_0_679_631_180_180_0011541383.jpg" width="40" height="40" class="tw3-avatar--circle">
-                                            </a>
-                                        </div>
-                                        <div class="tw3-mediav2__body text--left jsNotificationBody">
-                                            <a href="/330559124">
-                                                <div class="mb--tight">
-                                                    <span class="text--bold">Tuấn</span> đã ghé thăm trang cá nhân của bạn.
                                                 </div>
                                                 <div class="text--subtle text--small">hơn một tuần trước</div>
                                             </a>
@@ -249,6 +175,52 @@
 
 </div>
 </body>
+<script type="text/javascript">
+    var notificationsCount  = parseInt($('#number_noti').attr("data-count"));
+    if (notificationsCount <= 0) {
+        $('#number_noti').hide();
+    }
+
+    // Enable pusher logging - don't include this in production
+    // Pusher.logToConsole = true;
+
+    var pusher = new Pusher('eb42aed387d45591a942', {
+        cluster: 'ap1',
+        encrypted: true
+    });
+
+    // Subscribe to the channel we specified in our Laravel Event
+    var channel = pusher.subscribe('notify-{{auth::id()}}');
+
+    // Bind a function to a Event (the full Laravel class)
+    channel.bind('App\\Events\\Notify', function(data) {
+        var existingNotifications = $('.jsActivityContainer').html()
+        var newNotificationHtml = `
+          <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
+            <div class="tw3-mediav2__figure">
+                <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
+                    <img src="https://twoo04-a.akamaihd.net/t/7260457e07442f59b7a29f4626c9a46c_1_6_0_679_631_180_180_0011541383.jpg" width="40" height="40" class="tw3-avatar--circle">
+                </a>
+            </div>
+            <div class="tw3-mediav2__body text--left jsNotificationBody">
+                <a href="/whoiknow">
+                    <div class="mb--tight">
+                        <span class="text--bold">` + data.message + `</span>
+                    </div>
+                    <div class="text--subtle text--small">khoảng vài phút trước</div>
+                </a>
+            </div>
+        </li>
+        `;
+        $('.jsActivityContainer').html(newNotificationHtml + existingNotifications);
+
+        notificationsCount += 1;
+        $('#number_noti').text(notificationsCount);
+        $('#number_noti').show();
+
+
+    });
+</script>
 @yield('custom-js')
 </html>
 

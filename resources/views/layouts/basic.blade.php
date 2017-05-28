@@ -9,6 +9,7 @@
 <script src="/js/lib/jquery-ui.min.js"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/angular.min.js"></script>
+<script src="https://js.pusher.com/4.0/pusher.min.js"></script>
 <script src="/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="/js/lib/sweetalert.min.js" type="text/javascript"></script>
 <script src="/js/bootstrap-select.js" type="text/javascript"></script>

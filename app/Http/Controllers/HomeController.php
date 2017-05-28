@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Redirect;
 use Auth;
 use App\User;
 use Illuminate\Support\Facades\Hash;
+use App\Events\Notify;
 
 
 class HomeController
@@ -152,5 +153,14 @@ class HomeController
         } else {
             return \Response::json(3);
         }
+    }
+
+    public function sendNotifi(Request $request)
+    {
+        $info = $request->input();
+        if ($info['message'] == 1 ) {
+            event(new Notify(Auth::user()->name, 'notify-'.$info['to_user_id'], 'muốn kết bạn với bạn'));
+        }
+        return \Response::json(0);
     }
 }
