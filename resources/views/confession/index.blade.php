@@ -12,8 +12,8 @@
                 <div class="col-lg-12">
                     <h1>Danh sách các bài viết</h1>
                     <br>
-
                     @foreach($listPost as $post)
+                        @if($post->status == '1')
                     <div class="row">
                         <div class="span8">
                             <div class="row">
@@ -34,6 +34,7 @@
                         </div>
                     </div>
                     <hr>
+                        @endif
                     @endforeach
                 </div>
                 <hr>

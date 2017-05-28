@@ -86,7 +86,7 @@
                     <a href="{{ url('/admin/staff') }}"><i class="fa fa-fw fa-users"></i> Ban quản trị</a>
                 </li>
                 <li>
-                    <a href=""><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết đang duyệt</a>
+                    <a href="{{ url('/admin/confession') }}"><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết đang duyệt</a>
                 </li>
                 <li>
                     <a href=""><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết đã đăng</a>
