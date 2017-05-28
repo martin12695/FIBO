@@ -195,5 +195,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/term-member/send-mail/{id}', ['as' => 'sendMail.id', 'uses' => 'UserManagerController@sendMail']);
 
     Route::get('/confession', 'AdminConfessionController@getConfess');
+    Route::get('/confession/del/{id}', ['as' => 'delConfess.id', 'uses' => 'AdminConfessionController@delConfess']);
 });
 

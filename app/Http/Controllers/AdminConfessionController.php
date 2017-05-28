@@ -43,8 +43,14 @@ class AdminConfessionController
 
     }
 
-    public function delConfess(){
-
-
+    public function delConfess($id){
+        $id = intval($id);
+        if (!$id){
+            return Redirect::to('/admin/confession');
+        }else{
+            DB::table('confession')
+                ->where('id', '=', $id)->delete();
+            return back();
+        }
     }
 }

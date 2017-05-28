@@ -48,7 +48,7 @@
                                 <td>{{ $row->views }}</td>
                                 <td>{{ $row->comments }}</td>
                                 <td>{{ $row->date_create }}</td>
-                                <td><a href="{{ route('delTermMember.id', $row->id) }}" class="XoaDuLieu btn btn-danger">Xóa</a></td>
+                                <td><a href="{{ route('delConfess.id', $row->id) }}" class="XoaDuLieu btn btn-danger">Xóa</a></td>
                                 <td><a href="{{ route('getEditTermMember.id', $row->id) }}" class="SuaDuLieu btn btn-info">Sửa</a></td>
                                 <td><a href="{{ route('getCheckTermMember.id', $row->id) }}" class="CheckDuLieu btn btn-info">Kiểm tra</a></td>
                             </tr>
