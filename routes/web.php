@@ -202,5 +202,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
 
     Route::get('/confessed', 'AdminConfessionController@getConfessed');
     Route::get('/confessed/del/{id}', ['as' => 'delConfessed.id', 'uses' => 'AdminConfessionController@delConfessed']);
+    Route::get('/confessed/add/{id}', ['as' => 'CheckConfess.id', 'uses' => 'AdminConfessionController@CheckConfess']);
 });
 

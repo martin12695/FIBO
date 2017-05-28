@@ -38,8 +38,15 @@ class AdminConfessionController
         }
     }
 
-    public function CheckConfess(){
-
+    public function CheckConfess($id){
+        $id = intval($id);
+        if (!$id){
+            return Redirect::to('/admin/confession');
+        }else{
+            $term = '1';
+            DB::table('confession')->where('id', $id)->update(['status' => $term]);
+            return Redirect::to('/admin/confession');
+        }
     }
 
     public function getEditConfess($id){

@@ -38,6 +38,7 @@
                             <th>Edit</th>
                             <th>Check</th>
                         </tr>
+                        @if($cfs)
                         @foreach($cfs as $row)
                             <tr id="myTableRow">
                                 <td>{{ $row->id }}</td>
@@ -50,9 +51,10 @@
                                 <td>{{ $row->date_create }}</td>
                                 <td><a href="{{ route('delConfess.id', $row->id) }}" class="XoaDuLieu btn btn-danger">Xóa</a></td>
                                 <td><a href="{{ route('getEditConfess.id', $row->id) }}" class="SuaDuLieu btn btn-info">Sửa</a></td>
-                                <td><a href="{{ route('getCheckTermMember.id', $row->id) }}" class="CheckDuLieu btn btn-info">Kiểm tra</a></td>
+                                <td><a href="{{ route('CheckConfess.id', $row->id) }}" class="CheckDuLieu btn btn-info">Đăng</a></td>
                             </tr>
                         @endforeach
+                        @endif
                     </table>
                     {{ $cfs->links() }}
                 </div>
