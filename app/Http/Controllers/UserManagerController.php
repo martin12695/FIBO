@@ -328,12 +328,16 @@ class UserManagerController
 
             Mail::send('blank', array(
                 'user' => $user,
+                'dear' => 'Chào ',
+                'firstContent' => 'Rất cám ơn bạn đã đăng ký thành viên tại Website: http://www.fibo.site,',
+                'first_conclusion' => 'Thân,',
+                'second_conclusion' => 'Mọi thông tin xin liên hệ: support@fibo.site.',
                 'content' => 'Chúng tôi vô cùng xin lỗi vì hình ảnh chứng thực của bạn không hợp lệ, nên bạn chưa thể làm thành viên chính thức của Website được.'),
                 function ($m) use ($user) {
                 $m->from('support@fibo.site', 'FIBO-SUPPORT');
                 $m->to($user->email, $user->name)->subject('Your reminder!');
             });
-            
+
             echo "<script>
                 alert('Đã gửi email thành công');
                 window.location = '".url('/admin/term-member')."'
