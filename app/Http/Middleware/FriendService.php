@@ -99,5 +99,28 @@ class FriendService
         return $pendingList;
     }
 
+    public static function getCouple () {
+        $couple = null;
+        $couple_temp = DB::table('relationship')
+            ->where(function ($query) {
+                $query->where('user_one', session('userId'))
+                    ->orwhere('user_two', session('userId'));
+            })
+            ->where('status', 4)
+            ->first();
+            if (!empty($couple_temp)) {
+                if ($couple_temp->user_one != session('userId')) {
+                    $userTemp = $couple_temp->user_one;
+                } else {
+                    $userTemp = $couple_temp->user_two;
+                }
+                $couple = DB::table('users')
+                    ->where('id', $userTemp)
+                    ->first();
+                $couple->latest_position = json_decode($couple->latest_position);
+            }
+        return $couple;
+    }
+
 
 }

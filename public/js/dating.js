@@ -67,7 +67,7 @@ function search() {
     var request = {
         location: pyrmont,
         radius: radius,
-        type: 'restaurant'
+        keyword: 'quán ăn'
     };
 
     service = new google.maps.places.PlacesService(map);

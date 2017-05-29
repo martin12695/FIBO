@@ -99,9 +99,7 @@ Route::post('retrieveChatMessages', array('uses' => 'ChatController@retrieveChat
 Route::post('retrieveTypingStatus', array('uses' => 'ChatController@retrieveTypingStatus'));
 
 
-Route::get('/dating',function () {
-    return view('dating');
-} );
+Route::get('/dating','DatingController@initPage');
 
 
 Auth::routes();
