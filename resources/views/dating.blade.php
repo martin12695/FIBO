@@ -57,6 +57,11 @@
     </div>
 @endsection
 @section('custom-js')
+    <script>
+        var mypoint = {lat: {{$myLocation->lat}},
+                        lng: {{$myLocation->lng}}
+        };
+    </script>
     <script src="/js/dating.js" type="text/javascript"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWcj4zQpHBR5HYUX1fTnl5hUKtN-v2TOw&libraries=places&callback=initialize" async defer></script>
 @endsection

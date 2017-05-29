@@ -23,7 +23,7 @@ function initialize() {
 
     var myLocation = new google.maps.Marker({
         map: map,
-        position: {lat: 10.814144, lng: 106.679714},
+        position: mypoint,
         title: 'Vị trí của bạn',
         icon: image
     });
