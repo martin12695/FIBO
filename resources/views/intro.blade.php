@@ -187,7 +187,7 @@
 <div class="wrapper row4">
     <footer id="footer" class="clear">
         <!-- ################################################################################################ -->
-        <div class="one_quarter first">
+        <div class="one_quarter first col-md-6">
             <h6 class="title">Về FIBO</h6>
             <address class="btmspace-15">
                 FIBO - UIT<br>
@@ -195,10 +195,10 @@
             </address>
             <ul class="nospace">
                 <li class="btmspace-10"><span class="fa fa-phone"></span>012.6455.4456</li>
-                <li><span class="fa fa-envelope-o"></span> support@fibo.com</li>
+                <li><span class="fa fa-envelope-o"></span> support@fibo.site</li>
             </ul>
         </div>
-        <div class="one_quarter" style="margin-left: 50%">
+        <div class="one_quarter col-md-6">
             <h6 class="title">Giữ liên lạc</h6>
             <form class="btmspace-30" method="post" action="#">
                 <fieldset>
