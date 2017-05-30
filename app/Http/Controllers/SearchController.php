@@ -353,13 +353,19 @@ class SearchController
                 $have_related = DB::table('relationship')
                     ->where('user_one', Auth::id())
                     ->where('user_two', $id)
-                    ->where('status', 2)
+                    ->where(function ($query) {
+                        $query->where('status', 2)
+                            ->orwhere('status', 3);
+                    })
                     ->first();
             } else {
                 $have_related = DB::table('relationship')
                     ->where('user_one', $id)
                     ->where('user_two', Auth::id())
-                    ->where('status', 2)
+                    ->where(function ($query) {
+                        $query->where('status', 2)
+                            ->orwhere('status', 3);
+                    })
                     ->first();
             }
             if ($have_related == null ) {

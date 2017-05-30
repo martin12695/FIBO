@@ -28,6 +28,13 @@ function initialize() {
         icon: image
     });
 
+    var loveLocation = new google.maps.Marker({
+        map: map,
+        position: lovepoint,
+        title: 'Vị trí của người ấy',
+        icon: image
+    });
+
 }
 function createMarker(place) {
     var placeLoc = place.geometry.location;
@@ -64,10 +71,11 @@ function search() {
     clearMarkers();
     //var type = $('#location_type').val();
     var radius = $('#radius').val();
+    var type_location = $('#location_type').val();
     var request = {
         location: pyrmont,
         radius: radius,
-        keyword: 'quán ăn'
+        keyword: type_location
     };
 
     service = new google.maps.places.PlacesService(map);

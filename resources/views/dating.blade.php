@@ -4,6 +4,15 @@
     <link rel="stylesheet" href="./css/home.css">
 @endsection
 @section('content')
+    @if ($couple == null)
+        <div class="tw3-wrapper" style="margin-top: 160px" >
+            <div class="tw3-content">
+                <div class="tw3-container">
+                    <h3 style="color: blue">Bạn cần có đối tượng hẹn hò để sử dụng chức năng này !</h3>
+                </div>
+            </div>
+        </div>
+    @else
     <div class="tw3-wrapper" style="margin-top: 160px" >
         <div class="tw3-content">
             <div class="tw3-container">
@@ -18,10 +27,10 @@
                             <div class="tw3-dropdownHolder">
                                 <select name="locaiton_type" id='location_type' class="dropdown">
                                         <option value="0" selected>Toàn Bộ</option>
-                                        <option value="cafe" >Quán nước</option>
-                                        <option value="movie_theater" >Rạp chiếu phim</option>
-                                        <option value="rv_park" >Công viên</option>
-                                        <option value="food" >Đồ ăn</option>
+                                        <option value="cafe, cà phê" >Quán nước</option>
+                                        <option value="rạp phim" >Rạp chiếu phim</option>
+                                        <option value="công viên" >Công viên</option>
+                                        <option value="quán ăn" >Đồ ăn</option>
                                 </select>
                             </div>
                         </div>
@@ -55,13 +64,20 @@
             </div>
         </div>
     </div>
+    @endif
 @endsection
 @section('custom-js')
+    @if ($couple != null)
     <script>
         var mypoint = {lat: {{$myLocation->lat}},
                         lng: {{$myLocation->lng}}
         };
+
+        var lovepoint = {lat: {{$couple->latest_position->lat}},
+                        lng: {{$couple->latest_position->lng}}
+        };
     </script>
     <script src="/js/dating.js" type="text/javascript"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWcj4zQpHBR5HYUX1fTnl5hUKtN-v2TOw&libraries=places&callback=initialize" async defer></script>
+    @endif
 @endsection
