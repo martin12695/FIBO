@@ -11,7 +11,8 @@ use DB;
 use DateTime;
 use Illuminate\Database\QueryException;
 use App\Http\Middleware\FriendService;
-
+use App\Events\Notify;
+use Auth;
 class FriendController
 {
    /* 1 : pending
@@ -77,6 +78,7 @@ class FriendController
                         ->where('user_two',$userId )
                         ->where('status',2)
                         ->update(['status' => 3,'action_user' =>session('userId') ]);
+                    event(new Notify(Auth::user()->name, 'notify-'.$userId, 'muốn hẹn hò với bạn'));
                     return \Response::json(0);
                 } catch (QueryException $e) {
                     return \Response::json(1);
@@ -88,6 +90,7 @@ class FriendController
                         ->where('user_two',session('userId') )
                         ->where('status',2)
                         ->update(['status' => 3,'action_user' =>session('userId') ]);
+                    event(new Notify(Auth::user()->name, 'notify-'.$userId, 'muốn hẹn hò với bạn'));
                     return \Response::json(0);
                 } catch (QueryException $e) {
                     return \Response::json(1);
