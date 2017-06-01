@@ -30,7 +30,7 @@ class AdminCommentController
             $ket = DB::table('comment')
                 ->join('confession', 'confession.id', '=', 'comment.post_id')
                 ->select('confession.title', 'comment.detail', 'comment.created','comment.id','comment.user_id')
-                ->orderby('id', 'desc')->paginate(5);
+                ->orderby('id', 'desc')->paginate(6);
             return view('admin.comment', [
                 'user' => $user,
                 'ket'   => $ket
