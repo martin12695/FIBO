@@ -27,10 +27,10 @@ class AdminCommentController
     public function getComment(){
         if (Auth::check()){
             $user = DB::table('users')->select('id','name')->get();
-            $ket = DB::table('confession')
-                ->join('comment', 'confession.id', '=', 'comment.post_id')
+            $ket = DB::table('comment')
+                ->join('confession', 'confession.id', '=', 'comment.post_id')
                 ->select('confession.title', 'comment.detail', 'comment.created','comment.id','comment.user_id')
-                ->orderby('created','desc')->paginate(6);
+                ->orderby('id', 'desc')->paginate(5);
             return view('admin.comment', [
                 'user' => $user,
                 'ket'   => $ket

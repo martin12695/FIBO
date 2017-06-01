@@ -11,7 +11,7 @@
                     </h1>
                     <ol class="breadcrumb">
                         <li>
-                            <i class="fa fa-home"></i>  <a href="{{ url('/admin/index') }}">Trang chủ</a>
+                            <i class="fa fa-home"></i>  <a href="">Trang chủ</a>
                         </li>
                         <li class="active">
                             <i class="fa fa-edit"></i> Bình luận
@@ -44,10 +44,10 @@
                                             <td>{{ $value->title }}</td>
                                             <td>{{ $value->created }}</td>
                                             <td>
-                                                @if( strlen($value->detail) < 30 )
+                                                @if(strlen($value->detail) < 30 )
                                                     {!! $value->detail !!}
                                                 @else
-                                                    {!! substr($value->detail,0,30). "..." !!}
+                                                    {!! substr($value->detail,0,30)."..." !!}
                                                 @endif
                                             </td>
                                             <td>
