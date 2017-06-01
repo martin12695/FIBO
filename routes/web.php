@@ -202,6 +202,11 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/confessed', 'AdminConfessionController@getConfessed');
     Route::get('/confessed/del/{id}', ['as' => 'delConfessed.id', 'uses' => 'AdminConfessionController@delConfessed']);
     Route::get('/confessed/add/{id}', ['as' => 'CheckConfess.id', 'uses' => 'AdminConfessionController@CheckConfess']);
+
+    Route::get('/comment', 'AdminCommentController@getComment');
+    Route::get('/comment/del/{id}', ['as' => 'delComment.id', 'uses' => 'AdminCommentController@delComment']);
+    Route::get('/comment/detail/{id}', ['as' => 'detailComment.id', 'uses' => 'AdminCommentController@detailComment']);
+    Route::post('/comment/detail/{id}', ['as' => 'deleteComment.id', 'uses' => 'AdminCommentController@deleteComment']);
 });
 
 

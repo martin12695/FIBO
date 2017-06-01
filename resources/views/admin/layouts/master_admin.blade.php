@@ -92,7 +92,7 @@
                     <a href="{{ url('/admin/confessed') }}"><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết đã đăng</a>
                 </li>
                 <li>
-                    <a href=""><i class="fa fa-fw fa-edit"></i> Bình luận</a>
+                    <a href="{{ url('/admin/comment') }}"><i class="fa fa-fw fa-edit"></i> Bình luận</a>
                 </li>
             </ul>
         </div>
