@@ -12,8 +12,42 @@
                 <div class="tw3-profile tw3-box--padding--off jsProfile tw3-profile--your">
                     <div class="tw3-container">
                         <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
-                            <a class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Report</a>
+                            <a id="addfriend_btn" data-toggle="modal" data-target="#myModal" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Report</a>
                         </div>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <form method="post" action="{{ route('userReport.id', $info_basic->id) }}">
+                                    {{ csrf_field() }}
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                                            <h4 class="modal-title" id="myModalLabel">Nội dung report</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <label for="report">Chọn lý do report</label><br>
+                                            <div class="radio">
+                                                <label><input type="radio" name="report" value="1">Tên tài khoản không hợp lệ.</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="report" value="2">Ảnh cá nhân không hợp lệ.</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="report" value="3">Thông tin cá nhân không hợp lệ.</label>
+                                            </div>
+                                            <div class="radio">
+                                                <label><input type="radio" name="report" value="4">Khác...</label>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
+                                            <input type="submit" class="btn btn-primary" name="btn-submit-rp" value="Gửi">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
                         @if ($have_related == 0)
                             <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
                                 <a style="left: -230px;" onclick="addFriend({{$info_basic->id}})" id="addfriend_btn" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Kết bạn</a>
@@ -569,8 +603,21 @@
             </div>
         </div>
     </div>
+    <script>
+        function centerModal() {
+            $(this).css('display', 'block');
+            var $dialog = $(this).find(".modal-dialog");
+            var offset = ($(window).height() - $dialog.height()) / 2;
+            // Center modal vertically in window
+            $dialog.css("margin-top", offset);
+        }
+
+        $('.modal').on('show.bs.modal', centerModal);
+        $(window).on("resize", function () {
+            $('.modal:visible').each(centerModal);
+        });
+    </script>
 @endsection
 @section('custom-js')
     <script src="/js/user-profile.js" type="text/javascript"></script>
-
 @endsection

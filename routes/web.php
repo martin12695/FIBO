@@ -65,6 +65,8 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('updateInfo', 'UserController@updateInfo');
     Route::post('updatePosition', 'UserController@updatePosition');
     Route::get('profile/{id}', ['as' => 'user.id', 'uses' => 'SearchController@initPage']);
+    Route::post('/profile/report/{id}', ['as' => 'userReport.id', 'uses' => 'ReportController@postReport']);
+
 });
 
 
