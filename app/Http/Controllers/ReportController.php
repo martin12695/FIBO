@@ -38,28 +38,32 @@ class ReportController
                         'user_id' => $id,
                         'user_name'  => $user->name,
                         'user_email'    => $user->email,
-                        'reason'    => 'Tên tài khoản không hợp lệ.'
+                        'reason'    => 'Tên tài khoản không hợp lệ.',
+                        'status'    => '0'
                     ]);
                 }elseif ($radio == '2'){
                     DB::table('report')->insert([
                         'user_id' => $id,
                         'user_name'  => $user->name,
                         'user_email'    => $user->email,
-                        'reason'    => 'Ảnh cá nhân không hợp lệ.'
+                        'reason'    => 'Ảnh cá nhân không hợp lệ.',
+                        'status'    => '0'
                     ]);
                 }elseif ($radio == '3'){
                     DB::table('report')->insert([
                         'user_id' => $id,
                         'user_name'  => $user->name,
                         'user_email'    => $user->email,
-                        'reason'    => 'Thông tin cá nhân không hợp lệ.'
+                        'reason'    => 'Thông tin cá nhân không hợp lệ.',
+                        'status'    => '0'
                     ]);
                 }elseif ($radio == '4'){
                     DB::table('report')->insert([
                         'user_id' => $id,
                         'user_name'  => $user->name,
                         'user_email'    => $user->email,
-                        'reason'    => 'Khác...'
+                        'reason'    => 'Khác...',
+                        'status'    => '0'
                     ]);
                 }
                 echo "<script>
@@ -67,6 +71,43 @@ class ReportController
                 window.location = '".url('/')."'
                 </script>";
             }
+        }
+    }
+
+    public function getList(){
+        $user = DB::table('report')
+            ->orderby('create_report', 'desc')->paginate(6);
+        return view('admin.report',[
+            'user' => $user
+        ]);
+    }
+
+    public function delReport($id){
+        $id = intval($id);
+        if (!$id){
+            return Redirect::to('/admin/report-member');
+        }else{
+            DB::table('relationship')
+                ->where('user_one',$id)
+                ->orWhere('user_two', $id)
+                ->delete();
+            DB::table('users')
+                ->where('id', '=', $id)->delete();
+            DB::table('report')
+                ->where('user_id', '=', $id)->delete();
+            return back();
+        }
+    }
+
+    public function cancelReport($id){
+        $id = intval($id);
+        if (!$id){
+            return Redirect::to('/admin/report-member');
+        }else{
+            DB::table('report')
+                ->where('user_id', $id)
+                ->update(['status' => '1']);
+            return back();
         }
     }
 }

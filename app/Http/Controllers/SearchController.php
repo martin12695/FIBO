@@ -376,7 +376,7 @@ class SearchController
 
             $check_report = DB::table('report')->where('user_id', $id)->first();
 
-            if ($check_report == null){
+            if ($check_report == null || $check_report->status == '1'){
                 $check_report = 0;
             }else
                 $check_report = 1;

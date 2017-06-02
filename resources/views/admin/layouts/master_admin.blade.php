@@ -83,6 +83,9 @@
                     <a href="{{ url('admin/term-member') }}"><i class="fa fa-fw fa-info"></i> Thành viên đang duyệt</a>
                 </li>
                 <li>
+                    <a href="{{ url('admin/report-member') }}"><i class="fa fa-fw fa-info"></i> Thành viên đang bị report</a>
+                </li>
+                <li>
                     <a href="{{ url('/admin/staff') }}"><i class="fa fa-fw fa-users"></i> Ban quản trị</a>
                 </li>
                 <li>
