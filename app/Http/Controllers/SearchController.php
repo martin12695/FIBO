@@ -374,7 +374,12 @@ class SearchController
                 $have_related = 1;
             }
 
+            $check_report = DB::table('report')->where('user_id', $id)->first();
 
+            if ($check_report == null){
+                $check_report = 0;
+            }else
+                $check_report = 1;
 
             return view('user_profile',[
                 'info_basic' => $info,
@@ -395,7 +400,8 @@ class SearchController
                 'province'   => $province,
                 'school'     => $school,
                 'photos'     => $photos,
-                'have_related'=> $have_related
+                'have_related'=> $have_related,
+                'check_report'  => $check_report
             ]);
         }
     }

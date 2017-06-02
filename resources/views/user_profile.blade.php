@@ -11,9 +11,15 @@
                 </div>
                 <div class="tw3-profile tw3-box--padding--off jsProfile tw3-profile--your">
                     <div class="tw3-container">
+                        @if( $check_report == 0)
                         <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
-                            <a id="addfriend_btn" data-toggle="modal" data-target="#myModal" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Report</a>
+                            <a data-toggle="modal" data-target="#myModal" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Report</a>
                         </div>
+                        @else
+                            <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
+                                <a class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Reporting...</a>
+                            </div>
+                        @endif
                         <!-- Modal -->
                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
