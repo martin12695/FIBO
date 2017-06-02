@@ -22,10 +22,10 @@
             <div class="col-lg-12">
                 <div class="form-inline">
                     <h4>
-                        <form>
+                        <form method="get" action="{{ route('contacts.autocomplete') }}">
                             {{ csrf_field() }}
                             Nội dung bình luận:
-                            <input id="txt-timkiem" name="term" class="typeahead form-control" placeholder="Nhập nội dung bình luận..." value="">
+                            <input name="term" id="term" class="form-control" placeholder="Nhập nội dung bình luận..." value="">
                             <input id="btn-timkiem" type="submit"  class="btn btn-primary" value="Tìm">
                         </form>
                     </h4>
@@ -69,6 +69,18 @@
             </div>
         </div>
     </div>
+    <script src="/js/jquery-ui/jquery-ui.min.js"></script>
+    <script>
+        $(function() {
+            $("#term").autocomplete({
+                source: "{{ route('contacts.autocomplete') }}",
+                minLength: 3,
+                select: function(event, ui) {
+                    $("#term").val(ui.item.value);
+                }
+            });
+        });
+    </script>
     <script>
         $(document).ready(function () {
 

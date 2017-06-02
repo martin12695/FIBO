@@ -38,7 +38,6 @@ class AdminCommentController
         }
     }
 
-
     public function detailComment($id){
         $id = intval($id);
         if (!$id){
@@ -77,5 +76,40 @@ class AdminCommentController
             return Redirect::to('/admin/comment');
         }
     }
+
+    public function autocomplete(Request $request)
+    {
+        // prevent this method called by non ajax
+        if ($request->ajax())
+        {
+            $term = $request->input('term');
+            $user = DB::table('users')->select('id','name')->get();
+            $comment = DB::table('confession')
+                ->join('comment', 'confession.id', '=', 'comment.post_id')
+                ->join('users', 'users.id', '=', 'comment.user_id')
+                ->where('comment.detail', 'like', '%' . $term . '%')
+                ->select('confession.title', 'comment.detail', 'comment.created','comment.id','comment.user_id','users.name')
+                ->take(5)
+                ->get();
+
+            // convert to json
+            $results = [];
+            foreach ($comment as $row) {
+                foreach ($user as $item) {
+                    if ($item->id == $row->user_id){
+                        $results[] = [
+                            'user_id' => $row->id,
+                            'name'  => $item->name,
+                            'title' => $row->title,
+                            'detail'    => $row->detail,
+                            'created'   => $row->created,
+                        ];
+                    }
+                }
+            }
+            return \Response::json($results);
+        }
+    }
+
 
 }
