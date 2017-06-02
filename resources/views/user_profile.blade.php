@@ -27,21 +27,21 @@
                                         <div class="modal-body">
                                             <label for="report">Chọn lý do report</label><br>
                                             <div class="radio">
-                                                <label><input type="radio" name="report" value="1">Tên tài khoản không hợp lệ.</label>
+                                                <label><input type="radio" id="report" name="report" value="1">Tên tài khoản không hợp lệ.</label>
                                             </div>
                                             <div class="radio">
-                                                <label><input type="radio" name="report" value="2">Ảnh cá nhân không hợp lệ.</label>
+                                                <label><input type="radio" id="report" name="report" value="2">Ảnh cá nhân không hợp lệ.</label>
                                             </div>
                                             <div class="radio">
-                                                <label><input type="radio" name="report" value="3">Thông tin cá nhân không hợp lệ.</label>
+                                                <label><input type="radio" id="report" name="report" value="3">Thông tin cá nhân không hợp lệ.</label>
                                             </div>
                                             <div class="radio">
-                                                <label><input type="radio" name="report" value="4">Khác...</label>
+                                                <label><input type="radio" id="report" name="report" value="4">Khác...</label>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Hủy</button>
-                                            <input type="submit" class="btn btn-primary" name="btn-submit-rp" value="Gửi">
+                                            <input id="btn-submit-rp" type="submit" class="btn btn-primary" name="btn-submit-rp" value="Gửi">
                                         </div>
                                     </div>
                                 </form>

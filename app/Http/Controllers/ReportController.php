@@ -62,7 +62,10 @@ class ReportController
                         'reason'    => 'Khác...'
                     ]);
                 }
-                return \Response::json(1);
+                echo "<script>
+                alert('Đã gửi tố cáo thành công, chúng tôi sẽ xem xét yêu cầu của bạn!');
+                window.location = '".url('/')."'
+                </script>";
             }
         }
     }
