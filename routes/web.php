@@ -214,6 +214,8 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/report-member/del/{id}', ['as' => 'del.id', 'uses' => 'ReportController@delReport']);
     Route::get('/report-member/can/{id}', ['as' => 'cancel.id', 'uses' => 'ReportController@cancelReport']);
 
+    Route::get('/comment/search/', ['as' => 'search.id', 'uses' => 'AdminCommentController@searchComment']);
+
 });
 
 

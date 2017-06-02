@@ -20,7 +20,17 @@
                 </div>
             </div>
             <div class="col-lg-12">
-                <div >
+                <div class="form-inline">
+                    <h4>
+                        <form>
+                            Nội dung bình luận:
+                            {{ csrf_field() }}
+                            <a href="" ><i class="fa fa-search" aria-hidden="true"></i></a>
+                            <input name="term" id="term" class="form-control" placeholder="Nhập nội dung bình luận..." value="">
+                        </form>
+                    </h4>
+                </div>
+                <div>
                     <table class="table table-bordered table-hover">
                         <tr>
                             <th>Người bình luận</th>
@@ -29,7 +39,7 @@
                             <th>Nội dung</th>
                             <th></th>
                         </tr>
-                        <tbody>
+                        <tbody id="result_table">
                         @if( !empty($user) && !empty($ket) )
                             @foreach( $user as $item)
                                 @foreach( $ket as $value)
@@ -70,6 +80,20 @@
                     return false;
             });
 
+        });
+    </script>
+    <script>
+        $('#term').on('keydown', function () {
+           var search = $('#term').val();
+           $.ajax({
+              type: 'GET',
+               cache: false,
+               url: '{{ route('search.id') }}',
+               data: {search : search},
+               success:function (data) {
+                   $("#result_table").html(data);
+               }
+           });
         });
     </script>
 @endsection
