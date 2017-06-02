@@ -22,8 +22,12 @@
             <div class="col-lg-12">
                 <div class="form-inline">
                     <h4>
-                        Nội dung bình luận: <input id="txt-timkiem" class="form-control" placeholder="Nhập nội dung bình luận..." value="">
-                        <input id="btn-timkiem" type="button" class="btn btn-primary" value="Tìm">
+                        <form>
+                            {{ csrf_field() }}
+                            Nội dung bình luận:
+                            <input id="txt-timkiem" name="term" class="typeahead form-control" placeholder="Nhập nội dung bình luận..." value="">
+                            <input id="btn-timkiem" type="submit"  class="btn btn-primary" value="Tìm">
+                        </form>
                     </h4>
                 </div>
                 <div >
@@ -39,7 +43,7 @@
                                 @foreach( $user as $item)
                                     @foreach( $ket as $value)
                                     @if( $value->user_id == $item->id )
-                                        <tr>
+                                        <tr id="content-data">
                                             <td>{{ $item->name}}</td>
                                             <td>{{ $value->title }}</td>
                                             <td>{{ $value->created }}</td>
@@ -73,9 +77,6 @@
                     return false;
             });
 
-            $('#btn-timkiem').click(function (){
-                location="BinhLuan.php?noidung="+$('#txt-timkiem').val();
-            });
         });
     </script>
 @endsection
