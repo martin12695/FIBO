@@ -7,21 +7,21 @@
                 <div class="tw3-row">
                     <div class="jsActivityWhoIKnow tw3-box tw3-box--padding--off">
                         <div class="tw3-activity--whoiknow__addContacts">
-                            <div class="tw3-box__header"><span class="text--bold">Danh sách bạn bè hiện tại</span>
+                            <div class="tw3-box__header"><span class="text--bold">Danh sách bạn bè đang online</span>
                             </div>
                             <div class="p--default">
                                 <div class="tw3-col-12">
                                     <form action="" method="post" class="jsContactImporterContactlist">
                                         <div class="tw3-contactList tw3-contactList-v2 jsContactImporterContactlistScrollArea">
-                                            <ul class="tw3-thumbsHolder">
-                                                @foreach($listFriend as $friend)
+                                            <ul class="tw3-thumbsHolder" id="member">
+                                               {{-- @foreach($listFriend as $friend)
                                                 <li class="tw3-thumb jsContactImporterContactNonSensitive" data-name="hr" >
                                                     <a href="{{ route('user.id', $friend->id) }}" class="tw3-thumb__link">
                                                         <img src="/{{$friend->avatar}}" class="tw3-thumb__link__image">
                                                         <span class="tw3-thumb__link__name">{{$friend->name}}</span>
                                                     </a>
                                                 </li>
-                                                @endforeach
+                                                @endforeach--}}
                                             </ul>
                                         </div>
                                         <p class="text--center">
@@ -88,4 +88,55 @@
             </div>
         </div>
     </div>
+    <script>
+        var pusher = new Pusher('eb42aed387d45591a942', {
+            cluster: 'ap1',
+            authEndpoint: '/pusher/auth',
+            encrypted: true,
+            auth: {
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            }
+        });
+
+        var presenceChanel = pusher.subscribe('{{ $chanel }}');
+        presenceChanel.bind('pusher:subscription_succeeded', function (member) {
+            $('#member').empty();
+            var p = '';
+            member.each(function (member) {
+                p += '<li id="member_'+member.id+'" class="tw3-thumb jsContactImporterContactNonSensitive">' +
+                        '<a href="/user/profile/'+member.id+'" class="tw3-thumb__link">' +
+                        '<img src="'+member.info.avatar+'" class="tw3-thumb__link__image">' +
+                        '<span class="tw3-thumb__link__name">'+member.info.name+'</span>'
+                '</a>'
+                '</li>';
+                $('#member').html(p);
+            });
+        });
+
+        presenceChanel.bind('pusher:member_added', function (member) {
+            addMember(member);
+        });
+
+        presenceChanel.bind('pusher:member_removed', function (member) {
+            removeMember(member);
+        });
+
+        function addMember(member) {
+            var p = '<li id="member_'+member.id+'" class="tw3-thumb jsContactImporterContactNonSensitive">' +
+                        '<a href="/user/profile/'+member.id+'" class="tw3-thumb__link">' +
+                            '<img src="'+member.info.avatar+'" class="tw3-thumb__link__image">' +
+                            '<span class="tw3-thumb__link__name">'+member.info.name+'</span>'
+                        '</a>'
+                    '</li>';
+            $('#member').append(p);
+        }
+
+        function removeMember(member) {
+            $('#member_'+member.id).remove();
+        }
+
+    </script>
+    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
 @endsection
