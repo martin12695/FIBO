@@ -65,6 +65,8 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('updateInfo', 'UserController@updateInfo');
     Route::post('updatePosition', 'UserController@updatePosition');
     Route::get('profile/{id}', ['as' => 'user.id', 'uses' => 'SearchController@initPage']);
+    Route::post('/profile/report/{id}', ['as' => 'userReport.id', 'uses' => 'ReportController@postReport']);
+
 });
 
 
@@ -202,6 +204,18 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/confessed', 'AdminConfessionController@getConfessed');
     Route::get('/confessed/del/{id}', ['as' => 'delConfessed.id', 'uses' => 'AdminConfessionController@delConfessed']);
     Route::get('/confessed/add/{id}', ['as' => 'CheckConfess.id', 'uses' => 'AdminConfessionController@CheckConfess']);
+
+    Route::get('/comment', 'AdminCommentController@getComment');
+    Route::get('/comment/del/{id}', ['as' => 'delComment.id', 'uses' => 'AdminCommentController@delComment']);
+    Route::get('/comment/detail/{id}', ['as' => 'detailComment.id', 'uses' => 'AdminCommentController@detailComment']);
+    Route::post('/comment/detail/{id}', ['as' => 'deleteComment.id', 'uses' => 'AdminCommentController@deleteComment']);
+
+    Route::get('/report-member', 'ReportController@getList');
+    Route::get('/report-member/del/{id}', ['as' => 'del.id', 'uses' => 'ReportController@delReport']);
+    Route::get('/report-member/can/{id}', ['as' => 'cancel.id', 'uses' => 'ReportController@cancelReport']);
+
+    Route::get('/comment/search/', ['as' => 'search.id', 'uses' => 'AdminCommentController@searchComment']);
+
 });
 
 

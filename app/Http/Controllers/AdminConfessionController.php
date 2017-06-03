@@ -117,6 +117,8 @@ class AdminConfessionController
         }else{
             DB::table('confession')
                 ->where('id', '=', $id)->delete();
+            DB::table('comment')
+                ->where('post_id', '=', $id)->delete();
             return back();
         }
     }
@@ -128,6 +130,8 @@ class AdminConfessionController
         }else{
             DB::table('confession')
                 ->where('id', '=', $id)->delete();
+            DB::table('comment')
+                ->where('post_id', '=', $id)->delete();
             return back();
         }
     }
