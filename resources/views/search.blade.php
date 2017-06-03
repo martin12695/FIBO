@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="tw3-wrapper ajax-load-paginate" style="margin-top: 160px" ng-app ="home" ng-controller="home_ctrl">
+    <div class="tw3-wrapper ajax-load-paginate" style="margin-top: 160px" >
         <div class="tw3-search tw3-search--results jsSearch" id="gameContainerV3">
             <form action="{{ url('/search') }}" method="post" class="clearfix jsFormFilter" id="formFilter" rel="ajax">
                 {{ csrf_field() }}

@@ -1,7 +1,6 @@
 /**
  * Created by tuanh on 5/27/2017.
  */
-
 var map;
 var service;
 var infowindow;
