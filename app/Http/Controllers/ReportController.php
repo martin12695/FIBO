@@ -68,7 +68,7 @@ class ReportController
                 }
                 echo "<script>
                 alert('Đã gửi tố cáo thành công, chúng tôi sẽ xem xét yêu cầu của bạn!');
-                window.location = '".url('/')."'
+                window.location = '".url('/user/profile/'.$id)."'
                 </script>";
             }
         }

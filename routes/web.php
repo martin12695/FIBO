@@ -79,6 +79,7 @@ Route::post('/signin', 'HomeController@signin');
 Route::post('/signup', 'HomeController@signup');
 Route::get('/test', 'HomeController@initHome');
 Route::post('/sendnotify','HomeController@sendNotifi' );
+Route::post('/getnotify','HomeController@getNotifi' );
 
 Route::get('/change-password', 'HomeController@changePassword');
 Route::post('/change-password', 'HomeController@changePasswordPost');

@@ -22,6 +22,10 @@ class FriendController
    */
     public function RequestFriend($request, $userId) {
         if ($request == 'addfriend') {
+            DB::table('notification')->insert(
+                ['user_id' => $userId, 'sender_id' => Auth::id(),
+                    'type_id' => 1]
+            );
             if (session('userId') < $userId) {
                 try {
                     DB::table('relationship')->insert(

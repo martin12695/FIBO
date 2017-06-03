@@ -163,4 +163,16 @@ class HomeController
         }
         return \Response::json(0);
     }
+
+
+    public function getNotifi()
+    {
+        $list = DB::table('notification')
+            ->where('user_id', Auth::id())
+            ->join('users', 'notification.sender_id', '=', 'users.id')
+            ->join('nofication_type', 'notification.type_id', '=', 'nofication_type.id')
+            ->select('notification.*', 'users.name', 'users.avatar', 'nofication_type.value')
+            ->get();
+        return \Response::json($list);
+    }
 }

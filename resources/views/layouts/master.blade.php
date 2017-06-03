@@ -105,17 +105,17 @@
                         </div>
                         <div class="jsMenuNotificationContent tab-item selected" data-type="ACTIVITY">
                             <div class="tw3-notifications__container jsNotificationsContainer" data-type="ACTIVITY" style="height: 388px;">
-                                <ul class="plr--default jsActivityContainer" style="display: block;">
-                                    <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
+                                <ul class="plr--default jsActivityContainer" style="display: block;" ng-app="notify" ng-controller="notify_ctrl">
+                                    <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" ng-repeat="item in listNotify">
                                         <div class="tw3-mediav2__figure">
-                                            <a data-hidesidebar="1" data-currentposition="0" data-user-id="330559124" data-photo-type="ALL" data-photo-id="652375808" href="/photos/?u=330559124&amp;view=show&amp;id=652375808#photo" class="avatarLink noline avatarContainer photoBox">
-                                                <img src="https://twoo04-a.akamaihd.net/t/7260457e07442f59b7a29f4626c9a46c_1_6_0_679_631_180_180_0011541383.jpg" width="40" height="40" class="tw3-avatar--circle">
+                                            <a data-hidesidebar="1" data-currentposition="0"  class="avatarLink noline avatarContainer photoBox">
+                                                <img ng-src='/<% item.avatar %>' width="40" height="40" class="tw3-avatar--circle">
                                             </a>
                                         </div>
-                                        <div class="tw3-mediav2__body text--left jsNotificationBody">
-                                            <a href="/330559124">
+                                        <div class="tw3-mediav2__body text--left jsNotificationBody" >
+                                            <a href="/whoiknow" >
                                                 <div class="mb--tight">
-                                                    <span class="text--bold">Tuấn</span> đã gửi yêu cầu kết bạn.
+                                                    <span class="text--bold"><% item.name %></span> <% item.value %>.
                                                 </div>
                                                 <div class="text--subtle text--small">hơn một tuần trước</div>
                                             </a>
@@ -176,6 +176,32 @@
 </div>
 </body>
 <script type="text/javascript">
+    var notify = angular.module('notify', [], function($interpolateProvider) {
+        $interpolateProvider.startSymbol('<%');
+        $interpolateProvider.endSymbol('%>');
+
+    });
+    notify.controller('notify_ctrl', function($scope, $http) {
+        $scope.listNotify = '';
+        $scope.getNotify = function() {
+            $http({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: '/getnotify',
+                method: "POST",
+            }).then(function (data){
+                $scope.listNotify = data.data;
+            },function (error){
+
+            });
+        };
+        $scope.getNotify();
+    });
+
+
+
+
     var notificationsCount  = parseInt($('#number_noti').attr("data-count"));
     if (notificationsCount <= 0) {
         $('#number_noti').hide();
