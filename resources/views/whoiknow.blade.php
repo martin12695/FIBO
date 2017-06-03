@@ -7,27 +7,32 @@
                 <div class="tw3-row">
                     <div class="jsActivityWhoIKnow tw3-box tw3-box--padding--off">
                         <div class="tw3-activity--whoiknow__addContacts">
-                            <div class="tw3-box__header"><span class="text--bold">Danh sách bạn bè đang online</span>
+                            <div class="tw3-box__header">
+                                <span class="text--bold">Danh sách bạn bè đang online</span>
                             </div>
                             <div class="p--default">
                                 <div class="tw3-col-12">
-                                    <form action="" method="post" class="jsContactImporterContactlist">
-                                        <div class="tw3-contactList tw3-contactList-v2 jsContactImporterContactlistScrollArea">
-                                            <ul class="tw3-thumbsHolder" id="member">
-                                               {{-- @foreach($listFriend as $friend)
-                                                <li class="tw3-thumb jsContactImporterContactNonSensitive" data-name="hr" >
-                                                    <a href="{{ route('user.id', $friend->id) }}" class="tw3-thumb__link">
-                                                        <img src="/{{$friend->avatar}}" class="tw3-thumb__link__image">
-                                                        <span class="tw3-thumb__link__name">{{$friend->name}}</span>
-                                                    </a>
-                                                </li>
-                                                @endforeach--}}
-                                            </ul>
-                                        </div>
-                                        <p class="text--center">
-                                            <input type="hidden" class="tw3-button tw3-button--blue tw3-button--rounded jsConnectButton" value="Kết nối">
-                                        </p>
-                                    </form>
+                                    <div class="tw3-contactList tw3-contactList-v2 jsContactImporterContactlistScrollArea">
+                                        <ul class="tw3-thumbsHolder" id="member">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tw3-box__header">
+                                <span class="text--bold">Danh sách bạn bè </span>
+                            </div>
+                            <div class="tw3-col-12">
+                                <div class="tw3-contactList tw3-contactList-v2 jsContactImporterContactlistScrollArea">
+                                    <ul class="tw3-thumbsHolder" id="member">
+                                        @foreach($listFriend as $friend)
+                                         <li class="tw3-thumb jsContactImporterContactNonSensitive" data-name="hr" >
+                                             <a href="{{ route('user.id', $friend->id) }}" class="tw3-thumb__link">
+                                                 <img src="/{{$friend->avatar}}" class="tw3-thumb__link__image">
+                                                 <span class="tw3-thumb__link__name">{{$friend->name}}</span>
+                                             </a>
+                                         </li>
+                                         @endforeach
+                                    </ul>
                                 </div>
                             </div>
                         </div>

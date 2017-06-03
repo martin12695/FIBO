@@ -67,6 +67,14 @@ class FriendController
         }
 
         if ($request == 'accept') {
+            DB::table('notification')
+                ->where([
+                    ['user_id', Auth::id()],
+                    ['sender_id',$userId],
+                    ['type_id', 1]
+
+                ])
+                ->delete();
             if (session('userId') < $userId) {
                 try {
                     DB::table('relationship')

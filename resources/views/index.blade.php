@@ -14,7 +14,7 @@
                 <div class="tw3-bp4-col-8 tw3-col-12">
                     <div id="gameColLeft" class="gameV3 jsGameV3">
                         <div class="jsDiscover discover promoPosunder">
-                            <div class="jsPhotoCoverContainer photoCoverHolder ">
+                            <div class="jsPhotoCoverContainer photoCoverHolder">
                                 <div class="photoCover block_carousel">
                                     @foreach($listPeople as $people)
                                         <div class="info_basic" ng-init="button_info[{{$people->id}}] = 'Kết bạn'">
