@@ -5,7 +5,7 @@
 @endsection
 @section('content')
 <div id="fb-root"></div>
-<div class="tw3-wrapper" style="margin-top: 160px" ng-app ="home" ng-controller="home_ctrl">
+<div id = 'App2' class="tw3-wrapper" style="margin-top: 160px" ng-app ="home" ng-controller="home_ctrl">
     <div class="tw3-content" id="gameContainerV3">
         <div class="tw3-container jsGameContainer">
             <div class="tw3-row">

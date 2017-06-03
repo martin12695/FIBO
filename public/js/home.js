@@ -58,3 +58,5 @@ function showPosition(position) {
       }
     });
 }
+
+angular.bootstrap(document.getElementById("App2"), ['home']);
