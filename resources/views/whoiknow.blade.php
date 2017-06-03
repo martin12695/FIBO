@@ -136,7 +136,5 @@
         function removeMember(member) {
             $('#member_'+member.id).remove();
         }
-
     </script>
-    <script src="https://js.pusher.com/4.1/pusher.min.js"></script>
 @endsection
