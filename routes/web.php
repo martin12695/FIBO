@@ -58,6 +58,7 @@ Route::get('/game/profile', function () {
 
 Route::get('/chat', 'ChatController@initChat');
 Route::get('/whoiknow','FriendController@whoIKnow' );
+Route::post('/pusher/auth', 'FriendController@Online');
 
 
 Route::group(['prefix' => 'user'], function () {
@@ -217,5 +218,6 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/comment/search/', ['as' => 'search.id', 'uses' => 'AdminCommentController@searchComment']);
 
 });
+
 
 

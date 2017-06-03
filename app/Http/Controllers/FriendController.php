@@ -8,9 +8,14 @@
 
 namespace App\Http\Controllers;
 use DB;
+use App;
+use Auth;
 use DateTime;
 use Illuminate\Database\QueryException;
 use App\Http\Middleware\FriendService;
+use Illuminate\Support\Facades\Redirect;
+use Vinkla\Pusher\Facades\Pusher;
+use Vinkla\Pusher\PusherManager;
 
 class FriendController
 {
@@ -19,6 +24,17 @@ class FriendController
       3 :peding couple
       4 : couple
    */
+    var $pusher, $user, $chanel;
+
+    const DEFAULT_CHAT_CHANEL = 'presence-online';
+
+    public function __construct()
+    {
+        $this->pusher = App::make('pusher');
+        $this->user = Auth::user();
+        $this->chanel = self::DEFAULT_CHAT_CHANEL;
+    }
+
     public function RequestFriend($request, $userId) {
         if ($request == 'addfriend') {
             if (session('userId') < $userId) {
@@ -126,10 +142,24 @@ class FriendController
         $pendingList = FriendService::peddingList();
         $friendList = FriendService::friendList ();
         $peddingCouple = FriendService::peddingCouple ();
+        if (!Auth::User()){
+            return Redirect::to('/');
+        }
         return view('whoiknow',[
             'listPending'   => $pendingList,
             'listFriend'   => $friendList,
-            'listCouple'   => $peddingCouple
+            'listCouple'   => $peddingCouple,
+            'chanel'    => $this->chanel
         ]);
+    }
+
+    public function Online(){
+        $member = [
+            'name' => Auth::user()->name,
+            'id'    => Auth::user()->id,
+            'avatar' => Auth::user()->avatar
+        ];
+        $user_id = Auth::user()->id;
+        echo $this->pusher->presence_auth($this->chanel, $_POST['socket_id'], $user_id, $member);
     }
 }
