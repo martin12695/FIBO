@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 use App\Http\Middleware\FriendService;
 use DB;
 use Auth;
+use Illuminate\Http\Request;
 
 class DatingController
 {
@@ -20,5 +21,11 @@ class DatingController
             'myLocation'   => $mylocation,
             'couple'       =>$couple
         ]);
+    }
+
+    public function bookDating(Request $request){
+        $info = $request->input();
+        dd($info);
+
     }
 }

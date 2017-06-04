@@ -92,47 +92,4 @@ function showRegisterForm(){
     $('.error').removeClass('alert alert-danger').html('');
 
 }
-function showLoginForm(){
-    $('#loginModal .registerBox').fadeOut('fast',function(){
-        $('.loginBox').fadeIn('fast');
-        $('.register-footer').fadeOut('fast',function(){
-            $('.login-footer').fadeIn('fast');
-        });
-
-        $('.modal-title').html('Đăng nhập với');
-    });
-    $('.error').removeClass('alert alert-danger').html('');
-}
-
-function openLoginModal(){
-    showLoginForm();
-    setTimeout(function(){
-        $('#loginModal').modal('show');
-    }, 230);
-
-}
-function openRegisterModal(){
-    showRegisterForm();
-    setTimeout(function(){
-        $('#loginModal').modal('show');
-    }, 230);
-
-}
-
-function shakeModal(option){
-    $('#loginModal .modal-dialog').addClass('shake');
-    if (option == 1) {
-        $('.error').addClass('alert alert-danger').html("Các trường không được để trống");
-    }
-    if (option == 2) {
-        $('.error').addClass('alert alert-danger').html("Email hoặc mật khẩu không đúng!");
-    }
-    if (option == 3) {
-        $('.error').addClass('alert alert-danger').html("Mật khẩu nhập lại không khớp!");
-    }
-    $('input[type="password"]').val('');
-    setTimeout( function(){
-        $('#loginModal .modal-dialog').removeClass('shake');
-    }, 1000 );
-}
 

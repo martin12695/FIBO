@@ -52,14 +52,45 @@
                         </div>
                         <div class="tw3-col-2">
                             <button onclick="search()" >Tìm Kiếm</button>
-                            </div>
+                        </div>
                     </div>
                 </div>
                 <hr>
                 <div style="margin-top: 70px">
                     <div id="map" style="height:500px"></div>
                 </div>
+                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Tạo cuộc hẹn</button>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Hẹn hò</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-road"></i></span>
+                                    <input type="text" id='location_dating' class="form-control" placeholder="Nơi sẽ đến" aria-describedby="basic-addon1">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    <input id='date_dating' class="form-control" placeholder="Ngày hẹn" aria-describedby="basic-addon1">
+                                </div>
+                                <br>
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                    <input type="time" id='time_dating' class="form-control" placeholder="Giờ hẹn" aria-describedby="basic-addon1">
+                                </div>
 
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-default" onclick="bookDate()">Đặt hẹn</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -69,6 +100,7 @@
 @section('custom-js')
     @if ($couple != null)
     <script>
+        var id_couple = {{$couple->id}};
         var mypoint = {lat: {{$myLocation->lat}},
                         lng: {{$myLocation->lng}}
         };

@@ -103,7 +103,13 @@ Route::post('retrieveChatMessages', array('uses' => 'ChatController@retrieveChat
 Route::post('retrieveTypingStatus', array('uses' => 'ChatController@retrieveTypingStatus'));
 
 
-Route::get('/dating','DatingController@initPage');
+Route::group(['prefix' => 'dating'], function () {
+    Route::get('/','DatingController@initPage');
+    Route::post('/book','DatingController@bookDating');
+
+
+});
+
 
 
 Auth::routes();

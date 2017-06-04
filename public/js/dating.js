@@ -6,7 +6,10 @@ var service;
 var infowindow;
 var pyrmont;
 var markers = [];
+var meeting = null;
+var meeting_ll = null;
 function initialize() {
+    $( "#date_dating" ).datepicker({ dateFormat: 'dd/mm/yy' });
     pyrmont = new google.maps.LatLng(10.814144,106.679714);
     var image = {
         url: '/images/icon/Heart-red-icon.png',
@@ -33,6 +36,24 @@ function initialize() {
         title: 'Vị trí của người ấy',
         icon: image
     });
+
+//Lấy địa điểm hẹn hò
+
+    google.maps.event.addListener(map, 'click', function(event) {
+        placeMarker(event.latLng);
+        meeting_ll = event.latLng;
+    });
+
+    function placeMarker(location) {
+        if ( meeting != null ) {
+            meeting.setMap(null);
+        }
+        meeting = new google.maps.Marker({
+            position: location,
+            map: map,
+            icon: image
+        });
+    }
 
 }
 function createMarker(place) {
@@ -81,5 +102,30 @@ function search() {
     service.nearbySearch(request, callback);
 
 }
+
+function  bookDate() {
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "POST",
+        data : {
+            id_dating: id_couple,
+            time: $('#time_dating').val(),
+            day: $('#date_dating').val(),
+            location_name : $('#location_dating').val(),
+            location : {lat : meeting.getPosition().lat(), lng:meeting.getPosition().lng()}
+
+        } ,
+        url: '/dating/book',
+        success: function(data) {
+
+        },
+
+    });
+}
+
+
+
 
 
