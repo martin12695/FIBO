@@ -11,15 +11,28 @@ use App\Http\Middleware\FriendService;
 use DB;
 use Auth;
 use Illuminate\Http\Request;
+use Carbon;
 
 class DatingController
 {
     public function initPage() {
         $couple = FriendService::getCouple ();
         $mylocation = json_decode(Auth::user()->latest_position);
+        $events = DB::table('dating')
+            ->where(function ($query) {
+                $query->where('user_one', Auth::id())
+                    ->orwhere('user_two', Auth::id());
+            })
+            ->where('date', '>=' ,date('Y-m-d'))
+            ->get();
+        foreach ( $events as $event){
+            $event->location = json_decode($event->location);
+            $event->date =  date('d/m/Y', strtotime($event->date));
+        }
         return view('dating',[
             'myLocation'   => $mylocation,
-            'couple'       =>$couple
+            'couple'       =>$couple,
+            'events'        => $events
         ]);
     }
 

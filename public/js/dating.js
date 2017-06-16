@@ -3,11 +3,11 @@
  */
 var map;
 var service;
-var infowindow;
 var pyrmont;
 var markers = [];
 var meeting = null;
 function initialize() {
+    var infoWindow = new google.maps.InfoWindow(), marker, i;
     $( "#date_dating" ).datepicker({ dateFormat: 'dd/mm/yy' });
     pyrmont = new google.maps.LatLng(10.814144,106.679714);
     var image = {
@@ -36,6 +36,23 @@ function initialize() {
         icon: image
     });
 
+    for( i = 0; i < event_location.length; i++ ) {
+        var position = new google.maps.LatLng(event_location[i][1], event_location[i][2]);
+        marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            icon: './images/icon/star-3.png',
+            title: event_location[i][0]
+        });
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infoWindow.setContent(infoWindowContent[i][0]);
+                infoWindow.open(map, marker);
+            }
+        })(marker, i));
+    }
+
+
 //Lấy địa điểm hẹn hò
 
     google.maps.event.addListener(map, 'click', function(event) {
@@ -53,20 +70,6 @@ function initialize() {
         });
     }
 
-}
-function createMarker(place) {
-    var placeLoc = place.geometry.location;
-    var marker = new google.maps.Marker({
-        map: map,
-        position: place.geometry.location
-    });
-    markers.push(marker);
-
-
-    google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent(place.name);
-        infowindow.open(map, this);
-    });
 }
 
 function clearMarkers() {
@@ -106,7 +109,6 @@ function  bookDate() {
         $('#check_field').show();
     } else if (meeting == null) {
         $('#check_location').show();
-        alert("đâs");
     }else {
         $.ajax({
             headers: {
@@ -132,6 +134,7 @@ function  bookDate() {
         });
     }
 }
+
 
 
 

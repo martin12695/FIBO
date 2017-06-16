@@ -61,25 +61,18 @@
                 </div>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Tạo cuộc hẹn</button>
                 <h3>Các cuộc hẹn đang có</h3>
+                @foreach($events as $event )
                 <div ng-class="row">
                     <div class="card col-md-4 col-sm-6" >
                         <div class="card-block">
-                            <h4 class="card-title">Công viên Hoàng Văn Thụ</h4>
-                            <p class="card-text">Thời gian: 8:30</p>
-                            <p class="card-text">Ngày: 12/06/2017</p>
+                            <h4 class="card-title">{{$event->location_name}}</h4>
+                            <p class="card-text">Thời gian: {{$event->time}}</p>
+                            <p class="card-text">Ngày: {{$event->date}}</p>
                             <a href="#" class="btn btn-primary">Chi tiết</a>
                         </div>
                     </div>
-                    <div class="card col-md-4 col-sm-6" >
-                        <div class="card-block">
-                            <h4 class="card-title">Công viên Hoàng Văn Thụ</h4>
-                            <p class="card-text">Thời gian: 8:30</p>
-                            <p class="card-text">Ngày: 12/06/2017</p>
-                            <a href="#" class="btn btn-primary">Chi tiết</a>
-                        </div>
-                    </div>
-
                 </div>
+                @endforeach
                 <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog modal-sm">
                         <div class="modal-content">
@@ -129,6 +122,21 @@
         var lovepoint = {lat: {{$couple->latest_position->lat}},
                         lng: {{$couple->latest_position->lng}}
         };
+        var event_location = [
+            @foreach($events as $event )
+                ['{{$event->location_name}}', {{$event->location->lat}},{{$event->location->lng}}],
+            @endforeach
+        ];
+
+        var infoWindowContent = [
+            @foreach($events as $event )
+                ['<div class="info_content">' +
+                '<h3>{{$event->location_name}}</h3>' +
+                '<p>Ngày :{{$event->date}} </p>' +
+                '<p>Thời gian :{{$event->time}} </p>' +
+                '</div>'],
+            @endforeach
+        ];
     </script>
     <script src="/js/dating.js" type="text/javascript"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWcj4zQpHBR5HYUX1fTnl5hUKtN-v2TOw&libraries=places&callback=initialize" async defer></script>
