@@ -13,6 +13,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Input;
 use App\Http\Middleware\FunctionBasic;
 use Carbon\Carbon;
+use App\Http\Middleware\FriendService;
 
 class SearchController
 {
@@ -369,10 +370,16 @@ class SearchController
                     ->first();
             }
             if ($have_related == null ) {
-                $have_related = 0;
+                $have_related = 0; //chưa có kết bạn
             } else {
-                $have_related = 1;
+                $couple = FriendService::getCouple ();
+               if ($couple == null) {
+                   $have_related = 1; // phiên hiện tại đã có bồ
+               }else {
+                   $have_related = 2; // phiên hiện tại chưa có bồ
+               }
             }
+
 
             $check_report = DB::table('report')->where('user_id', $id)->first();
 

@@ -58,12 +58,16 @@
                             <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
                                 <a style="left: -230px;" onclick="addFriend({{$info_basic->id}})" id="addfriend_btn" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Kết bạn</a>
                             </div>
-                        @else
+                        @elseif($have_related == 1)
                             <div class="tw3-col-6 tw3-bp3-col-4 mt--default">
                                 <a style="left: -230px;" href="" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Hủy kết bạn</a>
                             </div>
                             <div class="tw3-col-6 tw3-bp3-col-4 mt--default">
                                 <a  style="left: -460px;" onclick="addCouple({{$info_basic->id}})" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends" id="addcouple_btn">Hẹn hò</a>
+                            </div>
+                        @else
+                            <div class="tw3-col-6 tw3-bp3-col-4 mt--default">
+                                <a style="left: -230px;" href="" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Hủy kết bạn</a>
                             </div>
                         @endif
                         @if( empty($info_basic->id) )
@@ -103,152 +107,12 @@
                             </div>
 
                             <div class="tw3-tabsHolder tw3-profileTabsHolder tab">
-                                <a class="tw3-tab selected" href="#panel=about" data-tab="about" style="text-decoration: none">Thông tin</a>
-                                <a class="tw3-tab" href="#panel=details" data-tab="details" style="text-decoration: none">Chi tiết</a>
+                                <a class="tw3-tab selected" href="#panel=details" data-tab="details" style="text-decoration: none">Chi tiết</a>
                                 <a class="tw3-tab" href="#panel=photos" data-tab="photos" style="text-decoration: none">Hình</a>
                             </div>
                             <div class="jsPanels tw3-col--flex tab-content" style="margin-top:25px">
-                                <div data-tab="about" id="about" class="tw3-panel tab-item selected" style="display: block;">
-                                    <div class="tw3-row">
-                                        <div class="tw3-col-12">
-                                            <div class="tw3-row">
-                                                <div class="tw3-col-12 tw3-bp4-col-8">
-                                                    <div class="tw3-row">
-                                                        <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1 padding-info">
-                                                            <div class="jsMyProfileCompleteDetailsContainer">
-                                                                <div>
-                                                                    <div class="tw3-row">
-                                                                        <div class="tw3-col-12 tw3-bp3-col-8">
-                                                                            <h5 class="jsEditableBlockTitle mb--default text--bold">HOÀN TẤT SƠ YẾU CỦA BẠN</h5>
-                                                                            <p class="text--subtle">Điền thêm thông tin để gặp thêm bạn mới</p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
-                                                                <hr class="tw3-hr mtb--default">
-                                                            </div>
-                                                            <div class="tw3-editable__block">
-                                                                <h5 class="jsEditableBlockTitle mb--default text--bold">Thông tin về tôi</h5>
-                                                                <div class="tw3-field">
-                                                                    <p class="text--subtle mb--default text--italic message">
-                                                                        Giới thiệu về bạn.
-                                                                    </p>
-                                                                    <div>
-                                                                        <div class="editForm" style="display: none">
-                                                                            <textarea placeholder="Giới thiệu về bạn." maxlength="550" data-maxcharsbadge=".jsIntroMessageCharactersLeft" class="tw3-textarea jsAutoExpandTextarea jsMaxCharsTextarea mb--tight" name="intromessage"></textarea>
-                                                                            <span class="jsIntroMessageCharactersLeft badge">Tối đa 550 ký tự</span>
-                                                                            <div class="tw3-buttonGroup" style="margin-top: 10px">
-                                                                                <input type="submit" value="Lưu" class="tw3-button tw3-button--blue tw3-button--rounded">
-                                                                                <a href="" class="jsEditableCancel tw3-button tw3-button--subtle tw3-button--rounded">Hủy</a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                            <hr class="tw3-hr mtb--default">
-                                                            <div class="tw3-editable__block">
-                                                                <h5 class="text--bold jsEditableBlockTitle">
-                                                                    TÔI MUỐN GẶP GỠ
-                                                                </h5>
-                                                                <div class="tw3-field">
-                                                                    <div class="tw3-field__view">
-                                                                        <ul class="text--subtle tw3-list mb--default message">
-                                                                            <li>
-                                                                                Phụ nữ
-                                                                            </li>
-                                                                            <li>
-                                                                                Độ tuổi từ 18 đến 20</li>
-                                                                            <li>
-                                                                                Sống tại Thành phố Hồ Chí Minh</li>
-                                                                        </ul>
-                                                                    </div>
-                                                                    <div>
-                                                                        <div class="editForm" style="display: none">
-
-                                                                            <div class="tw3-row clearfix">
-                                                                                <div class="tw3-col-12 mb--compact">
-                                                                                    <div class="tw3-form__row__label">
-                                                                                        <label for="gender">
-                                                                                            CHỌN ĐỐI TƯỢNG
-                                                                                        </label>
-                                                                                    </div>
-                                                                                    <div class="tw3-dropdownHolder">
-                                                                                        <select tabindex="1" name="gender" class="dropdown">
-                                                                                            <option value="1">Đàn ông</option>
-                                                                                            <option value="2" selected>Phụ nữ</option>
-                                                                                        </select>
-                                                                                    </div>
-                                                                                </div>
-                                                                                <div class="tw3-col-12 mb--compact">
-                                                                                    <div class="tw3-form__row__label">
-                                                                                        <label for="gender">
-                                                                                            ĐỘ TƯỞI TỪ
-                                                                                        </label>
-                                                                                    </div>
-                                                                                    <div name="age" class="tw3-rangeHolder jsCustomRange">
-                                                                                        <select tabindex="1" name="age" class="dropdown">
-                                                                                            <option value="1" selected>18 - 20</option>
-                                                                                            <option value="2">21 - 25</option>
-                                                                                            <option value="3">...</option>
-                                                                                        </select>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="tw3-row clearfix">
-                                                                                <div class="tw3-col-12 mb--compact">
-                                                                                    <div class="tw3-form__row__label">
-                                                                                        <label for="gender">
-                                                                                            SỐNG TẠI
-                                                                                        </label>
-                                                                                    </div>
-                                                                                    <input type="text" id="autocomplete" name="city" value="" class="tw3-text tw3-searchfield">
-                                                                                </div>
-                                                                            </div>
-
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <hr class="tw3-hr mtb--default">
-                                                            <div class="tw3-editable__block tw3-editable__block--disabled">
-                                                                <h5 class="text--bold jsEditableBlockTitle">THỐNG KÊ SƠ YẾU</h5>
-                                                                <ul class="text--subtle tw3-list mb--default">
-                                                                    <li>
-                                                                        <strong class="text--green">4</strong> người đã thăm sơ yếu của bạn ngày hôm nay
-                                                                    </li>
-                                                                    <li>
-                                                                        Sơ yếu của bạn đã được thăm <strong class="text--green">7</strong> lần trong 30 ngày qua
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="tw3-col-12 tw3-bp4-col-4">
-                                                    <div class="tw3-box--padding--off mb--compact">
-                                                        <a href="" class="noline inhouseAds inhouseAds--boost2 jsBuyProduct" style="background: url(https://www.twoo.com/static/7493194841967495115302/images/v3/ads-inhouse/boost1.png) no-repeat;background-size: 100%;">
-                                                            <div class="centerBlock">
-                                                                <div class="centerBlock__item">
-                                                                    <img src="/{{$info_basic->avatar}}" width="42" height="42" class="tw3-avatar tw3-avatar--circle" style="top:42px; right: 42px;">
-                                                                    <div class="tw3-row">
-                                                                        <div class="tw3-col-7 tw3-offset-right-4 tw3-offset-left-1 text--left">
-                                                                            <h4 class="tw3-h4">Gây Chú ý sơ yếu của bạn trong 15 phút!</h4>
-                                                                            <div class="tw3-button tw3-button--boost tw3-button--rounded"><i class="fa fa-star-o" aria-hidden="true"></i> Gây Chú ý</div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div data-tab="details" style="display:none" id="details" class="tw3-panel tab-item tw3-editable__block" >
-                                    <form action="{{ url('/user/updateInfo') }}" method="post">
-                                        {{ csrf_field() }}
+                                <div data-tab="details"  id="details" class="tw3-panel tab-item tw3-editable__block" style="display: block;" >
+                                    <form action="">
                                         <div class="">
                                             <h5 class="jsEditableBlockTitle mb--default text--bold">THÔNG TIN CƠ BẢN</h5>
                                             @if( empty($info_basic->id) )
@@ -344,100 +208,6 @@
                                                         </div>
                                                     </div>
                                                     <hr class="tw3-hr mb--default">
-                                                </div>
-                                                <div>
-                                                    <div class="editForm" style="display: none">
-                                                        <div class="tw3-row">
-                                                            <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
-                                                                <div class="tw3-row">
-                                                                    <div class="col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1">
-                                                                        <div class="tw3-row">
-                                                                            <div class="tw3-col-12 mb--default">
-                                                                                <div class="tw3-form__row__label">
-                                                                                    <label for="">
-                                                                                        Điện thoại
-                                                                                    </label>
-                                                                                </div>
-                                                                                <div class="tw3-form__row__input">
-                                                                                    <input type="text" value="" name="phone" class="tw3-text">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="tw3-row">
-                                                                            <div class="tw3-col-12 mb--default">
-                                                                                <div class="tw3-form__row__label">
-                                                                                    <label for="">
-                                                                                        Mã số sinh viên
-                                                                                    </label>
-                                                                                </div>
-                                                                                <div class="tw3-form__row__input">
-                                                                                    <input type="text" value="" name="mssv" class="tw3-text">
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="tw3-row">
-                                                                            <div class="tw3-col-12 mb--default">
-                                                                                <div class="tw3-form__row__label">
-                                                                                    <label for="">
-                                                                                        Upload hình thẻ sinh viên
-                                                                                    </label>
-                                                                                </div>
-                                                                                @if( empty($info_basic->id) )
-                                                                                <div class="tw3-form__row__input">
-                                                                                    <a style="left: 0px;" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-upload-image" data-toggle="modal" data-target="#myModal">Upload ảnh đại diện</a>
-                                                                                </div>
-                                                                                @endif
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="tw3-row">
-                                                                            <div class="tw3-col-12 mb--default">
-                                                                                <div class="tw3-form__row__label">
-                                                                                    <label for="city">
-                                                                                        THÀNH PHỐ
-                                                                                    </label>
-                                                                                </div>
-                                                                                <div class="tw3-dropdownHolder">
-                                                                                    <select name="province" class="dropdown">
-                                                                                        @foreach($province as $itemPro)
-                                                                                            <option value="{{$itemPro->id_province}}" {{$itemPro->id_province == $cities->id_province ?  'selected="selected"' : ''}} >{{$itemPro->value}}</option>
-                                                                                        @endforeach
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="tw3-col-12 tw3-bp4-col-6 mb--default">
-                                                                <div class="tw3-row">
-                                                                    <div class="col-12 tw3-bp4-col-11 tw3-bp4-offset-left-1">
-                                                                        <div class="tw3-row">
-                                                                            <div class="tw3-col-12 mb--default">
-                                                                                <div class="tw3-form__row__label">
-                                                                                    <label for="">
-                                                                                        Sinh viên trường
-                                                                                    </label>
-                                                                                </div>
-                                                                                <div class="tw3-dropdownHolder">
-                                                                                    <select name="school" class="dropdown">
-                                                                                        @if( empty($schools) )
-                                                                                            {{ $term = '1' }}
-                                                                                        @else
-                                                                                            {{ $term = $schools->id }}
-                                                                                        @endif
-                                                                                        @foreach($school as $itemPro)
-                                                                                            <option value="{{$itemPro->id}}" {{$itemPro->id == $term ?  'selected="selected"' : ''}} >{{$itemPro->value}}</option>
-                                                                                        @endforeach
-                                                                                    </select>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <hr class="tw3-hr mb--default">
-                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
