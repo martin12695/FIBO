@@ -25,7 +25,16 @@ class DatingController
 
     public function bookDating(Request $request){
         $info = $request->input();
-        dd($info);
-
+        $location = json_encode($info['location']);
+        $date = date_create_from_format('d/m/Y', $info['day']);
+        $date = $date->format('Y-m-d');
+        DB::table('dating')->insert(
+            [
+                'user_one' => Auth::id(), 'user_two' => $info['id_couple'],
+                'location_name' => $info['location_name'], 'time' => $info['time'],
+                'date' => $date, 'location' => $location
+            ]
+        );
+        return \Response::json(0);
     }
 }

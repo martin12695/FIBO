@@ -60,6 +60,26 @@
                     <div id="map" style="height:500px"></div>
                 </div>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Tạo cuộc hẹn</button>
+                <h3>Các cuộc hẹn đang có</h3>
+                <div ng-class="row">
+                    <div class="card col-md-4 col-sm-6" >
+                        <div class="card-block">
+                            <h4 class="card-title">Công viên Hoàng Văn Thụ</h4>
+                            <p class="card-text">Thời gian: 8:30</p>
+                            <p class="card-text">Ngày: 12/06/2017</p>
+                            <a href="#" class="btn btn-primary">Chi tiết</a>
+                        </div>
+                    </div>
+                    <div class="card col-md-4 col-sm-6" >
+                        <div class="card-block">
+                            <h4 class="card-title">Công viên Hoàng Văn Thụ</h4>
+                            <p class="card-text">Thời gian: 8:30</p>
+                            <p class="card-text">Ngày: 12/06/2017</p>
+                            <a href="#" class="btn btn-primary">Chi tiết</a>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="modal fade" id="myModal" role="dialog">
                     <div class="modal-dialog modal-sm">
                         <div class="modal-content">
@@ -82,7 +102,8 @@
                                     <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
                                     <input type="time" id='time_dating' class="form-control" placeholder="Giờ hẹn" aria-describedby="basic-addon1">
                                 </div>
-
+                                <p id="check_field" style="background: red; color: white; margin-top: 15px" hidden>Các trường không được bỏ trống !</p>
+                                <p id="check_location" style="background: red; color: white; margin-top: 15px" hidden>Bạn vui lòng chọn địa điểm hẹn hò bằng cách click vị trí trên bản đồ !</p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

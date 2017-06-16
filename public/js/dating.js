@@ -7,7 +7,6 @@ var infowindow;
 var pyrmont;
 var markers = [];
 var meeting = null;
-var meeting_ll = null;
 function initialize() {
     $( "#date_dating" ).datepicker({ dateFormat: 'dd/mm/yy' });
     pyrmont = new google.maps.LatLng(10.814144,106.679714);
@@ -41,7 +40,6 @@ function initialize() {
 
     google.maps.event.addListener(map, 'click', function(event) {
         placeMarker(event.latLng);
-        meeting_ll = event.latLng;
     });
 
     function placeMarker(location) {
@@ -51,7 +49,7 @@ function initialize() {
         meeting = new google.maps.Marker({
             position: location,
             map: map,
-            icon: image
+            icon: './images/icon/star.png'
         });
     }
 
@@ -104,25 +102,35 @@ function search() {
 }
 
 function  bookDate() {
-    $.ajax({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        },
-        type: "POST",
-        data : {
-            id_dating: id_couple,
-            time: $('#time_dating').val(),
-            day: $('#date_dating').val(),
-            location_name : $('#location_dating').val(),
-            location : {lat : meeting.getPosition().lat(), lng:meeting.getPosition().lng()}
+    if ( $('#time_dating').val() =='' || $('#date_dating').val()== '' || $('#location_dating').val()=='' ) {
+        $('#check_field').show();
+    } else if (meeting == null) {
+        $('#check_location').show();
+        alert("đâs");
+    }else {
+        $.ajax({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            type: "POST",
+            data: {
+                id_couple: id_couple,
+                time: $('#time_dating').val(),
+                day: $('#date_dating').val(),
+                location_name: $('#location_dating').val(),
+                location: {lat: meeting.getPosition().lat(), lng: meeting.getPosition().lng()}
 
-        } ,
-        url: '/dating/book',
-        success: function(data) {
+            },
+            url: '/dating/book',
+            success: function (data) {
+                if (data == 0) {
+                    swal("Tạo lịch thành công!", "", "success");
+                    window.location.replace('/dating');
+                }
+            },
 
-        },
-
-    });
+        });
+    }
 }
 
 
