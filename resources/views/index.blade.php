@@ -146,4 +146,7 @@
 @endsection
 @section('custom-js')
     <script src="/js/home.js" type="text/javascript"></script>
+    <script>
+
+    </script>
 @endsection

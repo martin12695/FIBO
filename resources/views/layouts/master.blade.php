@@ -210,9 +210,16 @@
 
     var pusher = new Pusher('eb42aed387d45591a942', {
         cluster: 'ap1',
-        encrypted: true
+        authEndpoint: '/pusher/auth',
+        encrypted: true,
+        auth: {
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        }
     });
 
+    var presenceChanel = pusher.subscribe('presence-online');
     // Subscribe to the channel we specified in our Laravel Event
     var channel = pusher.subscribe('notify-{{auth::id()}}');
 
@@ -243,6 +250,16 @@
         $('#number_noti').show();
 
 
+    });
+    var pusher1 = new Pusher('eb42aed387d45591a942', {
+        cluster: 'ap1',
+        authEndpoint: '/pusher/auth',
+        encrypted: true,
+        auth: {
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        }
     });
 </script>
 @yield('custom-js')

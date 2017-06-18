@@ -80,8 +80,7 @@ class FriendController
                     'user_id'=> $userId,
                     'sender_id' => Auth::id(),
                     'type_id' => 3
-                ])
-                ->delete();
+                ]);
             event(new Notify(Auth::user()->name, 'notify-'.$userId, 'chấp nhận lời mời kết bạn bạn'));
             if (session('userId') < $userId) {
                 try {

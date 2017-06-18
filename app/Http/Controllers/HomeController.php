@@ -11,18 +11,26 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use App\Quotation;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Auth;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use App\Events\Notify;
 use DateTime;
-
+use App;
 
 class HomeController
 {
+    var $pusher, $user, $chanel;
+
+    const DEFAULT_CHAT_CHANEL = 'presence-online';
+
+    public function __construct()
+    {
+        $this->pusher = App::make('pusher');
+        $this->user = Auth::user();
+        $this->chanel = self::DEFAULT_CHAT_CHANEL;
+    }
     public function initHome() {
         $recommen = DB::select('SELECT * FROM users
                             where id != ? and id NOT IN(
@@ -59,7 +67,8 @@ class HomeController
 
         return view('index',[
             'listPeople'   => $recommen,
-            'user'         =>$user
+            'user'         =>$user,
+            'chanel'    => $this->chanel
         ]);
 
     }
@@ -173,6 +182,7 @@ class HomeController
             ->join('users', 'notification.sender_id', '=', 'users.id')
             ->join('nofication_type', 'notification.type_id', '=', 'nofication_type.id')
             ->select('notification.*', 'users.name', 'users.avatar', 'nofication_type.value')
+            ->orderBy('created', 'desc')
             ->get();
         return \Response::json($list);
     }
