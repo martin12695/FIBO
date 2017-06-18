@@ -82,15 +82,27 @@ class HomeController
     }
     public function signin(Request $request) {
         $info = $request->input();
-        if (Auth::attempt(['email' => $info['email'], 'password' => $info['pass']])) {
-            session(['userId' => Auth::id(),
-            ]);
-            return \Response::json(0);
+        $term = '';
+        $get_email = DB::table('report')->where('user_email','=', $info['email'])->first();
+        if ($get_email != null){
+            if ($get_email->status == '2'){
+                $term = $get_email->user_email;
+            }
+            if (Auth::attempt(['email' => $term, 'password' => $info['pass']])) {
+                return \Response::json(2);
+            }
+        } else{
+            if (Auth::attempt(['email' => $info['email'], 'password' => $info['pass']])) {
+                session(['userId' => Auth::id(),
+                ]);
+                return \Response::json(0);
 
+            }
+            else {
+                return \Response::json(1);
+            }
         }
-        else {
-            return \Response::json(1);
-        }
+
     }
 
     public function init_signup() {

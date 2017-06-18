@@ -106,7 +106,19 @@ class ReportController
         }else{
             DB::table('report')
                 ->where('user_id', $id)
-                ->update(['status' => '1']);
+                ->update(['status' => '1']);//status = 0: dang bi to cao; status = 1: da bi huy to cao
+            return back();
+        }
+    }
+
+    public function blockReport($id){
+        $id = intval($id);
+        if (!$id){
+            return Redirect::to('/admin/report-member');
+        }else{
+            DB::table('report')
+                ->where('user_id', $id)
+                ->update(['status' => '2']); //status = 2 dang bi block
             return back();
         }
     }
