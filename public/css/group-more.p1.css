@@ -11819,9 +11819,9 @@ hr.tw3-hr--small {
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 .tw3-button.tw3-button--subtle {
-    background: none;
+    background: #FFFFFF;
     border-color: #6d7c85;
-    color: #6d7c85;
+    color: #007be6;
 }
 .tw3-button.tw3-button--subtle.tw3-button--large {
     border-width: 2px;
@@ -12229,7 +12229,7 @@ hr.tw3-hr--small {
     color: #fff;
 }
 .tw3-button--grey:hover {
-    background: #626f77;
+    background: rgb(232, 232, 232);
 }
 .tw3-button--grey:active {
     background: darken 2%;
