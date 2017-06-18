@@ -3702,7 +3702,6 @@ input.tw3-searchfield {
     border-radius: 1px;
     line-height: normal;
     color: #6d7c85;
-    background: url("/static/30617311394044342957/images/icons/icon-magnifier.png") no-repeat 10px #fff;
     padding-left: 30px;
 }
 body.tr input.tw3-searchfield {
@@ -3739,12 +3738,9 @@ input.tw3-searchfield.tw3-text--rounded {
     background-clip: padding-box;
 }
 input.tw3-searchfield:active, input.tw3-searchfield:focus {
-    background: url("/static/30617311394044342957/images/icons/icon-magnifier.png") no-repeat 10px #fff;
     padding-left: 30px;
 }
-body.tw3-modal--visible input.tw3-searchfield {
-    background: url("/static/30617311394044342957/images/icons/icon-magnifier.png") #fff no-repeat 10px;
-}
+
 .tw3-form__row--error .tw3-form__row__error {
     display: block;
 }
