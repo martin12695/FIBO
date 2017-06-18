@@ -16,6 +16,7 @@ class CommentService
             ->where('type', $type)
             ->where('post_id', $postID)
             ->join('users', 'users.id', '=', 'user_id')
+            ->select('comment.*','users.id','users.name','users.avatar')
             ->get();
         return $list_comment;
 

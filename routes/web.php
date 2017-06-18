@@ -101,6 +101,7 @@ Route::post('isTyping', array('uses' => 'ChatController@isTyping'));
 Route::post('notTyping', array('uses' => 'ChatController@notTyping'));
 Route::post('retrieveChatMessages', array('uses' => 'ChatController@retrieveChatMessages'));
 Route::post('retrieveTypingStatus', array('uses' => 'ChatController@retrieveTypingStatus'));
+Route::post('getOldMessages', array('uses' => 'ChatController@retrieveOldMessage'));
 
 
 Route::group(['prefix' => 'dating'], function () {

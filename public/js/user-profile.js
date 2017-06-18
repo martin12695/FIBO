@@ -14,6 +14,8 @@ profile.controller('profile_ctrl', function($scope, $http) {
 
 function delImage(id)
 {
+    if(!confirm("Bạn có thực muốn xóa !"))
+        return false;
     $.ajax({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

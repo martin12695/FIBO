@@ -48,6 +48,8 @@ sign_form.controller('sign_form_ctrl', function($scope, $http) {
 
         }
         else {
+            $scope.loading1 = true;
+            $scope.button_info = false;
             $http({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -65,10 +67,9 @@ sign_form.controller('sign_form_ctrl', function($scope, $http) {
                     from :  $scope.from,
                 },
             }).then(function (data){
+                $scope.loading1 = false;
+                $scope.button_info = true;
                 if (data.data == 1) {
-                    $scope.message = 'show';
-                    $scope.button_info = 'show';
-                    $scope.loading = 'hide';
                 } else if (data.data == 0) {
                     window.location.replace('/signin');
                 }else {
@@ -81,15 +82,4 @@ sign_form.controller('sign_form_ctrl', function($scope, $http) {
     }
 });
 
-function showRegisterForm(){
-    $('.loginBox').fadeOut('fast',function(){
-        $('.registerBox').fadeIn('fast');
-        $('.login-footer').fadeOut('fast',function(){
-            $('.register-footer').fadeIn('fast');
-        });
-        $('.modal-title').html('Đăng ký với');
-    });
-    $('.error').removeClass('alert alert-danger').html('');
-
-}
 

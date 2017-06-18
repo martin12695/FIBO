@@ -74,6 +74,20 @@ class ChatController extends BaseController
         }
     }
 
+    public function retrieveOldMessage(){
+        $message = ChatMessage::where(function ($query) {
+            $query->where('sender_username', '=', Input::get('id'))
+                ->where('to_user', '=', Auth::id())
+                ->where('read', '=', true);
+        })
+            ->orwhere(function ($query) {
+                $query->where('sender_username', '=', Auth::id())
+                    ->where('to_user', '=', Input::get('id'));
+            })
+            ->select('sender_username','message')
+            ->get();
+        return $message;
+    }
     /*public function retrieveTypingStatus()
     {
         $username = Input::get('username');

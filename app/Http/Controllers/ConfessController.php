@@ -40,6 +40,7 @@ class ConfessController {
 
     public function initPageOver(){
         $info = DB::table('confession')->get();
+        dd($info);
         return view('confession.index',
             [
             'listPost' => $info

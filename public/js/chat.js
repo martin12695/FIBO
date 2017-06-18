@@ -23,7 +23,35 @@ function makeChat(id)
 {
     $('#chat-window').html('');
     to_user = id;
+    getOldMessage(id)
     pullData(id);
+}
+
+function  getOldMessage(id) {
+    $.ajax({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        type: "POST",
+        data : {
+            id: id,
+        } ,
+        url: '/getOldMessages',
+        success: function(data) {
+            var i;
+            for (i = 0; i < data.length; ++i) {
+                if (data[i].sender_username == id ) {
+                    $('#chat-window').append('<br><div>'+data[i].message+'</div><br>');
+                } else {
+                    $('#chat-window').append('<br><div style="text-align: right">'+data[i].message+'</div><br>');
+                }
+
+            }
+
+        },
+
+    });
+
 }
 
 function retrieveChatMessages(id)

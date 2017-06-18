@@ -116,6 +116,9 @@
                                     <dd>
                                         <div class="inputHolder jsLabelEmail" style="width: 100%">
                                             <input type="email" name="email" class="text" tabindex="7" ng-model="email_reg" required>
+                                            <span ng-show="exist_email" style="background: red">
+                                                Email đã có người sử dụng!
+                                            </span>
                                         </div>
                                     </dd>
                                     <dt>
@@ -152,7 +155,7 @@
                                         &nbsp;
                                     </dt>
                                     <dd>
-                                        <button type="submit" tabindex="3" class="button button--green button--full button--xlarge" ng-click="myform.$valid && sign_up()"><span ng-class="button_info">Đăng ký</span><img src="/images/icon/facebook.gif" height="20" ng-class="loading"></button>
+                                        <button type="submit" tabindex="3" class="button button--green button--full button--xlarge" ng-click="myform.$valid && sign_up()"><span ng-show="button_info">Đăng ký</span><img src="/images/icon/facebook.gif" height="20" ng-show="loading1"></button>
                                     </dd>
                                     <dt>
                                         &nbsp;
@@ -164,11 +167,6 @@
                             </form>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="homepageContainer__loading">
-                <div class="spinner">
-                    <p><img src="https://twoo-a.akamaihd.net/static/580106430915135806410/images/loading_dialog.gif"></p>
                 </div>
             </div>
         </div>

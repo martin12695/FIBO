@@ -16,8 +16,8 @@
 <script src="/js/showhide.tab.js" type="text/javascript"></script>
 <script src="/js/jquery.autocomplete.min.js" type="text/javascript"></script>
 <script src="/js/lib/slick.min.js" type="text/javascript"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js" type="text/javascript"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.min.js" type="text/javascript"></script>
-<script src='http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js'></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.12/jquery.mousewheel.min.js" type="text/javascript"></script>
+<script src='//cdnjs.cloudflare.com/ajax/libs/mustache.js/0.7.2/mustache.min.js'></script>
 <script src="/js/fancybox/fancybox.js" type="text/javascript"></script>
 <script src="/js/lib/notification.js" type="text/javascript"></script>

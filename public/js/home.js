@@ -40,7 +40,7 @@ function getLocation() {
 }
 
 function showPosition(position) {
-    var a= $.getJSON('http://maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude+ ','+ position.coords.longitude +'&sensor=true', function(data) {
+    var a= $.getJSON('//maps.googleapis.com/maps/api/geocode/json?latlng=' + position.coords.latitude+ ','+ position.coords.longitude +'&sensor=true', function(data) {
       if (data.results[0].formatted_address){
           $.ajax({
               headers: {
