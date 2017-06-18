@@ -40,27 +40,7 @@
                                 </div>
                             </div>
                             <div class="jsPromotionBlock" data-promocode="MTk1MDM3MzU0MjoyODpnZW5lcmljOjI6MDoxNDkxMTExNjM5OjplCMXFoTA4we96GS5ALlMY">
-                                <a href="javascript:;" data-trigger="promo_game_fis" data-prcd="MTk1MDM3MzU0MjoyODpnZW5lcmljOjI6MDoxNDkxMTExNjM5OjplCMXFoTA4we96GS5ALlMY" data-productid="26" class="noline jsBuyProduct">
-                                    <div class="tw3-promoHor tw3-promoHor--fis">
-                                        <div class="tw3-media tw3-media--figure--fluid tw3-media--middle">
-                                            <div class="tw3-media__figure">
-                                                <img src="https://twoo-a.akamaihd.net/static/864505989717655270395861131/shared/i/blank.gif" class="tw3-promoHor__icon" style="background: url('https://twoo-a.akamaihd.net/static/568138209611541256/images/onboarding/img-purple-fis.png'); background-size: 100%;" width="64" height="64">
-                                            </div>
-                                            <div class="tw3-media__content">
-                                                Chắc chắn bạn là người <strong>đầu tiên</strong> mọi người thấy trong kết quả tìm kiếm.
-                                                <p class="m0">
-                                                    <small class="text--subtle">
-                                                        Giá: 100 Tín dụng</small>
-                                                </p>
-                                            </div>
-                                            <div class="tw3-media__actions">
-                                                <p class="mb--tight">
-                                                </p><div class="tw3-button tw3-button--blue tw3-button--fis tw3-button--rounded">Đầu mục Tìm kiếm</div>
-                                                <p></p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
+                                <h3>Tin tức</h3>
                             </div>
                         </div>
                     </div>
@@ -93,27 +73,27 @@
                             <ul class="tw3-menu">
                                 <li>
                                     <div class="tw3-row" >
-                                        <a href="/activity/likesyou?menu=1">
+                                        <a href="/search">
                                             <div class="tw3-menu__title">
-                                                <i class="fa fa-check" aria-hidden="true"></i> Người thích bạn
+                                                <i class="fa fa-search" aria-hidden="true"></i> Tìm kiếm bạn bè
                                             </div>
                                         </a>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="tw3-row">
-                                        <a href="/activity/likes" >
+                                        <a href="/whoiknow" >
                                             <div class="tw3-menu__title">
-                                                <i class="fa fa-heart" aria-hidden="true"></i> Người bạn thích
+                                                <i class="fa fa-heart" aria-hidden="true"></i> Bạn bè
                                             </div>
                                         </a>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="tw3-row">
-                                        <a href="/activity/matches">
+                                        <a href="/chat">
                                             <div class="tw3-menu__title">
-                                                <i class="fa fa-bell" aria-hidden="true"></i> Người phù hợp
+                                                <i class="fa fa-commenting" aria-hidden="true"></i> Chat
                                             </div>
                                         </a>
                                     </div>

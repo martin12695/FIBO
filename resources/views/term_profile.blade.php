@@ -812,7 +812,13 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="tw3-row"><span>Trạng thái: Chưa được chứng thực</span></div>
+                                            <div class="tw3-row">
+                                                <span>
+                                                    Trạng thái: @if ($info_basic->level != 'Quest')<span style="color: blue">Đã xác thực</span>
+                                                                    @else <span style="color: red">Chưa xác thực</span>
+                                                                    @endif
+                                                </span>
+                                            </div>
                                             <p class="tw3-row"><i>Sau khi chứng thực thành công bạn có thể sử dụng hết tất cả dịch vụ của FIBO.</i></p>
                                         </div>
                                     </div>
