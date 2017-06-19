@@ -7,6 +7,7 @@ sign_form.controller('sign_form_ctrl', function($scope, $http) {
     $( "#birthday" ).datepicker({ dateFormat: 'dd/mm/yy' });
     $scope.button_info = 'show';
     $scope.loading = 'hide';
+    $scope.message_block = 'hide';
     $scope.message = 'hide';
     $scope.check_field = 'hide';
     $scope.pass ='';
@@ -33,7 +34,12 @@ sign_form.controller('sign_form_ctrl', function($scope, $http) {
                     $scope.message = 'show';
                     $scope.button_info = 'show';
                     $scope.loading = 'hide';
-                } else {
+                } else if (data.data == 2){
+                    $scope.message_block = 'show';
+                    $scope.button_info = 'show';
+                    $scope.loading = 'hide';
+                }
+                else {
                     window.location.replace('/');
                 }
             },function (error){

@@ -88,6 +88,9 @@
                                        <span ng-class="message" style="background: red">
                                         Email hoặc mật khẩu chưa đúng!
                                         </span>
+                                        <span ng-class="message_block" style="background: red">
+                                        Tài khoản đang bị khóa!
+                                        </span>
                                         <span ng-class="check_field" style="background: red">
                                         Các trường không được để trống!
                                         </span>
