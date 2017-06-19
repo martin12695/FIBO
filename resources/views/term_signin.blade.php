@@ -34,32 +34,12 @@
                     <img src="/images/logo.gif">
                 </div>
             </div>
-            <div class="homepageContainer__content__form registerContainer" id="registerContainer">
-                <div class="homepageContainer__content__form--step2 step2Container pageAni jsRegisterFormContainer">
-                    <div style="display: table; width: 100%;">
-                        <div class="row row--height">
-                            <div class="col--left">
-                                <p>
-                                    <a href="https://www.facebook.com/v2.8/dialog/oauth/?client_id=175694939152556&amp;redirect_uri=https%3A%2F%2Fwww.twoo.com%2Ffacebook%2Flogin%3Faction%3Dlogin&amp;scope=user_about_me,user_birthday,email,user_location,user_relationships,user_photos" class="button button--facebook button--xlarge button--full fbcntbtn" data-trigger="homepage_login" data-appid="175694939152556" data-permissions="user_about_me,user_birthday,email,user_location,user_relationships,user_photos"><i class="ficonFacebook ficonWhite tw3-iconNormal mr--compact"></i> Đăng nhập bằng Facebook</a>
-                                </p>
-                                <small>(đây là cách đăng ký nhanh, chúng tôi sẽ không bao giờ đăng trên Facebook)</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="homepageContainer__content__form homepageContainer__content__form--intro loginContainer" id="loginContainer">
                 <div class="homepageContainer__content__slogan homepageContainer__content__slogan--bigHeader">
                     <h1>Chào mừng bạn đến với FiBo!</h1>
                 </div>
                 <div style="display: table; width: 100%;">
                     <div class="row row--height">
-                        <div class="col--left">
-                            <p>
-                                <a href="" class="button button--facebook button--xlarge button--full fbcntbtn"> Đăng nhập bằng Facebook</a>
-                            </p>
-                            <small>(Đăng nhập cách này nhanh hơn, chúng tôi không bao giờ đăng lên Facebook của bạn)</small>
-                        </div>
                         <div class="col--seperator">
                             <div class="tw3-divider--horizontal--or"><span><i>/</i></span></div>
                             <div class="divider--vertical hide"><span><i></i></span></div>

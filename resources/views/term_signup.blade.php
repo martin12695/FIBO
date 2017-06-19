@@ -37,12 +37,6 @@
                 </div>
                 <div style="display: table; width: 100%;">
                     <div class="row row--height">
-                        <div class="col--left">
-                            <p>
-                                <a href="" class="button button--facebook button--xlarge button--full fbcntbtn"> Đăng nhập bằng Facebook</a>
-                            </p>
-                            <small>(Đăng nhập cách này nhanh hơn, chúng tôi không bao giờ đăng lên Facebook của bạn)</small>
-                        </div>
                         <div class="col--seperator">
                             <div class="tw3-divider--horizontal--or"><span><i>/</i></span></div>
                             <div class="divider--vertical hide"><span><i></i></span></div>
