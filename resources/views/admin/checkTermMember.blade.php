@@ -58,10 +58,17 @@
                                     <img  alt="no-picture.png"  width="385" height="450" src="/album/no-avatar.png">
                                 </td>
                             @endif
+                            @if( isset($getID) )
                             <td>
                                 <a style="margin-top: 90px" href="{{ route('getCheckedTermMember.id', $getID->user_id) }}" id="verification" class="btn btn-success">Xác Nhận</a>
                                 <a style="margin-top: 90px" href="{{ route('sendMail.id', $getID->user_id) }}" class="SendDuLieu btn btn-danger">Phản hồi</a>
                             </td>
+                                @else
+                                    <td>
+                                        <a style="margin-top: 90px" href="{{ route('getCheckedTermMember.id', $segment = Request::segment(4)) }}" id="verification" class="btn btn-success">Xác nhận</a>
+                                        <a style="margin-top: 90px" href="{{ route('sendMail.id', $segment = Request::segment(4)) }}" class="SendDuLieu btn btn-danger">Phản hồi</a>
+                                    </td>
+                            @endif
                         </tr>
                     </table>
                 </div>
