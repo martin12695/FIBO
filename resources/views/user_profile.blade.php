@@ -68,6 +68,13 @@
                             <div class="tw3-col-6 tw3-bp3-col-4 mt--default">
                                 <a  style="left: -460px;" onclick="addCouple({{$info_basic->id}})" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends" id="addcouple_btn">Hẹn hò</a>
                             </div>
+                        @elseif($have_related == 3)
+                            <div class="tw3-col-6 tw3-bp3-col-4 mt--default">
+                                <a style="left: -230px;" onclick="unFriend({{$info_basic->id}})" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Hủy kết bạn</a>
+                            </div>
+                            <div class="tw3-col-6 tw3-bp3-col-4 mt--default">
+                                <a  style="left: -460px;" onclick="unCouple({{$info_basic->id}})" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends" id="addcouple_btn">Hủy Hẹn hò</a>
+                            </div>
                         @else
                             <div class="tw3-col-6 tw3-bp3-col-4 mt--default">
                                 <a style="left: -230px;" onclick="unFriend({{$info_basic->id}})" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Hủy kết bạn</a>
@@ -368,7 +375,7 @@
                                     <div class="tw3-thumbsHolder">
                                         @foreach($photos as $photo)
                                             <div class="tw3-thumb jsPhotoThumb">
-                                                <a class="tw3-thumb__link fancybox" rel="gallery1" href="{{url('album/'.$photo->link)}}" title="Lorem ipsum dolor sit amet">
+                                                <a class="tw3-thumb__link fancybox" rel="gallery1" href="{{url('album/'.$photo->link)}}">
                                                     <img class="jsTriggerPhotoBox tw3-thumb__link__image" alt="" src="{{url('album/'.$photo->link)}}">
                                                 </a>
                                             </div>

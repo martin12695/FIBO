@@ -19,6 +19,7 @@ use Vinkla\Pusher\PusherManager;
 use App\Events\Notify;
 
 
+
 class FriendController
 {
     /* 1 : pending
@@ -107,31 +108,37 @@ class FriendController
             }
         }
         if ( $request == 'requestcouple') {
-            if (session('userId') < $userId) {
-                try {
-                    DB::table('relationship')
-                        ->where('user_one',session('userId') )
-                        ->where('user_two',$userId )
-                        ->where('status',2)
-                        ->update(['status' => 3,'action_user' =>session('userId') ]);
-                    event(new Notify(Auth::user()->name, 'notify-'.$userId, 'muốn hẹn hò với bạn'));
-                    return \Response::json(0);
-                } catch (QueryException $e) {
-                    return \Response::json(1);
+            if(FriendService::checkCouple ($userId) == false) {
+                if (session('userId') < $userId) {
+                    try {
+                        DB::table('relationship')
+                            ->where('user_one',session('userId') )
+                            ->where('user_two',$userId )
+                            ->where('status',2)
+                            ->update(['status' => 3,'action_user' =>session('userId') ]);
+                        event(new Notify(Auth::user()->name, 'notify-'.$userId, 'muốn hẹn hò với bạn'));
+                        return \Response::json(0);
+                    } catch (QueryException $e) {
+                        return \Response::json(1);
+                    }
+                } else {
+                    try {
+                        DB::table('relationship')
+                            ->where('user_one',$userId )
+                            ->where('user_two',session('userId') )
+                            ->where('status',2)
+                            ->update(['status' => 3,'action_user' =>session('userId') ]);
+                        event(new Notify(Auth::user()->name, 'notify-'.$userId, 'muốn hẹn hò với bạn'));
+                        return \Response::json(0);
+                    } catch (QueryException $e) {
+                        return \Response::json(1);
+                    }
                 }
             } else {
-                try {
-                    DB::table('relationship')
-                        ->where('user_one',$userId )
-                        ->where('user_two',session('userId') )
-                        ->where('status',2)
-                        ->update(['status' => 3,'action_user' =>session('userId') ]);
-                    event(new Notify(Auth::user()->name, 'notify-'.$userId, 'muốn hẹn hò với bạn'));
-                    return \Response::json(0);
-                } catch (QueryException $e) {
-                    return \Response::json(1);
-                }
+                return \Response::json(2);
             }
+
+
         }
 
         if ($request == 'acceptCouple') {
@@ -177,6 +184,32 @@ class FriendController
                         ->where('user_one',$userId )
                         ->where('user_two',session('userId') )
                         ->delete();
+                    return \Response::json(0);
+                } catch (QueryException $e) {
+                    return \Response::json(1);
+                }
+            }
+        }
+
+        if ($request == 'uncouple') {
+            if (session('userId') < $userId) {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',session('userId') )
+                        ->where('user_two',$userId )
+                        ->where('status',4)
+                        ->update(['status' => 2,'action_user' =>session('userId') ]);
+                    return \Response::json(0);
+                } catch (QueryException $e) {
+                    return \Response::json(1);
+                }
+            } else {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',$userId )
+                        ->where('user_two',session('userId') )
+                        ->where('status',4)
+                        ->update(['status' => 2,'action_user' =>session('userId') ]);
                     return \Response::json(0);
                 } catch (QueryException $e) {
                     return \Response::json(1);

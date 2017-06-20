@@ -93,6 +93,35 @@ function unFriend(userId)
 
 }
 
+function unCouple(userId)
+{
+
+    swal({
+            title: "Bạn có chắc chắn muốn hủy hẹn hò?",
+            text: "Hủy hẹn hò có thể dẫn tới những hậu quả nghiêm trọng!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Vâng, đồng ý",
+            cancelButtonText: 'Hủy',
+            closeOnConfirm: true
+        },
+        function(){
+            $.ajax({
+                type: "GET",
+                url: '/friend/uncouple/' + userId ,
+                success: function(data) {
+                    if (data == 0) {
+                        window.location.replace('/user/profile/'+userId);
+                    }
+                },
+
+            });
+        });
+
+
+}
+
 function addCouple(userId)
 {
     $.ajax({
@@ -101,8 +130,11 @@ function addCouple(userId)
         success: function(data) {
             if (data == 0) {
                 $('#addcouple_btn').text('Đã gửi lời mời hẹn hò');
-            } else {
             }
+            if (data == 2) {
+                swal("Không thể hẹn hò!", "Rất tiếc người này đang hẹn hò với người khác!")
+            }
+
 
         },
 

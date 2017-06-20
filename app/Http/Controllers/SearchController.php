@@ -356,7 +356,8 @@ class SearchController
                     ->where('user_two', $id)
                     ->where(function ($query) {
                         $query->where('status', 2)
-                            ->orwhere('status', 3);
+                            ->orwhere('status', 3)
+                            ->orwhere('status', 4);
                     })
                     ->first();
             } else {
@@ -365,7 +366,8 @@ class SearchController
                     ->where('user_two', Auth::id())
                     ->where(function ($query) {
                         $query->where('status', 2)
-                            ->orwhere('status', 3);
+                            ->orwhere('status', 3)
+                            ->orwhere('status', 4);
                     })
                     ->first();
             }
@@ -376,7 +378,12 @@ class SearchController
                if ($couple == null) {
                    $have_related = 1; // phiên hiện tại đã có bồ
                }else {
-                   $have_related = 2; // phiên hiện tại chưa có bồ
+
+                   if ( $couple->id == $id ) {
+                       $have_related = 3; //đối phương đã là bồ
+                   } else {
+                       $have_related = 2; // phiên hiện tại chưa có bồ
+                   }
                }
             }
 

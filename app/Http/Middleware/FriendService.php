@@ -122,5 +122,20 @@ class FriendService
         return $couple;
     }
 
+    public static function checkCouple($id){
+        $check = DB::table('relationship')
+            ->where(function ($query) use ($id){
+                $query->where('user_one', $id)
+                    ->orwhere('user_two', $id);
+            })
+            ->where('status', 4)
+            ->first();
+        if ($check != null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
 }
