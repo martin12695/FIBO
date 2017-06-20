@@ -82,15 +82,27 @@ class HomeController
     }
     public function signin(Request $request) {
         $info = $request->input();
-        $term = '';
         $get_email = DB::table('report')->where('user_email','=', $info['email'])->first();
         if ($get_email != null){
             if ($get_email->status == '2'){
                 $term = $get_email->user_email;
+                if (Auth::attempt(['email' => $term, 'password' => $info['pass']])) {
+                    return \Response::json(2);
+                }
             }
-            if (Auth::attempt(['email' => $term, 'password' => $info['pass']])) {
-                return \Response::json(2);
+            if ($get_email->status == '0' || $get_email->status == '1'){
+                $term_char = $get_email->user_email;
+                if (Auth::attempt(['email' => $term_char, 'password' => $info['pass']])) {
+                    session(['userId' => Auth::id(),
+                    ]);
+                    return \Response::json(0);
+
+                }
+                else {
+                    return \Response::json(1);
+                }
             }
+
         } else{
             if (Auth::attempt(['email' => $info['email'], 'password' => $info['pass']])) {
                 session(['userId' => Auth::id(),
