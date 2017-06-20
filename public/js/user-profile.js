@@ -64,6 +64,35 @@ function addFriend(userId)
 
 }
 
+function unFriend(userId)
+{
+
+    swal({
+            title: "Bạn có chắc chắn muốn hủy kết bạn?",
+            text: "Hủy kết bạn là một hành động không nên khi tham gia FIBO",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: "Vâng, đồng ý",
+            cancelButtonText: 'Hủy',
+            closeOnConfirm: true
+        },
+        function(){
+            $.ajax({
+                type: "GET",
+                url: '/friend/unfriend/' + userId ,
+                success: function(data) {
+                    if (data == 0) {
+                        window.location.replace('/user/profile/'+userId);
+                    }
+                },
+
+            });
+        });
+
+
+}
+
 function addCouple(userId)
 {
     $.ajax({

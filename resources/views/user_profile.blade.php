@@ -63,14 +63,14 @@
                             </div>
                         @elseif($have_related == 1)
                             <div class="tw3-col-6 tw3-bp3-col-4 mt--default">
-                                <a style="left: -230px;" href="" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Hủy kết bạn</a>
+                                <a style="left: -230px;" onclick="unFriend({{$info_basic->id}})" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Hủy kết bạn</a>
                             </div>
                             <div class="tw3-col-6 tw3-bp3-col-4 mt--default">
                                 <a  style="left: -460px;" onclick="addCouple({{$info_basic->id}})" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends" id="addcouple_btn">Hẹn hò</a>
                             </div>
                         @else
                             <div class="tw3-col-6 tw3-bp3-col-4 mt--default">
-                                <a style="left: -230px;" href="" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Hủy kết bạn</a>
+                                <a style="left: -230px;" onclick="unFriend({{$info_basic->id}})" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Hủy kết bạn</a>
                             </div>
                         @endif
                         @if( empty($info_basic->id) )

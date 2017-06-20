@@ -159,6 +159,30 @@ class FriendController
                 }
             }
         }
+
+        if ($request == 'unfriend') {
+            if (session('userId') < $userId) {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',session('userId') )
+                        ->where('user_two',$userId )
+                        ->delete();
+                    return \Response::json(0);
+                } catch (QueryException $e) {
+                    return \Response::json(1);
+                }
+            } else {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',$userId )
+                        ->where('user_two',session('userId') )
+                        ->delete();
+                    return \Response::json(0);
+                } catch (QueryException $e) {
+                    return \Response::json(1);
+                }
+            }
+        }
     }
 
     public function whoIKnow() {
