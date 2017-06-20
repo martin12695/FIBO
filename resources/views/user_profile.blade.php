@@ -9,13 +9,16 @@
             <div class="tw3-container pos--rel">
                 <div class="mb--compact tw3-promosHolder--bp4Widget jsSidePromotion">
                 </div>
+                @if($check_report == 2)
+                    <h4 class="tw3-h4" >Tài khoản đang bị tạm khóa</h4>
+                   @else
                 <div class="tw3-profile tw3-box--padding--off jsProfile tw3-profile--your">
                     <div class="tw3-container">
                         @if( $check_report == 0)
                         <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
                             <a data-toggle="modal" data-target="#myModal" class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Report</a>
                         </div>
-                        @else
+                        @elseif($check_report == 1)
                             <div class="tw3-col-12 tw3-bp3-col-4 mt--default">
                                 <a class="tw3-button tw3-button--full tw3-button--grey tw3-button--small tw3-button--subtle tw3-button--wrap btn-add-friends">Reporting...</a>
                             </div>
@@ -376,6 +379,7 @@
                         </div>
                     </div>
                 </div>
+                    @endif
             </div>
         </div>
     </div>
