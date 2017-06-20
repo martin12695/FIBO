@@ -29,12 +29,12 @@
                                 <i class="fa fa-comments fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">10</div>
+                                <div class="huge">{{ $comment }}</div>
                                 <div>Bình luận</div>
                             </div>
                         </div>
                     </div>
-                    <a href="">
+                    <a href="{{ url('admin/comment') }}">
                         <div class="panel-footer">
                             <span class="pull-left">Xem chi tiết</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -52,12 +52,12 @@
                                 <i class="fa fa-tasks fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">10</div>
+                                <div class="huge">{{ $cfs }}</div>
                                 <div>Bài viết</div>
                             </div>
                         </div>
                     </div>
-                    <a href="">
+                    <a href="{{ url('admin/confessed') }}">
                         <div class="panel-footer">
                             <span class="pull-left">Xem chi tiết</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -75,12 +75,12 @@
                                 <i class="fa fa-users fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">10</div>
+                                <div class="huge">{{ $admin }}</div>
                                 <div>Ban quản trị</div>
                             </div>
                         </div>
                     </div>
-                    <a href="">
+                    <a href="{{ url('admin/staff') }}">
                         <div class="panel-footer">
                             <span class="pull-left">Xem chi tiết</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -98,12 +98,12 @@
                                 <i class="fa fa-support fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
-                                <div class="huge">12</div>
+                                <div class="huge">{{ $member }}</div>
                                 <div>Thành viên</div>
                             </div>
                         </div>
                     </div>
-                    <a href="">
+                    <a href="{{ url('admin/member') }}">
                         <div class="panel-footer">
                             <span class="pull-left">Xem chi tiết</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -120,16 +120,16 @@
                     </div>
                     <div class="panel-body">
                         <div class="list-group">
-                            <a href="" class="list-group-item">
-                                <span class="badge">12</span>
+                            <a href="{{ url('admin/confessed') }}" class="list-group-item">
+                                <span class="badge">{{ $cfs }}</span>
                                 <i class="fa fa-shopping-cart"></i> Tổng bài viết
                             </a>
-                            <a href="" class="list-group-item">
-                                <span class="badge">12</span>
+                            <a href="{{ url('admin/confession') }}" class="list-group-item">
+                                <span class="badge">{{ $check_cfs }}</span>
                                 <i class="fa fa-tasks"></i> Tổng bài viết đang chờ duyệt
                             </a>
-                            <a href="" class="list-group-item">
-                                <span class="badge">12</span>
+                            <a href="{{ url('admin/comment') }}" class="list-group-item">
+                                <span class="badge">{{ $comment }}</span>
                                 <i class="fa fa-fw fa-comments"></i> Tổng bình luận
                             </a>
 
@@ -145,12 +145,16 @@
                     </div>
                     <div class="panel-body">
                         <div class="list-group">
-                            <a href="" class="list-group-item">
-                                <span class="badge">12</span>
-                                <i class="fa fa-fw fa-user"></i> Tổng thành viên
+                            <a href="{{ url('admin/member') }}" class="list-group-item">
+                                <span class="badge">{{ $member }}</span>
+                                <i class="fa fa-fw fa-user"></i> Tổng thành viên chính thức
                             </a>
-                            <a href="" class="list-group-item">
-                                <span class="badge">12</span>
+                            <a href="{{ url('admin/term-member') }}" class="list-group-item">
+                                <span class="badge">{{ $check_member }}</span>
+                                <i class="fa fa-fw fa-user"></i> Tổng thành viên đang chờ duyệt
+                            </a>
+                            <a href="{{ url('admin/staff') }}" class="list-group-item">
+                                <span class="badge">{{ $admin }}</span>
                                 <i class="fa fa-fw fa-gear"></i> Tổng quản trị viên
                             </a>
                         </div>

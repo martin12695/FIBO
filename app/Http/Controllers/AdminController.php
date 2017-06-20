@@ -26,8 +26,26 @@ class AdminController
     public function initHome() {
 
         $user = DB::table('users')->where('id', '=', Auth::id())->first();
+        $comment = DB::table('comment')->count();
+        $cfs = DB::table('confession')->where('status', '=', '1')->count();
+        $check_cfs = DB::table('confession')->where('status', '=', '0')->count();
+        $admin = DB::table('users')
+            ->where('level','=', 'Admin')
+            ->count();
+        $member = DB::table('users')
+            ->where('level','=', 'Member')
+            ->count();
+        $check_member = DB::table('users')
+            ->where('level','=', 'Quest')
+            ->count();
         return view('admin.index',[
-            'user'         =>$user
+            'user'         => $user,
+            'comment'      => $comment,
+            'cfs'          => $cfs,
+            'admin'        => $admin,
+            'member'       => $member,
+            'check_cfs'    => $check_cfs,
+            'check_member' => $check_member,
         ]);
     }
 
@@ -62,4 +80,5 @@ class AdminController
         Auth::logout();
         return Redirect::to('/');
     }
+
 }
