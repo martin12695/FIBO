@@ -385,7 +385,9 @@ class SearchController
 
             if ($check_report == null || $check_report->status == '1'){
                 $check_report = 0;
-            }else
+            }elseif($check_report == null || $check_report->status == '2')
+                $check_report = 2;
+            else
                 $check_report = 1;
 
             return view('user_profile',[

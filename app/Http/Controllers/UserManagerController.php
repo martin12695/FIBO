@@ -301,10 +301,13 @@ class UserManagerController
                 ->where('user_id', $id)
                 ->select('users.id','user_id', 'link')
                 ->first();
-            return view('admin.checkTermMember', [
-                'getImage' => $getImage,
-                'getID' => $getID
-            ]);
+            if (isset($getImage) && isset($getID)){
+                return view('admin.checkTermMember', [
+                    'getImage' => $getImage,
+                    'getID' => $getID
+                ]);
+            }
+            return view('admin.checkTermMember');
         }
     }
 

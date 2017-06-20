@@ -223,6 +223,7 @@ Route::group(array('prefix' => 'admin', 'before' => 'auth'), function()
     Route::get('/report-member/del/{id}', ['as' => 'del.id', 'uses' => 'ReportController@delReport']);
     Route::get('/report-member/can/{id}', ['as' => 'cancel.id', 'uses' => 'ReportController@cancelReport']);
     Route::get('/report-member/block/{id}', ['as' => 'block.id', 'uses' => 'ReportController@blockReport']);
+    Route::get('/report-member/unblock/{id}', ['as' => 'unblock.id', 'uses' => 'ReportController@unblockReport']);
 
     Route::get('/comment/search/', ['as' => 'search.id', 'uses' => 'AdminCommentController@searchComment']);
 
