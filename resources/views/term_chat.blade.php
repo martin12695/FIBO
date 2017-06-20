@@ -1,6 +1,24 @@
 @extends('layouts.master')
 @section('title', 'FIBO Chat')
 @section('custom-css')
+    <style>
+        .myMessage {
+            right: 0px;
+            position: absolute;
+            background-color: #4080ff;
+            padding: 10px;
+            border-radius: 156px;
+            color: white;
+        }
+
+        .responseMessage {
+            background-color: lightgray;
+            padding: 10px;
+            position: absolute;
+            border-radius: 156px;
+            color: black;
+        }
+    </style>
 @endsection
 @section('content')
     <span id="username">{{Auth::id()}}</span>
@@ -45,7 +63,7 @@
                             </div>
                         </div>
                         <div class="conversationsContainer jsConversationsContainer helper--takeHeightOfContainer  conversationsContainer--visible conversationsContainer--senderBar--normal" style="display: none">
-                            <div id="chat-window" class="helper--takeHeightOfContainer jsThreadsContainer" style="height: 72%; margin-top:62px; overflow-y:scroll; overflow-x:hidden">
+                            <div id="chat-window" class="helper--takeHeightOfContainer jsThreadsContainer" style="height: 72%; margin-top:62px; overflow-y:scroll; overflow-x:hidden; position: relative";>
                             </div>
                             <div class="conversationsContainer__item__bottomBar jsMessageSenderBar">
                                 <div class="conversationsContainer__item__bottomBar__container conversationsContainer__item__bottomBar__container--normal">

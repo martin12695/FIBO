@@ -1,5 +1,6 @@
 var username;
 var to_user;
+var objDiv = document.getElementById("chat-window");
 $(document).ready(function()
 {
     username = $('#username').html();
@@ -41,12 +42,13 @@ function  getOldMessage(id) {
             var i;
             for (i = 0; i < data.length; ++i) {
                 if (data[i].sender_username == id ) {
-                    $('#chat-window').append('<br><div>'+data[i].message+'</div><br>');
+                    $('#chat-window').append('<br><div class="responseMessage">'+data[i].message+'</div><br><br>');
                 } else {
-                    $('#chat-window').append('<br><div style="text-align: right">'+data[i].message+'</div><br>');
+                    $('#chat-window').append('<br><div class="myMessage">'+data[i].message+'</div><br><br>');
                 }
 
             }
+            objDiv.scrollTop = objDiv.scrollHeight;
 
         },
 
@@ -67,7 +69,8 @@ function retrieveChatMessages(id)
         url: '/retrieveChatMessages',
         success: function(data) {
             if (data.length > 0)
-                $('#chat-window').append('<br><div>'+data+'</div><br>');
+                $('#chat-window').append('<br><div class="responseMessage">'+data+'</div><br><br>');
+                objDiv.scrollTop = objDiv.scrollHeight;
 
         },
 
@@ -113,7 +116,8 @@ function sendMessage()
             } ,
             url: '/sendMessage',
             success: function() {
-                $('#chat-window').append('<br><div style="text-align: right">'+text+'</div><br>');
+                $('#chat-window').append('<br><div class="myMessage">'+text+'</div><br><br>');
+                objDiv.scrollTop = objDiv.scrollHeight;
                 $('#text').val('');
 
             },
