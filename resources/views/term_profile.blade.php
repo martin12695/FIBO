@@ -140,17 +140,6 @@
                                                             </div>
                                                         </div>
                                                         <hr class="tw3-hr mtb--default">
-                                                        <div class="tw3-editable__block tw3-editable__block--disabled">
-                                                            <h5 class="text--bold jsEditableBlockTitle">THỐNG KÊ SƠ YẾU</h5>
-                                                            <ul class="text--subtle tw3-list mb--default">
-                                                                <li>
-                                                                    <strong class="text--green">4</strong> người đã thăm sơ yếu của bạn ngày hôm nay
-                                                                </li>
-                                                                <li>
-                                                                    Sơ yếu của bạn đã được thăm <strong class="text--green">7</strong> lần trong 30 ngày qua
-                                                                </li>
-                                                            </ul>
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>

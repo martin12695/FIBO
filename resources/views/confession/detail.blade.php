@@ -41,7 +41,7 @@
                     <div class="comment-list">
                         @foreach($listComment as $comment)
                             <div class="media">
-                            <a class="pull-left" href="#">
+                            <a class="pull-left" href="/user/profile/{{$comment->id}}">
                                 <img class="media-object avatar" src="/{{$comment->avatar}}" alt="">
                             </a>
                             <div class="media-body">
