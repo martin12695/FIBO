@@ -49,7 +49,7 @@ class DatingController
                 'date' => $date, 'location' => $location
             ]
         );
-        event(new Notify(Auth::user()->name, 'notify-'.$info['id_couple'], 'đã đặt lịch cho một cuộc hẹn'));
+        event(new Notify(Auth::user()->name, 'notify-'.$info['id_couple'], 'đã đặt lịch cho một cuộc hẹn',1));
         return \Response::json(0);
     }
 }

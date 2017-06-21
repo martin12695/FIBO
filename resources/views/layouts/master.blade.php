@@ -218,6 +218,10 @@
     // Bind a function to a Event (the full Laravel class)
     channel.bind('App\\Events\\Notify', function(data) {
         var existingNotifications = $('.jsActivityContainer').html()
+        var link = '/whoiknow';
+        if (data.type == 1 ) {
+            link = '/dating'
+        }
         var newNotificationHtml = `
           <li class="tw3-mediav2  text--smaller tw3-mediav2--auto tw3-mediav2--desktop jsNotification" data-id="1354178037" data-notificationtype="ACTIVITY" data-read="1" data-type="VISITOR">
             <div class="tw3-mediav2__figure">
@@ -226,7 +230,7 @@
                 </a>
             </div>
             <div class="tw3-mediav2__body text--left jsNotificationBody">
-                <a href="/whoiknow">
+                <a href="` + link + `">
                     <div class="mb--tight">
                         <span class="text--bold">` + data.message + `</span>
                     </div>

@@ -17,14 +17,18 @@ class Notify implements ShouldBroadcast
     public $username;
     public $channel = [];
     public $message;
+    public $type;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($username,$channel,$message )
+    public function __construct($username,$channel,$message, $type = null )
     {
+        if ($type != null) {
+            $this->type = $type;
+        }
         $this->username = $username;
         $this->message  = "{$username} {$message}";
         array_push($this->channel,$channel);
