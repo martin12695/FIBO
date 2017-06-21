@@ -66,35 +66,12 @@
                                             <div class="tw3-col-12 tw3-bp4-col-8">
                                                 <div class="tw3-row">
                                                     <div class="tw3-col-12 tw3-bp4-col-11 tw3-bp4-offset-right-1 padding-info">
-                                                        <div class="jsMyProfileCompleteDetailsContainer">
-                                                            <div>
-                                                                <div class="tw3-row">
-                                                                    <div class="tw3-col-12 tw3-bp3-col-8">
-                                                                        <h5 class="jsEditableBlockTitle mb--default text--bold">HOÀN TẤT SƠ YẾU CỦA BẠN</h5>
-                                                                        <p class="text--subtle">Điền thêm thông tin để gặp thêm bạn mới</p>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
-                                                            <hr class="tw3-hr mtb--default">
-                                                        </div>
                                                         <div class="tw3-editable__block">
                                                             <h5 class="jsEditableBlockTitle mb--default text--bold">Thông tin về tôi</h5>
                                                             <div class="tw3-field">
                                                                 <p class="text--subtle mb--default text--italic message">
-                                                                    Giới thiệu về bạn.
+                                                                    {{$info_basic->intro}}
                                                                 </p>
-                                                                <div>
-                                                                    <div class="editForm" style="display: none">
-                                                                        <textarea placeholder="Giới thiệu về bạn." maxlength="550" data-maxcharsbadge=".jsIntroMessageCharactersLeft" class="tw3-textarea jsAutoExpandTextarea jsMaxCharsTextarea mb--tight" name="intromessage"></textarea>
-                                                                        <span class="jsIntroMessageCharactersLeft badge">Tối đa 550 ký tự</span>
-                                                                        <div class="tw3-buttonGroup" style="margin-top: 10px">
-                                                                            <input type="submit" value="Lưu" class="tw3-button tw3-button--blue tw3-button--rounded">
-                                                                            <a href="" class="jsEditableCancel tw3-button tw3-button--subtle tw3-button--rounded">Hủy</a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-
                                                             </div>
                                                         </div>
                                                         <hr class="tw3-hr mtb--default">
@@ -106,12 +83,13 @@
                                                                 <div class="tw3-field__view">
                                                                     <ul class="text--subtle tw3-list mb--default message">
                                                                         <li>
-                                                                            Phụ nữ
+                                                                            {{ isset($findSubs->value) ? $findSubs->value : '...' }}
                                                                         </li>
                                                                         <li>
-                                                                            Độ tuổi từ 18 đến 20</li>
+                                                                            {{ isset($findAges->value) ? $findAges->value : '...' }}
+                                                                        </li>
                                                                         <li>
-                                                                            Sống tại Thành phố Hồ Chí Minh</li>
+                                                                            Sống tại {{ $cities->value }}</li>
                                                                     </ul>
                                                                 </div>
                                                                 <div>
@@ -375,7 +353,7 @@
                                                                                 </label>
                                                                             </div>
                                                                             <div class="tw3-dropdownHolder">
-                                                                               <textarea placeholder="Viết vài dòng về bạn" rows="6" class="tw3-col-12"></textarea>
+                                                                               <textarea name="about_me" placeholder="Viết vài dòng về bạn" rows="6" class="tw3-col-12">{{$info_basic->intro}}</textarea>
                                                                             </div>
                                                                         </div>
                                                                     </div>

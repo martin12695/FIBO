@@ -192,6 +192,10 @@ class FriendController
         }
 
         if ($request == 'uncouple') {
+            DB::table('dating')
+                ->where('user_one', Auth::id())
+                ->orwhere('user_two', Auth::id())
+                ->delete();
             if (session('userId') < $userId) {
                 try {
                     DB::table('relationship')
@@ -199,6 +203,7 @@ class FriendController
                         ->where('user_two',$userId )
                         ->where('status',4)
                         ->update(['status' => 2,'action_user' =>session('userId') ]);
+
                     return \Response::json(0);
                 } catch (QueryException $e) {
                     return \Response::json(1);
@@ -213,6 +218,54 @@ class FriendController
                     return \Response::json(0);
                 } catch (QueryException $e) {
                     return \Response::json(1);
+                }
+            }
+        }
+
+        if ($request == 'rejectfriend') {
+            if (session('userId') < $userId) {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',session('userId') )
+                        ->where('user_two',$userId )
+                        ->delete();
+                    return back();
+                } catch (QueryException $e) {
+
+                }
+            } else {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',$userId )
+                        ->where('user_two',session('userId') )
+                        ->delete();
+                    return back();
+                } catch (QueryException $e) {
+                }
+            }
+        }
+
+        if ($request == 'rejectcouple') {
+            if (session('userId') < $userId) {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',session('userId') )
+                        ->where('user_two', $userId )
+                        ->where('status',3)
+                        ->update(['status' => 2,'action_user' =>session('userId') ]);
+                    return back();
+                } catch (QueryException $e) {
+
+                }
+            } else {
+                try {
+                    DB::table('relationship')
+                        ->where('user_one',$userId )
+                        ->where('user_two',session('userId') )
+                        ->where('status',3)
+                        ->update(['status' => 2,'action_user' =>session('userId') ]);
+                    return back();
+                } catch (QueryException $e) {
                 }
             }
         }

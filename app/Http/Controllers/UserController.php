@@ -154,6 +154,12 @@ class UserController
                 ->update(['school' => $info['school']]);
         }
 
+        if( Input::has('about_me') ) {
+            DB::table('users')
+                ->where('id', Auth::id())
+                ->update(['intro' => $info['about_me']]);
+        }
+
         DB::insert('INSERT INTO user_hobby (user_id, music, movie, sport, hobby) VALUES(?, ?, ?, ?, ?) 
                    ON DUPLICATE KEY UPDATE music= ?, movie= ?, sport= ?, hobby= ?',
             [session('userId'),$info['music'],

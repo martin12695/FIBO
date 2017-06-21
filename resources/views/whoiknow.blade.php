@@ -58,7 +58,7 @@
                                                 <a href="friend/acceptCouple/{{$people->id}}" class="jsChatButton tw3-button tw3-button-blue tw3-button--small tw3-button--subtle tw3-button--agree">Đồng ý</a>
                                             </div>
                                             <div class="tw3-mediav2__actions">
-                                                <a href="#" class="jsChatButton tw3-button tw3-button tw3-button--small tw3-button--subtle tw3-button--dismiss">Từ chối</a>
+                                                <a href="/friend/rejectcouple/{{$people->id}}" class="jsChatButton tw3-button tw3-button tw3-button--small tw3-button--subtle tw3-button--dismiss">Từ chối</a>
                                             </div>
                                         </li>
                                     @endforeach
@@ -81,7 +81,7 @@
                                                     <a href="friend/accept/{{$people->id}}" class="jsChatButton tw3-button tw3-button-blue tw3-button--small tw3-button--subtle tw3-button--agree">Đồng ý</a>
                                                 </div>
                                                 <div class="tw3-mediav2__actions">
-                                                    <a href="#" class="jsChatButton tw3-button tw3-button tw3-button--small tw3-button--subtle tw3-button--dismiss">Từ chối</a>
+                                                    <a href="/friend/rejectfriend/{{$people->id}}" class="jsChatButton tw3-button tw3-button tw3-button--small tw3-button--subtle tw3-button--dismiss">Từ chối</a>
                                                 </div>
                                             </li>
                                         @endforeach

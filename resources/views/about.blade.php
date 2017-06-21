@@ -70,17 +70,6 @@
                     </td>
                 </tr>
                 <tr class="text--subtle">
-                    <th scope="row">6</th>
-                    <td>Làm thế nào để có account để đăng nhập vào trang web?</td>
-                    <td>
-                        <p><b>Bước 1:</b> Tham khảo kĩ các thông tin, điều khoản và dịch vụ.</p>
-                        <p><b>Bước 2:</b> Đăng kí. (Lưu ý: Để nâng cao chất lượng và tính xác thực, các thành viên muốn tham gia sẽ chụp ảnh chứng minh nhân dân và thẻ sinh viên )</p>
-                        <p><b>Bước 3:</b> Nhận thư xác nhận và chờ thẩm định từ FiBo</p>
-                        <p><b>Bước 4:</b> Nhận thư mời gia nhập cộng đồng nếu hồ sơ phù hợp (hoặc thư cáo lỗi nếu hồ sơ không phù hợp).</p>
-                        <p><b>Bước 5:</b> Nhận account và password; nghiên cứu kĩ quy trình và điều khoản dịch vụ để đảm bảo sử dụng đúng mục đích và đúng quy định của cộng đồng.</p>
-                    </td>
-                </tr>
-                <tr class="text--subtle">
                     <th scope="row">7</th>
                     <td>Profile của thành viên trên ứng dụng sẽ hiển thị những thông tin gì?</td>
                     <td>
@@ -147,10 +136,10 @@
                     <td>
                         <p>- Nội dung website 2 chức năng chính của trang web này là để kết bạn, tìm một nửa của mình</p>
                         <p>- Chức năng kết bạn: Có các phòng thuộc nhiều lĩnh vực khác nhau cho các thành viên có thể vào trò chuyện, kết bạn.</p>
-                        <p>- Chức năng tìm người yêu:
-                        <p><b>Vòng 1 :</b> Giấu mặt - Khi người dùng có nhu cầu tìm người yêu , hệ thống sẽ tìm đối tượng phù hợp để sắp xếp một cuộc nói chuyện(Messenger) với thông tin của 2 người đều bị giấu đi.</p>
-                        <p><b>Vòng 2 :</b> Đối đầu Khi 2 người nói chuyện thấy hợp thì đồng ý kết bạn, tìm hiểu thì thông tin của 2 người được xuất hiện cho đối phương.</p>
-                        <p><b>Vòng 3 :</b> Liveshow Sau khi nói chuyện, 2 người đồng ý gặp mặt thì hệ thống sẽ gợi ý các công việc cho cuộc hẹn đầu tiên ( như cách ăn mặc, các chuyện để nói, địa điểm ăn uống, vui chơi). Mở rộng :Có thể liên kết với các địa điểm để đặt chỗ trước , lấy voucher, mã giảm giá.</p>
+                        <p>- Chức năng chăm sóc cuộc hẹn:
+                        <p><b>Bước 1 :</b> Sau khi đã là ban bè, nếu cả hai thấy hợp nhau, thì một trong hai người có thể gửi lời mời hẹn hò.</p>
+                        <p><b>Bước 2</b> Người được mời hẹn hò chấp nhận lời mời</p>
+                        <p><b>Bước 3 :</b>Chức năng hẹn hò được mở, cặp đôi có thể tạo kế hoạch hẹn hò, xem vị trí của nhau trên bản đồ</p>
                         </p>
                     </td>
                 </tr>

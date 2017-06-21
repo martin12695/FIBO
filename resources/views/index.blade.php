@@ -40,7 +40,21 @@
                                 </div>
                             </div>
                             <div class="jsPromotionBlock" data-promocode="MTk1MDM3MzU0MjoyODpnZW5lcmljOjI6MDoxNDkxMTExNjM5OjplCMXFoTA4we96GS5ALlMY">
-                                <h3>Tin tức</h3>
+                                <h3>Các cuộc hẹn sắp diễn ra</h3>
+                                @foreach($events as $event )
+                                    @if ($event != null )
+                                    <div ng-class="row">
+                                        <div class="card col-md-4 col-sm-6" >
+                                            <div class="card-block">
+                                                <h4 class="card-title">{{$event->location_name}}</h4>
+                                                <p class="card-text">Thời gian: {{$event->time}}</p>
+                                                <p class="card-text">Ngày: {{$event->date}}</p>
+                                                <a href="/dating" class="btn btn-primary">Chi tiết</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endif
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -64,6 +78,7 @@
                                                     <p class="mb--tight">
                                                         <a href="/user/profile" class="text--blue"><i class="ficonEdit"></i> Viết vài dòng về bạn</a>
                                                     </p>
+
                                                 </div>
                                             </div>
                                         </div>

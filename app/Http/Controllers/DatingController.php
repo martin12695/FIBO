@@ -12,6 +12,7 @@ use DB;
 use Auth;
 use Illuminate\Http\Request;
 use Carbon;
+use App\Events\Notify;
 
 class DatingController
 {
@@ -48,6 +49,7 @@ class DatingController
                 'date' => $date, 'location' => $location
             ]
         );
+        event(new Notify(Auth::user()->name, 'notify-'.$info['id_couple'], 'đã đặt lịch cho một cuộc hẹn'));
         return \Response::json(0);
     }
 }

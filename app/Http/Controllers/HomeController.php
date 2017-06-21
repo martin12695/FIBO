@@ -45,30 +45,23 @@ class HomeController
                             ',
             [session('userId'),Auth::id(),Auth::id()]);
         $user = DB::table('users')->where('id', Auth::id())->first();
-        $friend_list = array();
-        //$list_user =  DB::table('user')->get();
-
-        /*$list_request = DB::table('relationship')
-            ->where('user_one', session('userId'))
-            ->orwhere('user_two', session('userId'))
-            ->where('status', 1)
-            ->get();*/
-        /*foreach ($list_request as $request) {
-            if ($request->user_one != session('userId') ) {
-                $userTemp = $request->user_one;
-            }else {
-                $userTemp = $request->user_two;
-            }
-            $friend_temp = DB::table('user')
-                ->where('id', $userTemp)
-                ->first();
-            array_push($friend_list,$friend_temp);
-        }*/
+        $events = DB::table('dating')
+            ->where(function ($query) {
+                $query->where('user_one', Auth::id())
+                    ->orwhere('user_two', Auth::id());
+            })
+            ->where('date', '>=' ,date('Y-m-d'))
+            ->get();
+        foreach ( $events as $event){
+            $event->location = json_decode($event->location);
+            $event->date =  date('d/m/Y', strtotime($event->date));
+        }
 
         return view('index',[
             'listPeople'   => $recommen,
             'user'         =>$user,
-            'chanel'    => $this->chanel
+            'chanel'    => $this->chanel,
+            'events'    => $events
         ]);
 
     }
