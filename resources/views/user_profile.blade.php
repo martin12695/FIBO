@@ -4,11 +4,19 @@
     <link rel="stylesheet" href="/css/lib/editor-image.css">
 @endsection
 @section('content')
+    @if ( $authstatus ==  1 )
+        <div class="tw3-wrapper" style="margin-top:80px" ng-app="profile" ng-controller="profile_ctrl">
+            <div class="tw3-content tw3-content--fabActive">
+                <div class="tw3-container pos--rel">
+                    <h4 style="color:red;" class="tw3-h4" >Tài khoản của bạn chưa được xác thực để xem thông tin của người khác!</h4>
+                    <p>Vui lòng up <a href="/user/profile">hình ảnh xác thực </a> và đợi ban quản trị duyệt!</p>
+                </div>
+            </div>
+        </div>
+    @else
     <div class="tw3-wrapper" style="margin-top:80px" ng-app="profile" ng-controller="profile_ctrl">
         <div class="tw3-content tw3-content--fabActive">
             <div class="tw3-container pos--rel">
-                <div class="mb--compact tw3-promosHolder--bp4Widget jsSidePromotion">
-                </div>
                 @if($check_report == 2)
                     <h4 class="tw3-h4" >Tài khoản đang bị tạm khóa</h4>
                    @else
@@ -390,6 +398,7 @@
             </div>
         </div>
     </div>
+    @endif
     <script>
         function centerModal() {
             $(this).css('display', 'block');

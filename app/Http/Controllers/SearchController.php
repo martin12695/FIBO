@@ -274,7 +274,13 @@ class SearchController
     public function initPage($id) {
         if(!$id){
             return redirect('/');
-        }else {
+        }
+        else if (Auth::user()->level == 'Quest') {
+            return view('user_profile',[
+                'authstatus' => 1
+                ]);
+        }
+        else {
 
             $info = DB::table('users')->where('id', $id)->first();
             $sex = DB::table('users')
@@ -417,7 +423,8 @@ class SearchController
                 'school'     => $school,
                 'photos'     => $photos,
                 'have_related'=> $have_related,
-                'check_report'  => $check_report
+                'check_report'  => $check_report,
+                'authstatus' => 0
             ]);
         }
     }

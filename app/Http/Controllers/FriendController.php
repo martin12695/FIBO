@@ -272,6 +272,11 @@ class FriendController
     }
 
     public function whoIKnow() {
+        if (Auth::user()->level == 'Quest') {
+            return view('whoiknow',[
+                'authstatus' => 1
+            ]);
+        }
         $pendingList = FriendService::peddingList();
         $friendList = FriendService::friendList ();
         $peddingCouple = FriendService::peddingCouple ();
@@ -282,7 +287,8 @@ class FriendController
             'listPending'   => $pendingList,
             'listFriend'   => $friendList,
             'listCouple'   => $peddingCouple,
-            'chanel'    => $this->chanel
+            'chanel'    => $this->chanel,
+            'authstatus' => 0
         ]);
     }
 

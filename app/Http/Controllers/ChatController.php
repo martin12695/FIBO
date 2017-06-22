@@ -18,9 +18,15 @@ class ChatController extends BaseController
 
 {
     public function initChat () {
+        if (Auth::user()->level == 'Quest') {
+            return view('term_chat',[
+                'authstatus' => 1
+            ]);
+        }
         $friendList = FriendService::friendList ();
         return view('term_chat',[
             'listFriend'   => $friendList,
+            'authstatus' => 0
         ]);
     }
 
